@@ -9,7 +9,7 @@
     ca = commit --amend
     cu = commit --amend --reset-author
     cq = "!f() { git commit ./$GIT_PREFIX/$1 -m $1; }; f"
-    cf = commit . -m WIP
+    cp = commit -am WIP
 
     la = config --get-regexp alias
 
