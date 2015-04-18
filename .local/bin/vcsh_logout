@@ -1,16 +1,12 @@
-#!/usr/bin/env ruby
+#!/usr/bin/env bash
 
-`vcsh list`.strip().split(/\n/).each do |repo|
-    repo = repo.strip()
-    lines = `vcsh status #{repo}`.split(/\n/)
-    #next if lines.empty?()
+for repo in `vcsh list`; do
+     while read line; do
+        filePath="${line#M }"
+	message="autoupdate of '${filePath//..\//}'"
+        vcsh run "${repo}" git commit "${filePath}" -m "${message}"
+    done < <(vcsh status "${repo}")
 
-    lines.each do |line|
-        filePath = line.sub(/^ M /, '')
-        message = "autoupdate of '#{filePath.gsub('../', '')}'"
-        `vcsh run #{repo} git commit #{filePath} -m "#{message}"`
-    end
-
-    `vcsh run #{repo} git push -q`
-end
-
+    # https://github.com/RichiH/vcsh/issues/157
+    vcsh run "${repo}" git push -q;
+done
