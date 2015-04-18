@@ -7,7 +7,7 @@
 
     lines.each do |line|
         filePath = line.sub(/^ M /, '')
-        message = "autoupdate of '#{filePath.gsub('../', '')}'" 
+        message = "autoupdate of '#{filePath.gsub('../', '')}'"
         `vcsh run #{repo} git commit #{filePath} -m "#{message}"`
     end
 
