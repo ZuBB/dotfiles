@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+`vcsh list`.strip().split(/\n/).each do |repo|
+    repo = repo.strip()
+    lines = `vcsh status #{repo}`.split(/\n/)
+    #next if lines.empty?()
+
+    lines.each do |line|
+        filePath = line.sub(/^ M /, '')
+        message = "autoupdate of '#{filePath.gsub('../', '')}'" 
+        `vcsh run #{repo} git commit #{filePath} -m "#{message}"`
+    end
+
+    `vcsh run #{repo} git push -q`
+end
+
