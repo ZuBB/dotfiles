@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-touch "/tmp/out-$(date)"
-
 for repo in `vcsh list`; do
      while read line; do
         filePath="${line#M }"
