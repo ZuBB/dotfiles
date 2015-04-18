@@ -1,6 +1,7 @@
-#!/usr/bin/env ruby
+#!/usr/bin/env bash
 
-# https://github.com/RichiH/vcsh/issues/157
-`vcsh list`.strip().split(/\n/).each do |repo|
-    `vcsh run #{repo.strip()} run git pull -q`
-end
+while read repo; do
+    # https://github.com/RichiH/vcsh/issues/157
+    vcsh run "${repo}" run git pull -q
+done < <(vcsh list)
+
