@@ -70,4 +70,3 @@
     cat = cat-file -p
     # squash current commit with first, continue rebase
     sfc = !git rs && git ca && git ec
-
