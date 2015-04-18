@@ -2,6 +2,7 @@
 
 [alias]
     co = checkout
+    cb = checkout -b
 
     cl = clone
 
