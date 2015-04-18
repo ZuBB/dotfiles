@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-touch "/tmp/in-$(date)"
-
 for repo in `vcsh list`; do
     # https://github.com/RichiH/vcsh/issues/157
     vcsh run "${repo}" run git pull -q;
