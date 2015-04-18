@@ -1,0 +1,29 @@
+# vim: set filetype=gitconfig : ~
+
+[core]
+    editor = vim
+   #excludesfile = $XGD_CONFIG_HOME/git/ignore
+    excludesfile = ~/.config/git/ignore
+
+    eol = lf
+    autocrlf = input
+    safecrlf = true
+    whitespace = trailing-space,cr-at-eol,blank-at-eof
+    filemode = false
+
+[apply]
+    whitespace = fix
+
+[push]
+    default = simple
+
+[diff]
+    tool = vimdiff
+
+[difftool]
+    prompt = false
+
+[include]
+    path = username
+    path = aliases
+    path = colors

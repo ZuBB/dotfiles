@@ -1,0 +1,72 @@
+# vim: set filetype=gitconfig : ~
+
+[alias]
+    co = checkout
+
+    cl = clone
+
+    ci = commit
+    ca = commit --amend
+    cu = commit --amend --reset-author
+    cq = "!f() { git commit ./$GIT_PREFIX/$1 -m $1; }; f"
+    cf = commit . -m WIP
+
+    la = config --get-regexp alias
+
+    di = diff
+    dt = difftool
+    dc = diff --cached
+    ds = diff --stat --find-copies
+    dn = diff --numstat
+    dh = diff --shortstat
+
+    pl = pull --ff-only
+    ph = push --follow-tags
+
+    br = branch
+    ba = branch -a
+    bm = branch -r
+    bn = rev-parse --abbrev-ref HEAD
+    bc = rev-list --count HEAD ^master
+
+    l1 = log -n 1
+    lg = log -p
+    ln = log --name-only
+    ll = log --oneline
+    lv = log --name-status
+    #hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    #lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    #lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+
+    mu = submodule update --recursive
+    muri = submodule update --init --recursive
+
+    ei = "!f() { git rebase -i HEAD~$1; }; f"
+    ec = rebase --continue
+    ea = rebase --abort
+
+    rs = reset --soft HEAD~1
+    rh = reset HEAD
+
+    as = stash
+    al = stash list
+    ap = stash pop
+    ai = stash -p
+
+    st = status
+
+    tr = tag -l
+    tl = git describe --tags --abbrev=0
+    td = "!f() { git tag -d $1; }; f"
+    tv = show-ref --tags --abbrev
+    tr = ls-remote --tags origin
+
+    os = shortlog -s
+    #ls = ls-files
+    in = git fetch && git log ..origin/master
+    out = git fetch && git log origin/master..
+    #sd = show --format="%ci"
+    ft = cat-file -t
+    cat = cat-file -p
+    # squash current commit with first, continue rebase
+    sfc = !git rs && git ca && git ec
