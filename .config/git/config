@@ -2,7 +2,8 @@
 
 [core]
     editor = vim
-   #excludesfile = $XGD_CONFIG_HOME/git/ignore
+    # we cant use '$XGD_CONFIG_HOME' instead of '~/.config/'
+    # because of http://stackoverflow.com/a/11262153
     excludesfile = ~/.config/git/ignore
 
     eol = lf
