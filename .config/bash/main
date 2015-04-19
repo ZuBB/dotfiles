@@ -20,10 +20,6 @@ if [ -f ~/.config/bash/complection ]; then
     . ~/.config/bash/complection
 fi
 
-if [ -f ~/.config/bash/pl-load ]; then
-    . ~/.config/bash/pl-load
-fi
-
 if [ -f ~/.config/bash/async ]; then
     . ~/.config/bash/async
 fi
