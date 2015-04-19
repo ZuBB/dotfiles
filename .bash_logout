@@ -1,6 +1,5 @@
 # vim: set filetype=sh : ~
 # ~/.bash_logout: executed by bash(1) when login shell exits.
-# ~/.bash_logout should be symlinked to this file
 
 call_do_logout_tasks () {
     do_logout_tasks;
