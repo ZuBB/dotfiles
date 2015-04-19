@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 for repo in `vcsh list`; do
-     while read line; do
+     vcsh status "${repo}" | while read line; do
         filePath=`echo $line | sed 's/^M //'`
 	message="autoupdate of '`echo $filePath | sed 's/\.\.\///g'`'"
         vcsh run "${repo}" git commit "${filePath}" -m "${message}"
-    done < <(vcsh status "${repo}")
+    done
 
     # https://github.com/RichiH/vcsh/issues/157
     vcsh run "${repo}" git push -q;
