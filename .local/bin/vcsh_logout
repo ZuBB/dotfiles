@@ -6,7 +6,7 @@
 
 for repo in `vcsh list`; do
      vcsh status "${repo}" | while read garbage fileName; do
-	message="autoupdate of '`echo $fileName | sed 's/\.\.\///g'`'"
+	message="autoupdate of '`realpath --relative-to=~ $fileName`'"
         vcsh run "${repo}" git commit "${fileName}" -m "${message}"
     done
 
