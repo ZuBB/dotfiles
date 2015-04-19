@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# sync tasks
+console_clear;
+
+# async tasks
+vcsh_logout &
+
