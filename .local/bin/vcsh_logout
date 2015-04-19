@@ -3,7 +3,7 @@
 for repo in `vcsh list`; do
      while read line; do
         filePath=`echo $line | sed 's/^M //'`
-	message="autoupdate\ of\ \'`echo $filePath | sed 's/\.\.\///g'`\'"
+	message="autoupdate of '`echo $filePath | sed 's/\.\.\///g'`'"
         vcsh run "${repo}" git commit "${filePath}" -m "${message}"
     done < <(vcsh status "${repo}")
 
