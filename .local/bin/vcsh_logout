@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 for repo in `vcsh list`; do
-     vcsh status "${repo}" | while read garbage filePath; do
+     vcsh status "${repo}" | while read garbage fileName; do
         filePath=`echo $line | sed 's/^M //'`
-	message="autoupdate of '`echo $filePath | sed 's/\.\.\///g'`'"
-        vcsh run "${repo}" git commit "${filePath}" -m "${message}"
+	message="autoupdate of '`echo $fileName | sed 's/\.\.\///g'`'"
+        vcsh run "${repo}" git commit "${fileName}" -m "${message}"
     done
 
     # https://github.com/RichiH/vcsh/issues/157
