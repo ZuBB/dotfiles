@@ -1,0 +1,30 @@
+# vim: set filetype=sh : ~
+
+if [ -f ~/.config/bash/config ]; then
+    . ~/.config/bash/config
+fi
+
+if [ -f ~/.config/bash/path ]; then
+    . ~/.config/bash/path
+fi
+
+if [ -f ~/.config/bash/aliases ]; then
+    . ~/.config/bash/aliases
+fi
+
+if [ -f ~/.config/bash/colors ]; then
+    . ~/.config/bash/colors
+fi
+
+if [ -f ~/.config/bash/complection ]; then
+    . ~/.config/bash/complection
+fi
+
+if [ -f ~/.config/bash/pl-load ]; then
+    . ~/.config/bash/pl-load
+fi
+
+if [ -f ~/.config/bash/async ]; then
+    . ~/.config/bash/async
+fi
+

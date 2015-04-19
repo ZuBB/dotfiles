@@ -1,0 +1,7 @@
+# vim: set filetype=sh : ~
+
+# porgate
+alias cll='cd `ls -d1 --color=never portage-cache*/ | tail -n 1`'
+alias tdp='exec 6<>/dev/tcp/127.0.0.1/8119 || echo "No one is listening"'
+alias tlp='exec 6<>/dev/tcp/127.0.0.1/8127 || echo "No one is listening"'
+

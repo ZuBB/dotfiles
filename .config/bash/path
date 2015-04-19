@@ -1,0 +1,15 @@
+# vim: set filetype=sh : ~
+
+# for path there is no need to do an export
+# http://unix.stackexchange.com/a/26059
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
