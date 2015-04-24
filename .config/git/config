@@ -24,6 +24,9 @@
 [difftool]
     prompt = false
 
+[log]
+	date = local
+
 [include]
     path = username
     path = aliases
