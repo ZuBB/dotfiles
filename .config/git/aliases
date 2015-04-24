@@ -1,6 +1,9 @@
 # vim: set filetype=gitconfig : ~
 
 [alias]
+    # http://goo.gl/4yyu5v
+    bl = git blame HEAD
+
     co = checkout
     cb = checkout -b
 
