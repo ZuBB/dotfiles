@@ -23,6 +23,7 @@
 
     pl = pull --ff-only
     ph = push --follow-tags
+    pd = push --no-verify
 
     br = branch
     ba = branch -a
