@@ -6,7 +6,8 @@
     # because of http://stackoverflow.com/a/11262153
     excludesfile = ~/.config/git/ignore
 
-    eol = lf
+    # http://goo.gl/Vug01E
+    #eol = lf
     autocrlf = input
     safecrlf = true
     whitespace = trailing-space,cr-at-eol,blank-at-eof
