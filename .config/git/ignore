@@ -1,6 +1,8 @@
 *.swp
 *.swo
 
+*.log
+
 .DS_Store
 Thumbs.db
 
