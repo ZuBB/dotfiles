@@ -4,6 +4,10 @@ if [ -f ~/.config/bash/config ]; then
     . ~/.config/bash/config
 fi
 
+if [ -f ~/.config/bash/xdg ]; then
+    . ~/.config/bash/xdg
+fi
+
 if [ -f ~/.config/bash/path ]; then
     . ~/.config/bash/path
 fi
@@ -20,7 +24,13 @@ if [ -f ~/.config/bash/complection ]; then
     . ~/.config/bash/complection
 fi
 
-if [ -f ~/.config/bash/async ]; then
-    . ~/.config/bash/async
+# async stuff
+
+if [ -f ~/.local/bin/async_login_tasks ]; then
+    (nohup ~/.local/bin/async_login_tasks >/dev/null 2>&1 &) >/dev/null 2>&1
+fi
+
+if [ -f ~/.config/bash/pl-load ]; then
+    . ~/.config/bash/pl-load
 fi
 
