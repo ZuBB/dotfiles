@@ -1,0 +1,12 @@
+# vim: set filetype=sh : ~
+
+shopt -q login_shell && return || true
+
+call_for_logout_tasks () {
+    if [ -f ~/.local/bin/logout_tasks ]; then
+        ~/.local/bin/logout_tasks
+    fi
+}
+
+trap call_for_logout_tasks EXIT
+
