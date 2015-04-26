@@ -35,3 +35,9 @@ if [ -f ~/.config/bash/pl-load ]; then
     . ~/.config/bash/pl-load
 fi
 
+# take care of logout
+
+if [ -f ~/.config/bash/logout_wrapper ]; then
+    . ~/.config/bash/logout_wrapper
+fi
+
