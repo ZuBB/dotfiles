@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# async tasks
+vcsh_logout &
+
