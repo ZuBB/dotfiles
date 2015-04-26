@@ -3,7 +3,12 @@
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL="ignoreboth:erasedups"
-HISTIGNORE="fg*:jobs*:mc*:df*:sudo*:gt*:irb*:node*"
+
+HISTIGNORE="..:df*:fg*mc*:wc*"
+HISTIGNORE="$HISTIGNORE:irb*:man*:pwd*"
+HISTIGNORE="$HISTIGNORE:file*:htop*:jobs*:node*:sudo*:tmux*"
+HISTIGNORE="$HISTIGNORE:which*:whois*"
+HISTIGNORE="$HISTIGNORE:whereis*"
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000

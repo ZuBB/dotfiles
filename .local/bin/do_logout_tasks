@@ -1,7 +1,13 @@
 #!/usr/bin/env bash
 
+test_pass
+
 # sync tasks
 console_clear;
+
+# remove trash from history
+cleanup_history;
+
 
 # async tasks
 vcsh_logout &
