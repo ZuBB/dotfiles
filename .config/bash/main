@@ -30,6 +30,7 @@ if [ -f ~/.local/bin/async_login_tasks ]; then
     (nohup ~/.local/bin/async_login_tasks >/dev/null 2>&1 &) >/dev/null 2>&1
 fi
 
+# http://goo.gl/8eqNfK
 if [ -f ~/.config/bash/pl-load ]; then
     . ~/.config/bash/pl-load
 fi
