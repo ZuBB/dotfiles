@@ -2,7 +2,7 @@
 
 [alias]
     # http://goo.gl/4yyu5v
-    bl = git blame HEAD
+    bl = blame HEAD
 
     co = checkout
     cb = checkout -b
