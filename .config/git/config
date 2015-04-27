@@ -29,6 +29,7 @@
 	date = local
 
 [include]
-    path = username
+    path = user
+
     path = aliases
     path = colors
