@@ -10,7 +10,7 @@
     #eol = lf
     autocrlf = input
     safecrlf = true
-    whitespace = trailing-space,space-before-tab
+    whitespace = space-before-tab,-blank-at-eof
     filemode = false
 
 [apply]
