@@ -3,17 +3,24 @@
 if [ -f ~/.bash_history ]; then
     sed -i '/^ll/d' ~/.bash_history
 
+    sed -i '/^cd /d' ~/.bash_history
     sed -i '/^cp /d' ~/.bash_history
     sed -i '/^gr /d' ~/.bash_history
     sed -i '/^gt /d' ~/.bash_history
+    sed -i '/^ls /d' ~/.bash_history
     sed -i '/^mv /d' ~/.bash_history
     sed -i '/^rm /d' ~/.bash_history
 
+    sed -i '/^ack /d' ~/.bash_history
     sed -i '/^cat /d' ~/.bash_history
-    sed -i '/^vim /d' ~/.bash_history
+    sed -i '/^mtr /d' ~/.bash_history
     sed -i '/^sed /d' ~/.bash_history
+    sed -i '/^vim /d' ~/.bash_history
 
+    sed -i '/^find /d' ~/.bash_history
     sed -i '/^less /d' ~/.bash_history
+
+    sed -i '/^mkdir /d' ~/.bash_history
 
     sed -i '/^unlink /d' ~/.bash_history
 fi
