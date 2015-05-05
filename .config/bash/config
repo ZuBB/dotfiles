@@ -4,7 +4,8 @@
 # See bash(1) for more options
 HISTCONTROL="ignoreboth:erasedups"
 
-HISTIGNORE="..:df*:fg*mc*:wc*"
+HISTIGNORE="w"
+HISTIGNORE="$HISTIGNORE:..:df*:fg*:mc*:wc*"
 HISTIGNORE="$HISTIGNORE:irb*:man*:pwd*"
 HISTIGNORE="$HISTIGNORE:file*:htop*:jobs*:node*:sudo*:tmux*"
 HISTIGNORE="$HISTIGNORE:which*:whois*"
