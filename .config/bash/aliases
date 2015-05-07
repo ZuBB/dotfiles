@@ -4,18 +4,20 @@
 alias ls='ls --group-directories-first'
 
 # some more ls aliases
+alias l='ls -CF'
 alias ll='ls -l'
 alias l1='ls -1'
 alias la='ls -A'
-alias l='ls -CF'
 alias lh='ls -lh'
 alias lt='ls -l- -time-style="+%d-%m-%Y %H:%M:%S"'
 alias lsc='ls -1 | wc -l'
 
-alias gt='git'
-alias gr='grunt'
-alias ack='ack-grep'
 alias ..='cd ..'
+alias gr='grunt'
+alias gt='git'
+
+alias ack='ack-grep'
+alias job='jobs'
 
 # Alias definitions.
 if [ -f ~/.config/bash/aliases-misc ]; then
