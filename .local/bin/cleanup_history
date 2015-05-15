@@ -15,7 +15,7 @@ if [ -f ~/.bash_history ]; then
     sed -i '/^cat /d' ~/.bash_history
     sed -i '/^mtr /d' ~/.bash_history
     sed -i '/^sed /d' ~/.bash_history
-	sed -i '/^vim/d' ~/.bash_history
+    sed -i '/^vim/d' ~/.bash_history
 
     sed -i '/^find /d' ~/.bash_history
     sed -i '/^less /d' ~/.bash_history
