@@ -6,7 +6,7 @@ HISTCONTROL="ignoreboth:erasedups"
 
 HISTIGNORE="w"
 HISTIGNORE="$HISTIGNORE:..:df*:fg*:mc*:wc*"
-HISTIGNORE="$HISTIGNORE:irb*:man*:pwd*"
+HISTIGNORE="$HISTIGNORE:irb*:man*:pwd*:vim*"
 HISTIGNORE="$HISTIGNORE:file*:htop*:jobs*:node*:tmux*:vcsh*"
 HISTIGNORE="$HISTIGNORE:which*:whois*"
 HISTIGNORE="$HISTIGNORE:whereis*"
