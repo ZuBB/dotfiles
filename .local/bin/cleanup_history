@@ -22,10 +22,13 @@ if [ -f ~/.bash_history ]; then
 
     sed -i '/^find /d' ~/.bash_history
     sed -i '/^head /d' ~/.bash_history
+    sed -i '/^kill /d' ~/.bash_history
     sed -i '/^less /d' ~/.bash_history
     sed -i '/^sudo \-i$/d' ~/.bash_history
     sed -i '/^tail /d' ~/.bash_history
 
+    sed -i '/^chmod /d' ~/.bash_history
+    sed -i '/^chown /d' ~/.bash_history
     sed -i '/^mkdir /d' ~/.bash_history
 
     sed -i '/^unlink /d' ~/.bash_history
