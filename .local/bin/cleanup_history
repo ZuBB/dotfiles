@@ -5,7 +5,7 @@ if [ -f ~/.bash_history ]; then
 
     sed -i '/^cd /d' ~/.bash_history
     sed -i '/^cp /d' ~/.bash_history
-    sed -i '/^gr /d' ~/.bash_history
+    sed -i '/^gr ?/d' ~/.bash_history
     sed -i '/^gt /d' ~/.bash_history
     sed -i '/^ls /d' ~/.bash_history
     sed -i '/^mv /d' ~/.bash_history
@@ -13,9 +13,10 @@ if [ -f ~/.bash_history ]; then
 
     sed -i '/^ack /d' ~/.bash_history
     sed -i '/^cat /d' ~/.bash_history
+    sed -i '/^git ?/d' ~/.bash_history
     sed -i '/^mtr /d' ~/.bash_history
     sed -i '/^sed /d' ~/.bash_history
-    sed -i '/^vim/d' ~/.bash_history
+    sed -i '/^vim ?/d' ~/.bash_history
 
     sed -i '/^find /d' ~/.bash_history
     sed -i '/^head /d' ~/.bash_history
