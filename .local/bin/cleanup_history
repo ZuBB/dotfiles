@@ -20,6 +20,7 @@ if [ -f ~/.bash_history ]; then
     sed -i '/^vim$/d' ~/.bash_history
     sed -i '/^vim /d' ~/.bash_history
 
+    sed -i '/^file /d' ~/.bash_history
     sed -i '/^find /d' ~/.bash_history
     sed -i '/^head /d' ~/.bash_history
     sed -i '/^kill /d' ~/.bash_history
