@@ -1,5 +1,12 @@
 " vim: set filetype=vim : ~
 
+
+" When started as "evim", evim.vim will already have done these settings.
+if v:progname =~? "evim"
+  finish
+endif
+
+
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
@@ -38,6 +45,14 @@ endif
 source $XDG_CONFIG_HOME/vim/subrcs/shortcuts
 
 
+" GUI
+source $XDG_CONFIG_HOME/vim/subrcs/gui
+
+
+" powersave
+source $XDG_CONFIG_HOME/vim/subrcs/powersave
+
+
 " handling of new file extentions
 source $XDG_CONFIG_HOME/vim/subrcs/ext-filetype
 
@@ -57,6 +72,9 @@ set shiftwidth=4
 " setting spaces instead of tabs
 set expandtab
 
+
+" wrapping of lines are disabled
+set nowrap
 
 
 " set numbers

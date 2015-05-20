@@ -1,0 +1,15 @@
+" vim: set filetype=vim : ~
+
+
+" fix for long battery life
+let &guicursor = &guicursor . ",a:blinkon0"
+
+" powersave mode
+"let s:laptopmode=readfile("/proc/sys/vm/laptop_mode", "", 1)
+"if s:laptopmode[0] > 0
+	"set nofs
+	"set sws=""
+	"colorscheme blue
+"endif
+"unlet s:laptopmode
+
