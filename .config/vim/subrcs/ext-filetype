@@ -1,0 +1,5 @@
+" vim: set filetype=vim : ~
+
+
+au BufNewFile,BufRead *.ejs set filetype=html
+

@@ -18,43 +18,17 @@ if &t_Co > 2 || has("gui_running")
 endif
 
 
-" Only do this part when compiled with support for autocommands.
+" Autocommands are a way to tell Vim to run certain commands
+" whenever certain events happen. Let's dive right into an example.
 if has("autocmd")
-
-  " Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Also load indent files, to automatically do language-dependent indenting.
-  filetype plugin indent on
-
-  " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
-  au!
-
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
-
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
-  autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
-
-  augroup END
-
+    source $XDG_CONFIG_HOME/vim/subrcs/autocmd
 else
   " always set autoindenting on
   set autoindent
 endif
 
 
-" create missed dir before saving a file
-" http://stackoverflow.com/questions/4292733/
-if has("autocmd")
-    autocmd BufWritePre * call system('mkdir -p '.shellescape(expand('%:p:h')))
-end
+source $XDG_CONFIG_HOME/vim/subrcs/ext-filetype
 
 
 " support embedded vim settings in file
@@ -81,8 +55,6 @@ nmap <F2> :w<CR>
 imap <F2> <ESC>:w<CR>i<Right>
 nmap <F10> :wq<CR>
 imap <F10> <ESC>:wq<CR>
-
-au BufNewFile,BufRead *.ejs set filetype=html
 
 " Toggle wrap.
 nmap <leader><leader>w :set wrap! wrap?<cr>

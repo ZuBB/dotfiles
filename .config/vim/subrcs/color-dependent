@@ -1,3 +1,5 @@
+" vim: set filetype=vim : ~
+
 " switch syntax highlighting on
 syntax on                                                                     
 
