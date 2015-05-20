@@ -11,11 +11,14 @@ HISTIGNORE="$HISTIGNORE:htop*:jobs*:node*:tmux*:vcsh*"
 HISTIGNORE="$HISTIGNORE:which*:whois*"
 HISTIGNORE="$HISTIGNORE:whereis*"
 
+# http://stackoverflow.com/questions/19454837
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
+HISTSIZE=5000
+HISTFILESIZE=10000
 
-# what is it ?
-HISTFILESIZE=2000
+# When the shell starts up,
+# the history is initialized from the file named by the HISTFILE
+HISTFILE=~/.cache/bash_history
 
 # append to the history file, don't overwrite it
 shopt -s histappend
