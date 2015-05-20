@@ -24,6 +24,10 @@ if [ -f ~/.config/bash/complection ]; then
     . ~/.config/bash/complection
 fi
 
+if [ -f ~/.config/bash/other-apps-config ]; then
+    . ~/.config/bash/other-apps-config
+fi
+
 # async stuff
 
 if [ -f ~/.local/bin/async_login_tasks ]; then
