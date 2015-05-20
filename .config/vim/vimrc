@@ -1,0 +1,23 @@
+" https://tlvince.com/vim-respect-xdg
+
+" Environment
+set directory=$XDG_CACHE_HOME/vim,~/,/tmp
+set backupdir=$XDG_CACHE_HOME/vim,~/,/tmp
+set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
+set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME
+let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
+
+" =====
+
+" Use Vim settings, rather then Vi settings (much better!).                     
+" This must be first, because it changes other options as a side effect.        
+set nocompatible                                                                
+
+
+" ...
+
+" create missed dir before saving a file
+" http://stackoverflow.com/questions/4292733/
+if has("autocmd")
+    autocmd BufWritePre * call system('mkdir -p '.shellescape(expand('%:p:h')))
+end
