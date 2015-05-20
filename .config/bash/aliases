@@ -17,7 +17,6 @@ alias gr='grunt'
 alias gt='git'
 
 alias ack='ack-grep'
-alias job='jobs'
 
 # Alias definitions.
 if [ -f ~/.config/bash/aliases-misc ]; then
