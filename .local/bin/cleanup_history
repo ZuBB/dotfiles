@@ -22,6 +22,7 @@ if [ -f ~/.bash_history ]; then
 
     sed -i '/^file /d' ~/.bash_history
     sed -i '/^find /d' ~/.bash_history
+    sed -i '/^grep /d' ~/.bash_history
     sed -i '/^head /d' ~/.bash_history
     sed -i '/^kill /d' ~/.bash_history
     sed -i '/^less /d' ~/.bash_history
