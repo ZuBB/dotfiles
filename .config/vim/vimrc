@@ -1,6 +1,6 @@
-" Use Vim settings, rather then Vi settings (much better!).                     
-" This must be first, because it changes other options as a side effect.        
-set nocompatible                                                                
+" Use Vim settings, rather then Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
+set nocompatible
 
 
 " https://tlvince.com/vim-respect-xdg
@@ -12,43 +12,12 @@ set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME
 let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
 
 
-" support embedded vim settings in file
-set modeline
-
-
-" set numbers
-set nu
-" set relative numbers
-set rnu
-
-
-" create missed dir before saving a file
-" http://stackoverflow.com/questions/4292733/
-if has("autocmd")
-    autocmd BufWritePre * call system('mkdir -p '.shellescape(expand('%:p:h')))
-end
-
-
 " when the terminal has colors
-if &t_Co > 2 || has("gui_running")                                              
-  " switch syntax highlighting on
-  syntax on                                                                     
-
-  " switch on highlighting the last used search pattern
-  set hlsearch
-
-  " http://bit.ly/1C2cKLT
-  " highlights the background in a subtle red for text that goes over the 80
-  "  column limit
-  if exists('+colorcolumn')
-    " in modern maner
-    set colorcolumn=80
-    highlight ColorColumn ctermbg=7
-  else
-    " or in old one
-    au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
-  endif
-endif                                                                           
+if &t_Co > 2 || has("gui_running")
+    if filereadable("$XDG_CONFIG_HOME/vim/subrcs/color-dependent")
+        source $XDG_CONFIG_HOME/vim/subrcs/color-dependent
+    endif
+endif
 
 
 " Only do this part when compiled with support for autocommands.
@@ -78,8 +47,27 @@ if has("autocmd")
   augroup END
 
 else
-  set autoindent        " always set autoindenting on
-endif " has("autocmd")
+  " always set autoindenting on
+  set autoindent
+endif
+
+
+" create missed dir before saving a file
+" http://stackoverflow.com/questions/4292733/
+if has("autocmd")
+    autocmd BufWritePre * call system('mkdir -p '.shellescape(expand('%:p:h')))
+end
+
+
+" support embedded vim settings in file
+set modeline
+
+
+" set numbers
+set nu
+" set relative numbers
+set rnu
+
 
 set noexpandtab
 set copyindent
