@@ -1,0 +1,15 @@
+" vim: set filetype=vim : ~
+
+" Save feature
+nmap <F2> :w<CR>
+imap <F2> <ESC>:w<CR>i<Right>
+nmap <F10> :wq<CR>
+imap <F10> <ESC>:wq<CR>
+
+" Toggle wrap.
+nmap <leader><leader>w :set wrap! wrap?<cr>
+" <F9> toggles word wrap
+" map  <F9> :set wrap!<CR>
+" imap <F9> <ESC>:set wrap!<CR>a
+
+

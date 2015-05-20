@@ -1,0 +1,14 @@
+" vim: set filetype=vim : ~
+
+" no uganda stuff
+set shortmess+=I
+
+
+" do not keep a backup file//, use versions instead
+set nobackup
+
+
+" support embedded vim settings in file
+set modeline
+
+

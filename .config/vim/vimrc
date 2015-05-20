@@ -1,3 +1,5 @@
+" vim: set filetype=vim : ~
+
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
@@ -10,6 +12,10 @@ set backupdir=$XDG_CACHE_HOME/vim,~/,/tmp
 set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
 set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME
 let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
+
+
+" some stuff that is kind of global/main
+source $XDG_CONFIG_HOME/vim/subrcs/global
 
 
 " when the terminal has colors
@@ -28,38 +34,46 @@ else
 endif
 
 
+" shortcuts
+source $XDG_CONFIG_HOME/vim/subrcs/shortcuts
+
+
+" handling of new file extentions
 source $XDG_CONFIG_HOME/vim/subrcs/ext-filetype
 
 
-" support embedded vim settings in file
-set modeline
+" set fileformats=unix,dos
+
+
+set copyindent
+set preserveindent
+set softtabstop=0
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+" setting tab size into 4 spaces
+set tabstop=4    
+" setting indent size into 4 spaces
+set shiftwidth=4    
+" setting spaces instead of tabs
+set expandtab
+
 
 
 " set numbers
 set nu
 " set relative numbers
 set rnu
+" highlight the current line in every window
+set cursorline
+" show the cursor position all the time
+set ruler		
+" display incomplete commands
+set showcmd		
+" keep 50 lines of command line history
+set history=50		
+" do incremental searching
+set incsearch		
 
-
-set noexpandtab
-set copyindent
-set preserveindent
-set softtabstop=0
-set shiftwidth=4
-set tabstop=4
-
-" set fileformats=unix,dos
-
-" Save feature
-nmap <F2> :w<CR>
-imap <F2> <ESC>:w<CR>i<Right>
-nmap <F10> :wq<CR>
-imap <F10> <ESC>:wq<CR>
-
-" Toggle wrap.
-nmap <leader><leader>w :set wrap! wrap?<cr>
-" <F9> toggles word wrap
-" map  <F9> :set wrap!<CR>
-" imap <F9> <ESC>:set wrap!<CR>a
 
 " http://vi-improved.org/vimrc.html
+
