@@ -14,9 +14,7 @@ let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
 
 " when the terminal has colors
 if &t_Co > 2 || has("gui_running")
-    if filereadable("$XDG_CONFIG_HOME/vim/subrcs/color-dependent")
-        source $XDG_CONFIG_HOME/vim/subrcs/color-dependent
-    endif
+    source $XDG_CONFIG_HOME/vim/subrcs/color-dependent
 endif
 
 
