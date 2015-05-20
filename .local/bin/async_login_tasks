@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+if [ -f $XDG_DATA_HOME/bin/vcsh_login ]; then
+    $XDG_DATA_HOME/bin/vcsh_login &
+fi
+
