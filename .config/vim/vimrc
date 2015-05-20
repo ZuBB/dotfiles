@@ -1,5 +1,9 @@
-" https://tlvince.com/vim-respect-xdg
+" Use Vim settings, rather then Vi settings (much better!).                     
+" This must be first, because it changes other options as a side effect.        
+set nocompatible                                                                
 
+
+" https://tlvince.com/vim-respect-xdg
 " Environment
 set directory=$XDG_CACHE_HOME/vim,~/,/tmp
 set backupdir=$XDG_CACHE_HOME/vim,~/,/tmp
@@ -7,17 +11,97 @@ set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
 set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME
 let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
 
-" =====
 
-" Use Vim settings, rather then Vi settings (much better!).                     
-" This must be first, because it changes other options as a side effect.        
-set nocompatible                                                                
+" support embedded vim settings in file
+set modeline
 
 
-" ...
+" set numbers
+set nu
+" set relative numbers
+set rnu
+
 
 " create missed dir before saving a file
 " http://stackoverflow.com/questions/4292733/
 if has("autocmd")
     autocmd BufWritePre * call system('mkdir -p '.shellescape(expand('%:p:h')))
 end
+
+
+" when the terminal has colors
+if &t_Co > 2 || has("gui_running")                                              
+  " switch syntax highlighting on
+  syntax on                                                                     
+
+  " switch on highlighting the last used search pattern
+  set hlsearch
+
+  " http://bit.ly/1C2cKLT
+  " highlights the background in a subtle red for text that goes over the 80
+  "  column limit
+  if exists('+colorcolumn')
+    " in modern maner
+    set colorcolumn=80
+    highlight ColorColumn ctermbg=7
+  else
+    " or in old one
+    au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+  endif
+endif                                                                           
+
+
+" Only do this part when compiled with support for autocommands.
+if has("autocmd")
+
+  " Enable file type detection.
+  " Use the default filetype settings, so that mail gets 'tw' set to 72,
+  " 'cindent' is on in C files, etc.
+  " Also load indent files, to automatically do language-dependent indenting.
+  filetype plugin indent on
+
+  " Put these in an autocmd group, so that we can delete them easily.
+  augroup vimrcEx
+  au!
+
+  " For all text files set 'textwidth' to 78 characters.
+  autocmd FileType text setlocal textwidth=78
+
+  " When editing a file, always jump to the last known cursor position.
+  " Don't do it when the position is invalid or when inside an event handler
+  " (happens when dropping a file on gvim).
+  autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
+
+  augroup END
+
+else
+  set autoindent        " always set autoindenting on
+endif " has("autocmd")
+
+set noexpandtab
+set copyindent
+set preserveindent
+set softtabstop=0
+set shiftwidth=4
+set tabstop=4
+
+" set fileformats=unix,dos
+
+" Save feature
+nmap <F2> :w<CR>
+imap <F2> <ESC>:w<CR>i<Right>
+nmap <F10> :wq<CR>
+imap <F10> <ESC>:wq<CR>
+
+au BufNewFile,BufRead *.ejs set filetype=html
+
+" Toggle wrap.
+nmap <leader><leader>w :set wrap! wrap?<cr>
+" <F9> toggles word wrap
+" map  <F9> :set wrap!<CR>
+" imap <F9> <ESC>:set wrap!<CR>a
+
+" http://vi-improved.org/vimrc.html
