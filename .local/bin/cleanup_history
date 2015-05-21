@@ -3,7 +3,7 @@
 if [ -f ~/.bash_history ]; then
     sed -i '/^ll/d' ~/.bash_history
 
-    sed -i '/^cd /d' ~/.bash_history
+    sed -i '/^cd /d' $HISTFILE
     sed -i '/^cp /d' ~/.bash_history
     sed -i '/^gr$/d' ~/.bash_history
     sed -i '/^gr /d' ~/.bash_history
