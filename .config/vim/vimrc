@@ -95,3 +95,25 @@ set incsearch
 
 " http://vi-improved.org/vimrc.html
 
+
+if &diff
+	"set t_Co=256
+	"set background=dark
+	"colorscheme peaksea
+	colorscheme ron
+else
+	set t_Co=256
+	"colorscheme candycode
+	"colorscheme evening
+	colorscheme desert
+	hi Pmenu        ctermfg=red
+	hi PmenuSel     ctermfg=red
+endif
+
+
+" http://www.mail-archive.com/vim@vim.org/msg01798.html
+" set clipboard=
+
+
+" set langmap=йq,цw,уe,кr,еt,нy,гu,шi,щo,зp,х[,ї],фa,іs,вd,аf,пg,рh,оj,лk,дl,ж\\;,є',яz,чx,сc,мv,иb,тn,ьm,б\\,,ю.,’`,ЙQ,ЦW,УE,КR,ЕT,НY,ГU,ШI,ЩO,ЗP,Х{,Ї},ФA,ІS,ВD,АF,ПG,РH,ОJ,ЛK,ДL,Ж:,Є\\",ЯZ,ЧX,СC,МV,ИB,ТN,ЬM,Б<,Ю>,'~
+
