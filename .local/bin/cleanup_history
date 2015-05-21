@@ -1,6 +1,6 @@
 # when leaving the console clear the screen to increase privacy
 
-if [ -f ~/.bash_history ]; then
+if [ -f $HISTFILE ]; then
     sed -i '/^ll/d' ~/.bash_history
 
     sed -i '/^cd /d' $HISTFILE
