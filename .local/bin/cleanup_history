@@ -4,35 +4,35 @@ if [ -f $HISTFILE ]; then
     sed -i '/^ll/d' ~/.bash_history
 
     sed -i '/^cd /d' $HISTFILE
-    sed -i '/^cp /d' ~/.bash_history
-    sed -i '/^gr$/d' ~/.bash_history
-    sed -i '/^gr /d' ~/.bash_history
-    sed -i '/^gt /d' ~/.bash_history
-    sed -i '/^ls /d' ~/.bash_history
-    sed -i '/^mv /d' ~/.bash_history
-    sed -i '/^rm /d' ~/.bash_history
+    sed -i '/^cp /d' ~$HISTFILE
+    sed -i '/^gr$/d' ~$HISTFILE
+    sed -i '/^gr /d' ~$HISTFILE
+    sed -i '/^gt /d' ~$HISTFILE
+    sed -i '/^ls /d' ~$HISTFILE
+    sed -i '/^mv /d' ~$HISTFILE
+    sed -i '/^rm /d' ~$HISTFILE
 
-    sed -i '/^ack /d' ~/.bash_history
-    sed -i '/^cat /d' ~/.bash_history
-    sed -i '/^git /d' ~/.bash_history
-    sed -i '/^mtr /d' ~/.bash_history
-    sed -i '/^sed /d' ~/.bash_history
-    sed -i '/^vim$/d' ~/.bash_history
-    sed -i '/^vim /d' ~/.bash_history
+    sed -i '/^ack /d' ~$HISTFILE
+    sed -i '/^cat /d' ~$HISTFILE
+    sed -i '/^git /d' ~$HISTFILE
+    sed -i '/^mtr /d' ~$HISTFILE
+    sed -i '/^sed /d' ~$HISTFILE
+    sed -i '/^vim$/d' ~$HISTFILE
+    sed -i '/^vim /d' ~$HISTFILE
 
-    sed -i '/^file /d' ~/.bash_history
-    sed -i '/^find /d' ~/.bash_history
-    sed -i '/^grep /d' ~/.bash_history
-    sed -i '/^head /d' ~/.bash_history
-    sed -i '/^kill /d' ~/.bash_history
-    sed -i '/^less /d' ~/.bash_history
-    sed -i '/^sudo \-i$/d' ~/.bash_history
-    sed -i '/^tail /d' ~/.bash_history
+    sed -i '/^file /d' ~$HISTFILE
+    sed -i '/^find /d' ~$HISTFILE
+    sed -i '/^grep /d' ~$HISTFILE
+    sed -i '/^head /d' ~$HISTFILE
+    sed -i '/^kill /d' ~$HISTFILE
+    sed -i '/^less /d' ~$HISTFILE
+    sed -i '/^sudo \-i$/d' ~$HISTFILE
+    sed -i '/^tail /d' ~$HISTFILE
 
-    sed -i '/^chmod /d' ~/.bash_history
-    sed -i '/^chown /d' ~/.bash_history
-    sed -i '/^mkdir /d' ~/.bash_history
+    sed -i '/^chmod /d' ~$HISTFILE
+    sed -i '/^chown /d' ~$HISTFILE
+    sed -i '/^mkdir /d' ~$HISTFILE
 
-    sed -i '/^unlink /d' ~/.bash_history
+    sed -i '/^unlink /d' ~$HISTFILE
 fi
 
