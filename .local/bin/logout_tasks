@@ -8,8 +8,6 @@ console_clear;
 # remove trash from history
 cleanup_history;
 
-sleep 5s
-
 # ASYNC TASKS
 
 if [ -f ~/.local/bin/async_logout_tasks ]; then
