@@ -2,6 +2,8 @@
 
 shopt -q login_shell && return || true
 
+echo $HISTFILE
+
 call_for_logout_tasks () {
     if [ -f ~/.local/bin/logout_tasks ]; then
         ~/.local/bin/logout_tasks

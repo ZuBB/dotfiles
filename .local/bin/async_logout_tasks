@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-echo $HISTFILE
-
 # async tasks
 vcsh_logout &
 
