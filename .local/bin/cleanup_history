@@ -1,4 +1,4 @@
-# when leaving the console clear the screen to increase privacy
+#! /bin/bash
 
 if [ -f $HISTFILE ]; then
     sed -i '/^ll/d' $HISTFILE
