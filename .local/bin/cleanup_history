@@ -1,8 +1,6 @@
 #! /bin/bash
 
-echo $HISTFILE
 if [ -f $HISTFILE ]; then
-    echo $HISTFILE
     sed -i '/^ll/d' $HISTFILE
 
     sed -i '/^cd /d' $HISTFILE
