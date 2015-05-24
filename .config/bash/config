@@ -18,7 +18,7 @@ HISTFILESIZE=10000
 
 # When the shell starts up,
 # the history is initialized from the file named by the HISTFILE
-HISTFILE=~/.cache/bash_history
+export HISTFILE=~/.cache/bash_history
 
 # append to the history file, don't overwrite it
 shopt -s histappend

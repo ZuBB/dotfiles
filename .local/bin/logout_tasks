@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-printenv > /tmp/lv
-
 # SYNC TASKS
 
 # clear console
