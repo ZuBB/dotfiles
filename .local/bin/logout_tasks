@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+printenv
+
 # SYNC TASKS
 
 # clear console

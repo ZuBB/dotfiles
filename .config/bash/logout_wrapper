@@ -2,10 +2,9 @@
 
 shopt -q login_shell && return || true
 
-echo $HISTFILE
-
 call_for_logout_tasks () {
     if [ -f ~/.local/bin/logout_tasks ]; then
+        printenv
         ~/.local/bin/logout_tasks
     fi
 }
