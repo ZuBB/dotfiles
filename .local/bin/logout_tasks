@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-printenv
+printenv > /tmp/lv
 
 # SYNC TASKS
 
