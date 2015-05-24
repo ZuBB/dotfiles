@@ -1,38 +1,38 @@
 # when leaving the console clear the screen to increase privacy
 
 if [ -f $HISTFILE ]; then
-    sed -i '/^ll/d' ~/.bash_history
+    sed -i '/^ll/d' $HISTFILE
 
     sed -i '/^cd /d' $HISTFILE
-    sed -i '/^cp /d' ~$HISTFILE
-    sed -i '/^gr$/d' ~$HISTFILE
-    sed -i '/^gr /d' ~$HISTFILE
-    sed -i '/^gt /d' ~$HISTFILE
-    sed -i '/^ls /d' ~$HISTFILE
-    sed -i '/^mv /d' ~$HISTFILE
-    sed -i '/^rm /d' ~$HISTFILE
+    sed -i '/^cp /d' $HISTFILE
+    sed -i '/^gr$/d' $HISTFILE
+    sed -i '/^gr /d' $HISTFILE
+    sed -i '/^gt /d' $HISTFILE
+    sed -i '/^ls /d' $HISTFILE
+    sed -i '/^mv /d' $HISTFILE
+    sed -i '/^rm /d' $HISTFILE
 
-    sed -i '/^ack /d' ~$HISTFILE
-    sed -i '/^cat /d' ~$HISTFILE
-    sed -i '/^git /d' ~$HISTFILE
-    sed -i '/^mtr /d' ~$HISTFILE
-    sed -i '/^sed /d' ~$HISTFILE
-    sed -i '/^vim$/d' ~$HISTFILE
-    sed -i '/^vim /d' ~$HISTFILE
+    sed -i '/^ack /d' $HISTFILE
+    sed -i '/^cat /d' $HISTFILE
+    sed -i '/^git /d' $HISTFILE
+    sed -i '/^mtr /d' $HISTFILE
+    sed -i '/^sed /d' $HISTFILE
+    sed -i '/^vim$/d' $HISTFILE
+    sed -i '/^vim /d' $HISTFILE
 
-    sed -i '/^file /d' ~$HISTFILE
-    sed -i '/^find /d' ~$HISTFILE
-    sed -i '/^grep /d' ~$HISTFILE
-    sed -i '/^head /d' ~$HISTFILE
-    sed -i '/^kill /d' ~$HISTFILE
-    sed -i '/^less /d' ~$HISTFILE
-    sed -i '/^sudo \-i$/d' ~$HISTFILE
-    sed -i '/^tail /d' ~$HISTFILE
+    sed -i '/^file /d' $HISTFILE
+    sed -i '/^find /d' $HISTFILE
+    sed -i '/^grep /d' $HISTFILE
+    sed -i '/^head /d' $HISTFILE
+    sed -i '/^kill /d' $HISTFILE
+    sed -i '/^less /d' $HISTFILE
+    sed -i '/^sudo \-i$/d' $HISTFILE
+    sed -i '/^tail /d' $HISTFILE
 
-    sed -i '/^chmod /d' ~$HISTFILE
-    sed -i '/^chown /d' ~$HISTFILE
-    sed -i '/^mkdir /d' ~$HISTFILE
+    sed -i '/^chmod /d' $HISTFILE
+    sed -i '/^chown /d' $HISTFILE
+    sed -i '/^mkdir /d' $HISTFILE
 
-    sed -i '/^unlink /d' ~$HISTFILE
+    sed -i '/^unlink /d' $HISTFILE
 fi
 
