@@ -8,7 +8,7 @@ console_clear;
 # remove trash from history
 cleanup_history;
 
-sleep 3s
+sleep 5s
 
 # ASYNC TASKS
 
