@@ -20,6 +20,7 @@ if [ -f $HISTFILE ]; then
     sed -i '/^vim$/d' $HISTFILE
     sed -i '/^vim /d' $HISTFILE
 
+    sed -i '/^echo /d' $HISTFILE
     sed -i '/^file /d' $HISTFILE
     sed -i '/^find /d' $HISTFILE
     sed -i '/^grep /d' $HISTFILE
