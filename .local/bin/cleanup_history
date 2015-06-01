@@ -3,6 +3,7 @@
 if [ -f $HISTFILE ]; then
     sed -i '/^ll/d' $HISTFILE
 
+    sed -i '/^cd/d' $HISTFILE
     sed -i '/^cd /d' $HISTFILE
     sed -i '/^cp /d' $HISTFILE
     sed -i '/^gr$/d' $HISTFILE
