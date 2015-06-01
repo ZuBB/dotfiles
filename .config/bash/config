@@ -9,6 +9,7 @@ HISTIGNORE="$HISTIGNORE:..:df*:fg*:mc*:wc*"
 HISTIGNORE="$HISTIGNORE:cal*:irb*:man*:pwd*"
 HISTIGNORE="$HISTIGNORE:htop*:jobs*:node*:tmux*:vcsh*"
 HISTIGNORE="$HISTIGNORE:which*:whois*"
+HISTIGNORE="$HISTIGNORE:uptime*"
 HISTIGNORE="$HISTIGNORE:whereis*"
 
 # http://stackoverflow.com/questions/19454837
