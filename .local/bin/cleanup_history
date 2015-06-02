@@ -34,6 +34,7 @@ if [ -f $HISTFILE ]; then
     sed -i '/^chmod /d' $HISTFILE
     sed -i '/^chown /d' $HISTFILE
     sed -i '/^mkdir /d' $HISTFILE
+    sed -i '/^touch /d' $HISTFILE
 
     sed -i '/^unlink /d' $HISTFILE
 fi
