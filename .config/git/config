@@ -4,35 +4,35 @@
 # vim: set noexpandtab : ~
 
 [core]
-    editor = vim
-    # we cant use '$XGD_CONFIG_HOME' instead of '~/.config/'
-    # because of http://stackoverflow.com/a/11262153
-    excludesfile = ~/.config/git/ignore
+	editor = vim
+	# we cant use '$XGD_CONFIG_HOME' instead of '~/.config/'
+	# because of http://stackoverflow.com/a/11262153
+	excludesfile = ~/.config/git/ignore
 
-    # http://goo.gl/Vug01E
-    #eol = lf
-    autocrlf = input
-    safecrlf = true
-    whitespace = space-before-tab,-blank-at-eof
-    filemode = false
+	# http://goo.gl/Vug01E
+	#eol = lf
+	autocrlf = input
+	safecrlf = true
+	whitespace = space-before-tab,-blank-at-eof
+	filemode = false
 
 [apply]
-    whitespace = fix
+	whitespace = fix
 
 [push]
-    default = simple
+	default = simple
 
 [diff]
-    tool = vimdiff
+	tool = vimdiff
 
 [difftool]
-    prompt = false
+	prompt = false
 
 [log]
-    date = local
+	date = local
 
 [include]
-    path = user
+	path = user
 
-    path = aliases
-    path = colors
+	path = aliases
+	path = colors

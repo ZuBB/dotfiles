@@ -4,78 +4,78 @@
 # vim: set noexpandtab : ~
 
 [alias]
-    # http://goo.gl/4yyu5v
-    bl = blame HEAD
+	# http://goo.gl/4yyu5v
+	bl = blame HEAD
 
-    co = checkout
-    cb = checkout -b
+	co = checkout
+	cb = checkout -b
 
-    cl = clone
+	cl = clone
 
-    ci = commit
-    ca = commit --amend
-    cu = commit --amend --reset-author
-    cq = "!f() { git commit ./$GIT_PREFIX/$1 -m $1; }; f"
-    cp = commit -am WIP
+	ci = commit
+	ca = commit --amend
+	cu = commit --amend --reset-author
+	cq = "!f() { git commit ./$GIT_PREFIX/$1 -m $1; }; f"
+	cp = commit -am WIP
 
-    la = config --get-regexp alias
+	la = config --get-regexp alias
 
-    di = diff
-    dt = difftool
-    dc = diff --cached
-    ds = diff --stat --find-copies
-    dn = diff --numstat
-    dh = diff --shortstat
+	di = diff
+	dt = difftool
+	dc = diff --cached
+	ds = diff --stat --find-copies
+	dn = diff --numstat
+	dh = diff --shortstat
 
-    pl = pull --ff-only
-    ph = push --follow-tags
-    pd = push --no-verify
+	pl = pull --ff-only
+	ph = push --follow-tags
+	pd = push --no-verify
 
-    br = branch
-    ba = branch -a
-    bm = branch -r
-    bn = rev-parse --abbrev-ref HEAD
-    bc = rev-list --count HEAD ^master
+	br = branch
+	ba = branch -a
+	bm = branch -r
+	bn = rev-parse --abbrev-ref HEAD
+	bc = rev-list --count HEAD ^master
 
-    l1 = log -n 1
-    lg = log -p
-    ln = log --name-only
-    ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
-    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
-    lv = log --name-status
-    #hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-    #lol = log --graph --decorate --pretty=oneline --abbrev-commit
-    #lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	l1 = log -n 1
+	lg = log -p
+	ln = log --name-only
+	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+	lv = log --name-status
+	#hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	#lol = log --graph --decorate --pretty=oneline --abbrev-commit
+	#lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 
-    mu = submodule update --recursive
-    muri = submodule update --init --recursive
+	mu = submodule update --recursive
+	muri = submodule update --init --recursive
 
-    ei = "!f() { git rebase -i HEAD~$1; }; f"
-    ec = rebase --continue
-    ea = rebase --abort
+	ei = "!f() { git rebase -i HEAD~$1; }; f"
+	ec = rebase --continue
+	ea = rebase --abort
 
-    rs = reset --soft HEAD~1
-    rh = reset HEAD
+	rs = reset --soft HEAD~1
+	rh = reset HEAD
 
-    as = stash
-    al = stash list
-    ap = stash pop
-    ai = stash -p
+	as = stash
+	al = stash list
+	ap = stash pop
+	ai = stash -p
 
-    st = status
+	st = status
 
-    tr = tag -l
-    tl = git describe --tags --abbrev=0
-    td = "!f() { git tag -d $1; }; f"
-    tv = show-ref --tags --abbrev
-    tr = ls-remote --tags origin
+	tr = tag -l
+	tl = git describe --tags --abbrev=0
+	td = "!f() { git tag -d $1; }; f"
+	tv = show-ref --tags --abbrev
+	tr = ls-remote --tags origin
 
-    os = shortlog -s
-    #ls = ls-files
-    in = git fetch && git log ..origin/master
-    out = git fetch && git log origin/master..
-    #sd = show --format="%ci"
-    ft = cat-file -t
-    cat = cat-file -p
-    # squash current commit with first, continue rebase
-    sfc = !git rs && git ca && git ec
+	os = shortlog -s
+	#ls = ls-files
+	in = git fetch && git log ..origin/master
+	out = git fetch && git log origin/master..
+	#sd = show --format="%ci"
+	ft = cat-file -t
+	cat = cat-file -p
+	# squash current commit with first, continue rebase
+	sfc = !git rs && git ca && git ec
