@@ -28,7 +28,8 @@
 	dh = diff --shortstat
 
 	pl = pull --ff-only
-	ph = push --follow-tags
+	#ph = push --follow-tags
+    ph = "!f() { [[ $(git config \"branch.$(git rev-parse --abbrev-ref HEAD).merge\") = '' ]] && git push -u --follow-tags || git push --follow-tags; }; f"
 	pd = push --no-verify
 
 	br = branch
