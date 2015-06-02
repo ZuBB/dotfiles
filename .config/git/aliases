@@ -28,6 +28,8 @@
 	dh = diff --shortstat
 
 	pl = pull --ff-only
+	# http://stackoverflow.com/a/19021888/1344249
+	# https://www.linux.org.ru/forum/development/11666986
 	ph = "!f() { [ $(git config \"branch.$(git rev-parse --abbrev-ref HEAD).merge\") = '' ] && git push -u --follow-tags || git push --follow-tags; }; f"
 	pd = push --no-verify
 
