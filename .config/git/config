@@ -1,4 +1,7 @@
 # vim: set filetype=gitconfig : ~
+# vim: set shiftwidth=4 : ~
+# vim: set softtabstop=0 : ~
+# vim: set noexpandtab : ~
 
 [core]
     editor = vim
@@ -26,7 +29,7 @@
     prompt = false
 
 [log]
-	date = local
+    date = local
 
 [include]
     path = user

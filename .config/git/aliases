@@ -1,4 +1,7 @@
 # vim: set filetype=gitconfig : ~
+# vim: set shiftwidth=4 : ~
+# vim: set softtabstop=0 : ~
+# vim: set noexpandtab : ~
 
 [alias]
     # http://goo.gl/4yyu5v
