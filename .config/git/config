@@ -21,6 +21,7 @@
 
 [push]
 	default = simple
+	followTags = true
 
 [diff]
 	tool = vimdiff
