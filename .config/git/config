@@ -20,7 +20,7 @@
 	whitespace = fix
 
 [push]
-	default = simple
+	default = current
 	followTags = true
 
 [diff]
