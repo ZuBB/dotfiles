@@ -59,10 +59,12 @@
 	rs = reset --soft HEAD~1
 	rh = reset HEAD
 
-	as = stash
-	al = stash list
-	ap = stash pop
-	ai = stash -p
+	sh = stash
+	sc = stash clear
+	sl = stash list
+	sp = stash pop
+	ss = stash show -p
+	si = stash -p
 
 	st = status
 
