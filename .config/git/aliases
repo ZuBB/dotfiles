@@ -50,7 +50,7 @@
 	#lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 
 	mu = submodule update --recursive
-	muri = submodule update --init --recursive
+	mi = submodule update --init --recursive
 
 	ei = "!f() { git rebase -i HEAD~$1; }; f"
 	ec = rebase --continue
