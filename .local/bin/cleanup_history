@@ -28,6 +28,7 @@ if [ -f $HISTFILE ]; then
     sed -i '/^head /d' $HISTFILE
     sed -i '/^kill /d' $HISTFILE
     sed -i '/^less /d' $HISTFILE
+    sed -i '/^ping /d' $HISTFILE
     sed -i '/^sudo \-i$/d' $HISTFILE
     sed -i '/^tail /d' $HISTFILE
 
