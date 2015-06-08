@@ -25,6 +25,7 @@
 
 [diff]
 	tool = vimdiff
+	renameLimit = 0
 
 [difftool]
 	prompt = false
