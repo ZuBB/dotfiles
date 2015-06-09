@@ -9,7 +9,7 @@ alias ll='ls -l'
 alias l1='ls -1'
 alias la='ls -A'
 alias lh='ls -lh'
-alias lt='ls -l- -time-style="+%d-%m-%Y %H:%M:%S"'
+alias lt='ls -l --time-style="+%d-%m-%Y %H:%M:%S"'
 alias lsc='ls -1 | wc -l'
 
 alias ..='cd ..'
