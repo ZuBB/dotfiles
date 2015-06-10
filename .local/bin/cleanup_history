@@ -4,10 +4,8 @@ if [ -f $HISTFILE ]; then
     sed -i '/^ll/d' $HISTFILE
 
     sed -i '/^cd/d'  $HISTFILE
-    sed -i '/^cd /d' $HISTFILE
     sed -i '/^cp /d' $HISTFILE
-    sed -i '/^gr$/d' $HISTFILE
-    sed -i '/^gr /d' $HISTFILE
+    sed -i '/^gr/d'  $HISTFILE
     sed -i '/^gt /d' $HISTFILE
     sed -i '/^ls /d' $HISTFILE
     sed -i '/^mv /d' $HISTFILE
@@ -15,12 +13,10 @@ if [ -f $HISTFILE ]; then
 
     sed -i '/^ack /d' $HISTFILE
     sed -i '/^cat /d' $HISTFILE
-    sed -i '/^git /d' $HISTFILE
     sed -i '/^mtr /d' $HISTFILE
     sed -i '/^npm/d'  $HISTFILE
     sed -i '/^sed /d' $HISTFILE
-    sed -i '/^vim$/d' $HISTFILE
-    sed -i '/^vim /d' $HISTFILE
+    sed -i '/^vim/d'  $HISTFILE
 
     sed -i '/^echo /d' $HISTFILE
     sed -i '/^file /d' $HISTFILE
@@ -32,11 +28,12 @@ if [ -f $HISTFILE ]; then
     sed -i '/^ping /d' $HISTFILE
     sed -i '/^sudo \-i$/d' $HISTFILE
     sed -i '/^tail /d' $HISTFILE
+    sed -i '/^wget /d' $HISTFILE
 
     sed -i '/^chmod /d' $HISTFILE
     sed -i '/^chown /d' $HISTFILE
     sed -i '/^mkdir /d' $HISTFILE
-    sed -i '/^scrot /d' $HISTFILE
+    sed -i '/^scrot/d'  $HISTFILE
     sed -i '/^touch /d' $HISTFILE
 
     sed -i '/^unlink /d' $HISTFILE

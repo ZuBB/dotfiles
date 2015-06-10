@@ -1,5 +1,9 @@
 # vim: set filetype=sh : ~
 
+# When the shell starts up,
+# the history is initialized from the file named by the HISTFILE
+export HISTFILE=~/.cache/bash_history
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL="ignoreboth:erasedups"
@@ -8,18 +12,15 @@ HISTIGNORE="w"
 HISTIGNORE="$HISTIGNORE:..:df*:fg*:mc*:wc*"
 HISTIGNORE="$HISTIGNORE:cal*:irb*:man*:pwd*"
 HISTIGNORE="$HISTIGNORE:date*:htop*:jobs*:node*:tmux*:vcsh*"
-HISTIGNORE="$HISTIGNORE:which*:whois*"
+HISTIGNORE="$HISTIGNORE:sleep*:which*:whois*"
 HISTIGNORE="$HISTIGNORE:uptime*"
 HISTIGNORE="$HISTIGNORE:whereis*"
+HISTIGNORE="$HISTIGNORE:ifconfig*"
 
 # http://stackoverflow.com/questions/19454837
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=5000
 HISTFILESIZE=10000
-
-# When the shell starts up,
-# the history is initialized from the file named by the HISTFILE
-export HISTFILE=~/.cache/bash_history
 
 # append to the history file, don't overwrite it
 shopt -s histappend
