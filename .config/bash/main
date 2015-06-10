@@ -8,6 +8,10 @@ if [ -f ~/.config/bash/xdg ]; then
     . ~/.config/bash/xdg
 fi
 
+if [ -f ~/.config/bash/history ]; then
+    . ~/.config/bash/history
+fi
+
 if [ -f ~/.config/bash/path ]; then
     . ~/.config/bash/path
 fi
