@@ -30,7 +30,7 @@
 	pl = pull --ff-only
 	# http://stackoverflow.com/a/19021888/1344249
 	# https://www.linux.org.ru/forum/development/11666986
-	ph = "!f() { [ -z $(git config \"branch.$(git rev-parse --abbrev-ref HEAD).merge\") ] && git push -u || git push; }; f"
+	ph = "!f() { [ -z $(git config \"branch.$(git rev-parse --abbrev-ref HEAD).merge\") ] && git push -u \"$@\"|| git push \"$@\"; }; f"
 	pd = push --no-verify
 
 	br = branch
