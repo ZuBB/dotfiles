@@ -38,5 +38,4 @@
 
 	path = aliases
 	path = colors
-[alias]
-	webui = !/home/vasyl/.git-webui/release/libexec/git-core/git-webui
+

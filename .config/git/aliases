@@ -83,3 +83,5 @@
 	cat = cat-file -p
 	# squash current commit with first, continue rebase
 	sfc = !git rs && git ca && git ec
+
+	webui = !/home/vasyl/.git-webui/release/libexec/git-core/git-webui --port 4321
