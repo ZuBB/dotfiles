@@ -33,6 +33,9 @@
 [log]
 	date = local
 
+[merge]
+	renameLimit = 0
+
 [include]
 	path = user
 
