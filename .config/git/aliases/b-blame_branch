@@ -1,0 +1,16 @@
+# vim: set filetype=gitconfig : ~
+# vim: set shiftwidth=4 : ~
+# vim: set softtabstop=0 : ~
+# vim: set noexpandtab : ~
+
+[alias]
+	# ========== [ BLAME ] ==========
+	# http://goo.gl/4yyu5v
+	bl = blame HEAD
+
+	# ========== [ BRANCH ] ==========
+	br = branch
+	ba = branch -a
+	bm = branch -r
+	bn = rev-parse --abbrev-ref HEAD
+	bc = rev-list --count HEAD ^master

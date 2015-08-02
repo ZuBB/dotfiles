@@ -1,0 +1,21 @@
+# vim: set filetype=gitconfig : ~
+# vim: set shiftwidth=4 : ~
+# vim: set softtabstop=0 : ~
+# vim: set noexpandtab : ~
+
+[alias]
+	# ========== [ CHECKOUT ] ==========
+	# 
+	co = checkout
+	cb = checkout -b
+
+	# ========== [ CLONE ] ==========
+	cl = clone
+
+	# ========== [ COMMIT ] ==========
+	ci = commit
+	ca = commit --amend
+	cu = commit --amend --reset-author
+	cq = "!f() { git commit ./$GIT_PREFIX/$1 -m $1; }; f"
+	cp = commit -am WIP
+

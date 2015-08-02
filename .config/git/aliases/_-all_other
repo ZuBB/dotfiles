@@ -1,0 +1,54 @@
+# vim: set filetype=gitconfig : ~
+# vim: set shiftwidth=4 : ~
+# vim: set softtabstop=0 : ~
+# vim: set noexpandtab : ~
+
+[alias]
+	la = config --get-regexp alias
+
+	l1 = log -n 1
+	lg = log -p
+	ln = log --name-only
+	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+	lv = log --name-status
+	#hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	#lol = log --graph --decorate --pretty=oneline --abbrev-commit
+	#lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+
+	mu = submodule update --recursive
+	mi = submodule update --init --recursive
+
+	ei = "!f() { git rebase -i HEAD~$1; }; f"
+	ec = rebase --continue
+	ea = rebase --abort
+
+	rs = reset --soft HEAD~1
+	rh = reset HEAD
+
+	sh = stash
+	sc = stash clear
+	sl = stash list
+	sp = stash pop
+	ss = stash show -p
+	si = stash -p
+
+	st = status
+
+	tr = tag -l
+	tl = git describe --tags --abbrev=0
+	td = "!f() { git tag -d $1; }; f"
+	tv = show-ref --tags --abbrev
+	tr = ls-remote --tags origin
+
+	os = shortlog -s
+	#ls = ls-files
+	in = git fetch && git log ..origin/master
+	out = git fetch && git log origin/master..
+	#sd = show --format="%ci"
+	ft = cat-file -t
+	#cat = cat-file -p
+	# squash current commit with first, continue rebase
+	sfc = !git rs && git ca && git ec
+
+	webui = !/home/vasyl/.git-webui/release/libexec/git-core/git-webui --port 4321

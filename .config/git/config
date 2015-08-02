@@ -37,7 +37,7 @@
 	renameLimit = 0
 
 [include]
-	path = aliases/__inclusion
+	path = alias
 	path = colors
 
 	path = user
