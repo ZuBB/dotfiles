@@ -32,6 +32,7 @@
 	# https://www.linux.org.ru/forum/development/11666986
 	ph = "!f() { [ -z $(git config \"branch.$(git rev-parse --abbrev-ref HEAD).merge\") ] && git push -u \"$@\"|| git push \"$@\"; }; f"
 	pd = push --no-verify
+	pf = push --force
 
 	br = branch
 	ba = branch -a
