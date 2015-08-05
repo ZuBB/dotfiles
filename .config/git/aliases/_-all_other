@@ -4,8 +4,6 @@
 # vim: set noexpandtab : ~
 
 [alias]
-	la = config --get-regexp alias
-
 	l1 = log -n 1
 	lg = log -p
 	ln = log --name-only
@@ -51,4 +49,6 @@
 	# squash current commit with first, continue rebase
 	sfc = !git rs && git ca && git ec
 
+	la = config --get-regexp alias
 	webui = !/home/vasyl/.git-webui/release/libexec/git-core/git-webui --port 4321
+

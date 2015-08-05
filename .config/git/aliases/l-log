@@ -1,0 +1,17 @@
+# vim: set filetype=gitconfig : ~
+# vim: set shiftwidth=4 : ~
+# vim: set softtabstop=0 : ~
+# vim: set noexpandtab : ~
+
+[alias]
+	# ========== [ LOG ] ==========
+	l1 = log -n 1
+	lg = log -p
+	ln = log --name-only
+	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+	lv = log --name-status
+	#hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	#lol = log --graph --decorate --pretty=oneline --abbrev-commit
+	#lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+
