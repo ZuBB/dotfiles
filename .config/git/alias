@@ -7,6 +7,7 @@
 	path = aliases/b-blame_branch
 	path = aliases/c-checkout_clone_commit
 	path = aliases/d-diff
+	path = aliases/l-log
 	path = aliases/p-pull_push
 
 	path = aliases/_-all_other
