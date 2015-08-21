@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+# ASYNC TASKS
+
+if [ -f ~/.local/bin/async_logout_tasks ]; then
+    (nohup ~/.local/bin/async_logout_tasks >/dev/null 2>&1 &) >/dev/null 2>&1
+fi
+
 # SYNC TASKS
 
 # clear console
@@ -7,10 +13,3 @@ console_clear;
 
 # remove trash from history
 cleanup_history;
-
-# ASYNC TASKS
-
-if [ -f ~/.local/bin/async_logout_tasks ]; then
-    (nohup ~/.local/bin/async_logout_tasks >/dev/null 2>&1 &) >/dev/null 2>&1
-fi
-
