@@ -3,3 +3,6 @@
 # async tasks
 vcsh_logout &
 
+# remove trash from history
+cleanup_history &
+

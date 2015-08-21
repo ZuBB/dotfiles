@@ -2,14 +2,14 @@
 
 # ASYNC TASKS
 
-if [ -f ~/.local/bin/async_logout_tasks ]; then
-    (nohup ~/.local/bin/async_logout_tasks >/dev/null 2>&1 &) >/dev/null 2>&1
+if [ -f ~/.local/bin/logout_tasks_async ]; then
+    (nohup ~/.local/bin/logout_tasks_async >/dev/null 2>&1 &) >/dev/null 2>&1
 fi
+
 
 # SYNC TASKS
 
-# clear console
-console_clear;
+if [ -f ~/.local/bin/logout_tasks_sync ]; then
+    ~/.local/bin/logout_tasks_sync 
+fi
 
-# remove trash from history
-cleanup_history;
