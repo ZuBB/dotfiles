@@ -15,6 +15,7 @@ alias lsc='ls -1 | wc -l'
 alias ..='cd ..'
 alias gr='grunt'
 alias gt='git'
+alias tg='git'
 
 alias ack='ack-grep'
 
