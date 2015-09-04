@@ -4,7 +4,7 @@
 set shortmess+=I
 
 
-" do not keep a backup file//, use versions instead
+" do not keep a backup file, use versions instead
 set nobackup
 
 
