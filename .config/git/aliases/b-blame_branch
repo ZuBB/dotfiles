@@ -11,6 +11,7 @@
 	# ========== [ BRANCH ] ==========
 	br = branch
 	ba = branch -a
+	bc = rev-list --count HEAD ^master
+	bd = "!f() { git branch -D $1; }; f"
 	bm = branch -r
 	bn = rev-parse --abbrev-ref HEAD
-	bc = rev-list --count HEAD ^master
