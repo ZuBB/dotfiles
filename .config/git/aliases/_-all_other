@@ -40,5 +40,7 @@
 	sfc = !git rs && git ca && git ec
 
 	la = config --get-regexp alias
+	vc = config --global -e
+
 	webui = !/home/vasyl/.git-webui/release/libexec/git-core/git-webui --port 4321
 
