@@ -13,5 +13,6 @@
 	ba = branch -a
 	bc = rev-list --count HEAD ^master
 	bd = "!f() { git branch -D $1; }; f"
-	bm = branch -r
+	bm = branch -m
 	bn = rev-parse --abbrev-ref HEAD
+	bt = branch -r
