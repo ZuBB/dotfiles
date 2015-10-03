@@ -22,7 +22,10 @@
 	bn = rev-parse --abbrev-ref HEAD
 	# 'b' letter but 'log' command
 	# shows log in current branch only
-	bo = "!f() { git log --no-merges ${1-master}.. }; f"
+	# next command does not work so..
+	#bo = "!f() { git log --no-merges ${1-master}.. }; f"
+	#bo = log --no-merges master..
+	zo = "!f() { git log }; f"
 	br = branch
 	bt = branch -r
 	bu = branch --no-merged
