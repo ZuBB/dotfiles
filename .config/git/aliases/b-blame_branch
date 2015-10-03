@@ -9,11 +9,17 @@
 	bl = blame HEAD
 
 	# ========== [ BRANCH ] ==========
-	br = branch
 	ba = branch -a
-	bc = rev-list --count HEAD ^master ; show amount of commits in branch
+	bc = rev-list --count HEAD ^master
+	# show amount of commits in branch
 	bd = branch -D
-	bm = branch -m
+	be = branch -m
 	# show name of the active branch
 	bn = rev-parse --abbrev-ref HEAD
+	br = branch
 	bt = branch -r
+
+	# ======== [ 'b' letter ] ========
+	# ========== [ LOG ] ==========
+	bo = log --no-merges master..
+
