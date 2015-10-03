@@ -11,8 +11,7 @@
 	# ========== [ BRANCH ] ==========
 	br = branch
 	ba = branch -a
-	# show amount of commits in branch
-	bc = rev-list --count HEAD ^master
+	bc = rev-list --count HEAD ^master ; show amount of commits in branch
 	bd = branch -D
 	bm = branch -m
 	# show name of the active branch
