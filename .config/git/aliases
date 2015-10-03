@@ -120,7 +120,7 @@
 
 
 	# ============= [ STATUS____________________ ] =============
-	st = status
+	st = status -sb
 
 
 
@@ -159,4 +159,5 @@
 	webui = !/home/vasyl/.git-webui/release/libexec/git-core/git-webui --port 4321
 
 	sd = show --format="%ci"
+	fup = log --since '1 day ago' --oneline "--author=$(git config --get user.email)"
 
