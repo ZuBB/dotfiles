@@ -14,10 +14,14 @@
 	# show amount of commits in branch
 	bd = branch -D
 	be = branch -m
+	bm = branch --merged
 	# show name of the active branch
 	bn = rev-parse --abbrev-ref HEAD
 	br = branch
 	bt = branch -r
+	bu = branch --no-merged
+	# deleting branches that have been already merged
+	bw = "!f() { git branch --merged | xargs git branch -d }; f"
 
 	# ======== [ 'b' letter ] ========
 	# ========== [ LOG ] ==========

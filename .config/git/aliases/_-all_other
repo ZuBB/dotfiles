@@ -29,7 +29,7 @@
 	tv = show-ref --tags --abbrev
 	tr = ls-remote --tags origin
 
-	os = shortlog -s
+	os = shortlog -s #test
 	#ls = ls-files
 	in = git fetch && git log ..origin/master
 	out = git fetch && git log origin/master..
@@ -38,6 +38,9 @@
 	#cat = cat-file -p
 	# squash current commit with first, continue rebase
 	sfc = !git rs && git ca && git ec
+
+	# git grep through all history
+	#gr = git rev-list --all | xargs git grep -F '<YOUR STRING>'  # if you don't want to use regex
 
 	la = config --get-regexp alias
 	vc = config --global -e
