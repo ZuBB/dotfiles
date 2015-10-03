@@ -5,6 +5,11 @@
 
 [alias]
 
+	# ============= [ ADD_______________________ ] =============
+	ap = add -p
+
+
+
 	# ============= [ BLAME_____________________ ] =============
 	# http://goo.gl/4yyu5v
 	bl = blame HEAD
@@ -20,12 +25,10 @@
 	bm = branch --merged
 	# show name of the active branch
 	bn = rev-parse --abbrev-ref HEAD
-	# 'b' letter but 'log' command
-	# shows log in current branch only
+	# 'b' letter but 'log' command; shows log in current branch only
 	# next command does not work so..
 	#bo = "!f() { git log --no-merges ${1-master}.. }; f"
-	#bo = log --no-merges master..
-	zo = "!f() { git log }; f"
+	bo = log --no-merges master..
 	br = branch
 	bt = branch -r
 	bu = branch --no-merged
@@ -34,23 +37,28 @@
 
 
 
-	# ========== [ CHECKOUT ] ==========
-	# 
-	co = checkout
+	# ============= [ CHECKOUT__________________ ] =============
 	cb = checkout -b
+	co = checkout
 
-	# ========== [ CLONE ] ==========
+
+
+	# ============= [ CLONE_____________________ ] =============
 	cl = clone
 
-	# ========== [ COMMIT ] ==========
+
+
+	# ============= [ COMMIT____________________ ] =============
+	ca = commit -am WIP
 	ci = commit
 	cm = commit --amend
-	cu = commit --amend --reset-author
 	cq = "!f() { git commit ./$GIT_PREFIX/$1 -m $1; }; f"
 	cs = commit -m WIP
-	ca = commit -am WIP
+	cu = commit --amend --reset-author
 
-	# ========== [ DIFF ] ==========
+
+
+	# ============= [ DIFF______________________ ] =============
 	di = diff
 	dt = difftool
 	dc = diff --cached
@@ -58,28 +66,50 @@
 	dn = diff --numstat
 	dh = diff --shortstat
 
-	# ========== [ LOG ] ==========
+
+
+	# ============= [ LOG_______________________ ] =============
 	l1 = log -n 1
 	lg = log -p
 	ln = log --name-only
 	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
 	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
 	lv = log --name-status
+	lx = "!f() { git log -n $1; }; f"
 	#hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	#lol = log --graph --decorate --pretty=oneline --abbrev-commit
 	#lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 
-	# ========== [ PULL ] ==========
+
+
+	# ============= [ PULL______________________ ] =============
 	pl = pull --ff-only
 
-	# ========== [ PUSH ] ==========
+
+
+	# ============= [ PUSH______________________ ] =============
 	# http://stackoverflow.com/a/19021888/1344249
 	# https://www.linux.org.ru/forum/development/11666986
 	ph = "!f() { [ -z $(git config \"branch.$(git rev-parse --abbrev-ref HEAD).merge\") ] && git push -u \"$@\"|| git push \"$@\"; }; f"
-	pd = push --no-verify
+	px = push --no-verify
 	pf = push --force
 
-	# ========== [ STASH ] ==========
+
+
+	# ============= [ REBASE____________________ ] =============
+	ei = "!f() { git rebase -i HEAD~$1; }; f"
+	ec = rebase --continue
+	ea = rebase --abort
+
+
+
+	# ============= [ RESET_____________________ ] =============
+	rs = reset --soft HEAD~1
+	rh = reset HEAD
+
+
+
+	# ============= [ STASH_____________________ ] =============
 	sh = stash
 	sc = stash clear
 	sl = stash list
@@ -87,25 +117,29 @@
 	ss = stash show -p
 	si = stash -p
 
-	# ========== [ STATUS ] ==========
+
+
+	# ============= [ STATUS____________________ ] =============
 	st = status
 
-	mu = submodule update --recursive
-	mi = submodule update --init --recursive
 
-	ei = "!f() { git rebase -i HEAD~$1; }; f"
-	ec = rebase --continue
-	ea = rebase --abort
 
-	rs = reset --soft HEAD~1
-	rh = reset HEAD
-
+	# ============= [ TAG_______________________ ] =============
 	tr = tag -l
 	tl = git describe --tags --abbrev=0
 	td = "!f() { git tag -d $1; }; f"
 	tv = show-ref --tags --abbrev
 	tr = ls-remote --tags origin
 
+
+
+	# ============= [ SUBMODULE_________________ ] =============
+	mu = submodule update --recursive
+	mi = submodule update --init --recursive
+
+
+
+	# ============= [ __________________________ ] =============
 	os = shortlog -s
 	#ls = ls-files
 	in = git fetch && git log ..origin/master
@@ -125,3 +159,4 @@
 	webui = !/home/vasyl/.git-webui/release/libexec/git-core/git-webui --port 4321
 
 	sd = show --format="%ci"
+
