@@ -11,8 +11,10 @@
 	# ========== [ BRANCH ] ==========
 	br = branch
 	ba = branch -a
+	# show amount of commits in branch
 	bc = rev-list --count HEAD ^master
-	bd = "!f() { git branch -D $1; }; f"
+	bd = branch -D
 	bm = branch -m
+	# show name of the active branch
 	bn = rev-parse --abbrev-ref HEAD
 	bt = branch -r
