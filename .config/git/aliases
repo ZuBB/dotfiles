@@ -40,6 +40,7 @@
 	# ============= [ CHECKOUT__________________ ] =============
 	cb = checkout -b
 	co = checkout
+	cp = checkout -
 
 
 
