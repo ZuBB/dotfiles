@@ -1,0 +1,17 @@
+# vim: set filetype=gitconfig : ~
+# vim: set shiftwidth=4 : ~
+# vim: set softtabstop=0 : ~
+# vim: set noexpandtab : ~
+
+[alias]
+	# ========== [ STASH ] ==========
+	sh = stash
+	sc = stash clear
+	sl = stash list
+	sp = stash pop
+	ss = stash show -p
+	si = stash -p
+
+	# ========== [ STATUS ] ==========
+	st = status
+

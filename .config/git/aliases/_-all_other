@@ -14,22 +14,13 @@
 	rs = reset --soft HEAD~1
 	rh = reset HEAD
 
-	sh = stash
-	sc = stash clear
-	sl = stash list
-	sp = stash pop
-	ss = stash show -p
-	si = stash -p
-
-	st = status
-
 	tr = tag -l
 	tl = git describe --tags --abbrev=0
 	td = "!f() { git tag -d $1; }; f"
 	tv = show-ref --tags --abbrev
 	tr = ls-remote --tags origin
 
-	os = shortlog -s #test
+	os = shortlog -s
 	#ls = ls-files
 	in = git fetch && git log ..origin/master
 	out = git fetch && git log origin/master..
@@ -40,7 +31,7 @@
 	sfc = !git rs && git ca && git ec
 
 	# git grep through all history
-	#gr = git rev-list --all | xargs git grep -F '<YOUR STRING>'  # if you don't want to use regex
+	gr = "!f() { git rev-list --all | xargs git grep -F \"$1\"; }; f"
 
 	la = config --get-regexp alias
 	vc = config --global -e

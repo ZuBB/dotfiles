@@ -9,6 +9,7 @@
 	path = aliases/d-diff
 	path = aliases/l-log
 	path = aliases/p-pull_push
+	path = aliases/s-status_stash
 
 	path = aliases/_-all_other
 
