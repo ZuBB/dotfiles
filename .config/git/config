@@ -20,6 +20,9 @@
 	whitespace = space-before-tab,-blank-at-eof
 	filemode = false
 
+[commit]
+	template = ~/.config/git/commit-message-template
+
 [apply]
 	whitespace = fix
 
