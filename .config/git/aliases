@@ -170,5 +170,4 @@
 	sd = show --format="%ci"
 	fup = log --since '1 day ago' --oneline "--author=$(git config --get user.email)"
 	#freq = !history | grep git | cut -c 8- | sort | uniq -c | sort -n -r | head -n 5
-	freq = !bash -i -c history
 
