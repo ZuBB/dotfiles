@@ -20,6 +20,7 @@ alias tg='git'
 alias ack='ack-grep'
 
 alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
+alias rr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`'
 
 # Alias definitions.
 if [ -f ~/.config/bash/aliases-misc ]; then
