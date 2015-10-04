@@ -18,17 +18,13 @@
 
 	# ============= [ BRANCH____________________ ] =============
 	ba = branch -a
-	bc = rev-list --count HEAD ^master
 	# show amount of commits in branch
+	bc = "!f() { git rev-list --count HEAD ^${1-master}; }; f"
 	bd = branch -D
 	be = branch -m
 	bm = branch --merged
 	# show name of the active branch
 	bn = rev-parse --abbrev-ref HEAD
-	# 'b' letter but 'log' command; shows log in current branch only
-	# next command does not work so..
-	#bo = "!f() { git log --no-merges ${1-master}.. }; f"
-	bo = log --no-merges master..
 	br = branch
 	bt = branch -r
 	bu = branch --no-merged
@@ -61,15 +57,19 @@
 
 	# ============= [ DIFF______________________ ] =============
 	di = diff
-	dt = difftool
 	dc = diff --cached
-	ds = diff --stat --find-copies
-	dn = diff --numstat
 	dh = diff --shortstat
+	dn = diff --numstat
+	ds = diff --stat --find-copies
+	dt = difftool
 
 
 
 	# ============= [ LOG_______________________ ] =============
+
+	# 'b' letter but 'log' command; shows log in current branch only
+	bo = "!f() { git log --no-merges ${1-master}..; }; f"
+
 	l1 = log -n 1
 	lg = log -p
 	ln = log --name-only
@@ -98,15 +98,21 @@
 
 
 	# ============= [ REBASE____________________ ] =============
-	ei = "!f() { git rebase -i HEAD~$1; }; f"
-	ec = rebase --continue
-	ea = rebase --abort
+	rb = "!f() { git rebase -i HEAD~${1-1}; }; f"
+	rc = rebase --continue
+	ra = rebase --abort
+
+
+
+	# ============= [ REMOTE____________________ ] =============
+	mp = remote prune origin
 
 
 
 	# ============= [ RESET_____________________ ] =============
-	rs = reset --soft HEAD~1
-	rh = reset HEAD
+	rh = "!f() { git reset --hard HEAD~${1-1}; }; f"
+	rs = "!f() { git reset --soft HEAD~${1-1}; }; f"
+	rt = reset HEAD
 
 
 
