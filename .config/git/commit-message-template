@@ -1,24 +1,13 @@
-# 50-character subject line
 <type>(<scope>): <subject>
 
-# 72-character wrapped longer description.
 <body>
 
-# 72-character wrapped longer description.
 <footer>
 
 
 
-
-# Type should be one of the following:
-# * feat (new feature)
-# * fix (bug fix)
-# * docs (changes to documentation)
-# * style (formatting, missing semi colons, etc; no code change)
-# * refactor (refactoring production code)
-# * test (adding missing tests, refactoring tests; no production code change)
-# * chore (updating grunt tasks etc; no production code change)
-# Scope is just the scope of the change. Something like (admin) or (teacher).
-# Subject should use impertivite tone and say what you did.
-# The body should go into detail about changes made.
-# The footer should contain JIRA (or other tool) issue references or actions.
+# <type>: feat, fix, docs, style, refactor, test, chore.
+# <scope> should specify place of the commit change.
+# <subject> should use impertivite tone and say what you did (50c limit).
+# <body> should go into detail about changes made (72c limit).
+# <footer> should contain BTS references and/or info on breaking changes.
