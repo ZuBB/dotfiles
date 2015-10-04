@@ -6,7 +6,7 @@
 [alias]
 
 	# ============= [ ADD_______________________ ] =============
-	ad = add --only
+	ad = add
 	af = add -f
 	ap = add -p
 
@@ -50,10 +50,12 @@
 
 	# ============= [ COMMIT____________________ ] =============
 	ca = commit -am WIP
-	ci = commit
+	ce = commit --only
+	cf = commit --amend -C HEAD
+	ci = commit -v
 	cm = commit --amend
 	cq = !git commit ./$GIT_PREFIX/$1 -m $1
-	cs = commit -m WIP
+	cs = commit --amend -c HEAD
 	cu = commit --amend --reset-author
 
 
