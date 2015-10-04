@@ -6,7 +6,7 @@
 [alias]
 
 	# ============= [ ADD_______________________ ] =============
-	ad = add
+	ad = add --only
 	af = add -f
 	ap = add -p
 
@@ -31,6 +31,7 @@
 	bt = branch -r
 	bu = branch --no-merged
 	# deleting branches that have been already merged
+	bv = branch -vv
 	bw = !git branch --merged | xargs git branch -d
 
 
