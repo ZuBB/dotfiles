@@ -6,6 +6,8 @@
 [alias]
 
 	# ============= [ ADD_______________________ ] =============
+	ad = add
+	af = add -f
 	ap = add -p
 
 
@@ -19,7 +21,7 @@
 	# ============= [ BRANCH____________________ ] =============
 	ba = branch -a
 	# show amount of commits in branch
-	bc = "!f() { git rev-list --count HEAD ^${1-master}; }; f"
+	bc = !git rev-list --count HEAD ^${1-master}
 	bd = branch -D
 	be = branch -m
 	bm = branch --merged
@@ -29,7 +31,7 @@
 	bt = branch -r
 	bu = branch --no-merged
 	# deleting branches that have been already merged
-	bw = "!f() { git branch --merged | xargs git branch -d }; f"
+	bw = !git branch --merged | xargs git branch -d
 
 
 
@@ -49,7 +51,7 @@
 	ca = commit -am WIP
 	ci = commit
 	cm = commit --amend
-	cq = "!f() { git commit ./$GIT_PREFIX/$1 -m $1; }; f"
+	cq = !git commit ./$GIT_PREFIX/$1 -m $1
 	cs = commit -m WIP
 	cu = commit --amend --reset-author
 
@@ -68,7 +70,7 @@
 	# ============= [ LOG_______________________ ] =============
 
 	# 'b' letter but 'log' command; shows log in current branch only
-	bo = "!f() { git log --no-merges ${1-master}..; }; f"
+	bo = !git log --no-merges ${1-master}..
 
 	l1 = log -n 1
 	lg = log -p
@@ -76,7 +78,7 @@
 	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
 	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
 	lv = log --name-status
-	lx = "!f() { git log -n $1; }; f"
+	lx = !git log -n $1
 	#hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	#lol = log --graph --decorate --pretty=oneline --abbrev-commit
 	#lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
@@ -91,14 +93,14 @@
 	# ============= [ PUSH______________________ ] =============
 	# http://stackoverflow.com/a/19021888/1344249
 	# https://www.linux.org.ru/forum/development/11666986
-	ph = "!f() { [ -z $(git config \"branch.$(git rev-parse --abbrev-ref HEAD).merge\") ] && git push -u \"$@\"|| git push \"$@\"; }; f"
+	ph = ![ -z $(git config "branch.$(git rev-parse --abbrev-ref HEAD).merge") ] && git push -u "$@" || git push "$@"
 	px = push --no-verify
 	pf = push --force
 
 
 
 	# ============= [ REBASE____________________ ] =============
-	rb = "!f() { git rebase -i HEAD~${1-1}; }; f"
+	rb = !git rebase -i HEAD~${1-1}
 	rc = rebase --continue
 	ra = rebase --abort
 
@@ -110,8 +112,8 @@
 
 
 	# ============= [ RESET_____________________ ] =============
-	rh = "!f() { git reset --hard HEAD~${1-1}; }; f"
-	rs = "!f() { git reset --soft HEAD~${1-1}; }; f"
+	rh = !git reset --hard HEAD~${1-1}
+	rs = !git reset --soft HEAD~${1-1}
 	rt = reset HEAD
 
 
@@ -134,7 +136,7 @@
 	# ============= [ TAG_______________________ ] =============
 	tr = tag -l
 	tl = git describe --tags --abbrev=0
-	td = "!f() { git tag -d $1; }; f"
+	td = !git tag -d $1
 	tv = show-ref --tags --abbrev
 	tr = ls-remote --tags origin
 
@@ -158,7 +160,7 @@
 	sfc = !git rs && git ca && git ec
 
 	# git grep through all history
-	gr = "!f() { git rev-list --all | xargs git grep -F \"$1\"; }; f"
+	gr = !git rev-list --all | xargs git grep -F "$1"
 
 	la = config --get-regexp alias
 	vc = config --global -e
