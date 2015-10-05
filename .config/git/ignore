@@ -8,6 +8,6 @@
 Thumbs.db
 desktop.ini
 
-node_modules/
+node_modules*
 
 .ackrc
