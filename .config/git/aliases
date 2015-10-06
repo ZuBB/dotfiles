@@ -54,9 +54,7 @@
 	cf = commit --amend -C HEAD
 	ci = commit -v
 	cm = commit --amend
-	# for some reason this does not work
-	#cq = !git commit ./$GIT_PREFIX/$1 -m $1
-	cq = "!f() { git commit ./$GIT_PREFIX/$1 -m $1; }; f"
+	cq = "!git commit ./$GIT_PREFIX/$1 -m $1"
 	cs = commit --amend -c HEAD
 	cu = commit --amend --reset-author
 
