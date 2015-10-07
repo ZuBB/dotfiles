@@ -21,7 +21,7 @@
 	# ============= [ BRANCH____________________ ] =============
 	ba = branch -a
 	# show amount of commits in branch
-	bc = !git rev-list --count HEAD ^${1-master}
+	bc = "!f() { git rev-list --count HEAD ^${1-master}; }; f"
 	bd = branch -D
 	be = branch -m
 	bm = branch --merged
@@ -32,7 +32,7 @@
 	bu = branch --no-merged
 	# deleting branches that have been already merged
 	bv = branch -vv
-	bw = !git branch --merged | xargs git branch -d
+	bw = "!f() { git branch --merged | xargs git branch -d }; f"
 
 
 
@@ -54,7 +54,7 @@
 	cf = commit --amend -C HEAD
 	ci = commit -v
 	cm = commit --amend
-	cq = "!git commit ./$GIT_PREFIX/$1 -m $1"
+	cq = "!f() { git commit ./$GIT_PREFIX/$1 -m $1; }; f"
 	cs = commit --amend -c HEAD
 	cu = commit --amend --reset-author
 
@@ -73,7 +73,7 @@
 	# ============= [ LOG_______________________ ] =============
 
 	# 'b' letter but 'log' command; shows log in current branch only
-	bo = !git log --no-merges ${1-master}..
+	bo = "!f() { git log --no-merges ${1-master}..; }; f"
 
 	l1 = log -n 1
 	lg = log -p
@@ -114,8 +114,8 @@
 
 
 	# ============= [ RESET_____________________ ] =============
-	rh = !git reset --hard HEAD~${1-1}
-	rs = !git reset --soft HEAD~${1-1}
+	rh = "!f() { git reset --hard HEAD~${1-1}; }; f"
+	rs = "!f() { git reset --soft HEAD~${1-1}; }; f"
 	rt = reset HEAD
 
 
@@ -138,7 +138,7 @@
 	# ============= [ TAG_______________________ ] =============
 	tr = tag -l
 	tl = git describe --tags --abbrev=0
-	td = !git tag -d $1
+	td = "!f() { git tag -d $1; }; f"
 	tv = show-ref --tags --abbrev
 	tr = ls-remote --tags origin
 
@@ -162,7 +162,7 @@
 	sfc = !git rs && git ca && git ec
 
 	# git grep through all history
-	gr = !git rev-list --all | xargs git grep -F "$1"
+	gr = "!f() { git rev-list --all | xargs git grep -F \"$1\"; }; f"
 
 	la = config --get-regexp alias
 	vc = config --global -e
