@@ -1,13 +1,13 @@
-<type>(<scope>): <subject>
+[type]([scope]): [subject]
 
-<body>
+[body]
 
-<footer>
+[footer]
 
 
 
-# <type>: feat, fix, docs, style, refactor, test, chore.
-# <scope> should specify place of the commit change.
-# <subject> should use impertivite tone and say what you did (50c limit).
-# <body> should go into detail about changes made (72c limit).
-# <footer> should contain BTS references and/or info on breaking changes.
+# [type]: feat, fix, docs, style, refactor, test, chore.
+# [scope] should specify place of the commit change.
+# [subject] should use impertivite tone and say what you did (50c limit).
+# [body] should go into detail about changes made (72c limit).
+# [footer] should contain BTS references and/or info on breaking changes.
