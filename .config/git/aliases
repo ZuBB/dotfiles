@@ -33,7 +33,11 @@
 	bu = branch --no-merged
 	bv = branch -vv
 	# deleting branches that have been already merged
-	bw = "!f() { git branch --merged | grep -v master | xargs git branch -d; git remote prune origin; }; f"
+	bw = "!f() { [ ! -z `git ls-files -m` ] && git stash ; \
+		git checkout master ; \
+		git branch --merged | grep -v master | xargs git branch -d; \
+		git remote prune origin && git checkout -;\
+		}; f"
 
 
 
