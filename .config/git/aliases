@@ -9,6 +9,7 @@
 	ad = add
 	af = add -f
 	ap = add -p
+	ah = add .
 
 
 
