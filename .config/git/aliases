@@ -103,10 +103,11 @@
 
 
 	# ============= [ PUSH______________________ ] =============
+	# TODO replace `origin` with dynamic param
+	pd = "!f() { git push origin --delete $1; }; f"
+	pf = push --force
 	# http://stackoverflow.com/a/19021888/1344249
 	# https://www.linux.org.ru/forum/development/11666986
-	pd = "!f() { git push ${2-origin} --delete $1; }; f"
-	pf = push --force
 	ph = ![ -z $(git config "branch.$(git rev-parse --abbrev-ref HEAD).merge") ] && git push -u "$@" || git push "$@"
 	px = push --no-verify
 
