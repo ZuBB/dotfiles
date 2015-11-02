@@ -49,7 +49,7 @@
 	# ============= [ CHECKOUT__________________ ] =============
 	cb = checkout -b
 	co = checkout
-	cf = checkout -
+	cr = checkout -
 
 
 
