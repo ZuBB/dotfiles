@@ -66,11 +66,11 @@
 	# ============= [ COMMIT____________________ ] =============
 	ca = commit -am WIP
 	ce = commit --only -v
-	cf = "!f() { git add -u && git commit --amend -C HEAD; }; f"
+	cf = "!f() { git add -u && git commit --amend -c HEAD; }; f"
 	ci = commit -v
 	cm = commit --amend
 	cq = "!f() { git commit ./$GIT_PREFIX/$1 -m $1; }; f"
-	cs = "!f() { git add -u && git commit --amend -c HEAD; }; f"
+	cs = "!f() { git add -u && git commit --amend -C HEAD; }; f"
 	cu = commit --amend --reset-author
 
 
