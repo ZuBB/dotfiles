@@ -17,7 +17,10 @@ alias gr='grunt'
 alias gt='git'
 alias tg='git'
 
-alias ack='ack-grep'
+which ack > /dev/null
+if [ $? -ne 0 ]; then
+    alias ack='ack-grep';
+if
 
 alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
 alias rr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`'
