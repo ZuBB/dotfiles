@@ -90,12 +90,12 @@
 	# 'b' letter but 'log' command; shows log in current branch only
 	bo = "!f() { git log --no-merges ${1-master}..; }; f"
 
-	l1 = log -n 1
+	l1 = log --decorate --stat -n 1
 	lg = log -p
 	ln = log --name-only
 	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
 	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
-	lv = log --name-status
+	lv = "!f() { git log --decorate --stat -${1}; }; f"
 	#hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	#lol = log --graph --decorate --pretty=oneline --abbrev-commit
 	#lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
