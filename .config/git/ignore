@@ -2,7 +2,6 @@
 *.swp
 *.swo
 *.bak
-
 *.log
 
 .DS_Store
@@ -11,4 +10,7 @@ desktop.ini
 
 node_modules*
 
+eslint_checkstyle_report*
+TESTS-PhantomJS*
+ 
 .ackrc
