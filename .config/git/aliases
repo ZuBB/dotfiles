@@ -35,11 +35,10 @@
 	# deleting branches that have been already merged
 	bw = "!f() { [ ! -z `git ls-files -m` ] && \
 		git stash save branch_wipe > /dev/null 2>&1 ; \
-		git checkout -q master ; \
-		BRANCHES=`git branch --merged | grep -v master`; \
-		[ ! -z $BRANCHES ] && git branch -d `tr -d '\n' $BRANCHES`; \
-		git remote prune origin ; \
-		git checkout -q - ; \
+		BRANCHES=`git branch --merged | grep -v master | grep -v '\\*'`; \
+		[ \"$BRANCHES\" ] && \
+		git branch --merged | grep -v master | grep -v '\\*' | xargs git branch -d; \
+		git remote prune origin > /dev/null 2>&1; \
 		git stash show stash^{/branch_wipe} > /dev/null 2>&1 && \
 		git stash pop > /dev/null 2>&1 ; \
 		}; f"
