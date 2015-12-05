@@ -1,6 +1,6 @@
 # vim: set filetype=sh : ~
 
-REQUIRED=(config xdg history path aliases colors complection other-apps-config logout)
+REQUIRED=(config xdg history path aliases colors complection apps logout)
 
 # http://stackoverflow.com/questions/4774054
 SCRIPTPATH=`dirname "${BASH_SOURCE[0]}"`
@@ -32,3 +32,7 @@ for item in ${REQUIRED[*]}; do
 done
 
 # optional part
+for item in optional; do
+    echo "File -> $item"
+    load_optional $item
+done
