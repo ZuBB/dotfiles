@@ -32,7 +32,7 @@ for item in ${REQUIRED[*]}; do
 done
 
 # optional part
-for item in optional; do
+for item in $(ls $SCRIPTPATH/optional/); do
     echo "File -> $item"
     load_optional $item
 done
