@@ -27,8 +27,7 @@ if [ -f ~/.local/bin/async_login_tasks ]; then
 fi
 
 # required part
-for item in ${REQUIRED[*]}
-do
+for item in ${REQUIRED[*]}; do
     load_required $item
 done
 
