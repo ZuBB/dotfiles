@@ -1,5 +1,6 @@
 # vim: set filetype=sh : ~
 
+# complection_for_aliases ( http://superuser.com/questions/436314/ )
 # Automatically add completion for all aliases to commands having completion functions
 function alias_completion {
     local namespace="alias_completion"

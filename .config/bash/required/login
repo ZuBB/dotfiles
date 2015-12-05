@@ -1,0 +1,7 @@
+# vim: set filetype=sh : ~
+
+# async stuff
+if [ -f ~/.local/bin/async_login_tasks ]; then
+    (nohup ~/.local/bin/async_login_tasks >/dev/null 2>&1 &) >/dev/null 2>&1
+fi
+

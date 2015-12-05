@@ -1,6 +1,6 @@
 # vim: set filetype=sh : ~
 
-REQUIRED=(config xdg history path aliases colors complection apps logout)
+REQUIRED=(login config xdg history path aliases colors complection apps)
 
 # http://stackoverflow.com/questions/4774054
 SCRIPTPATH=`dirname "${BASH_SOURCE[0]}"`
@@ -21,11 +21,6 @@ load_optional () {
     load optional/$1
 }
 
-# async stuff
-if [ -f ~/.local/bin/async_login_tasks ]; then
-    (nohup ~/.local/bin/async_login_tasks >/dev/null 2>&1 &) >/dev/null 2>&1
-fi
-
 # required part
 for item in ${REQUIRED[*]}; do
     load_required $item
@@ -35,3 +30,5 @@ done
 for item in $(ls $SCRIPTPATH/optional/); do
     load_optional "$item"
 done
+
+load_required logout
