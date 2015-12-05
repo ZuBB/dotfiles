@@ -1,10 +1,11 @@
 # vim: set filetype=sh : ~
 
-SCRIPT=`realpath $0`
-SCRIPTPATH=`dirname $SCRIPT`
+# http://stackoverflow.com/questions/4774054
+SCRIPTPATH=`dirname "${BASH_SOURCE[0]}"`
 
 load () {
     FILE=$SCRIPTPATH/$1
+    echo $FILE
 
     if [ -f FILE ]; then
         . FILE
@@ -12,7 +13,7 @@ load () {
 }
 
 load_required () {
-    load ./required/$1
+    load required/$1
 }
 
 if [ -f ~/.config/bash/config ]; then
