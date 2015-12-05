@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-touch /tmp/q2
-
 # ASYNC TASKS
 
 if [ -f ~/.local/bin/logout_tasks_async ]; then
