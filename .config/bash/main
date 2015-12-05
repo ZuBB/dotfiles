@@ -6,6 +6,7 @@ SCRIPTPATH=`dirname "${BASH_SOURCE[0]}"`
 load () {
     FILE=$SCRIPTPATH/$1
     echo $FILE
+    [ -f FILE ] && echo 'yes' || echo 'no'
 
     if [ -f FILE ]; then
         . FILE
