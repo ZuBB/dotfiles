@@ -1,15 +1,15 @@
 # vim: set filetype=sh : ~
 
+REQUIRED=(config xdg history path aliases colors complection other-apps-config logout)
+
 # http://stackoverflow.com/questions/4774054
 SCRIPTPATH=`dirname "${BASH_SOURCE[0]}"`
 
 load () {
     FILE=$SCRIPTPATH/$1
-    echo $FILE
-    [ -f FILE ] && echo 'yes' || echo 'no'
 
-    if [ -f FILE ]; then
-        . FILE
+    if [ -f $FILE ]; then
+        . $FILE
     fi
 }
 
@@ -17,53 +17,19 @@ load_required () {
     load required/$1
 }
 
-if [ -f ~/.config/bash/config ]; then
-    . ~/.config/bash/config
-fi
-
-if [ -f ~/.config/bash/xdg ]; then
-    . ~/.config/bash/xdg
-fi
-
-if [ -f ~/.config/bash/history ]; then
-    . ~/.config/bash/history
-fi
-
-if [ -f ~/.config/bash/path ]; then
-    . ~/.config/bash/path
-fi
-
-if [ -f ~/.config/bash/aliases ]; then
-    . ~/.config/bash/aliases
-fi
-
-load_required colors 
-if [ -f ~/.config/bash/colors ]; then
-    :
-fi
-
-if [ -f ~/.config/bash/complection ]; then
-    . ~/.config/bash/complection
-fi
-
-if [ -f ~/.config/bash/other-apps-config ]; then
-    . ~/.config/bash/other-apps-config
-fi
+load_optional () {
+    load optional/$1
+}
 
 # async stuff
-
 if [ -f ~/.local/bin/async_login_tasks ]; then
     (nohup ~/.local/bin/async_login_tasks >/dev/null 2>&1 &) >/dev/null 2>&1
 fi
 
-# http://goo.gl/8eqNfK
-if [ -f ~/.config/bash/pl-load ]; then
-    . ~/.config/bash/pl-load
-fi
+# required part
+for item in ${REQUIRED[*]}
+do
+    load_required $item
+done
 
-# take care of logout
-
-if [ -f ~/.config/bash/logout_wrapper ]; then
-    . ~/.config/bash/logout_wrapper
-fi
-
+# optional part
