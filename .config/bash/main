@@ -1,11 +1,10 @@
 # vim: set filetype=sh : ~
 
 SCRIPT=`realpath $0`
-PATH=`dirname $SCRIPT`
-#PATH=$(cd `dirname "${BASH_SOURCE[0]}"` && pwd)/`basename "${BASH_SOURCE[0]}"`
+SCRIPTPATH=`dirname $SCRIPT`
 
 load () {
-    FILE=PATH/$1
+    FILE=$SCRIPTPATH/$1
 
     if [ -f FILE ]; then
         . FILE
@@ -36,7 +35,7 @@ if [ -f ~/.config/bash/aliases ]; then
     . ~/.config/bash/aliases
 fi
 
-#load_required colors 
+load_required colors 
 if [ -f ~/.config/bash/colors ]; then
     :
 fi
