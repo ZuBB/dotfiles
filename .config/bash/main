@@ -1,7 +1,7 @@
 # vim: set filetype=sh : ~
 
-#SCRIPT=`realpath $0`
-#PATH=`dirname $SCRIPT`
+SCRIPT=`realpath $0`
+PATH=`dirname $SCRIPT`
 #PATH=$(cd `dirname "${BASH_SOURCE[0]}"` && pwd)/`basename "${BASH_SOURCE[0]}"`
 
 load () {
