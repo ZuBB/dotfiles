@@ -33,6 +33,5 @@ done
 
 # optional part
 for item in $(ls $SCRIPTPATH/optional/); do
-    echo "File -> $item"
-    load_optional $item
+    load_optional "$item"
 done
