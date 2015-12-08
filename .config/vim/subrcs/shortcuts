@@ -6,7 +6,8 @@ map Q <Nop>
 
 " Save feature
 " http://stackoverflow.com/questions/3092911/
-nmap <F2> :up<CR>
+" nmap <F2> :up<CR>
+nmap <F2> :w<CR>
 imap <F2> <ESC>:up<CR>i<Right>
 nmap <F10> :wq<CR>
 imap <F10> <ESC>:wq<CR>
