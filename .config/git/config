@@ -42,11 +42,14 @@
 
 [merge]
 	renameLimit = 0
-	conflictstyle = diff3
+	conflictstyle = merge
 	tool = vimdiff
 
 [mergetool]
 	prompt = false
+
+[rerere]
+	enabled = 1
 
 [include]
 	path = aliases
