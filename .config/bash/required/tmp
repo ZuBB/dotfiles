@@ -6,10 +6,12 @@
 
 TMPDIR="$SYS_TEMP_DIR/`whoami`/tmp"
 
-[ -O "$TMPDIR" -a -d "$TMPDIR" ] || mkdir -p "$TMPDIR"
-
 TMP="$TMPDIR"
 TEMP="$TMPDIR"
 
 export TMPDIR TMP TEMP
+
+[ -O "$TMPDIR" -a -d "$TMPDIR" ] && return;
+    
+mkdir -p "$TMPDIR"
 
