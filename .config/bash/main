@@ -1,6 +1,7 @@
 # vim: set filetype=sh : ~
 
-REQUIRED=(login config xdg tmp history path aliases colors complection apps)
+REQUIRED=(login config xdg tmp history path aliases colors complection
+    alias-complection-fix apps)
 
 # http://stackoverflow.com/questions/4774054
 SCRIPTPATH=`dirname "${BASH_SOURCE[0]}"`
@@ -23,7 +24,7 @@ load_optional () {
 
 # required part
 for item in ${REQUIRED[*]}; do
-    load_required $item
+    load_required "$item"
 done
 
 # optional part
