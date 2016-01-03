@@ -1,6 +1,6 @@
 # vim: set filetype=sh : ~
 
-REQUIRED=(login config xdg history path aliases colors complection apps)
+REQUIRED=(login config xdg tmp history path aliases colors complection apps)
 
 # http://stackoverflow.com/questions/4774054
 SCRIPTPATH=`dirname "${BASH_SOURCE[0]}"`
