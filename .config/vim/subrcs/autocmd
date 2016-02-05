@@ -26,3 +26,8 @@ augroup END
 " create missed dir before saving a file
 " http://stackoverflow.com/questions/4292733/
 autocmd BufWritePre * call system('mkdir -p '.shellescape(expand('%:p:h')))
+
+" http://stackoverflow.com/questions/2393671
+" simulate 'do not restore position for file with commit message'
+autocmd BufReadPost COMMIT_EDITMSG
+  \ exe "normal! gg"
