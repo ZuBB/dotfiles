@@ -30,7 +30,7 @@
 	bn = rev-parse --abbrev-ref HEAD
 	# parent branch of a git branch
 	# http://stackoverflow.com/questions/3161204/find-the-parent-branch-of-a-git-branch
-	bp = "!f() { git branch --contains | tail -n +2 | xargs; }; f"
+	bp = "!f() { git branch --contains | tail -n +2 | head -n 1 | xargs; }; f"
 	br = branch
 	bt = branch -r
 	bu = branch --no-merged
