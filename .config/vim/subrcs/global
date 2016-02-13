@@ -22,3 +22,5 @@ set modeline
 set statusline=%<%f%h%m%r%=%{strftime(\"%l:%M\")}\ =eol=%{&fileformat}\ enc=%{&encoding}\ %b\ 0x%B\ %l,%c%V\ %P
 set laststatus=2
 
+" https://github.com/webpack/webpack/issues/781#issuecomment-95523711
+set backupcopy=yes
