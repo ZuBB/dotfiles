@@ -30,7 +30,9 @@
 	bn = rev-parse --abbrev-ref HEAD
 	# parent branch of a git branch
 	# http://stackoverflow.com/questions/3161204/find-the-parent-branch-of-a-git-branch
-	bp = "!f() { git branch --contains | tail -n +2 | head -n 1 | xargs; }; f"
+	bp = "!f() { git show-branch | grep '*' | grep -v \"$(git bn)\" | \
+		head -n1 | sed 's/.*\\[\\(.*\\)\\].*/\\1/' | sed 's/[a\\^~].*//' ; \
+		}; f"
 	br = branch
 	bt = branch -r
 	bu = branch --no-merged
@@ -91,7 +93,7 @@
 	# ============= [ LOG_______________________ ] =============
 
 	# 'b' letter but 'log' command; shows log in current branch only
-	bo = "!f() { git log --no-merges ${1-master}..; }; f"
+	bo = "!f() { git log --no-merges ${1-`git bp`}..; }; f"
 
 	l1 = log --decorate --stat -n 1
 	lg = log -p
