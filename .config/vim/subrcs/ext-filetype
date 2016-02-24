@@ -2,4 +2,5 @@
 
 au BufNewFile,BufRead *.ejs set filetype=html
 au BufNewFile,BufRead *.ajs set filetype=javascript
+au BufNewFile,BufRead *.ts set filetype=typescript
 
