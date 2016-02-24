@@ -2,5 +2,7 @@
 
 au BufNewFile,BufRead *.ejs set filetype=html
 au BufNewFile,BufRead *.ajs set filetype=javascript
+
 au BufNewFile,BufRead *.ts set filetype=typescript
+let g:typescript_indent_disable = 1
 
