@@ -30,7 +30,7 @@
 	bn = rev-parse --abbrev-ref HEAD
 	# parent branch of a git branch
 	# http://stackoverflow.com/questions/3161204/find-the-parent-branch-of-a-git-branch
-	bp = "!f() { git show-branch | grep '*' | grep -v \"$(git bn)\" | \
+	bp = "!f() { git show-branch -a | grep '*' | grep -v \"`git bn`\" | \
 		head -n1 | sed 's/.*\\[\\(.*\\)\\].*/\\1/' | sed 's/[a\\^~].*//' ; \
 		}; f"
 	br = branch
