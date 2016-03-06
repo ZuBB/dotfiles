@@ -28,8 +28,9 @@
 	bm = branch --merged
 	# show name of the active branch
 	bn = rev-parse --abbrev-ref HEAD
-	# parent branch of a git branch
-	# http://stackoverflow.com/questions/3161204/find-the-parent-branch-of-a-git-branch
+	# get parent branch of the current branch (still not reliable)
+	# http://stackoverflow.com/questions/3161204/
+	# https://gist.github.com/joechrysler/6073741
 	bp = "!f() { git show-branch | grep '*' | grep -v \"`git bn`\" | \
 		head -n1 | sed 's/.*\\[\\(.*\\)\\].*/\\1/' | sed 's/[a\\^~].*//' ; \
 		}; f"
