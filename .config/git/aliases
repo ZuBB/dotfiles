@@ -81,15 +81,14 @@
 
 
 	# ============= [ DIFF______________________ ] =============
-	da = "!f() { [ ! -z `git ls-files -m` ] ; }; f"
+	qs001 = "!f() { [ ! -z `git ls-files -m` ] ; }; f"
+
 	di = diff
 	dc = diff --cached
-	#dz = "!f() { [ git da ] && p=$(HEAD~${1-`git bc`}) || p=\"\"; git di $p ; }; f"
-	dz = "!f() { [ git da ] && p='HEAD~1' || p=\"\"; git di $p ; }; f"
-	dh = "!f() { git da && git di || git di HEAD~${1-`git bc`} ; }; f"
-	dn = "!f() { git da && git di --numstat || git di --numstat HEAD~${1-`git bc`} ; }; f"
-	dq = "!f() { git da && git di --shortstat || git di --shortstat HEAD~${1-`git bc`} ; }; f"
-	ds = diff --stat --find-copies
+	dh = "!f() { git qs001 && p= || p=\"HEAD~${1-`git bc`}\" ; git di $p ; }; f"
+	dn = "!f() { git qs001 && p= || p=\"HEAD~${1-`git bc`}\" ; git di --numstat $p ; }; f"
+	dq = "!f() { git qs001 && p= || p=\"HEAD~${1-`git bc`}\" ; git di --shortstat $p ; }; f"
+	ds = "!f() { git qs001 && p= || p=\"HEAD~${1-`git bc`}\" ; git di --stat --find-copies $p ; }; f"
 	dt = difftool
 
 
