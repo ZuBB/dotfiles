@@ -24,7 +24,7 @@
 	# show amount of commits in branch
 	bc = "!f() { git rev-list --count HEAD ^${1-`git bp`}; }; f"
 	bd = branch -D
-	be = branch -m
+	be = branch --move
 	bm = branch --merged
 	# show name of the active branch
 	bn = rev-parse --abbrev-ref HEAD
@@ -39,7 +39,7 @@
 	bv = branch -vv
 	# deleting branches that have been already merged
 	bw = "!f() { \
-		git branch --merged | grep -v master | grep -v '\\*' | xargs -r git branch -d; \
+		git bm | grep -v master | grep -v '\\*' | xargs -r git branch -d; \
 		git remote prune origin > /dev/null 2>&1; \
 		}; f"
 
