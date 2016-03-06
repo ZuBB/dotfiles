@@ -81,10 +81,14 @@
 
 
 	# ============= [ DIFF______________________ ] =============
+	da = "!f() { [ ! -z `git ls-files -m` ] ; }; f"
 	di = diff
 	dc = diff --cached
-	dh = diff --shortstat
-	dn = diff --numstat
+	#dz = "!f() { [ git da ] && p=$(HEAD~${1-`git bc`}) || p=\"\"; git di $p ; }; f"
+	dz = "!f() { [ git da ] && p='HEAD~1' || p=\"\"; git di $p ; }; f"
+	dh = "!f() { git da && git di || git di HEAD~${1-`git bc`} ; }; f"
+	dn = "!f() { git da && git di --numstat || git di --numstat HEAD~${1-`git bc`} ; }; f"
+	dq = "!f() { git da && git di --shortstat || git di --shortstat HEAD~${1-`git bc`} ; }; f"
 	ds = diff --stat --find-copies
 	dt = difftool
 
@@ -118,7 +122,7 @@
 	pf = push --force
 	# http://stackoverflow.com/a/19021888/1344249
 	# https://www.linux.org.ru/forum/development/11666986
-	ph = ![ -z $(git config "branch.$(git rev-parse --abbrev-ref HEAD).merge") ] && git push -u "$@" || git push "$@"
+	ph = ![ -z $(git config "branch.$(git bn).merge") ] && git push -u "$@" || git push "$@"
 	px = push --no-verify
 
 
