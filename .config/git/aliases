@@ -82,14 +82,15 @@
 
 
 	# ============= [ DIFF______________________ ] =============
-	qs001 = "!f() { [ ! -z `git ls-files -m` ] ; }; f"
+	# checks if there is any changed files;
+	da = "!f() { [ $(git ls-files -m) ]; }; f"
 
-	di = diff
 	dc = diff --cached
-	dh = "!f() { git qs001 && p= || p=\"HEAD~${1-`git bc`}\" ; git di $p ; }; f"
-	dn = "!f() { git qs001 && p= || p=\"HEAD~${1-`git bc`}\" ; git di --numstat $p ; }; f"
-	dq = "!f() { git qs001 && p= || p=\"HEAD~${1-`git bc`}\" ; git di --shortstat $p ; }; f"
-	ds = "!f() { git qs001 && p= || p=\"HEAD~${1-`git bc`}\" ; git di --stat --find-copies $p ; }; f"
+	di = diff
+	dh = "!f() { git da && p= || p=\"HEAD~${1-`git bc`}\" ; git di $p ; }; f"
+	dn = "!f() { git da && p= || p=\"HEAD~${1-`git bc`}\" ; git di --numstat $p ; }; f"
+	dq = "!f() { git da && p= || p=\"HEAD~${1-`git bc`}\" ; git di --shortstat $p ; }; f"
+	ds = "!f() { git da && p= || p=\"HEAD~${1-`git bc`}\" ; git di --stat --find-copies $p ; }; f"
 	dt = difftool
 
 
