@@ -84,9 +84,11 @@
 	# ============= [ DIFF______________________ ] =============
 	# checks if there is any changed files;
 	da = "!f() { [ $(git ls-files -m) ]; }; f"
+	dw = !git da && "" || "HEAD~${1-`git bc`}"
 
 	dc = diff --cached
 	di = diff
+	dz = "!f() { git di `git dw` ; }; f"
 	dh = "!f() { git da && p= || p=\"HEAD~${1-`git bc`}\" ; git di $p ; }; f"
 	dn = "!f() { git da && p= || p=\"HEAD~${1-`git bc`}\" ; git di --numstat $p ; }; f"
 	dq = "!f() { git da && p= || p=\"HEAD~${1-`git bc`}\" ; git di --shortstat $p ; }; f"
