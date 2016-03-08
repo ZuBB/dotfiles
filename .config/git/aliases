@@ -82,7 +82,7 @@
 
 
 	# ============= [ DIFF______________________ ] =============
-	# checks if there is any changed files;
+	# checks if there are any changes;
 	da = "!f() { [ $(git ls-files -m) ]; }; f"
 
 	dc = diff --cached
