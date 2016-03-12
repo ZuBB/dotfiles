@@ -86,7 +86,7 @@
 	da = "!f() { [ $(git ls-files -m) ]; }; f"
 
 	dc = diff --cached
-	di = "!f() { git da && p= || p=\"HEAD~${1-`git bc`}\" ; git diff $p ; }; f"
+	di = diff
 	dn = "!f() { git da && p= || p=\"HEAD~${1-`git bc`}\" ; git diff --numstat $p ; }; f"
 	dq = "!f() { git da && p= || p=\"HEAD~${1-`git bc`}\" ; git diff --shortstat $p ; }; f"
 	ds = "!f() { git da && p= || p=\"HEAD~${1-`git bc`}\" ; git diff --stat --find-copies $p ; }; f"
