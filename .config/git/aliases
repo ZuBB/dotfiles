@@ -128,10 +128,11 @@
 
 
 	# ============= [ REBASE____________________ ] =============
-	rb = "!f() { git rebase -i HEAD~${1-1}; }; f"
-	rc = rebase --continue
 	ra = rebase --abort
+	rb = "!f() { git rebase $1; }; f"
+	rc = rebase --continue
 	ri = rebase --skip
+	rm = "!f() { git rebase -i HEAD~${1-1}; }; f"
 
 
 
