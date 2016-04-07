@@ -83,7 +83,7 @@
 
 	# ============= [ DIFF______________________ ] =============
 	# checks if there are any changes;
-	da = "!f() { [ $(git ls-files -m) ]; }; f"
+	da = "!f() { [[ -z $(git ls-files -m) ]]; }; f"
 
 	dc = diff --cached
 	di = diff
