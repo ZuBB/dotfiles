@@ -129,10 +129,13 @@
 
 	# ============= [ REBASE____________________ ] =============
 	ra = rebase --abort
-	rb = "!f() { git rebase $1; }; f"
+	# TODO check if passed string is a name of existing branch
+	rb = "!f() { [ -z \"${num##*[!0-9]*}\" ] \
+		&& git rebase $1 \
+	 	|| git rebase -i HEAD~${1-1}; }; f"
+	rc = "!f() {  }; f"
 	rc = rebase --continue
-	ri = rebase --skip
-	rm = "!f() { git rebase -i HEAD~${1-1}; }; f"
+	rk = rebase --skip
 
 
 
