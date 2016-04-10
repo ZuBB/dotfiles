@@ -40,8 +40,8 @@
 	bv = branch -vv
 	# deleting branches that have been already merged
 	bw = "!f() { \
-		git bm | grep -v master | grep -v '\\*' | xargs -r git branch -d; \
-		git remote prune origin > /dev/null 2>&1; \
+		git bm | grep -Ev \"(master|develop)\" | grep -v '\\*' \
+		| xargs -r git branch -d; git remote prune origin > /dev/null 2>&1; \
 		}; f"
 
 
