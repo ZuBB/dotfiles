@@ -162,8 +162,8 @@
 
 
 	# ============= [ STATUS____________________ ] =============
-	st = status -sb
-	sn = status
+	st = status
+	ss = status -sb
 
 
 
