@@ -41,7 +41,7 @@
 	# deleting branches that have been already merged
 	bw = "!f() { \
 		git bm | grep -Ev \"(master|develop)\" | grep -v '\\*' \
-		| xargs -r git branch -d; git remote prune origin > /dev/null 2>&1; \
+		| xargs -r git branch -d; git mp > /dev/null 2>&1; \
 		}; f"
 
 
@@ -83,7 +83,7 @@
 
 	# ============= [ DIFF______________________ ] =============
 	# checks if there are any changes;
-	da = "!f() { [[ -z $(git ls-files -m) ]]; }; f"
+	da = "!f() { test -z $(git ls-files -m) ; }; f"
 
 	dc = diff --cached
 	di = diff
@@ -130,10 +130,9 @@
 	# ============= [ REBASE____________________ ] =============
 	ra = rebase --abort
 	# TODO check if passed string is a name of existing branch
-	rb = "!f() { [ -z \"${num##*[!0-9]*}\" ] \
+	rb = "!f() { test -z \"${num##*[!0-9]*}\" \
 		&& git rebase $1 \
 	 	|| git rebase -i HEAD~${1-1}; }; f"
-	rc = "!f() {  }; f"
 	rc = rebase --continue
 	rk = rebase --skip
 
@@ -147,7 +146,7 @@
 	# ============= [ RESET_____________________ ] =============
 	rh = "!f() { git reset --hard HEAD~${1-1}; }; f"
 	rs = "!f() { git reset --soft HEAD~${1-1}; }; f"
-	rd = "!f() { [ -z $1 ] && git reset HEAD || git reset HEAD $1; }; f"
+	rd = "!f() { test -z $1 && git reset HEAD || git reset HEAD $1; }; f"
 
 
 
