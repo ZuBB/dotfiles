@@ -130,6 +130,7 @@
 	# ============= [ REBASE____________________ ] =============
 	ra = rebase --abort
 	# if passed string is a number - do rebase by commits number
+	# TODO need to make sure passed number is not a commit hash
 	rb = "!f() { test ! -z \"${1##*[!0-9]*}\" \
 		&& git rebase -i HEAD~$1 \
 		|| git rebase $1; }; f"
