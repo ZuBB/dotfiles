@@ -39,9 +39,21 @@
 	bu = branch --no-merged
 	bv = branch -vv
 	# deleting branches that have been already merged
-	bw = "!f() { \
+	bwO = "!f() { \
 		git bm | grep -Ev \"(master|develop)\" | grep -v '\\*' \
 		| xargs -r git branch -d; git mp > /dev/null 2>&1; \
+		}; f"
+	bw = "!f() { \
+		CB=`git bn`; \
+		BRANCHES=(`git br | grep -Ev \"(master|develop)\" | grep -v '\\*' | xargs`); \
+		for br in $BRANCHES \
+		do \
+		    git co -b \"$br\"-merge-test-branch $CB \
+		    git merge --squash \"$br\" \
+		    BR_ST=`git status --porcelain` \
+		    test -z $(BR_ST) && git branch -d \"$br\" \
+	    done; \
+		git mp; \
 		}; f"
 
 
