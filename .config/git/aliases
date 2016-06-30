@@ -45,7 +45,7 @@
 		}; f"
 	bw = "!f() { \
 		CB=`git bn`; \
-		BRANCHES=(`git br | grep -Ev \"(master|develop)\" | grep -v '\\*' | xargs`); \
+		BRANCHES=`git br | grep -Ev \"(master|develop)\" | grep -v '\\*' | xargs`; \
 		for br in $BRANCHES \
 		do \
 		    BR_TEST=\"$br-merge-test-branch\"; \
