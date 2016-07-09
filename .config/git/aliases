@@ -59,7 +59,7 @@
 			git bd -q \"$BR_TEST\"; \
 			[ $MS_ST -eq 0 ] && git bd \"$BR\"; \
 	    done; \
-		false && git mp; \
+		git mp; \
 		}; f"
 
 
