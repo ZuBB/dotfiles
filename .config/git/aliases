@@ -50,22 +50,17 @@
 		BRANCHES=`git br | grep -Ev \"(master|develop)\" | grep -v '\\*' | xargs`; \
 		for BR in $BRANCHES; \
 		do \
-		    echo 1-$BR; \
+			BR_TEST=\"$BR-merge-test-branch\"; \
+			git co -qb \"$BR_TEST\"; \
+			git merge --squash \"$BR\" > /dev/null 2>&1; \
+			MS_ST=$?; \
+			git rd -q && git checkout-index -a -f; \
+			git co -q \"$CB\"; \
+			git bd -q \"$BR_TEST\"; \
+			[ $MS_ST -eq 0 ] && git bd \"$BR\"; \
 	    done; \
+		false && git mp; \
 		}; f"
-		#false && git mp; \
-		#BR_TEST=\"$BR-merge-test-branch\"; \
-		#break; \
-		#git co -qb \"$BR_TEST\"; \
-		#git merge --squash \"$BR\" > /dev/null 2>&1; \
-		#MS_ST=$?; \
-		#echo $MS_ST; \
-		#git rd -q;  \
-		#git checkout-index -a -f; \
-		#BR_ST=`git status --porcelain`; \
-		#git co -q \"$CB\"; \
-		#[[ ! -n $BR_ST ]] && git bd \"$BR\"; \
-		#git bd  \"$BR_TEST\"; \
 
 
 
