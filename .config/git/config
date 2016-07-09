@@ -23,20 +23,20 @@
 	# Prevent showing files whose names contain non-ASCII symbols as unversioned.
 	# http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
 	precomposeunicode = false
-[commit]
-	template = ~/.config/git/commit-message-template
-
 [apply]
 	whitespace = fix
 
-[push]
-	default = current
-	followTags = true
+[branch]
+	autosetupmerge = true
+
+[commit]
+	template = ~/.config/git/commit-message-template
 
 [diff]
 	tool = vimdiff
 	renameLimit = 0
 	renames = copies
+	mnemonicprefix = true
 
 [difftool]
 	prompt = false
@@ -51,6 +51,10 @@
 
 [mergetool]
 	prompt = false
+
+[push]
+	default = current
+	followTags = true
 
 [rerere]
 	enabled = 1
