@@ -48,13 +48,24 @@
 	bw = "!f() { \
 		CB=`git bn`; \
 		BRANCHES=`git br | grep -Ev \"(master|develop)\" | grep -v '\\*' | xargs`; \
-		for br in $BRANCHES \
+		for BR in $BRANCHES; \
 		do \
-		    BR_TEST=\"$br-merge-test-branch\"; \
-			break; \
+		    echo 1-$BR; \
 	    done; \
-		false && git mp; \
 		}; f"
+		#false && git mp; \
+		#BR_TEST=\"$BR-merge-test-branch\"; \
+		#break; \
+		#git co -qb \"$BR_TEST\"; \
+		#git merge --squash \"$BR\" > /dev/null 2>&1; \
+		#MS_ST=$?; \
+		#echo $MS_ST; \
+		#git rd -q;  \
+		#git checkout-index -a -f; \
+		#BR_ST=`git status --porcelain`; \
+		#git co -q \"$CB\"; \
+		#[[ ! -n $BR_ST ]] && git bd \"$BR\"; \
+		#git bd  \"$BR_TEST\"; \
 
 
 
