@@ -51,14 +51,9 @@
 		for br in $BRANCHES \
 		do \
 		    BR_TEST=\"$br-merge-test-branch\"; \
-		    git co -qb \"$BR_TEST\"; \
-		    git merge --squash \"$br\" 2>&1; \
-		    BR_ST=`git status --porcelain`; \
-			git co -q \"$CB\"; \
-			[[ ! -n $BR_ST ]] && git bd \"$br\"; \
-			git bd  \"$BR_TEST\"; \
+			break; \
 	    done; \
-		git mp; \
+		false && git mp; \
 		}; f"
 
 
