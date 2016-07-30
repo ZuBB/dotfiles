@@ -87,7 +87,7 @@
 	cf = "!f() { git add -u && git commit --amend -c HEAD; }; f"
 	ci = commit -v
 	cm = commit --amend
-	cq = "!f() { git commit ./$GIT_PREFIX/$1 -m $1; }; f"
+	cq = "!f() { git add ./$GIT_PREFIX/$1 && git ci ./$GIT_PREFIX/$1 -m $1; }; f"
 	cs = "!f() { git add -u && git commit --amend -C HEAD; }; f"
 	cu = commit --amend --reset-author
 
