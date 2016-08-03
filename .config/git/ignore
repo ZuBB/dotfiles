@@ -8,9 +8,22 @@
 Thumbs.db
 desktop.ini
 
-node_modules*
+.tmp/
+dist/
 
+node_modules*
+npm-debug.log
+
+bower_components/
+
+.idea/
+typings/
+
+allure-results/
+coverage/
+tslint-report/
 eslint_checkstyle_report*
 TESTS-PhantomJS*
  
 .ackrc
+.project
