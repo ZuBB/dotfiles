@@ -206,7 +206,7 @@
 
 
 	# ============= [ __________________________ ] =============
-	os = shortlog -s
+	os = shortlog --summary --numbered
 	#ls = ls-files
 	in = git fetch && git log ..origin/master
 	out = git fetch && git log origin/master..
