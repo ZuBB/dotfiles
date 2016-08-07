@@ -87,7 +87,7 @@
 	cf = "!f() { git add -u && git commit --amend -c HEAD; }; f"
 	ci = commit -v
 	cm = commit --amend
-	cq = "!f() { git add ./$GIT_PREFIX/$1 && git ci ./$GIT_PREFIX/$1 -m $1; }; f"
+	cq = "!f() { git add ./$GIT_PREFIX/$1 && git commit ./$GIT_PREFIX/$1 -m $1; }; f"
 	cs = "!f() { git add -u && git commit --amend -C HEAD; }; f"
 	cu = commit --amend --reset-author
 
@@ -225,6 +225,6 @@
 	fup = log --since '1 day ago' --oneline "--author=$(git config --get user.email)"
 	#freq = !history | grep git | cut -c 8- | sort | uniq -c | sort -n -r | head -n 5
 	
-	au = !git ls-files | xargs -n1 git blame --line-porcelain | sed -n 's/^author //p' | sort -f | uniq -ic | sort -nr
+	as = !git ls-files | xargs -n1 git blame --line-porcelain | sed -n 's/^author //p' | sort -f | uniq -ic | sort -nr
 
 
