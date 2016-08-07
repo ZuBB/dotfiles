@@ -170,7 +170,7 @@
 	# ============= [ RESET_____________________ ] =============
 	rh = "!f() { git reset --hard HEAD~${1-1}; }; f"
 	rs = "!f() { git reset --soft HEAD~${1-1}; }; f"
-	rd = "!f() { test -z $1 && git reset HEAD || git reset HEAD $1; }; f"
+	rt = "!f() { test -z $1 && git reset HEAD || git reset HEAD $1; }; f"
 
 
 
