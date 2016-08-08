@@ -36,7 +36,7 @@
 		}; f"
 	br = branch
 	bt = branch -r
-	bu = branch --no-merged
+	bu = branch --unset-upstream
 	bv = branch -vv
 	# deleting branches that have been already merged
 		# It worked! You don't even need a temporary file if you do: git format-patch master --stdout | git-apply --check
