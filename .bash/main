@@ -1,6 +1,6 @@
 # vim: set filetype=sh : ~
 
-REQUIRED=(login config xdg history path aliases colors complection
+REQUIRED=(login config history path aliases colors complection
     alias-complection-fix apps)
 
 # http://stackoverflow.com/questions/4774054

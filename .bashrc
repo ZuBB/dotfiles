@@ -8,7 +8,7 @@ case $- in
       *) return;;
 esac
 
-if [ -f ~/.config/bash/main ]; then
-    . ~/.config/bash/main
+if [ -f ~/.bash/main ]; then
+    . ~/.bash/main
 fi
 

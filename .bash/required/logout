@@ -3,8 +3,8 @@
 shopt -q login_shell && return || true
 
 call_for_logout_tasks () {
-    if [ -f ~/.local/bin/logout_tasks ]; then
-        ~/.local/bin/logout_tasks
+    if [ -f ~/.bin/logout_tasks ]; then
+        ~/.bin/logout_tasks
     fi
 }
 

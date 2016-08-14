@@ -2,7 +2,7 @@
 
 # When the shell starts up,
 # the history is initialized from the file named by the HISTFILE
-export HISTFILE=~/.cache/bash_history
+#export HISTFILE=~/.cache/bash_history
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options

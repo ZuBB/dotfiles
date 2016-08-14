@@ -9,6 +9,11 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 # set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.bin" ] ; then
+    PATH="$HOME/.bin:$PATH"
+fi
+
+# set PATH so it includes user's private bin if it exists
 if [ -d "$XDG_DATA_HOME/bin" ] ; then
     PATH="$XDG_DATA_HOME/bin:$PATH"
 fi
