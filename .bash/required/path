@@ -20,4 +20,5 @@ fi
 
 # coreutils at macos
 PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+#MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 MANPATH="/usr/local/opt/coreutils/libexec/gnuman:${MANPATH-/usr/share/man}"
