@@ -3,6 +3,6 @@
 #fi
 
 if [ -f $HOME/.bashrc ]; then
-	$HOME/.bashrc;
+	source $HOME/.bashrc;
 fi
 
