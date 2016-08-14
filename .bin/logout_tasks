@@ -2,14 +2,14 @@
 
 # ASYNC TASKS
 
-if [ -f ~/.local/bin/logout_tasks_async ]; then
-    (nohup ~/.local/bin/logout_tasks_async >/dev/null 2>&1 &) >/dev/null 2>&1
+if [ -f ~/.bin/logout_tasks_async ]; then
+    (nohup ~/.bin/logout_tasks_async >/dev/null 2>&1 &) >/dev/null 2>&1
 fi
 
 
 # SYNC TASKS
 
-if [ -f ~/.local/bin/logout_tasks_sync ]; then
-    ~/.local/bin/logout_tasks_sync 
+if [ -f ~/.bin/logout_tasks_sync ]; then
+    ~/.bin/logout_tasks_sync
 fi
 
