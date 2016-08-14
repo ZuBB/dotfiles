@@ -1,8 +1,8 @@
-if [ $(uname -s) != "Darwin" ]; then
-        exit 0;
-fi
+#if [ $(uname -s) = "Darwin" ]; then
+    # do_smth;
+#fi
 
 if [ -f $HOME/.bashrc ]; then
-        source $HOME/.bashrc;
+    source $HOME/.bashrc;
 fi
 
