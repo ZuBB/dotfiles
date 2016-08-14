@@ -14,6 +14,7 @@ if [ -f $HISTFILE ]; then
 
     sed -i '/^ack /d' $HISTFILE
     sed -i '/^cat /d' $HISTFILE
+    sed -i '/^man /d' $HISTFILE
     sed -i '/^mtr /d' $HISTFILE
     sed -i '/^npm/d'  $HISTFILE
     sed -i '/^sed /d' $HISTFILE
