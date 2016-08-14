@@ -2,6 +2,6 @@
 
 which vcsh_login > /dev/null;
 if [ $? -eq 0 ]; then
-    ./vcsh_login &
+    vcsh_login &
 fi
 
