@@ -14,27 +14,27 @@ set nocompatible
 
 " https://tlvince.com/vim-respect-xdg
 " Environment
-set directory=$XDG_CACHE_HOME/vim,~/,/tmp
-set backupdir=$XDG_CACHE_HOME/vim,~/,/tmp
-set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
-set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME
-let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
+set directory=/tmp
+set backupdir=/tmp
+set viminfo+=n~/.vim/viminfo
+set runtimepath=~/.vim,~/.vim/after,$VIM,$VIMRUNTIME
+" let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
 
 
 " some stuff that is kind of global/main
-source $XDG_CONFIG_HOME/vim/subrcs/global
+source ~/.vim/subrcs/global
 
 
 " when the terminal has colors
 if &t_Co > 2 || has("gui_running")
-    source $XDG_CONFIG_HOME/vim/subrcs/color-dependent
+    source ~/.vim/subrcs/color-dependent
 endif
 
 
 " Autocommands are a way to tell Vim to run certain commands
 " whenever certain events happen. Let's dive right into an example.
 if has("autocmd")
-    source $XDG_CONFIG_HOME/vim/subrcs/autocmd
+    source ~/.vim/subrcs/autocmd
 else
   " always set autoindenting on
   set autoindent
@@ -42,19 +42,19 @@ endif
 
 
 " shortcuts
-source $XDG_CONFIG_HOME/vim/subrcs/shortcuts
+source ~/.vim/subrcs/shortcuts
 
 
 " GUI
-source $XDG_CONFIG_HOME/vim/subrcs/gui
+source ~/.vim/subrcs/gui
 
 
 " powersave
-source $XDG_CONFIG_HOME/vim/subrcs/powersave
+source ~/.vim/subrcs/powersave
 
 
 " handling of new file extentions
-source $XDG_CONFIG_HOME/vim/subrcs/ext-filetype
+source ~/.vim/subrcs/ext-filetype
 
 
 " set fileformats=unix,dos
