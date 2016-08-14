@@ -2,8 +2,9 @@
 
 # ASYNC TASKS
 
-if [ -f ~/.bin/logout_tasks_async ]; then
-    (nohup ~/.bin/logout_tasks_async >/dev/null 2>&1 &) >/dev/null 2>&1
+which logout_tasks_async > /dev/null;
+if [ $? -eq 0 ]; then
+    (nohup logout_tasks_async >/dev/null 2>&1 &) >/dev/null 2>&1
 fi
 
 
