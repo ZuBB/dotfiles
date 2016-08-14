@@ -11,7 +11,7 @@
 	# its turned out that 
 	# > Its default value is $XDG_CONFIG_HOME/git/ignore
 	# (https://goo.gl/bKr4Yr) so this is commented :)
-	#excludesfile = ~/.config/git/ignore
+	excludesfile = ~/.gitignore
 
 	# http://goo.gl/Vug01E
 	#eol = lf
@@ -31,7 +31,7 @@
 	autosetupmerge = true
 
 [commit]
-	template = ~/.config/git/commit-message-template
+	template = ~/.gitcommit-message-template
 
 [diff]
 	tool = vimdiff
@@ -65,8 +65,8 @@
 	enabled = 1
 
 [include]
-	path = aliases
-	path = colors
+	path = .gitaliases
+	path = .gitcolors
 
-	path = user
+	path = .gituser
 
