@@ -83,6 +83,7 @@
 
 	# ============= [ COMMIT____________________ ] =============
 	ca = commit -am WIP
+	cd = commit --amend --date="$(date -R)"
 	ce = commit --only -v
 	cf = "!f() { git add -u && git commit --amend -c HEAD; }; f"
 	ci = commit -v
