@@ -4,8 +4,6 @@
 # especially to comrads from next thread at LOR
 # https://www.linux.org.ru/forum/development/11523950
 
-touch "/tmp/out-1-PARENT_COMMAND-$(LC_ALL='C' date)"
-
 for repo in `vcsh list`; do
     vcsh run "${repo}" git commit -qam "autoupdate of configs in '${repo}'"
     # https://github.com/RichiH/vcsh/issues/157
