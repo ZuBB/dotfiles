@@ -226,5 +226,6 @@
 	#freq = !history | grep git | cut -c 8- | sort | uniq -c | sort -n -r | head -n 5
 	
 	as = !git ls-files | xargs -n1 git blame --line-porcelain | sed -n 's/^author //p' | sort -f | uniq -ic | sort -nr
+    or = [ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`
 
 
