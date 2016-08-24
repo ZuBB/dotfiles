@@ -95,7 +95,8 @@
 
 
 	# ============= [ CONFIG____________________ ] =============
-	la = config --get-regexp alias
+	la = !git config -l | grep alias | cut -c 7-
+	ga = "!f() { git config -l | grep alias | cut -c 7- | grep \"^$1=\" ; }; f"
 	ec = config --global -e
 
 
@@ -121,7 +122,7 @@
 	l1 = log --decorate --stat -n 1
 	lg = log -p
 	ln = log --name-only
-	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]\\ [%ad]" --decorate
+	ls = log --pretty=format:"%C(yellow)%h %Cgreen%ad %Cred%d%Creset%s %Cblue[%cn]" --decorate --date=short
 	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
 	lv = "!f() { git log --decorate --stat -${1}; }; f"
 	#hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
