@@ -70,3 +70,5 @@
 
 	path = .gituser
 
+[advice]
+	pushNonFastForward = false
