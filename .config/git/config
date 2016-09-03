@@ -53,8 +53,9 @@
 	date = local
 
 [merge]
-	renameLimit = 0
 	conflictstyle = merge
+	renameLimit = 0
+	stat = true
 	tool = vimdiff
 
 [mergetool]
