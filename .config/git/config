@@ -3,6 +3,18 @@
 # vim: set softtabstop=0 : ~
 # vim: set noexpandtab : ~
 
+[advice]
+	pushNonFastForward = false
+
+[apply]
+	whitespace = fix
+
+[branch]
+	autosetupmerge = true
+
+[commit]
+	template = ./commit-message-template
+
 [core]
 	editor = vim
 
@@ -23,15 +35,6 @@
 	# Prevent showing files whose names contain non-ASCII symbols as unversioned.
 	# http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
 	precomposeunicode = false
-
-[apply]
-	whitespace = fix
-
-[branch]
-	autosetupmerge = true
-
-[commit]
-	template = ~/.gitcommit-message-template
 
 [diff]
 	tool = vimdiff
@@ -64,12 +67,9 @@
 [rerere]
 	enabled = 1
 
-[advice]
-	pushNonFastForward = false
-
 [include]
-	path = .gitaliases
-	path = .gitcolors
+	path = aliases
+	path = colors
 
-	path = .gituser
+	path = user
 
