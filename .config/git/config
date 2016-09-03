@@ -49,6 +49,7 @@
 	cmd = vim -f -d -c 'wincmd l' -c 'cd "$GIT_PREFIX"' "$LOCAL" "$REMOTE"
 
 [log]
+	abbrevCommit = true
 	date = local
 
 [merge]
