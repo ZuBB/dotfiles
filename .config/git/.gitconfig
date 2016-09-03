@@ -64,11 +64,12 @@
 [rerere]
 	enabled = 1
 
+[advice]
+	pushNonFastForward = false
+
 [include]
 	path = .gitaliases
 	path = .gitcolors
 
 	path = .gituser
 
-[advice]
-	pushNonFastForward = false
