@@ -13,7 +13,7 @@
 	autosetupmerge = true
 
 [commit]
-	template = ./commit-message-template
+	template = ~/.config/git/commit-message-template
 
 [core]
 	editor = vim
