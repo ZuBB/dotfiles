@@ -119,7 +119,8 @@
 	# 'b' letter but 'log' command; shows log in current branch only
 	bo = "!f() { git log --no-merges ${1-`git bp`}..; }; f"
 
-	l1 = log --decorate --stat -n 1
+	l1 = log -n 1
+	lf = "!f() { git l1 --decorate --stat; }; f"
 	lg = log -p
 	ln = log --name-only
 	ls = log --pretty=format:"%C(yellow)%h\\ %Cgreen%ad%Cred%d\\ %Creset%s\\ %Cblue[%aN]" --decorate --date=short
@@ -164,7 +165,7 @@
 
 
 
-	# ============= [ mergetool__________________] =============
+	# ============= [ MERGETOOL__________________] =============
 	mt = mergetool
 
 
