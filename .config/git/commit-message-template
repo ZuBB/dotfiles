@@ -4,8 +4,7 @@
 
 [footer]
 
-
-
+# _____________________________________________________________________
 # [type]: feat, fix, docs, style, refactor, test, chore.
 # [scope] should specify place of the commit change.
 # [subject] should use impertivite tone and say what you did (50c limit).
