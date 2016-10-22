@@ -14,6 +14,7 @@
 
 [commit]
 	#template = ~/.config/git/commit-message-template
+	verbose = true
 
 [core]
 	editor = vim

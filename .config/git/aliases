@@ -83,13 +83,12 @@
 
 	# ============= [ COMMIT____________________ ] =============
 	ca = commit -am WIP
-	cd = commit --amend --date="$(date -R)"
-	ce = commit --only -v
-	cf = "!f() { git add -u && git commit --amend -c HEAD; }; f"
-	ci = commit -v
+	ce = commit --only
+	cf = commit --all --amend -c HEAD
+	ci = commit
 	cm = commit --amend
 	cq = "!f() { git add ./$GIT_PREFIX/$1 && git commit ./$GIT_PREFIX/$1 -m $1; }; f"
-	cs = "!f() { git add -u && git commit --amend -C HEAD; }; f"
+	cs = commit --all --amend -C HEAD
 	ct = commit --template=~/.config/git/commit-message-template
 	cu = commit --amend --reset-author
 
