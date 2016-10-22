@@ -1,12 +1,35 @@
-[type](scope): [subject]
+# ------------------------------------------------
+type[scope]: subject
 
+# ---------------------------------------------------------------------
 [body]
 
+# ---------------------------------------------------------------------
 [footer]
 
-# _____________________________________________________________________
-# [type]: feat, fix, docs, style, refactor, test, chore.
-# [scope] should specify place of the commit change.
-# [subject] should use impertivite tone and say what you did (50c limit).
-# [body] should go into detail about changes made (72c limit).
-# [footer] should contain BTS references and/or info on breaking changes.
+# Type should be one of the following:
+#  * feat (new feature)
+#  * fix (bug fix)
+#  * docs (changes to documentation)
+#  * style (formatting, missing semi colons, etc; no code change)
+#  * refactor (refactoring production code)
+#  * test (adding missing tests, refactoring tests; no production code change)
+#  * chore (updating grunt tasks etc; no production code change)
+#
+# Scope should specify place of the commit change. Optional
+#
+# Subject follow next rules:
+#  * use imperative tone
+#  * say what you did
+#  * do not end with dot (.)
+#  * has length no more than 50 chars
+#  * start with uppler case
+#
+# Body should go into detail about changes made (72c limit). Optional
+#
+# Footer should contain BTS references and/or info on breaking changes.
+# Also optional
+#
+# http://chris.beams.io/posts/git-commit/
+# https://github.com/sparkbox/standard/tree/master/style/git
+#
