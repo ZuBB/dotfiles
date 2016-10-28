@@ -83,7 +83,7 @@
 
 	# ============= [ COMMIT____________________ ] =============
 	ca = commit -am WIP
-	ce = commit --only
+	ce = commit --only .
 	cf = commit --all --amend -c HEAD
 	ci = commit
 	cm = commit --amend
