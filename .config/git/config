@@ -75,5 +75,5 @@
 	path = aliases
 	path = colors
 
-	path = user
+	path = .gituser
 
