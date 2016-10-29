@@ -83,7 +83,7 @@
 
 	# ============= [ COMMIT____________________ ] =============
 	ca = commit -am WIP
-	ce = commit --only .
+	ce = "!f() { git commit --only ${1-.}; }; f"
 	cf = commit --all --amend -c HEAD
 	ci = commit
 	cm = commit --amend
