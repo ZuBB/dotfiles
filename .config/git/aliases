@@ -91,6 +91,7 @@
 	cs = commit --all --amend -C HEAD
 	ct = commit -t /Users/test/.config/git/commit-message-template
 	cu = commit --amend --reset-author
+	c= = "!f() { git ct .; }; f"
 
 
 
