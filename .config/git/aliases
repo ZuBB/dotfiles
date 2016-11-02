@@ -82,6 +82,7 @@
 
 
 	# ============= [ COMMIT____________________ ] =============
+	c0 = "!f() { git ct .; }; f"
 	ca = commit -am WIP
 	ce = "!f() { git commit --only ${1-.}; }; f"
 	cf = commit --all --amend -c HEAD
@@ -91,7 +92,6 @@
 	cs = commit --all --amend -C HEAD
 	ct = commit -t /Users/test/.config/git/commit-message-template
 	cu = commit --amend --reset-author
-	c0 = "!f() { git ct .; }; f"
 
 
 
@@ -104,7 +104,7 @@
 
 	# ============= [ DIFF______________________ ] =============
 	# checks if there are any changes;
-	da = "!f() { test -z $(git ls-files -m) ; }; f"
+	da = "!f() { test -n $(git ls-files -m) ; }; f"
 
 	dc = diff --cached
 	di = diff
