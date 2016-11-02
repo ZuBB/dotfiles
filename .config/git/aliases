@@ -24,8 +24,7 @@
 	# show amount of commits in branch
 	bc = "!f() { git rev-list --count HEAD ^${1-`git bp`}; }; f"
 	bd = branch -D
-	be = branch --move
-	bm = branch --merged
+	bm = branch --move
 	# show name of the active branch
 	bn = rev-parse --abbrev-ref HEAD
 	# get parent branch of the current branch (still not reliable)
@@ -42,7 +41,7 @@
 		# It worked! You don't even need a temporary file if you do: git format-patch master --stdout | git-apply --check
 		# http://stackoverflow.com/questions/6335717/can-git-tell-me-if-a-merge-will-conflict-without-actually-merging
 	bwO = "!f() { \
-		git bm | grep -Ev \"(master|develop)\" | grep -v '\\*' \
+		git branch --merged | grep -Ev \"(master|develop)\" | grep -v '\\*' \
 		| xargs -r git branch -d; git mp > /dev/null 2>&1; \
 		}; f"
 	bw = "!f() { \
