@@ -4,30 +4,21 @@ type: subject (what done) [scope (and where)]
 # ----------------------------------------------------------------------
 [body]
 
-# ----------------------------------------------------------------------
 [footer]
 
-# Type should be one of the following:
-#  * feat (new feature)
-#  * fix (bug fix)
-#  * docs (changes to documentation)
-#  * style (formatting, missing semi colons, etc; no code change)
-#  * refactor (refactoring production code)
-#  * test (adding missing tests, refactoring tests; no production code change)
-#  * chore (updating grunt tasks etc; no production code change)
+# TYPE can be one of next: feat, fix, docs, style (formatting, missing
+# semicolons, etc), refactor, build (build system or external
+# dependencies), test (adding/refactoring tests), chore (updating grunt
+# tasks etc). Last 2 should not contain production code change.
 #
-# Scope should specify place of the commit change. Optional
+# SCOPE should specify place of the commit change. Optional
 #
-# Subject follow next rules:
-#  * use imperative tone
-#  * say what you did
-#  * do not end with dot (.)
-#  * has length no more than 50 chars
-#  * start with uppler case
+# SUBJECT: mast say what you did in imperative tone without dot at the
+# end with max length of 50 chars. optionaly start with upper case.
 #
-# Body should go into detail about changes made (72c limit). Optional
+# BODY should go into detail about changes made (72c limit). Optional
 #
-# Footer should contain BTS references and/or info on breaking changes.
+# FOOTER should contain BTS references and/or info on BREAKING CHANGE.
 # Also optional
 #
 # http://chris.beams.io/posts/git-commit/
