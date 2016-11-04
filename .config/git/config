@@ -13,7 +13,7 @@
 	autosetupmerge = true
 
 [commit]
-	#template = ~/.config/git/commit-message-template
+	template = ~/.config/git/commit-message-template
 	verbose = true
 
 [core]
