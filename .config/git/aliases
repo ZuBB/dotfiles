@@ -113,6 +113,11 @@
 
 
 
+	# ============= [ INIT______________________ ] =============
+	it = "!f() { git init && git commit -m \"empty root\" --allow-empty; }; f"
+
+
+
 	# ============= [ LOG_______________________ ] =============
 
 	# 'b' letter but 'log' command; shows log in current branch only
@@ -188,7 +193,7 @@
 
 	# ============= [ STATUS____________________ ] =============
 	st = status
-	ss = status -sb
+	ss = status --short --branch
 
 
 
