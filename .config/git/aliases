@@ -81,15 +81,15 @@
 
 
 	# ============= [ COMMIT____________________ ] =============
-	c0 = "!f() { git ct .; }; f"
 	ca = commit -am WIP
-	ce = "!f() { git commit --only ${1-.}; }; f"
+	ce = commit --allow-empty
 	cf = commit --all --amend -c HEAD
 	ci = commit
 	cm = commit --amend
 	cq = "!f() { git add ./$GIT_PREFIX/$1 && git commit ./$GIT_PREFIX/$1 -m $1; }; f"
 	cs = commit --all --amend -C HEAD
 	cu = commit --amend --reset-author
+	cx = "!f() { git commit --only ${1-.}; }; f"
 
 
 
