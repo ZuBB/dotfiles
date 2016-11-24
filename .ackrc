@@ -1,0 +1,16 @@
+# Always color, even piping
+--color
+
+# Pager
+#--pager=less -r
+
+--ignore-dir=node_modules
+--ignore-dir=coverage
+
+--type-set=JS=.js
+--type-set=MAP=.map
+--type-set=SPEC=.spec.ts
+
+--noMAP
+#--noJS
+
