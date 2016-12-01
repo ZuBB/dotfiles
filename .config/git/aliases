@@ -194,6 +194,7 @@
 	# ============= [ STATUS____________________ ] =============
 	st = status
 	ss = status --short --branch
+	sa = status --untracked-files=no
 
 
 
