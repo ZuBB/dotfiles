@@ -19,6 +19,7 @@ typings/
 .DS_Store
 .ackrc
 .project
+.settings.json
 
 TESTS-PhantomJS*
 Thumbs.db
