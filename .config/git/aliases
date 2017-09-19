@@ -84,9 +84,10 @@
 	ca = commit -am WIP
 	ce = commit --allow-empty
 	cf = commit --all --amend -c HEAD
+	ch = commit -m WIP
 	ci = commit
 	cm = commit --amend
-	cq = "!f() { git add ./$GIT_PREFIX/$1 && git commit ./$GIT_PREFIX/$1 -m $1; }; f"
+	cq = "!f() { git add ./$GIT_PREFIX/$1 && git commit ./$GIT_PREFIX/$1 -m \"WIP: $1\"; }; f"
 	cs = commit --all --amend -C HEAD
 	cu = commit --amend --reset-author
 	cx = "!f() { git commit --only ${1-.}; }; f"
@@ -156,9 +157,9 @@
 	ra = rebase --abort
 	# if passed string is a number - do rebase by commits number
 	# TODO need to make sure passed number is not a commit hash
-	rb = "!f() { test ! -z \"${1##*[!0-9]*}\" \
-		&& git rebase -i HEAD~$1 \
-		|| git rebase $1; }; f"
+	rb = "!f() { git rev-parse -q --verify $1 \
+		&& git rebase $1 \
+		|| git rebase -i HEAD~$1; }; f"
 	rc = rebase --continue
 	rk = rebase --skip
 
@@ -204,6 +205,7 @@
 	td = "!f() { git tag -d $1; }; f"
 	tv = show-ref --tags --abbrev
 	tr = ls-remote --tags origin
+	tw = "!f() { git tag -d $1 && git push origin :refs/tags/$1; }; f"
 
 
 
