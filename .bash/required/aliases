@@ -18,7 +18,7 @@ alias gt='git'
 alias tg='git'
 
 which ack > /dev/null;
-if [ $? -ne 0 ]; then
+#if [ $? -ne 0 ]; then
     #alias ack='ack-grep';
-fi
+#fi
 
