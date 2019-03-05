@@ -219,9 +219,6 @@
 	# ============= [ __________________________ ] =============
 	os = shortlog --summary --numbered
 	#ls = ls-files
-	in = git fetch && git log ..origin/master
-	out = git fetch && git log origin/master..
-	#sd = show --format="%ci"
 	ft = cat-file -t
 	#cat = cat-file -p
 	# squash current commit with first, continue rebase
@@ -230,13 +227,9 @@
 	# git grep through all history
 	gr = "!f() { git rev-list --all | xargs git grep -F \"$1\"; }; f"
 
-	webui = !/home/$USER/.local/git-webui/release/libexec/git-core/git-webui --port 4321
-
 	sd = show --format="%ci"
 	fup = log --since '1 day ago' --oneline "--author=$(git config --get user.email)"
 	#freq = !history | grep git | cut -c 8- | sort | uniq -c | sort -n -r | head -n 5
 	
 	as = !git ls-files | xargs -n1 git blame --line-porcelain | sed -n 's/^author //p' | sort -f | uniq -ic | sort -nr
     or = [ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`
-
-
