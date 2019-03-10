@@ -77,3 +77,6 @@
 
 	path = .gituser
 
+[user]
+	email = zvasylvv@gmail.com
+	name = Vasyl Zuzyak
