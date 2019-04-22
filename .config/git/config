@@ -74,12 +74,8 @@
 [include]
 	path = aliases
 	path = colors
-
 	path = .gituser
 
-[user]
-	email = zvasylvv@gmail.com
-	name = Vasyl Zuzyak
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
