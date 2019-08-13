@@ -12,7 +12,7 @@ if [ -f ~/.bash/main ]; then
     . ~/.bash/main
 fi
 
-# export PATH=$PATH:/Users/vzuzyak/work/h5/depot_tools
+export PATH=$PATH:/Users/vzuzyak/work/h5/depot_tools
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
