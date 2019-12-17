@@ -25,4 +25,5 @@ Thumbs.db
 desktop.ini
 eslint_checkstyle_report*
 npm-debug.log*
+_misc
 
