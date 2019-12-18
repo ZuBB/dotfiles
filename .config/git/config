@@ -19,11 +19,7 @@
 [core]
 	editor = vim
 
-	# we cant use '$XGD_CONFIG_HOME' instead of '~/.config/'
-	# because of http://stackoverflow.com/a/11262153
-	# its turned out that 
-	# > Its default value is $XDG_CONFIG_HOME/git/ignore
-	# (https://goo.gl/bKr4Yr) so this is commented :)
+	# http://stackoverflow.com/a/11262153 https://goo.gl/bKr4Yr
 	excludesfile = ~/.config/git/ignore
 
 	# http://goo.gl/Vug01E
@@ -74,9 +70,3 @@
 	path = aliases
 	path = colors
 	path = .gituser
-
-[filter "lfs"]
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
