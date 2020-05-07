@@ -81,18 +81,17 @@
 
 
 	# ============= [ COMMIT____________________ ] =============
-	ca = commit -n -am WIP
-	ce = commit -n --allow-empty
-	cf = commit -n --all --amend -c HEAD
-	ch = commit -n -m WIP
+	ca = commit -am WIP
+	ce = commit --allow-empty
+	cf = commit --all --amend -c HEAD
+	ch = commit -m WIP
 	ci = commit
-	cm = commit -n --amend
+	cm = commit --amend
 	cq = "!f() { git add ./$GIT_PREFIX/$1 && git commit ./$GIT_PREFIX/$1 -m \"WIP: $1\"; }; f"
-	cs = commit -n --all --amend -C HEAD
-	ct = commit -n --amend --date=now
-	cu = commit -n --amend --reset-author
-	cx = "!f() { git commit -n --only ${1-.}; }; f"
-	ck = commit --amend
+	cs = commit --all --amend -C HEAD
+	ct = commit --amend --date=now
+	cu = commit --amend --reset-author
+	cx = "!f() { git commit --only ${1-.}; }; f"
 
 
 
