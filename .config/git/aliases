@@ -86,6 +86,7 @@
 	cf = commit --all --amend -c HEAD
 	ch = commit -m WIP
 	ci = commit
+    ck = commit --amend
 	cm = commit --amend
 	cq = "!f() { git add ./$GIT_PREFIX/$1 && git commit ./$GIT_PREFIX/$1 -m \"WIP: $1\"; }; f"
 	cs = commit --all --amend -C HEAD
