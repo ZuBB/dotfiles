@@ -18,13 +18,3 @@ if [ -d "$XDG_DATA_HOME/bin" ] ; then
     PATH="$XDG_DATA_HOME/bin:$PATH"
 fi
 
-# coreutils at macos
-# move this to separate file 
-PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
-PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
-
-# http://apple.stackexchange.com/questions/69223/
-# but still does not work
-MANPATH="/usr/local/opt/coreutils/libexec/gnuman:${MANPATH-/usr/share/man}"
-

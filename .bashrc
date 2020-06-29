@@ -8,9 +8,6 @@ case $- in
       *) return;;
 esac
 
-# https://bit.ly/33ZG2w6 macos 10.15 bash -> zsh 
-export BASH_SILENCE_DEPRECATION_WARNING=1
-
 if [ -f ~/.bash/main ]; then
     . ~/.bash/main
 fi
