@@ -20,7 +20,7 @@
 	editor = vim
 
 	# http://stackoverflow.com/a/11262153 https://goo.gl/bKr4Yr
-	excludesfile = ~/.config/git/ignore
+	# excludesfile = ~/.config/git/ignore
 
 	# http://goo.gl/Vug01E
 	#eol = lf
