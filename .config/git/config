@@ -45,6 +45,11 @@
 [difftool "vimdiff"]
 	cmd = nvim -f -d -c 'wincmd l' -c 'cd "$GIT_PREFIX"' "$LOCAL" "$REMOTE"
 
+[include]
+	path = aliases
+	path = colors
+	path = .gituser
+
 [log]
 	abbrevCommit = true
 	date = local
@@ -59,6 +64,9 @@
 	prompt = false
 	keepBackup = false
 
+[pull]
+	ff = only
+
 [push]
 	default = current
 	followTags = true
@@ -66,7 +74,3 @@
 [rerere]
 	enabled = 1
 
-[include]
-	path = aliases
-	path = colors
-	path = .gituser
