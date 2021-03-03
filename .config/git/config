@@ -20,10 +20,9 @@
 	editor = vim
 
 	# http://stackoverflow.com/a/11262153 https://goo.gl/bKr4Yr
-	# excludesfile = ~/.config/git/ignore
+	excludesfile = ~/.config/git/global-ignore
 
 	# http://goo.gl/Vug01E
-	#eol = lf
 	autocrlf = input
 	safecrlf = true
 	whitespace = space-before-tab,-blank-at-eof
