@@ -37,29 +37,6 @@
 	bt = branch -r
 	bu = branch --unset-upstream
 	bv = branch -vv
-	# deleting branches that have been already merged
-		# It worked! You don't even need a temporary file if you do: git format-patch master --stdout | git-apply --check
-		# http://stackoverflow.com/questions/6335717/can-git-tell-me-if-a-merge-will-conflict-without-actually-merging
-	bwO = "!f() { \
-		git branch --merged | grep -Ev \"(master|develop)\" | grep -v '\\*' \
-		| xargs -r git branch -d; git mp > /dev/null 2>&1; \
-		}; f"
-	bw = "!f() { \
-		CB=`git bn`; \
-		BRANCHES=`git br | grep -Ev \"(master|develop)\" | grep -v '\\*' | xargs`; \
-		for BR in $BRANCHES; \
-		do \
-			BR_TEST=\"$BR-merge-test-branch\"; \
-			git co -qb \"$BR_TEST\"; \
-			git merge --squash \"$BR\" > /dev/null 2>&1; \
-			MS_ST=$?; \
-			git rd -q && git checkout-index -a -f; \
-			git co -q \"$CB\"; \
-			git bd -q \"$BR_TEST\"; \
-			[ $MS_ST -eq 0 ] && git bd \"$BR\"; \
-	    done; \
-		git mp; \
-		}; f"
 
 
 
@@ -86,7 +63,6 @@
 	cf = commit --all --amend -c HEAD
 	ch = commit -m WIP
 	ci = commit
-    ck = commit --amend
 	cm = commit --amend
 	cq = "!f() { git add ./$GIT_PREFIX/$1 && git commit ./$GIT_PREFIX/$1 -m \"WIP: $1\"; }; f"
 	cs = commit --all --amend -C HEAD
