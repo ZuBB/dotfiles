@@ -27,3 +27,7 @@ PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
 # http://apple.stackexchange.com/questions/69223/
 # but still does not work
 MANPATH="/usr/local/opt/coreutils/libexec/gnuman:${MANPATH-/usr/share/man}"
+
+# pgsql
+PATH="/usr/local/opt/postgresql@12/bin:$PATH"
+
