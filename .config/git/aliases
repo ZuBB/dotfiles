@@ -167,9 +167,9 @@
 
 
 	# ============= [ STASH_____________________ ] =============
-	su = stash
+	sh = stash
 	sl = stash list
-	so = stash pop
+	sp = stash pop
 	ss = stash show -p
 	si = stash -p
 	sd = "!f() { git stash drop stash@{$1}; }; f"
