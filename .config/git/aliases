@@ -82,8 +82,8 @@
 
 	# ============= [ DIFF______________________ ] =============
 	# checks if there are any changes;
+	d1 = diff HEAD^
 	da = "!f() { test -n \"$(git ls-files -m)\"; }; f"
-
 	dc = diff --cached
 	di = diff
 	dn = "!f() { git da && p= || p=\"HEAD~${1-`git bc`}\" ; git diff --numstat $p ; }; f"
