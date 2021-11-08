@@ -52,14 +52,11 @@
 	conflictstyle = merge
 	renameLimit = 0
 	stat = true
-	tool = nvim
+	tool = vimdiff
 
 [mergetool]
 	prompt = false
 	keepBackup = false
-
-[mergetool "nvim"]
-	cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
 
 [pull]
 	ff = only
