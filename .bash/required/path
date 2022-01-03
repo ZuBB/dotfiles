@@ -24,6 +24,11 @@ PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
 PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
 
+# macos & postgresql@13
+if [ -d "/usr/local/opt/postgresql@13/bin" ] ; then
+    PATH="/usr/local/opt/postgresql@13/bin:$PATH"
+fi
+
 # http://apple.stackexchange.com/questions/69223/
 # but still does not work
 MANPATH="/usr/local/opt/coreutils/libexec/gnuman:${MANPATH-/usr/share/man}"
