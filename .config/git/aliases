@@ -44,7 +44,6 @@
 	cb = checkout -b
 	co = checkout
 	cr = checkout -
-	cd = checkout develop
 
 
 
