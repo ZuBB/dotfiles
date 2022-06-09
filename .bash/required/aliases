@@ -1,7 +1,8 @@
 # vim: set filetype=sh : ~
 
 # ls
-alias ls='ls --group-directories-first --color=auto'
+# alias ls='ls --group-directories-first --color=auto'
+alias ls='ls --color=auto'
 
 # some more ls aliases
 alias l='ls -CF'
