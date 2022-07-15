@@ -42,6 +42,7 @@
 
 	# ============= [ CHECKOUT__________________ ] =============
 	cb = checkout -b
+	cd = "!f() { git checkout `git config user.branch`; }; f"
 	co = checkout
 	cr = checkout -
 

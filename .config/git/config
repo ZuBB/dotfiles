@@ -68,6 +68,10 @@
 [rerere]
 	enabled = 1
 
+[user]
+    ; name of the branch where major development happens
+    branch = "master"
+
 [include]
 	path = aliases
 	path = colors
