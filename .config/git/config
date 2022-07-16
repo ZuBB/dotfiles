@@ -44,6 +44,9 @@
 [difftool "vimdiff"]
 	cmd = nvim -f -d -c 'wincmd l' -c 'cd "$GIT_PREFIX"' "$LOCAL" "$REMOTE"
 
+[init]
+	defaultBranch = master
+
 [log]
 	abbrevCommit = true
 	date = local
