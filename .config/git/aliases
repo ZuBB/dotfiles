@@ -30,9 +30,12 @@
 	# get parent branch of the current branch (still not reliable)
 	# http://stackoverflow.com/questions/3161204/
 	# https://gist.github.com/joechrysler/6073741
-	bp = "!f() { git show-branch | grep '*' | grep -v \"`git bn`\" | \
-		head -n1 | sed 's/.*\\[\\(.*\\)\\].*/\\1/' | sed 's/[a\\^~].*//' ; \
-		}; f"
+	bp = ! git show-branch \
+		| sed "s/].*//" \
+		| grep "\\*" \
+		| grep -v "$(git rev-parse --abbrev-ref HEAD)" \
+		| head -n1 \
+		| sed "s/^.*\\\\[//";
 	br = branch
 	bt = branch -r
 	bu = branch --unset-upstream
