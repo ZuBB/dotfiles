@@ -1,5 +1,10 @@
 # vim: set filetype=sh : ~
 
+alias v='nvim'
+alias vim='nvim'
+alias vimdiff='nvim -d'
+alias oldvim='\vim'
+
 # ls
 # alias ls='ls --group-directories-first --color=auto'
 alias ls='ls --color=auto'
@@ -14,12 +19,8 @@ alias lh='ls -lh'
 alias lsc='ls -1 | wc -l'
 
 alias ..='cd ..'
-alias gr='grunt'
+alias ...='cd ../..'
+alias ....='cd ../../..'
 alias gt='git'
 alias tg='git'
-
-which ack > /dev/null;
-#if [ $? -ne 0 ]; then
-    #alias ack='ack-grep';
-#fi
 
