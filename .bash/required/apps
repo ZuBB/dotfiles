@@ -1,7 +1,0 @@
-# vim: set filetype=sh : ~
-
-# Set vimrc's location and source it on vim startup
-#export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
-#
-
-export BASH_SILENCE_DEPRECATION_WARNING=1
