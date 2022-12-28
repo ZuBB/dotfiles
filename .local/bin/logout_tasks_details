@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# Thanks a lot to all crowd that helped me to cook this script
+# especially to comrads from next thread at LOR
+# https://www.linux.org.ru/forum/development/11523950
+
+for repo in `vcsh list`; do
+    vcsh run "${repo}" git commit -qam "autoupdate of configs in '${repo}'"
+    # https://github.com/RichiH/vcsh/issues/157
+    vcsh run "${repo}" git push;
+done
+

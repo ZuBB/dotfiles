@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+(nohup logout_tasks_details >/dev/null 2>&1 &) >/dev/null 2>&1
+

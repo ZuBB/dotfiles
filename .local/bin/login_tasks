@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# vim: set filetype=sh : ~
+
+(nohup login_tasks_details >/dev/null 2>&1 &) >/dev/null 2>&1
+
