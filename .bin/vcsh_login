@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-for repo in `vcsh list`; do
-    # https://github.com/RichiH/vcsh/issues/157
-    vcsh run "${repo}" run git pull -q;
-done
-

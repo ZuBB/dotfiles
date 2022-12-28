@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-# async tasks
-vcsh_logout &
-
-# remove trash from history
-cleanup_history &
-
