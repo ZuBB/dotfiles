@@ -1,7 +1,5 @@
 #!/usr/bin/env fish
 # vim: set filetype=sh : ~
 
-for repo in (vcsh list)
-    vcsh run "$repo" run git pull -q
-end
+vcsh pull -q
 
