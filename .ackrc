@@ -1,9 +1,6 @@
 # Always color, even piping
 --color
 
-# Pager
-#--pager=less -r
-
 --ignore-dir=node_modules
 --ignore-dir=coverage
 
