@@ -1,5 +1,7 @@
-#!/usr/bin/env bash
+#!/usr/bin/env fish
 # vim: set filetype=sh : ~
 
-(nohup login_tasks_details >/dev/null 2>&1 &) >/dev/null 2>&1
+for repo in (vcsh list)
+    vcsh run "$repo" run git pull -q
+end
 

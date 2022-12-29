@@ -1,4 +1,8 @@
-#!/usr/bin/env bash
+#!/usr/bin/env fish
+# vim: set filetype=sh : ~
 
-(nohup logout_tasks_details >/dev/null 2>&1 &) >/dev/null 2>&1
+for repo in (vcsh list)
+    vcsh run "$repo" git commit -qam "autoupdate of configs in '$repo'"
+    vcsh run "$repo" git push -q
+end
 
