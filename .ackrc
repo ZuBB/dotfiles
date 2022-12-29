@@ -9,5 +9,3 @@
 --type-set=SPEC=.spec.ts
 
 --noMAP
-#--noJS
-
