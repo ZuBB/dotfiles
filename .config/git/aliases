@@ -183,6 +183,7 @@
 	sv = status
 	st = status --short --branch
 	sa = status --untracked-files=no
+	su = ls-files --other | grep -v ./
 
 
 
