@@ -46,7 +46,7 @@
 	cmd = nvim -f -d -c 'wincmd l' -c 'cd "$GIT_PREFIX"' "$LOCAL" "$REMOTE"
 
 [init]
-	defaultBranch = master
+	defaultBranch = main
 
 [log]
 	abbrevCommit = true
