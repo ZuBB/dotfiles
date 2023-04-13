@@ -75,7 +75,7 @@
 [user]
     # https://stackoverflow.com/questions/11364044
     # name of the branch where major development happens
-    branch = "master"
+    branch = "main"
 
 [include]
 	path = aliases
