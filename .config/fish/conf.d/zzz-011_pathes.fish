@@ -1,5 +1,3 @@
-# vim: set filetype=sh : ~
-
 function add_pathes_to_PATH
     # own executables
     fish_add_path -aP ~/.local/bin
