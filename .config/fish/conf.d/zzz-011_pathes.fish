@@ -1,8 +1,12 @@
 function add_pathes_to_PATH
     # own executables
     fish_add_path -aP ~/.local/bin
+
+    # stuff brought by phpenv
+    fish_add_path -aP ~/.phpenv/bin
     # stuff brought by composer
     fish_add_path -aP ~/.composer/vendor/bin
+
 
     # ...
 end
