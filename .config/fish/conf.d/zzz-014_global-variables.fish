@@ -9,3 +9,7 @@ set -gx EDITOR nvim
 
 # https://github.com/Homebrew/brew/issues/1327
 set -gx HOMEBREW_NO_GITHUB_API 1
+
+# https://github.com/Homebrew/brew/issues/1327
+set -gx HOMEBREW_NO_GOOGLE_ANALYTICS 1
+
