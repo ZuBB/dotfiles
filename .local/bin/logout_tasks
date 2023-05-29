@@ -3,6 +3,7 @@
 # test
 # test 3
 # test 4
+# test 5
 
 for repo in (vcsh list)
     vcsh "$repo" commit -qam "autoupdate of configs in '$repo'"
