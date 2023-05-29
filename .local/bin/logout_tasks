@@ -2,6 +2,7 @@
 # vim: set filetype=sh : ~
 # test
 # test 3
+# test 4
 
 for repo in (vcsh list)
     vcsh "$repo" commit -qam "autoupdate of configs in '$repo'"
