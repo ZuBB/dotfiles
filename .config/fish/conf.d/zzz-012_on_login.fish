@@ -1,7 +1,7 @@
 # vim: set filetype=sh : ~
 
 function detach_login_tasks
-    vcsh pull -q &;
+    nohup vcsh pull -q &;
     disown
 end
 
