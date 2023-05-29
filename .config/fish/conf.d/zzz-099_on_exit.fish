@@ -8,8 +8,13 @@ function detach_logout_tasks
     nohup vcsh push -q &
 end
 
+function nohup2
+    command nohup $argv </dev/null >/dev/null 2>&1 & disown
+end
 
 function on_exit --on-process %self
-    detach_logout_tasks >/dev/null 2>&1
+    #nohup2 detach_logout_tasks >/dev/null 2>&1
+    #nohup2 detach_logout_tasks
+    nohup2 logout_tasks
 end
 
