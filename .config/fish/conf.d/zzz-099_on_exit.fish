@@ -1,15 +1,11 @@
 # vim: set filetype=sh : ~
 
-function logout_tasks
+function detach_logout_tasks
     for repo in (vcsh list)
         vcsh "$repo" commit -qam "autoupdate of configs in '$repo'"
     end
 
-    vcsh push -q
-end
-
-function detach_logout_tasks
-    logout_tasks &;
+    vcsh push -q &;
     disown
 end
 
