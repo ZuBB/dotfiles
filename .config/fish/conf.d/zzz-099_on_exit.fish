@@ -5,7 +5,8 @@ function detach_logout_tasks
         vcsh "$repo" commit -qam "autoupdate of configs in '$repo'"
     end
 
-    nohup vcsh push -q &>/dev/null & disown
+    #nohup vcsh push -q &>/dev/null & disown
+    nohup vcsh push -q </dev/null &>/dev/null & disown
 end
 
 # https://github.com/fish-shell/fish-shell/issues/4010#issuecomment-439721767
