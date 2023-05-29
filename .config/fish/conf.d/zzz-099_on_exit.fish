@@ -5,7 +5,7 @@ function detach_logout_tasks
         vcsh "$repo" commit -qam "autoupdate of configs in '$repo'"
     end
 
-    nohup vcsh push -q &;
+    nohup vcsh push -q &
 end
 
 
