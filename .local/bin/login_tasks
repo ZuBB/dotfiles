@@ -1,6 +1,0 @@
-#!/usr/bin/env fish
-# vim: set filetype=sh : ~
-
-vcsh pull -q
-
-# test comment
