@@ -1,7 +1,7 @@
 # vim: set filetype=sh : ~
 
 function detach_login_tasks
-    nohup2 vcsh pull -q
+    nohup vcsh pull -q &>/dev/null &
 end
 
 if status is-interactive
