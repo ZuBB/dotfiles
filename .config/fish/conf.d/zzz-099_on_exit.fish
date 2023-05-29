@@ -6,7 +6,8 @@ function detach_logout_tasks
     end
 
     #nohup2 vcsh push -q
-    nohup vcsh push -q &
+    #nohup vcsh push -q &
+    command nohup vcsh push -q </dev/null >/dev/null 2>&1 & disown
 end
 
 function nohup2
