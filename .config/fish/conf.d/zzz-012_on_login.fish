@@ -2,7 +2,6 @@
 
 function detach_login_tasks
     nohup vcsh pull -q &;
-    disown
 end
 
 if status is-interactive
