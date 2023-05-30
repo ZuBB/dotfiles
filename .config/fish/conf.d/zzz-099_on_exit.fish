@@ -1,5 +1,5 @@
 # vim: set filetype=sh : ~
-# test 1 2
+# test 1 2 3
 
 function detach_logout_tasks
     for repo in (vcsh list)
@@ -7,7 +7,8 @@ function detach_logout_tasks
     end
 
     # https://github.com/fish-shell/fish-shell/issues/4010#issuecomment-439721767
-    nohup vcsh push -q </dev/null &>/dev/null & disown
+    # nohup vcsh push -q </dev/null &>/dev/null & disown
+    nohup vcsh push -q </dev/null &>"/tmp/hello-from-error-$(date)" & disown
 end
 
 function mytest
