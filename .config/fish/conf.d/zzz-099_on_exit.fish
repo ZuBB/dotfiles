@@ -10,16 +10,16 @@ function detach_logout_tasks
 end
 
 function mytest
-    #touch "/tmp/hello-from-'$argv'-$(date)"
+    touch "/tmp/hello-from-'$argv'-$(date)"
 end
 
-function on_exit1 --on-process-exit %self
-    mytest on-process-exit
-end
+# function on_exit1 --on-process-exit %self
+#     mytest on-process-exit
+# end
 
-function on_exit2 --on-process %self
-    mytest on-process
-end
+# function on_exit2 --on-process %self
+#     mytest on-process
+# end
 
 function on_exit3 --on-event fish_exit
     # mytest fish_exit_event
