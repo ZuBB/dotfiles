@@ -9,7 +9,7 @@ function detach_logout_tasks
     # https://github.com/fish-shell/fish-shell/issues/4010#issuecomment-439721767
     # nohup vcsh push -q </dev/null &>/dev/null & disown
     # nohup vcsh push -q </dev/null 2>&1 > "/tmp/hello-from-error-$(date)" & disown
-    vcsh push -q </dev/null 2>&1 > "/tmp/hello-from-error-$(date)"
+    vcsh push -q &> "/tmp/hello-from-error-$(date)"
 end
 
 function mytest
