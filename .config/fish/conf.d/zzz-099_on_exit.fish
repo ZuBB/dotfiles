@@ -1,5 +1,5 @@
 # vim: set filetype=sh : ~
-# test 1
+# test 1 2
 
 function detach_logout_tasks
     for repo in (vcsh list)
