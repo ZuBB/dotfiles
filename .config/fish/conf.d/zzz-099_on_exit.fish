@@ -14,7 +14,17 @@ end
 #    command nohup $argv </dev/null >/dev/null 2>&1 & disown
 # end
 
-function on_exit --on-process %self
-    detach_logout_tasks
+function mytest
+    touch "/tmp/exit-from-$argv-$(date)"
 end
 
+# function on_exit1 --on-process %self
+    #touch "/tmp/exit-from-tmux-$(date)"
+    # mytest tmux
+# end
+
+function on_exit2 --on-event fish_exit
+    #touch "/tmp/exit-from-term-$(date)"
+    #mytest term
+    detach_logout_tasks
+end
