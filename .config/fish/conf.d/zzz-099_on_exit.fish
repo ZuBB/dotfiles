@@ -1,29 +1,14 @@
 # vim: set filetype=sh : ~
-# test 1 2 3 4 5 6 7 8
+# test 1
 # https://matrix.to/#/!YLTeaulxSDauOOxBoR:matrix.org/$1sc5KBTXkQoMgF4naB5BGeUVwtyaAu431jE5NPQmsIg?via=matrix.org&via=gitter.im&via=zwanenburg.info
 
-function logout_tasks
-    echo 'we are all in'
+function detach_logout_tasks
     for repo in (vcsh list)
         vcsh "$repo" commit -qam "autoupdate of configs in '$repo'"
     end
 
     # https://github.com/fish-shell/fish-shell/issues/4010#issuecomment-439721767
-    vcsh push -q
-end
-
-# function detach_logout_tasks
-#     for repo in (vcsh list)
-# 	vcsh "$repo" commit -qam "autoupdate of configs in '$repo'"
-#     end
-# 
-#     # https://github.com/fish-shell/fish-shell/issues/4010#issuecomment-439721767
-#     nohup vcsh push -q </dev/null &>/dev/null & disown
-# end
-
-function detach_logout_tasks
-    # nohup logout_tasks &>/dev/null & disown
-    logout_tasks
+    nohup vcsh push -q </dev/null &>/dev/null & disown
 end
 
 function mytest
