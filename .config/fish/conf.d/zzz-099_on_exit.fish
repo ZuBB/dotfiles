@@ -1,5 +1,6 @@
 # vim: set filetype=sh : ~
 # test 1 2 3 4 5 6 7 8
+# https://matrix.to/#/!YLTeaulxSDauOOxBoR:matrix.org/$1sc5KBTXkQoMgF4naB5BGeUVwtyaAu431jE5NPQmsIg?via=matrix.org&via=gitter.im&via=zwanenburg.info
 
 function detach_logout_tasks
     for repo in (vcsh list)
