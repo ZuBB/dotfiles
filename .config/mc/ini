@@ -81,6 +81,12 @@ mcview_eof=
 ignore_ftp_chattr_errors=true
 skin=default
 
+safe_overwrite=false
+editor_drop_selection_on_copy=true
+editor_state_full_filename=false
+shadows=true
+editor_stop_format_chars=-+*\\,.;:&>
+
 [Layout]
 message_visible=1
 keybar_visible=1
@@ -116,6 +122,8 @@ rxvt-unicode=
 
 linux=
 
+xterm-256color=
+
 [Panels]
 show_mini_info=true
 kilobyte_si=false
@@ -136,6 +144,9 @@ torben_fj_mode=false
 quick_search_mode=2
 
 simple_swap=false
+
+panel_scroll_center=false
+select_flags=6
 
 [Panelize]
 Find *.orig after patching=find . -name \\*.orig -print
