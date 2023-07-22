@@ -11,5 +11,6 @@ set -gx EDITOR nvim
 set -gx HOMEBREW_NO_GITHUB_API 1
 
 # https://github.com/Homebrew/brew/issues/1327
-set -gx HOMEBREW_NO_GOOGLE_ANALYTICS 1
+# https://news.ycombinator.com/item?id=36633775
+set -gx HOMEBREW_NO_ANALYTICS 1
 
