@@ -8,6 +8,7 @@ function detach_logout_tasks
     end
 
     # https://github.com/fish-shell/fish-shell/issues/4010#issuecomment-439721767
+    # https://stackoverflow.com/questions/23898623/nohup-cant-detach-from-console
     reattach-to-user-namespace nohup vcsh push -q </dev/null &>/dev/null & disown
 end
 
