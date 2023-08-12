@@ -18,8 +18,8 @@ function detach_logout_tasks
     # https://stackoverflow.com/questions/23898623/nohup-cant-detach-from-console
     # reattach-to-user-namespace nohup vcsh push -q </dev/null &>/dev/null & disown
     #reattach-to-user-namespace nohup vcsh push -q </dev/null &>/dev/null & disown
-    # nohup vcsh push -q </dev/null &>/dev/null & disown
-    daemonize vcsh push -q
+    # daemonize vcsh push -q
+    nohup vcsh push -q </dev/null &>/dev/null & disown
 end
 
 function mytest
