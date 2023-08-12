@@ -3,6 +3,14 @@
 # https://matrix.to/#/!YLTeaulxSDauOOxBoR:matrix.org/$1sc5KBTXkQoMgF4naB5BGeUVwtyaAu431jE5NPQmsIg?via=matrix.org&via=gitter.im&via=zwanenburg.info
 
 function detach_logout_tasks
+    #git diff-index --quiet HEAD
+
+    #test $status -eq 0; and return 0
+
+    #if test $status -eq 0
+        #return 0
+    #end
+
     for repo in (vcsh list)
         vcsh "$repo" commit -qam "autoupdate of configs in '$repo'"
     end
