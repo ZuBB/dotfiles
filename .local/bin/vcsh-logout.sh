@@ -1,27 +1,28 @@
 #!/usr/bin/env bash
 
 # phase #1
-git diff-index --quiet HEAD
 
-if [ $? -ne 0 ]
-then
-    echo "changes detected";
-    for repo in `vcsh list`; do
+for repo in `vcsh list`; do
+    vcsh run "${repo}" git diff-index --quiet HEAD
+
+    if [ $? -ne 0 ]
+    then
+        echo "changes detected in '${repo}'";
         vcsh run "${repo}" git commit -qam "autoupdate of configs in '${repo}'";
-    done
-else
-    echo "no changes detected";
-fi
+    else
+        echo "no changes detected '${repo}'";
+    fi
+done
 
 
 # phase #2
-BRANCH_STATUS=`LANG="C" git status -sb`
+#BRANCH_STATUS=`LANG="C" git status -sb`
 
-if [[ "$BRANCH_STATUS" == *"ahead"* ]]
-then
-    echo "ahead in status detected";
+#if [[ "$BRANCH_STATUS" == *"ahead"* ]]
+#then
+    #echo "ahead in status detected";
+#else
+    #echo "no ahead in status detected";
+#fi
     vcsh push -q;
-else
-    echo "no ahead in status detected";
-fi
 
