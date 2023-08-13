@@ -22,7 +22,27 @@ function detach_logout_tasks
     #reattach-to-user-namespace nohup vcsh push -q </dev/null &>/dev/null & disown
     # daemonize vcsh push -q
     # nohup vcsh push -q </dev/null &>/dev/null & disown
-    nohup vcsh-logout.sh </dev/null &>/dev/null & disown
+    # reattach-to-user-namespace nohup vcsh-logout.sh </dev/null &>/dev/null & disown
+    daemonize -c /Users/vv/ -u vv /Users/vv/.local/bin/vcsh-logout.sh
+
+
+#daemonize: illegal option -- -
+#Bad option: --
+#daemonize, version 1.7.8
+#Usage: daemonize [OPTIONS] path [arg] ...
+
+#OPTIONS
+
+#-a             Append to, instead of overwriting, output files. Ignored 
+#               unless -e and/or -o are specified.
+#-c <dir>       Set daemon's working directory to <dir>.
+#-e <stderr>    Send daemon's stderr to file <stderr>, instead of /dev/null.
+#-E var=value   Pass environment setting to daemon. May appear multiple times.
+#-o <stdout>    Send daemon's stdout to file <stdout>, instead of /dev/null.
+#-p <pidfile>   Save PID to <pidfile>.
+#-u <user>      Run daemon as user <user>. Requires invocation as root.
+#-l <lockfile>  Single-instance checking using lockfile <lockfile>.
+#-v             Issue verbose messages to stdout while daemonizing.
 end
 
 function mytest
