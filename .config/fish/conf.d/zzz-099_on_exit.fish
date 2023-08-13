@@ -23,7 +23,7 @@ function detach_logout_tasks
     # daemonize vcsh push -q
     # nohup vcsh push -q </dev/null &>/dev/null & disown
     # reattach-to-user-namespace nohup vcsh-logout.sh </dev/null &>/dev/null & disown
-    daemonize -c /Users/vv/ -u vv /Users/vv/.local/bin/vcsh-logout.sh
+    daemonize -c $HOME $HOME/.local/bin/vcsh-logout.sh
 
 
 #daemonize: illegal option -- -
