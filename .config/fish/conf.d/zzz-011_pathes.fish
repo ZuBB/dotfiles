@@ -1,4 +1,4 @@
-function add_pathes_to_PATH
+function add_pathes_to_path
     # own executables
     fish_add_path -aP ~/.local/bin
     # stuff brought by composer
@@ -9,6 +9,6 @@ function add_pathes_to_PATH
 end
 
 if status is-login
-    add_pathes_to_PATH
+    add_pathes_to_path
 end
 
