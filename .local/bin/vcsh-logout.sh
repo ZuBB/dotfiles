@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# phase #1
 git diff-index --quiet HEAD
 
 if [ $? -ne 0 ]
@@ -13,10 +14,8 @@ else
 fi
 
 
+# phase #2
 BRANCH_STATUS=`LANG="C" git status -sb`
-
-echo $BRANCH_STATUS
-
 
 if [[ "$BRANCH_STATUS" == *"ahead"* ]]
 then

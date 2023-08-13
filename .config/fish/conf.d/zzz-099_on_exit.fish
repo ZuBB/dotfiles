@@ -21,7 +21,8 @@ function detach_logout_tasks
     # reattach-to-user-namespace nohup vcsh push -q </dev/null &>/dev/null & disown
     #reattach-to-user-namespace nohup vcsh push -q </dev/null &>/dev/null & disown
     # daemonize vcsh push -q
-    nohup vcsh push -q </dev/null &>/dev/null & disown
+    # nohup vcsh push -q </dev/null &>/dev/null & disown
+    nohup vcsh-logout.sh </dev/null &>/dev/null & disown
 end
 
 function mytest
