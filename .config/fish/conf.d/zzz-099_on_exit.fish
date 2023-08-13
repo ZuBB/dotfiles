@@ -10,9 +10,9 @@ function detach_logout_tasks
         #return 0
     #end
 
-    for repo in (vcsh list)
-        vcsh "$repo" commit -qam "autoupdate of configs in '$repo'" &>/dev/null
-    end
+    #for repo in (vcsh list)
+        #vcsh "$repo" commit -qam "autoupdate of configs in '$repo'" &>/dev/null
+    #end
 
     # https://github.com/fish-shell/fish-shell/issues/4010#issuecomment-439721767
     # https://stackoverflow.com/questions/23898623/nohup-cant-detach-from-console
