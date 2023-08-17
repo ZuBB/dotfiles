@@ -5,7 +5,7 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 " switch syntax highlighting on
-syntax on                                                                     
+syntax on
 " ...
 set copyindent
 " ...
@@ -15,9 +15,9 @@ set softtabstop=0
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 " setting tab size into 4 spaces
-set tabstop=4    
+set tabstop=4
 " setting indent size into 4 spaces
-set shiftwidth=4    
+set shiftwidth=4
 " setting spaces instead of tabs
 set expandtab
 " set numbers/relative numbers
