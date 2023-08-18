@@ -1,12 +1,16 @@
 #!/usr/bin/env bash
 
-brew leaves -r > $HOME/.local/share/apps/brew-apps
+DEST_PATH=$HOME/.local/share/installed-apps-list
 
-brew list --cask -1 > $HOME/.local/share/apps/casks-apps
+mkdir -p $DEST_PATH
 
-mas list > $HOME/.local/share/apps/appstore-apps
+brew leaves -r > $DEST_PATH/brew-apps
 
-ls -1 /Applications/ > $HOME/.local/share/apps/system-apps
+brew list --cask -1 > $DEST_PATH/casks-apps
 
-ls -1 $HOME/Applications/ > $HOME/.local/share/apps/user-apps
+mas list > $DEST_PATH/appstore-apps
+
+ls -1 /Applications/ > $DEST_PATH/system-apps
+
+ls -1 $HOME/Applications/ > $DEST_PATH/user-apps
 
