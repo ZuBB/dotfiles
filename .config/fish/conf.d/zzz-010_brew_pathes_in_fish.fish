@@ -1,4 +1,5 @@
 function add_brew_pathes_to_path
+    # nothing fancy. just output of official command `brew shellenv`
     set -gx HOMEBREW_PREFIX "/opt/homebrew";
     set -gx HOMEBREW_CELLAR "/opt/homebrew/Cellar";
     set -gx HOMEBREW_REPOSITORY "/opt/homebrew";
