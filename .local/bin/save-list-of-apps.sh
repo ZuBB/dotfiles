@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DEST_PATH=$HOME/.local/share/installed-apps-list
+DEST_PATH=$HOME/.local/share/installed-apps-list/macos
 
 mkdir -p $DEST_PATH
 
