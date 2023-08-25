@@ -7,24 +7,20 @@ tap "homebrew/services"
 tap "oven-sh/bun"
 tap "rbenv/tap"
 tap "shivammathur/php"
-brew "ca-certificates"
 brew "daemonize"
 brew "entr"
 brew "fd"
 brew "fish"
-brew "fisher"
 brew "fnm"
 brew "git"
-brew "glib"
 brew "htop"
 brew "jq"
-brew "openssl@3"
-brew "luajit"
 brew "mas"
 brew "midnight-commander"
 brew "mtr"
 brew "ncdu"
 brew "neovim"
+brew "nginx", restart_service: true
 brew "pyenv"
 brew "rename"
 brew "ripgrep"
@@ -45,6 +41,7 @@ cask "chromium"
 cask "coteditor"
 cask "dbngin"
 cask "docker"
+cask "firefox"
 cask "font-fira-code-nerd-font"
 cask "fsnotes"
 cask "gimp"
@@ -70,6 +67,7 @@ mas "Gifox", id: 1461845568
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Pixea", id: 1507782672
+mas "Slack", id: 803453959
 mas "The Unarchiver", id: 425424353
 mas "Typist", id: 415166115
 vscode "adpyke.vscode-sql-formatter"
