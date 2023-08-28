@@ -37,3 +37,7 @@ set modeline
 " https://github.com/webpack/webpack/issues/781#issuecomment-95523711
 set backupcopy=yes
 
+" https://stackoverflow.com/questions/2019281
+if &diff
+    colorscheme quiet
+endif
