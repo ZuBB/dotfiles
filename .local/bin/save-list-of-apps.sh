@@ -4,7 +4,7 @@ DEST_PATH=$HOME/.local/share/installed-apps-list/macos
 
 mkdir -p $DEST_PATH
 
-brew bundle dump -qf --file $DEST_PATH/Brewfile
+/opt/homebrew/bin/brew bundle dump -qf --file $DEST_PATH/Brewfile
 
 ls -1 /Applications/ > $DEST_PATH/system-apps
 
