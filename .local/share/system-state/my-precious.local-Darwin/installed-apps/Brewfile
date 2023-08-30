@@ -64,6 +64,7 @@ cask "vivaldi"
 cask "vlc"
 cask "wineskin"
 cask "yt-music"
+cask "zoom"
 mas "ApolloOne", id: 1044484672
 mas "Gifox", id: 1461845568
 mas "Numbers", id: 409203825
