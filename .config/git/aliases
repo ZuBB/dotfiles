@@ -182,7 +182,7 @@
 
 	# ============= [ STATUS____________________ ] =============
 	sa = status --untracked-files=no
-    sg = status --ignored
+    sg = status --ignored .
 	st = status --short --branch
 	su = ls-files --other | grep -v ./
 	sv = status
