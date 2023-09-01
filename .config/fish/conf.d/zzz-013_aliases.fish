@@ -1,10 +1,5 @@
 # vim: set filetype=sh : ~
 
-alias v='nvim'
-alias vim='nvim'
-alias vimdiff='nvim -d'
-alias oldvim="/usr/bin/vim"
-
 # ls
 # alias ls='ls --group-directories-first --color=auto'
 alias ls='ls --color=auto'
