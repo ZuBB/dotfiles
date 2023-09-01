@@ -10,5 +10,15 @@ end
 
 if status is-login
     add_brew_pathes_to_path
+
+    # https://github.com/Homebrew/brew/issues/1327
+    set -gx HOMEBREW_NO_GITHUB_API 1
+    
+    # https://github.com/Homebrew/brew/issues/1327
+    # https://news.ycombinator.com/item?id=36633775
+    set -gx HOMEBREW_NO_ANALYTICS 1
+    
+    # https://computingforgeeks.com/prevent-homebrew-auto-update-on-macos/
+    set -gx HOMEBREW_NO_AUTO_UPDATE 1
 end
 
