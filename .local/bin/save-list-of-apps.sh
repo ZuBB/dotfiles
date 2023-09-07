@@ -7,7 +7,7 @@ DEST_PATH=$HOME/.local/share/system-state/$SYSTEM_NAME/installed-apps
 mkdir -p $DEST_PATH
 
 if [ -e /opt/homebrew/bin/brew ]; then
-    /opt/homebrew/bin/brew bundle dump -qf --brews --cask --tap --mas --file $DEST_PATH/Brewfile
+    HOMEBREW_NO_AUTO_UPDATE=1 /opt/homebrew/bin/brew bundle dump -qf --brews --cask --tap --mas --file $DEST_PATH/Brewfile
 fi
 
 if [ "$SYSTEM" == "Darwin" ]; then
