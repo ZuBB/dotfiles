@@ -15,4 +15,3 @@ if status is-login
     add_pathes_to_path
 end
 
-
