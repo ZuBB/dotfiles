@@ -2,7 +2,7 @@
 
 SYSTEM_TYPE=$(uname -o | tr '[:upper:]' '[:lower:]')
 HOST_NAME=$(hostname -s)
-DEST_PATH=$HOME/.local/share/system-state/$SYSTEM/$HOST_NAME
+DEST_PATH=$HOME/.local/share/system-state/$SYSTEM_TYPE/$HOST_NAME
 
 mkdir -p $DEST_PATH
 
