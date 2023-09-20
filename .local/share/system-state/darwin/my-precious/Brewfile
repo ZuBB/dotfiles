@@ -1,4 +1,5 @@
 tap "gcenx/wine"
+tap "heroku/brew"
 tap "homebrew/aliases"
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
@@ -36,6 +37,7 @@ brew "tty-clock"
 brew "uptimed", restart_service: true
 brew "vcsh"
 brew "watch"
+brew "heroku/brew/heroku"
 brew "oven-sh/bun/bun"
 cask "ace-link"
 cask "aldente"
