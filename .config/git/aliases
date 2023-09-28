@@ -154,7 +154,7 @@
 
 
 	# ============= [ REMOTE____________________ ] =============
-	mp = remote prune origin
+	# mp = remote prune origin
 
 
 
