@@ -8,7 +8,7 @@ function detach_logout_tasks
     # https://unix.stackexchange.com/questions/266565/daemonize-a-process-in-shell
     # reattach-to-user-namespace nohup vcsh push -q </dev/null &>/dev/null & disown
     # TODO check how this behaves on Linux
-    daemonize $HOME/.local/bin/vcsh-logout.sh
+    daemonize $HOME/.local/bin/vcsh-logout
 end
 
 function mytest
