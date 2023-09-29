@@ -1,28 +1,115 @@
 #!/usr/bin/env bash
 
-ARCH=$(uname -m)
 OS_TYPE=$(uname -o | tr '[:upper:]' '[:lower:]')
-HOST_NAME=$(hostname -s)
-
-BASE_DEST_PATH=$HOME/.local/share/system-state/
-COMMON_DEST_PATH=$BASE_DEST_PATH/$ARCH/$OS_TYPE/$HOST_NAME
-CUR_DEST_PATH=$COMMON_DEST_PATH/current
-AT_DEST_PATH=$COMMON_DEST_PATH/all-time
-
-mkdir -p $COMMON_DEST_PATH/{current,all-time}
 
 
-# CURRENT DATA
+# ............................................................................
+function get_save_dirs () {
+    local ARCH=$(uname -m)
+    local HOST_NAME=$(hostname -s)
 
-if [ -e $HOME/.local/bin/save-list-of-mac-apps.sh ]; then
-    $HOME/.local/bin/save-list-of-mac-apps.sh $CUR_DEST_PATH;
-fi
+    local BASE_DEST_PATH=$HOME/.local/share/system-state/
+    local COMMON_DEST_PATH=$BASE_DEST_PATH/$ARCH/$OS_TYPE/$HOST_NAME
+    local DIR1_PATH=$COMMON_DEST_PATH/current
+    local DIR2_PATH=$COMMON_DEST_PATH/all-time
 
-if [ -e $HOME/.local/bin/save-list-of-brew-apps.sh ]; then
-    $HOME/.local/bin/save-list-of-brew-apps.sh $CUR_DEST_PATH;
-fi
+    # Return the paths as a single string separated by :
+    echo "$DIR1_PATH:$DIR2_PATH"
+}
 
 
-# ALL-TIME DATA
+# ............................................................................
+function macos_current_save () {
+    local DEST_DIR=$1
 
-#{ ls -1 /Applications/; cat $AT_DEST_PATH/installed-system-apps } | sort -u > $AT_DEST_PATH/installed-system-apps;
+    ls -1 /Applications/ > $DEST_DIR/installed-system-apps;
+    ls -1 $HOME/Applications/ > $DEST_DIR/installed-user-apps;
+}
+
+
+# ............................................................................
+function macos_all_time_app_save () {
+    local SRC_DIR=$1
+    local DEST_DIR=$2
+    local FILE=$3
+
+    cat {$SRC_DIR,$DEST_DIR}/$FILE | sort -u > $DEST_DIR/$FILE
+}
+
+
+# ............................................................................
+function save_uniq_brew_subtype () {
+    local SRC_DIR=$1
+    local DEST_DIR=$2
+    local TYPE=$3
+
+    grep -h -e "^${TYPE}" {$SRC_DIR,$DEST_DIR}/Brewfile | sort -u  > $DEST_DIR/$TYPE
+}
+
+
+# ............................................................................
+function macos_all_time_brew_save () {
+    save_uniq_brew_subtype $1 $2 "tap"
+    save_uniq_brew_subtype $1 $2 "brew"
+    save_uniq_brew_subtype $1 $2 "cask"
+    save_uniq_brew_subtype $1 $2 "mas"
+
+    cat $2/{tap,brew,cask,mas} > $2/Brewfile
+    rm $2/{tap,brew,cask,mas}
+}
+
+
+# ............................................................................
+function macos_save () {
+    if [ "$OS_TYPE" == "darwin" ]; then
+        # CURRENT DATA
+        macos_current_save $1
+
+        # ALL-TIME DATA
+        macos_all_time_app_save $1 $2 installed-system-apps;
+        macos_all_time_app_save $1 $2 installed-user-apps;
+        macos_all_time_brew_save $1 $2;
+    fi
+}
+
+
+# ............................................................................
+function brew_save () {
+    # TODO: this supports only arm macos+linux
+    local BREW_EXE_PATH=/opt/homebrew/bin/brew
+    local DEST_DIR=$1
+
+    if [ -e $BREW_EXE_PATH ]; then
+        HOMEBREW_NO_AUTO_UPDATE=1 $BREW_EXE_PATH bundle dump \
+            -qf --brews --cask --tap --mas --file $DEST_DIR/Brewfile;
+    fi
+}
+
+
+# ............................................................................
+
+
+# Create a temporary file to capture the result
+tmpfile=$(mktemp)
+get_save_dirs > "$tmpfile"
+
+# Read the result from the temporary file into a variable
+result=$(<"$tmpfile")
+
+# Clean up the temporary file
+rm -f "$tmpfile"
+
+IFS=':' read -ra DIRS <<< "$result"
+
+CUR_DEST_PATH="${DIRS[0]}"
+AT_DEST_PATH="${DIRS[1]}"
+mkdir -p $CUR_DEST_PATH $AT_DEST_PATH
+
+
+# ............................................................................
+
+
+macos_save $CUR_DEST_PATH $AT_DEST_PATH
+brew_save $CUR_DEST_PATH
+
+
