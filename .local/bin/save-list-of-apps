@@ -19,7 +19,7 @@ function get_save_dirs () {
 
 
 # ............................................................................
-function macos_current_save () {
+function macos_current_app_save () {
     local DEST_DIR=$1
 
     ls -1 /Applications/ > $DEST_DIR/installed-system-apps;
@@ -61,21 +61,7 @@ function macos_all_time_brew_save () {
 
 
 # ............................................................................
-function macos_save () {
-    if [ "$OS_TYPE" == "darwin" ]; then
-        # CURRENT DATA
-        macos_current_save $1
-
-        # ALL-TIME DATA
-        macos_all_time_app_save $1 $2 installed-system-apps;
-        macos_all_time_app_save $1 $2 installed-user-apps;
-        macos_all_time_brew_save $1 $2;
-    fi
-}
-
-
-# ............................................................................
-function brew_save () {
+function brew_current_save () {
     # TODO: this supports only arm macos+linux
     local BREW_EXE_PATH=/opt/homebrew/bin/brew
     local DEST_DIR=$1
@@ -83,6 +69,21 @@ function brew_save () {
     if [ -e $BREW_EXE_PATH ]; then
         HOMEBREW_NO_AUTO_UPDATE=1 $BREW_EXE_PATH bundle dump \
             -qf --brews --cask --tap --mas --file $DEST_DIR/Brewfile;
+    fi
+}
+
+
+# ............................................................................
+function macos_save () {
+    if [ "$OS_TYPE" == "darwin" ]; then
+        # CURRENT DATA
+        macos_current_app_save $1
+        brew_current_save $1
+
+        # ALL-TIME DATA
+        macos_all_time_app_save $1 $2 installed-system-apps;
+        macos_all_time_app_save $1 $2 installed-user-apps;
+        macos_all_time_brew_save $1 $2;
     fi
 }
 
@@ -111,6 +112,5 @@ mkdir -p $CUR_DEST_PATH $AT_DEST_PATH
 
 
 macos_save $CUR_DEST_PATH $AT_DEST_PATH
-brew_save $CUR_DEST_PATH
 
 
