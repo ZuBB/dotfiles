@@ -33,7 +33,8 @@ function macos_all_time_app_save () {
     local DEST_DIR=$2
     local FILE=$3
 
-    cat {$SRC_DIR,$DEST_DIR}/$FILE | sort -u > $DEST_DIR/$FILE
+    cat {$SRC_DIR,$DEST_DIR}/$FILE | sort -u > $DEST_DIR/_$FILE
+    mv $DEST_DIR/_$FILE $DEST_DIR/$FILE
 }
 
 
