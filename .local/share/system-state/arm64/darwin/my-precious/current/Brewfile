@@ -10,6 +10,7 @@ tap "rbenv/tap"
 tap "shivammathur/php"
 brew "composer"
 brew "daemonize"
+brew "dnsmasq", restart_service: true
 brew "entr"
 brew "fd"
 brew "fish"

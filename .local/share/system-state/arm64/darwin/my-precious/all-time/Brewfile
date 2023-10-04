@@ -11,6 +11,7 @@ tap "shivammathur/php"
 brew "composer"
 brew "daemonize"
 brew "dnsmasq"
+brew "dnsmasq", restart_service: true
 brew "entr"
 brew "fd"
 brew "fish"
