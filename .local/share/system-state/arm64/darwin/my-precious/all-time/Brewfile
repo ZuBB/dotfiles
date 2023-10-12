@@ -33,6 +33,7 @@ brew "nmap"
 brew "oven-sh/bun/bun"
 brew "php@8.1", link: true
 brew "pyenv"
+brew "redis"
 brew "rename"
 brew "ripgrep"
 brew "scc"
