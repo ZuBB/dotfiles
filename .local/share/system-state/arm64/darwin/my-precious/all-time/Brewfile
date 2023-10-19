@@ -92,6 +92,7 @@ cask "yt-music"
 cask "zoom"
 mas "ApolloOne", id: 1044484672
 mas "Gifox", id: 1461845568
+mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Pixea", id: 1507782672
