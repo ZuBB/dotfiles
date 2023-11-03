@@ -48,6 +48,7 @@
 
 [init]
 	defaultBranch = main
+	templatedir = ~/.config/git/templates
 
 [log]
 	abbrevCommit = true
