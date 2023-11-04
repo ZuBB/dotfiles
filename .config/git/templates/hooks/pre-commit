@@ -2,7 +2,7 @@
 
 # https://itnext.io/using-git-hooks-to-enforce-branch-naming-policy-ffd81fa01e5e
 
-valid_branch_regex="^[0-9A-Za-z_\-\/]+$"
+valid_branch_regex="^[0-9A-Za-z_\/-]+$"
 
 git rev-parse --abbrev-ref HEAD | grep -Eq "${valid_branch_regex}"
 
