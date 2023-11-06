@@ -16,13 +16,7 @@ function mytest
 end
 
 # function on_exit1 --on-process-exit %self
-#     mytest on-process-exit
-# end
-
 # function on_exit2 --on-process %self
-#     mytest on-process
-# end
-
 function on_exit3 --on-event fish_exit
     # mytest fish_exit_event
     detach_logout_tasks
