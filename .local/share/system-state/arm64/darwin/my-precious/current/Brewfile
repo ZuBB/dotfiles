@@ -1,3 +1,4 @@
+tap "cantino/mcfly"
 tap "gcenx/wine"
 tap "heroku/brew"
 tap "homebrew/aliases"
@@ -38,6 +39,7 @@ brew "tty-clock"
 brew "uptimed", restart_service: true
 brew "vcsh"
 brew "watch"
+brew "cantino/mcfly/mcfly"
 brew "heroku/brew/heroku"
 brew "oven-sh/bun/bun"
 cask "ace-link"
