@@ -37,7 +37,11 @@ git checkout `git config user.branch`
 git push origin --delete $BRANCH;
 # ...
 git pull --ff-only
+# create tmp file
+tmpfile=$(mktemp)
 # drop processed branch from the list of tasks
-tail -n +2 $2 > $2
+tail -n +2 $2 > $tmpfile
+# rewrite content of branches
+cat $tmpfile > $2
 
 echo "$BRANCH has been successully landed"
