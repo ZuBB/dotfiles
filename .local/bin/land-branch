@@ -21,6 +21,13 @@ fi
 cd $1
 # get required branch
 BRANCH=`head -n 1 $2`
+
+# ...
+if [ "$BRANCH" = "__noop__" ]; then
+  echo "Nothing to do today...";
+  exit 0;
+fi
+
 # switch to it
 git checkout $BRANCH
 # update commit time
