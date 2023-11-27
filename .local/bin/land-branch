@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+if [ ! -d "$1" ]; then
+  echo "Directory does not exist. Exiting";
+  exit 1;
+fi
+
+command -v git > /dev/null;
+if [ "$?" = 127 ]; then
+  echo "Git CLI has not bun found. Exiting";
+  exit 1;
+fi
+
+command -v gh > /dev/null;
+if [ "$?" = 127 ]; then
+  echo "Github CLI has not bun found. Exiting";
+  exit 1;
+fi
+
+# go to directory with repo
+cd $1
+# get required branch
+BRANCH=`head -n 1 $2`
+# switch to it
+git checkout $BRANCH
+# update commit time
+git commit --amend --no-edit --date=now
+# ...
+git push --force
+# create a pull request in github
+gh pr create --fill
+# merge it and do a cleanup
+gh pr merge -m --admin
+# switch to home branch
+git checkout `git config user.branch`
+# ...
+git push origin --delete $BRANCH;
+# ...
+git pull --ff-only
+# drop processed branch from the list of tasks
+tail -n +2 $2 > $2
+
+echo "$BRANCH has been successully landed"
