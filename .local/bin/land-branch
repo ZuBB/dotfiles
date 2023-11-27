@@ -39,7 +39,7 @@ git push --force
 # create a pull request in github
 gh pr create --fill
 # merge it and do a cleanup
-gh pr merge --rebase --squash --admin
+gh pr merge --rebase --admin
 # switch to home branch
 git checkout `git config user.branch`
 # ...
