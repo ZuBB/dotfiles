@@ -7,13 +7,13 @@ fi
 
 command -v git > /dev/null;
 if [ "$?" = 127 ]; then
-  echo "Git CLI has not bun found. Exiting";
+  echo "Git CLI has not been found. Exiting";
   exit 1;
 fi
 
 command -v gh > /dev/null;
 if [ "$?" = 127 ]; then
-  echo "Github CLI has not bun found. Exiting";
+  echo "Github CLI has not been found. Exiting";
   exit 1;
 fi
 
