@@ -30,13 +30,13 @@ git push --force
 # create a pull request in github
 gh pr create --fill
 # merge it and do a cleanup
-gh pr merge -m --admin
+gh pr merge --rebase --squash --admin
 # switch to home branch
 git checkout `git config user.branch`
 # ...
 git push origin --delete $BRANCH;
 # ...
-git pull --ff-only
+git pull --ff-only --prune
 # create tmp file
 tmpfile=$(mktemp)
 # drop processed branch from the list of tasks
