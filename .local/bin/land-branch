@@ -34,40 +34,33 @@ if [ -z "$BRANCH" ]; then
   exit 0;
 fi
 
-# switch to it
-git checkout $BRANCH
-    echo 'checkout done' >> $logfile
-# update commit time
-git commit --amend --no-edit --date=now
-    echo 'amend done' >> $logfile
-# ...
-git push --force
-    echo 'push done' >> $logfile
-# create a pull request in github
-gh pr create --fill
-    echo 'pr create done' >> $logfile
-# merge it and do a cleanup
-gh pr merge --rebase --admin
-    echo 'pr merge done' >> $logfile
-# switch to home branch
 git checkout `git config user.branch`
     echo 'co home done' >> $logfile
-# ...
+git checkout $BRANCH
+    echo 'checkout done' >> $logfile
+git rebase `git config user.branch` $BRANCH
+    echo 'rd done' >> $logfile
+git commit --amend --no-edit --date=now
+    echo 'amend done' >> $logfile
+git push --force
+    echo 'push done' >> $logfile
+gh pr create --fill
+    echo 'pr create done' >> $logfile
+gh pr merge --admin --merge
+    echo 'pr merge+ done' >> $logfile
 git push origin --delete $BRANCH;
-    echo 'pd done' >> $logfile
-# ...
-git pull --ff-only --prune
+    echo 'pd done' > $logfile
+git checkout `git config user.branch`
+    echo 'co home done' >> $logfile
+git pull --ff-only --prune --no-verify
     echo 'pl done' >> $logfile
-# create tmp file
 tmpfile=$(mktemp)
     echo 'mktemp done' >> $logfile
-# drop processed branch from the list of tasks
 tail -n +2 $SRC_FILE > $tmpfile
     echo 'tail done' >> $logfile
-# rewrite content of branches
 cat $tmpfile > $SRC_FILE
     echo 'cat done' >> $logfile
 
-echo "$BRANCH has been successully landed!"
+echo -e "\n$BRANCH has been successully landed!"
     echo 'all done' >> $logfile
     cat $logfile > /tmp/$(date +%s)
