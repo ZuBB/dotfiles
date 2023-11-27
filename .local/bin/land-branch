@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+SRC_FILE=.git/automerge-queue
+
 if [ ! -d "$1" ]; then
   echo "Directory does not exist. Exiting";
   exit 1;
@@ -20,10 +22,10 @@ fi
 # go to directory with repo
 cd $1
 # get required branch
-BRANCH=`head -n 1 $2`
+BRANCH=`head -n 1 $SRC_FILE`
 
 # ...
-if [ "$BRANCH" = "__noop__" ]; then
+if [ -z "$BRANCH" ]; then
   echo "Nothing to do today...";
   exit 0;
 fi
@@ -47,8 +49,8 @@ git pull --ff-only --prune
 # create tmp file
 tmpfile=$(mktemp)
 # drop processed branch from the list of tasks
-tail -n +2 $2 > $tmpfile
+tail -n +2 $SRC_FILE > $tmpfile
 # rewrite content of branches
-cat $tmpfile > $2
+cat $tmpfile > $SRC_FILE
 
-echo "$BRANCH has been successully landed"
+echo "$BRANCH has been successully landed!"
