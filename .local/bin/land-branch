@@ -2,65 +2,44 @@
 
 SRC_FILE=.git/automerge-queue
 
-if [ ! -d "$1" ]; then
-  echo "Directory does not exist. Exiting";
-  exit 1;
-fi
-
-command -v git > /dev/null;
-if [ "$?" = 127 ]; then
-  echo "Git CLI has not been found. Exiting";
-  exit 1;
-fi
-
-command -v gh > /dev/null;
-if [ "$?" = 127 ]; then
-  echo "Github CLI has not been found. Exiting";
-  exit 1;
-fi
-
 logfile=$(mktemp)
+echo 'we are about to start' >> $logfile
+
+#[ ! -d "$1/.git" ] && echo "Dir is not valid git repo. Exiting" && exit 1;
+
+#command -v git > /dev/null;
+#[ "$?" = 127 ] && echo "Git CLI has not been found. Exiting" && exit 1;
+
+#command -v gh > /dev/null;
+#[ "$?" = 127 ] && echo "Github CLI has not been found. Exiting" && exit 1;
+
+cd $1
+
+BRANCH=`head -n 1 $SRC_FILE`
+#git show-ref -q --heads $BRANCH
+#[ $? -ne 0 ] && echo "Nothing to do today..." && exit 0
+
 echo $1 >> $logfile
 echo $BRANCH >> $logfile
 
-# go to directory with repo
-cd $1
-# get required branch
-BRANCH=`head -n 1 $SRC_FILE`
-
-# ...
-if [ -z "$BRANCH" ]; then
-  echo "Nothing to do today...";
-  exit 0;
-fi
-
 git checkout `git config user.branch`
-    echo 'co home done' >> $logfile
+git pull --ff-only --no-verify
 git checkout $BRANCH
-    echo 'checkout done' >> $logfile
 git rebase `git config user.branch` $BRANCH
-    echo 'rd done' >> $logfile
 git commit --amend --no-edit --date=now
-    echo 'amend done' >> $logfile
 git push --force
-    echo 'push done' >> $logfile
-gh pr create --fill
-    echo 'pr create done' >> $logfile
-gh pr merge --admin --merge
-    echo 'pr merge+ done' >> $logfile
+echo 'before pr create' >> $logfile
+gh pr create --fill >> $logfile
+echo 'before pr merge' >> $logfile
+gh pr merge --admin --merge >> $logfile
+echo 'pr merge done' >> $logfile
 git push origin --delete $BRANCH;
-    echo 'pd done' > $logfile
 git checkout `git config user.branch`
-    echo 'co home done' >> $logfile
 git pull --ff-only --prune --no-verify
-    echo 'pl done' >> $logfile
 tmpfile=$(mktemp)
-    echo 'mktemp done' >> $logfile
 tail -n +2 $SRC_FILE > $tmpfile
-    echo 'tail done' >> $logfile
 cat $tmpfile > $SRC_FILE
-    echo 'cat done' >> $logfile
-
 echo -e "\n$BRANCH has been successully landed!"
-    echo 'all done' >> $logfile
+
+    echo 'all done' > $logfile
     cat $logfile > /tmp/$(date +%s)
