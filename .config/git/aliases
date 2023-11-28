@@ -224,3 +224,5 @@
 	
 	as = !git ls-files | xargs -n1 git blame --line-porcelain | sed -n 's/^author //p' | sort -f | uniq -ic | sort -nr
     or = [ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`
+    qa = "!f() { echo \"$1\" >> `git rev-parse --git-dir`/automerge-queue; }; f"
+    q1 = "!f() { head -n 1 `git rev-parse --git-dir`/automerge-queue; }; f"
