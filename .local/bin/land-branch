@@ -2,7 +2,6 @@
 
 DEBUG=0
 LOG_FILE=$(mktemp)
-touch $LOG_FILE
 
 function log () {
   if [ $DEBUG -eq 1 ]; then
@@ -11,11 +10,14 @@ function log () {
 }
 
 function do_exit () {
-  final_log_file="/tmp/land-branch-$(date +%s)"
-  log "$2"
-  cat $LOG_FILE > $final_log_file
-  rm $LOG_FILE
-  echo "$final_log_file"
+  if [ $DEBUG -eq 1 ]; then
+    final_log_file="/tmp/land-branch-$(date +%s)"
+    log "$2"
+    cat $LOG_FILE > $final_log_file
+    rm $LOG_FILE
+    echo "$final_log_file"
+  fi
+
   exit $1
 }
 
@@ -57,12 +59,16 @@ if [ ! -f "$SRC_FILE" ]; then
 fi
 
 command -v git > /dev/null;
-if [ "$?" -ne 0 ]; then
+exit_status1=$?
+log "git status: $exit_status1"
+if [ "$exit_status1" -ne 0 ]; then
   do_exit 1 "Git CLI has not been found. Exiting"
 fi
 
 command -v gh > /dev/null;
-if [ "$?" -ne 0 ]; then
+exit_status2=$?
+log "gh status: $exit_status2"
+if [ "$exit_status2" -ne 0 ]; then
   do_exit 1 "Github CLI has not been found. Exiting"
 fi
 
