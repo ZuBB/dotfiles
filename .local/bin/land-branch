@@ -1,52 +1,91 @@
 #!/usr/bin/env bash
 
-SRC_FILE=.git/automerge-queue
+DEBUG=1
+LOG_FILE=$(mktemp)
+touch $LOG_FILE
 
-logfile=$(mktemp)
-echo 'we are about to start' >> $logfile
+function log () {
+  if [ $DEBUG -eq 1 ]; then
+    echo "$1" >> $LOG_FILE
+  fi
+}
 
-#[ ! -d "$1/.git" ] && echo "Dir is not valid git repo. Exiting" && exit 1;
+function do_exit () {
+  final_log_file="/tmp/land-branch-$(date +%s)"
+  log "$2"
+  cat $LOG_FILE > $final_log_file
+  rm $LOG_FILE
+  echo "$final_log_file"
+  exit $1
+}
 
-#command -v git > /dev/null;
-#[ "$?" = 127 ] && echo "Git CLI has not been found. Exiting" && exit 1;
+function process_git_branch () {
+  log "We are about to start"
+  log "Target branch is '$BRANCH'"
+  git checkout `git config user.branch`
+  git pull --ff-only --no-verify
+  git checkout $BRANCH
+  git rebase `git config user.branch` $BRANCH
+  git commit --amend --no-edit --date=now
+  git push --force
+  to1=`gh pr create --fill`
+  log "$to1"
+  to2=`gh pr merge --admin --merge`
+  log "$to2"
+  git push origin --delete $BRANCH;
+  git checkout `git config user.branch`
+  git pull --ff-only --prune --no-verify
+}
 
-#command -v gh > /dev/null;
-#[ "$?" = 127 ] && echo "Github CLI has not been found. Exiting" && exit 1;
+if [ ! -d "$1" ]; then
+  do_exit 1 "Passed path is not a valid directory. Exiting"
+fi
 
+if [ ! -d "$1/.git" ]; then
+  do_exit 1 "Passed path is not a valid git repo. Exiting"
+fi
+
+log $1
 cd $1
+
+# "git qf" is my alias
+SRC_FILE=`git qf`
+
+if [ ! -f "$SRC_FILE" ]; then
+  do_exit 1 "Queue file has not been found. Exiting"
+fi
+
+command -v git > /dev/null;
+if [ "$?" -ne 0 ]; then
+  do_exit 1 "Git CLI has not been found. Exiting"
+fi
+
+command -v gh > /dev/null;
+if [ "$?" -ne 0 ]; then
+  do_exit 1 "Github CLI has not been found. Exiting"
+fi
 
 BRANCH=`head -n 1 $SRC_FILE`
 
-# ...
-if [ "$BRANCH" = "__noop__" ]; then
-  echo "Nothing to do today...";
-  exit 0;
+if [ -z "$BRANCH" ]; then
+  do_exit 0 "Nothing to do..."
 fi
 
-#git show-ref -q --heads $BRANCH
-#[ $? -ne 0 ] && echo "Nothing to do today..." && exit 0
+if [ "$BRANCH" = "__noop__" ]; then
+  do_exit 0 "Nothing to do today..."
+else
+  git show-ref -q --heads $BRANCH
 
-echo $1 >> $logfile
-echo $BRANCH >> $logfile
+  if [ $? -ne 0 ]; then
+    do_exit 1 "Branch $BRANCH does not exist"
+  fi
 
-git checkout `git config user.branch`
-git pull --ff-only --no-verify
-git checkout $BRANCH
-git rebase `git config user.branch` $BRANCH
-git commit --amend --no-edit --date=now
-git push --force
-echo 'before pr create' >> $logfile
-gh pr create --fill >> $logfile
-echo 'before pr merge' >> $logfile
-gh pr merge --admin --merge >> $logfile
-echo 'pr merge done' >> $logfile
-git push origin --delete $BRANCH;
-git checkout `git config user.branch`
-git pull --ff-only --prune --no-verify
+  process_git_branch "$BRANCH"
+fi
+
 tmpfile=$(mktemp)
 tail -n +2 $SRC_FILE > $tmpfile
 cat $tmpfile > $SRC_FILE
 echo -e "\n$BRANCH has been successully landed!"
 
-    echo 'all done' > $logfile
-    cat $logfile > /tmp/$(date +%s)
+do_exit 0 "all done"
