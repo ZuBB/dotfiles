@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DEBUG=1
+DEBUG=0
 LOG_FILE=$(mktemp)
 touch $LOG_FILE
 
@@ -21,20 +21,21 @@ function do_exit () {
 
 function process_git_branch () {
   log "We are about to start"
-  log "Target branch is '$BRANCH'"
-  git checkout `git config user.branch`
-  git pull --ff-only --no-verify
-  git checkout $BRANCH
-  git rebase `git config user.branch` $BRANCH
-  git commit --amend --no-edit --date=now
-  git push --force
+  log "Target branch is '$1'"
+  git checkout -q `git config user.branch`
+  git pull -q --ff-only --no-verify
+  git checkout -q $1
+  git rebase -q `git config user.branch` $1
+  git commit -q --amend --no-edit --date=now
+  git push -q --force
   to1=`gh pr create --fill`
   log "$to1"
   to2=`gh pr merge --admin --merge`
   log "$to2"
-  git push origin --delete $BRANCH;
-  git checkout `git config user.branch`
-  git pull --ff-only --prune --no-verify
+  git push origin -q --delete $1;
+  git checkout -q `git config user.branch`
+  git pull -q --ff-only --prune --no-verify
+  echo -e "\n'$1' has been successully landed!"
 }
 
 if [ ! -d "$1" ]; then
@@ -72,12 +73,12 @@ if [ -z "$BRANCH" ]; then
 fi
 
 if [ "$BRANCH" = "__noop__" ]; then
-  do_exit 0 "Nothing to do today..."
+  log "Nothing to do today..."
 else
   git show-ref -q --heads $BRANCH
 
   if [ $? -ne 0 ]; then
-    do_exit 1 "Branch $BRANCH does not exist"
+    do_exit 1 "Branch '$BRANCH' does not exist"
   fi
 
   process_git_branch "$BRANCH"
@@ -86,6 +87,5 @@ fi
 tmpfile=$(mktemp)
 tail -n +2 $SRC_FILE > $tmpfile
 cat $tmpfile > $SRC_FILE
-echo -e "\n$BRANCH has been successully landed!"
 
 do_exit 0 "all done"
