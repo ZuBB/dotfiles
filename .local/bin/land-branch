@@ -2,6 +2,8 @@
 
 DEBUG=0
 LOG_FILE=$(mktemp)
+PATH=/opt/homebrew/bin:$PATH
+log "$PATH"
 
 function log () {
   if [ $DEBUG -eq 1 ]; then
@@ -30,6 +32,7 @@ function process_git_branch () {
   git rebase -q `git config user.branch` $1
   git commit -q --amend --no-edit --date=now
   git push -q --force
+  gh auth login
   to1=`gh pr create --fill`
   log "$to1"
   to2=`gh pr merge --admin --merge`
