@@ -3,7 +3,6 @@
 DEBUG=0
 LOG_FILE=$(mktemp)
 PATH=/opt/homebrew/bin:$PATH
-log "$PATH"
 
 function log () {
   if [ $DEBUG -eq 1 ]; then
