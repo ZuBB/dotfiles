@@ -24,7 +24,7 @@
 	# show amount of commits in branch
 	bc = "!f() { git rev-list --count HEAD ^${1-`git bp`}; }; f"
 	bd = branch -D
-	bm = branch --move
+	bm = "!f() { test -z $1 && git branch --move \"$(git bn | vipe)\" || git branch --move \"$@\"; }; f"
 	# show name of the active branch
 	bn = rev-parse --abbrev-ref HEAD
 	# get parent branch of the current branch (still not reliable)
