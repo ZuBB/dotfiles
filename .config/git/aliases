@@ -40,12 +40,11 @@
 	bt = branch -r
 	bu = branch --unset-upstream
 	bv = branch -vv
-	bi = "!f() { git bm \"$(gt bn | vipe)\" }"
 
 
 
 	# ============= [ CHECKOUT__________________ ] =============
-	cb = checkout -b
+	cb = "!f() { test -z $1 && git co -b \"$(vipe)\" || git co -b \"$1\"; }; f"
 	cd = "!f() { git checkout `git config user.branch`; }; f"
 	co = checkout
 	cr = checkout -
