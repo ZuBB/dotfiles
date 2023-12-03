@@ -31,7 +31,10 @@ function process_git_branch () {
   git rebase -q `git config user.branch` $1
   git commit -q --amend --no-edit --date=now
   git push -q --force
-  gh auth login
+  gh auth status
+  if [ $? -ne 0 ]; then
+    to0=`gh auth login`
+  fi
   to1=`gh pr create --fill`
   log "$to1"
   to2=`gh pr merge --admin --merge`
