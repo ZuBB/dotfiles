@@ -222,9 +222,11 @@
     or = [ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`
 
     qa = "!f() { echo \"$1\" >> `git qf`; }; f"
-    qc = "!f() { echo `git bn` >> `git qf`; }; f"
+    qc = "!f() { git qa `git bn`; }; f"
     qe = "!f() { $(git var GIT_EDITOR) `git qf`; }; f"
     qf = "!f() { echo `git rev-parse --git-dir`/automerge-queue; }; f"
     ql = "!f() { cat `git qf`; }; f"
     qp = "!f() { echo \"$1\n$(cat `git qf`)\" > `git qf` ; }; f"
+    qs = "!f() { git qp __noop__ ; }; f"
+    q0 = "!f() { git qp `git bn`; }; f"
     q1 = "!f() { head -n 1 `git qf`; }; f"
