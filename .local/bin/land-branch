@@ -88,6 +88,10 @@ if [ -z "$BRANCH" ]; then
   do_exit 0 "Nothing to do..."
 fi
 
+if [ "$BRANCH" = $(git qdy) ]; then
+  do_exit 0 "Nothing to do this year..."
+fi
+
 if [ "$BRANCH" = $(git qdd) ]; then
   log "Nothing to do today..."
 else
