@@ -88,7 +88,7 @@ if [ -z "$BRANCH" ]; then
   do_exit 0 "Nothing to do..."
 fi
 
-if [ "$BRANCH" = "__noop__" ]; then
+if [ "$BRANCH" = $(git qdd) ]; then
   log "Nothing to do today..."
 else
   git show-ref -q --heads $BRANCH
