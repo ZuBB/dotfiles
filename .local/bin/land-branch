@@ -45,6 +45,8 @@ function process_git_branch () {
   echo -e "\n'$1' has been successully landed!"
 }
 
+log $1
+
 if [ ! -d "$1" ]; then
   do_exit 1 "Passed path is not a valid directory. Exiting"
 fi
@@ -53,7 +55,6 @@ if [ ! -d "$1/.git" ]; then
   do_exit 1 "Passed path is not a valid git repo. Exiting"
 fi
 
-log $1
 cd $1
 
 # "git qf" is my alias
