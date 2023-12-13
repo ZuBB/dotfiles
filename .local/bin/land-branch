@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 
 DEBUG=0
+HOMEBREW_BIN_PATH=/opt/homebrew/bin
 LOG_FILE=$(mktemp)
-PATH=/opt/homebrew/bin:$PATH
+
+if [ -d "$HOMEBREW_BIN_PATH" ]; then
+  PATH=$HOMEBREW_BIN_PATH:$PATH
+fi
 
 function log () {
   if [ $DEBUG -eq 1 ]; then
