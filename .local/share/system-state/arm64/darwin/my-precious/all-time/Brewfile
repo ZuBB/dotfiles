@@ -51,6 +51,7 @@ brew "tty-clock"
 brew "uptimed", restart_service: true
 brew "vcsh"
 brew "watch"
+brew "wget"
 brew "wp-cli"
 cask "ace-link"
 cask "aldente"
