@@ -59,15 +59,6 @@ if [ ! -d "$1/.git" ]; then
   do_exit 1 "Passed path is not a valid git repo. Exiting"
 fi
 
-cd $1
-
-# "git qf" is my alias
-SRC_FILE=`git qf`
-
-if [ ! -f "$SRC_FILE" ]; then
-  do_exit 1 "Queue file has not been found. Exiting"
-fi
-
 command -v git > /dev/null;
 exit_status1=$?
 log "git status: $exit_status1"
@@ -80,6 +71,15 @@ exit_status2=$?
 log "gh status: $exit_status2"
 if [ "$exit_status2" -ne 0 ]; then
   do_exit 1 "Github CLI has not been found. Exiting"
+fi
+
+cd $1
+
+# "git qf" is my alias
+SRC_FILE=`git qf`
+
+if [ ! -f "$SRC_FILE" ]; then
+  do_exit 1 "Queue file has not been found. Exiting"
 fi
 
 BRANCH=`head -n 1 $SRC_FILE`
