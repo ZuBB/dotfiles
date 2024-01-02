@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+OS_TYPE=$(uname -o | tr '[:upper:]' '[:lower:]')
+
+if [ "$OS_TYPE" != "darwin" ]; then
+    exit 0
+fi
+
+ICON_SRC_DIR=~/.local/share/custom-app-icons/
+
+cd "$ICON_SRC_DIR" || exit
+
+for file in *.icns; do
+    if [ ! -f "$file" ]; then
+      continue
+    fi
+
+    filename=$(echo "$file" | cut -f 1 -d '.')
+    APP_PATH="/Applications/$filename.app"
+
+    if [ ! -d "$APP_PATH" ]; then
+      continue
+    fi
+
+    fileicon set -q "$APP_PATH" "$ICON_SRC_DIR/$filename.icns"
+done
+
