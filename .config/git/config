@@ -39,12 +39,16 @@
 	renames = copies
 	mnemonicprefix = true
 	algorithm = patience
+	wsErrorHighlight = all
 
 [difftool]
 	prompt = false
 
 [difftool "vimdiff"]
 	cmd = nvim -f -d -c 'wincmd l' -c 'cd "$GIT_PREFIX"' "$LOCAL" "$REMOTE"
+
+[fetch]
+	prune = true
 
 [init]
 	defaultBranch = main
@@ -73,10 +77,10 @@
 	autoSetupRemote = true
 
 [rebase]
-	autoStash = 1
+	autoStash = true
 
 [rerere]
-	enabled = 1
+	enabled = true
 
 [user]
 	# https://stackoverflow.com/questions/11364044
