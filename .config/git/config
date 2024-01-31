@@ -29,6 +29,9 @@
 	whitespace = space-before-tab,-blank-at-eof
 	filemode = false
 
+	# https://stackoverflow.com/questions/34549040/
+	# but accordingly to this link the next option must be true... ¯\_(ツ)_/¯
+	quotePath = false
 	# Prevent showing files whose names contain non-ASCII symbols as unversioned.
 	# http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
 	precomposeunicode = false
