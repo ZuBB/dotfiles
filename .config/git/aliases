@@ -47,7 +47,7 @@
 
 
 	# ============= [ CHECKOUT__________________ ] =============
-	cb = ! git checkout -b "$(create-branch-name)"
+	cb = ! create-branch-name
 	cd = "!f() { git checkout `git config user.branch`; }; f"
 	co = checkout
 	cr = checkout -
