@@ -3,7 +3,7 @@
 PASSED_BN=$1
 
 if [ -n "$PASSED_BN" ]; then
-    FINAL_BN="$PASSED_BRANCH_NAME"
+    FINAL_BN="$PASSED_BN"
 else
     ENTERED_BN=$(vipe)
     SLASH_COUNT=$(echo "$ENTERED_BN" | tr -cd '\/' | wc -c |  xargs)
