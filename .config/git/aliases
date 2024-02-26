@@ -61,21 +61,21 @@
 
 	# ============= [ CLONE_____________________ ] =============
 	cl = clone
+    c1 = clone --depth=1
 
 
 
 	# ============= [ COMMIT____________________ ] =============
-	ca = commit -am WIP
+	ca = commit --all --message WIP
 	ce = commit --allow-empty
 	cf = commit --all --amend -c HEAD
 	ch = commit -m WIP
 	ci = commit
 	cm = commit --amend
-	cq = "!f() { git add ./$GIT_PREFIX/$1 && git commit ./$GIT_PREFIX/$1 -m \"WIP: $1\"; }; f"
+	cq = "!f() { git add ./$GIT_PREFIX/$1 && git commit --only ./$GIT_PREFIX/$1 -m \"WIP: $1\"; }; f"
 	cs = commit --all --amend -C HEAD
 	ct = commit --amend --no-edit --date=now
 	cu = commit --amend --no-edit --reset-author
-	cx = "!f() { git commit --only ${1-.}; }; f"
 
 
 
