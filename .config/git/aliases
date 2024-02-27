@@ -234,7 +234,7 @@
     qf = "!f() { echo `git rev-parse --git-dir`/automerge-queue; }; f"
     ql = "!f() { cat `git qf`; }; f"
     qp = "!f() { echo \"$1\n$(cat `git qf`)\" > `git qf` ; }; f"
-    qn = ! git q0 && gt qt
+    qn = ! git q0 && git qt
     qt = ! land-branch .
     qy = "!f() { git qp `git qdy` ; }; f"
     q0 = "!f() { git qp `git bn`; }; f"
