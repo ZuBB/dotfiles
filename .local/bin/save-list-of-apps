@@ -8,8 +8,8 @@ function get_save_dirs () {
     local ARCH=$(uname -m)
     local HOST_NAME=$(hostname -s)
 
-    local BASE_DEST_PATH=$HOME/.local/share/system-state/
-    local COMMON_DEST_PATH=$BASE_DEST_PATH/$ARCH/$OS_TYPE/$HOST_NAME
+    local BASE_DEST_PATH=$HOME/.local/share/system-state
+    local COMMON_DEST_PATH=$BASE_DEST_PATH/$ARCH/$OS_TYPE/hosts/$HOST_NAME
     local DIR1_PATH=$COMMON_DEST_PATH/current
     local DIR2_PATH=$COMMON_DEST_PATH/all-time
 
