@@ -41,7 +41,7 @@ function process_git_branch () {
   fi
   to1=`gh pr create --fill`
   log "$to1"
-  to2=`gh pr merge --admin --merge`
+  to2=`gh pr merge --auto --rebase`
   log "$to2"
   git push origin -q --delete $1;
   git checkout -q `git config user.branch`
