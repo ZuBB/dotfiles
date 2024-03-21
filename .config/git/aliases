@@ -228,6 +228,9 @@
     # ABBR: [Q]ueue [D]efine [D]ay
     # DESC: Prints special token that makes queue system skip one day
     qdd = ! git config user.queueSkipDay
+
+    # ABBR: [Q]ueue [D]efine [Y]ear
+    # DESC: Prints special token that makes queue system skip all further days
     qdy = ! git config user.queueSkipForever
     # ABBR: [Q]ueue [A]ppend
     # DESC: Appends passed string to the end of queue file
