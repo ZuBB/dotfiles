@@ -248,6 +248,9 @@
     qp = "!f() { echo \"$1\n$(cat `git qf`)\" > `git qf` ; }; f"
     qn = ! git q0 && git qt
     qt = ! land-branch .
+
+    # ABBR: [Q]ueue [Y]ear
+    # DESC: Appends special token that makes commit system skip any actions forever
     qy = "!f() { git qp `git qdy` ; }; f"
     q0 = "!f() { git qp `git bn`; }; f"
     q1 = "!f() { head -n 1 `git qf`; }; f"
