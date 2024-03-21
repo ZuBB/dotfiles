@@ -232,9 +232,11 @@
     # ABBR: [Q]ueue [D]efine [Y]ear
     # DESC: Prints special token that makes queue system skip all further days
     qdy = ! git config user.queueSkipForever
+
     # ABBR: [Q]ueue [A]ppend
     # DESC: Appends passed string to the end of queue file
     qa = "!f() { echo \"$1\" >> `git qf`; }; f"
+
     # ABBR: [Q]ueue [C]urrent
     # DESC: Appends currently active branch to the queue
     qc = "!f() { git qa `git bn`; }; f"
@@ -242,6 +244,7 @@
     # ABBR: [Q]ueue [D]ay
     # DESC: Appends special token (that skips 1 day) to the queue
     qd = "!f() { git qp `git qdd` ; }; f"
+
     qe = "!f() { $(git var GIT_EDITOR) `git qf`; }; f"
     qf = "!f() { echo `git rev-parse --git-dir`/automerge-queue; }; f"
     ql = "!f() { cat `git qf`; }; f"
@@ -252,6 +255,7 @@
     # ABBR: [Q]ueue [Y]ear
     # DESC: Appends special token that makes commit system skip any actions forever
     qy = "!f() { git qp `git qdy` ; }; f"
+
     q0 = "!f() { git qp `git bn`; }; f"
     q1 = "!f() { head -n 1 `git qf`; }; f"
 
