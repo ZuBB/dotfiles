@@ -238,6 +238,9 @@
     # ABBR: [Q]ueue [C]urrent
     # DESC: Appends currently active branch to the queue
     qc = "!f() { git qa `git bn`; }; f"
+
+    # ABBR: [Q]ueue [D]ay
+    # DESC: Appends special token (that skips 1 day) to the queue
     qd = "!f() { git qp `git qdd` ; }; f"
     qe = "!f() { $(git var GIT_EDITOR) `git qf`; }; f"
     qf = "!f() { echo `git rev-parse --git-dir`/automerge-queue; }; f"
