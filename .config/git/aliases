@@ -228,7 +228,7 @@
     qdd = ! git config user.queueSkipDay
     qdy = ! git config user.queueSkipForever
     # ABBR: [Q]ueue [A]ppend
-    # DESC: Appends passed branch to the end of queue file
+    # DESC: Appends passed string to the end of queue file
     qa = "!f() { echo \"$1\" >> `git qf`; }; f"
     # ABBR: [Q]ueue [C]urrent
     # DESC: Appends currently active branch to the end of queue file
