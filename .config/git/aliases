@@ -227,11 +227,11 @@
     # ============= [ COMMIT QUEUE ] =============
     # ABBR: [Q]ueue [D]efine [D]ay
     # DESC: Prints special token that makes queue system skip one day
-    qdd = ! git config user.queueSkipDay
+    qdd = "! git config user.queueSkipDay"
 
     # ABBR: [Q]ueue [D]efine [Y]ear
     # DESC: Prints special token that makes queue system skip all further days
-    qdy = ! git config user.queueSkipForever
+    qdy = "! git config user.queueSkipForever"
 
     # ABBR: [Q]ueue [A]ppend
     # DESC: Appends passed string to the end of queue file
@@ -245,17 +245,40 @@
     # DESC: Appends special token (that skips 1 day) to the queue
     qd = "!f() { git qp `git qdd` ; }; f"
 
+    # ABBR: [Q]ueue [E]dit
+    # DESC: Opens queue file in editor used by git commands
     qe = "!f() { $(git var GIT_EDITOR) `git qf`; }; f"
+
+    # ABBR: [Q]ueue [F]ile
+    # DESC: Prints relative (to the repo root) path to queue file
     qf = "!f() { echo `git rev-parse --git-dir`/automerge-queue; }; f"
+
+    # ABBR: [Q]ueue [L]ist
+    # DESC: Prints content of queue file
     ql = "!f() { cat `git qf`; }; f"
+
+    # ABBR: [Q]ueue [P]repend
+    # DESC: Prepends passed string to the start of queue file
     qp = "!f() { echo \"$1\n$(cat `git qf`)\" > `git qf` ; }; f"
-    qn = ! git q0 && git qt
-    qt = ! land-branch .
+
+    # ABBR: [Q]ueue [N]ow
+    # DESC: Prepends current branch to the start of queue file
+    #       and immediately processes it
+    qn = "! git q0 && git qt"
+
+    # ABBR: [Q]ueue [T]op
+    # DESC: Processes first item from queue file
+    qt = "! land-branch ."
 
     # ABBR: [Q]ueue [Y]ear
     # DESC: Appends special token that makes commit system skip any actions forever
     qy = "!f() { git qp `git qdy` ; }; f"
 
+    # ABBR: [Q]ueue [0]
+    # DESC: Prepends current branch to the start of queue file
     q0 = "!f() { git qp `git bn`; }; f"
+
+    # ABBR: [Q]ueue [1]
+    # DESC: Prints first item from queue file
     q1 = "!f() { head -n 1 `git qf`; }; f"
 
