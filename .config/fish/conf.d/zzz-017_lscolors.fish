@@ -1,3 +1,3 @@
 # https://github.com/trapd00r/LS_COLORS
-# NOTE: needs ls from core-utils
+# https://github.com/sharkdp/vivid
 # source ~/.config/LS_COLORS/lscolors.csh
