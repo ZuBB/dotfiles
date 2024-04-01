@@ -251,7 +251,7 @@
 
     # ABBR: [Q]ueue [F]ile
     # DESC: Prints relative (to the repo root) path to queue file
-    qf = "!f() { echo `git rev-parse --git-dir`/automerge-queue; }; f"
+    qf = !FP="$(git rev-parse --git-dir)/automerge-queue" && test -e "$FP" || touch "$FP" && echo "$FP"
 
     # ABBR: [Q]ueue [L]ist
     # DESC: Prints content of queue file
