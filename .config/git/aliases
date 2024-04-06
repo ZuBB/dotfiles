@@ -50,7 +50,8 @@
 	cb = ! create-branch-name
 	cd = "!f() { git checkout `git config user.branch`; }; f"
     # https://le0nidas.gr/2020/03/27/git-alias-with-parameters/
-	co = "!f() { git checkout $(git branch | grep $1); }; f"
+	# co = "!f() { git checkout $(git branch | grep $1); }; f"
+	co = checkout
 	cr = checkout -
 
 
