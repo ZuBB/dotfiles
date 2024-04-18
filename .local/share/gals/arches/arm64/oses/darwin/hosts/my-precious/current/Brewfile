@@ -81,6 +81,7 @@ cask "openmtp"
 cask "responsively"
 cask "rocket"
 cask "shottr"
+cask "slack"
 cask "tableplus"
 cask "teamviewer"
 cask "telegram"
@@ -97,9 +98,9 @@ cask "zoom"
 mas "ApolloOne", id: 1044484672
 mas "Gifox", id: 1461845568
 mas "Keynote", id: 409183694
+mas "Microsoft Remote Desktop", id: 1295203466
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Pixea", id: 1507782672
-mas "Slack", id: 803453959
 mas "The Unarchiver", id: 425424353
 mas "Typist", id: 415166115
