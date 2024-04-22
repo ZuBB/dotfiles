@@ -7,8 +7,10 @@
 # Python
 
 # https://github.com/pyenv/pyenv#set-up-your-shell-environment-for-pyenv
-command -q pyenv && pyenv init - | source
+# command -q pyenv && pyenv init - | source
 
 # https://vfox.lhan.me/guides/quick-start.html#_2-hook-vfox-to-your-shell
-vfox activate fish | source
+# command -q vfox && vfox activate fish | source
 
+# mise / vfox alternative
+command -q mise && mise activate fish
