@@ -4,3 +4,4 @@ set --local FISH_CONFIG_ROOT (dirname (status --current-filename))
 if test -f "$FISH_CONFIG_ROOT/config.local.fish"
     source "$FISH_CONFIG_ROOT/config.local.fish"
 end
+
