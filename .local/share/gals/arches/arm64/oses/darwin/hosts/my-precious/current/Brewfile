@@ -18,7 +18,6 @@ brew "fd"
 brew "fileicon"
 brew "fish"
 brew "fisher"
-brew "fnm"
 brew "gh"
 brew "git"
 brew "git-delta"
@@ -103,4 +102,5 @@ mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Pixea", id: 1507782672
 mas "The Unarchiver", id: 425424353
+mas "Timery", id: 1425368544
 mas "Typist", id: 415166115
