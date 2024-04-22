@@ -1,7 +1,7 @@
 # JavaScript
 
 # https://github.com/Schniz/fnm#fish-shell
-command -q fnm && fnm env --use-on-cd | source
+# command -q fnm && fnm env --use-on-cd | source
 
 
 # Python
@@ -10,5 +10,5 @@ command -q fnm && fnm env --use-on-cd | source
 command -q pyenv && pyenv init - | source
 
 # https://vfox.lhan.me/guides/quick-start.html#_2-hook-vfox-to-your-shell
-# vfox activate fish | source
+vfox activate fish | source
 
