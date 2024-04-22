@@ -13,7 +13,5 @@
 # command -q vfox && vfox activate fish | source
 
 # mise / vfox alternative
-# command -q mise && mise activate fish
-#command -q /opt/homebrew/opt/mise/bin/mise && /opt/homebrew/opt/mise/bin/mise activate fish | source
 command -q mise && mise activate fish | source
 
