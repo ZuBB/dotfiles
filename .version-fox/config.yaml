@@ -3,3 +3,5 @@ proxy:
     enable: false
 storage:
     sdkPath: ""
+legacyVersionFile:
+    enable: true
