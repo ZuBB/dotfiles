@@ -138,7 +138,7 @@
 	# ============= [ PUSH______________________ ] =============
 	# TODO replace `origin` with dynamic param
 	pd = "!f() { git push origin --delete $1; }; f"
-	pf = push --force-if-includes
+	pf = push --force
 	ph = push
 	px = push --no-verify
 
