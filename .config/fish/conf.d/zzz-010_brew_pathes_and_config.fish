@@ -21,15 +21,12 @@ end
 function add_brew_pathes_to_path
     set -l os (uname)
     if test "$os" = Darwin
-        # do things for macOS
         add_macos_brew_pathes_to_path
     else if test "$os" = Linux
-        # do things for Linux
         add_linux_brew_pathes_to_path
     else
         echo "OS $os is not supported"
     end
-
 end
 
 if status is-login
