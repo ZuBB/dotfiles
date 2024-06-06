@@ -273,7 +273,7 @@
     qr = !RD=$(git rev-parse --show-toplevel) && \
             mkdir -p $HOME/.local/share/git && \
             touch $HOME/.local/share/git/queue-repos && \
-            echo -e "$RD\n" $HOME/.local/share/git/queue-repos
+            echo $RD >> $HOME/.local/share/git/queue-repos
 
     # ABBR: [Q]ueue [T]op
     # DESC: Processes first item from queue file
