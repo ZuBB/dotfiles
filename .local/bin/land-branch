@@ -3,8 +3,8 @@
 DEBUG=0
 HOMEBREW_BIN_PATH=/opt/homebrew/bin
 LOG_FILE=$(mktemp)
-GH_TOKEN_PATH="$HOME/.local/state/gh/$(whoami).yml"
-GH_TOKEN=$(cat $GH_TOKEN_PATH)
+#GH_TOKEN_PATH="$HOME/.local/state/gh/$(whoami).yml"
+#GH_TOKEN=$(cat $GH_TOKEN_PATH)
 
 if [ -d "$HOMEBREW_BIN_PATH" ]; then
   PATH=$HOMEBREW_BIN_PATH:$PATH
