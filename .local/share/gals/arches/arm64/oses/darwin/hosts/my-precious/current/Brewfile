@@ -1,3 +1,4 @@
+tap "abhimanyu003/sttr"
 tap "gcenx/wine"
 tap "grishka/grishka"
 tap "heroku/brew"
@@ -18,7 +19,6 @@ brew "fileicon"
 brew "fish"
 brew "fisher"
 brew "gh"
-brew "git"
 brew "git-delta"
 brew "go"
 brew "golangci-lint"
@@ -32,12 +32,11 @@ brew "mtr"
 brew "ncdu"
 brew "neovim"
 brew "nmap"
-brew "pyenv"
+brew "pkg-config"
 brew "rename"
 brew "ripgrep"
 brew "scc"
 brew "syncthing"
-brew "tmux"
 brew "tree"
 brew "tty-clock"
 brew "uptimed", restart_service: true
@@ -45,6 +44,7 @@ brew "vcsh"
 brew "watch"
 brew "wget"
 brew "xdg-ninja"
+brew "abhimanyu003/sttr/sttr"
 brew "oven-sh/bun/bun"
 brew "version-fox/tap/vfox"
 cask "ace-link"
@@ -55,6 +55,7 @@ cask "chromium"
 cask "coteditor"
 cask "dbngin"
 cask "docker"
+cask "figma"
 cask "firefox"
 cask "flux"
 cask "font-fira-code-nerd-font"
@@ -62,7 +63,6 @@ cask "fsnotes"
 cask "gimp"
 cask "hiddenbar"
 cask "hovrly"
-cask "http-toolkit"
 cask "iconchamp"
 cask "itsycal"
 cask "karabiner-elements"
@@ -91,14 +91,15 @@ cask "vivaldi"
 cask "vlc"
 cask "wineskin"
 cask "youtube-music"
+cask "zed"
 cask "zoom"
 mas "ApolloOne", id: 1044484672
 mas "Gifox", id: 1461845568
 mas "Keynote", id: 409183694
-mas "Microsoft Remote Desktop", id: 1295203466
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Pixea", id: 1507782672
 mas "The Unarchiver", id: 425424353
 mas "Timery", id: 1425368544
 mas "Typist", id: 415166115
+mas "Urban VPN Desktop", id: 1517772049
