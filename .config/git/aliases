@@ -212,8 +212,6 @@
 	# ============= [ __________________________ ] =============
 	os = shortlog --summary --numbered
 	#ls = ls-files
-	ft = cat-file -t
-	#cat = cat-file -p
 
 	# git grep through all history
 	gr = "!f() { git rev-list --all | xargs git grep -F \"$1\"; }; f"
