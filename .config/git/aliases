@@ -8,7 +8,9 @@
 
 [alias]
 
-	# ============= [ ADD_______________________ ] =============
+	# ============= [ ADD ] =============
+    # ABBR: [AD]d
+    # DESC: just an alias to `git add`
 	ad = add
 	af = add -f
 	ap = add -p
