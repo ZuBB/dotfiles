@@ -12,6 +12,8 @@
     # ABBR: [AD]d
     # DESC: just an alias to `git add`
 	ad = add
+    # ABBR: [A]dd [F]orce
+    # DESC: `git add` with a `force` option
 	af = add -f
 	ap = add -p
 	ah = add .
