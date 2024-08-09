@@ -15,7 +15,7 @@
     # ABBR: [A]dd [F]orce
     # DESC: `git add` with a `force` option
 	af = add -f
-    # ABBR: [A]dd [F]orce
+    # ABBR: [A]dd [P]atch
     # DESC: patch-based interactive version of 'git add'
 	ap = add -p
 	ah = add .
