@@ -18,6 +18,8 @@
     # ABBR: [A]dd [P]atch
     # DESC: patch-based interactive version of 'git add'
 	ap = add -p
+    # ABBR: [A]dd [H]ere
+    # DESC: add all stuff starting from current directory
 	ah = add .
 
 
