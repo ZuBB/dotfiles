@@ -197,7 +197,7 @@
     # ABBR: [S]tatus [C]onflict
     # DESC: an alias to list files in 'confilicted' state
     # https://stackoverflow.com/a/10874862/1344249
-    sc = diff --name-only --diff-filter=
+    sc = diff --name-only --diff-filter=U
     sg = status --ignored .
 	st = status --short --branch
 	su = ls-files --other | grep -v ./
