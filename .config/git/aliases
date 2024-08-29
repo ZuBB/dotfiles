@@ -60,12 +60,12 @@
     # https://le0nidas.gr/2020/03/27/git-alias-with-parameters/
 	# co = "!f() { git checkout $(git branch | grep $1); }; f"
 	co = checkout
-	cr = checkout -
+	cp = checkout -
 
 
 
 	# ============= [ CHERRY-PICK_______________ ] =============
-	cp = cherry-pick
+	ck = cherry-pick
 
 
 
@@ -230,9 +230,10 @@
 
 	fup = log --since '1 day ago' --oneline "--author=$(git config --get user.email)"
 	#freq = !history | grep git | cut -c 8- | sort | uniq -c | sort -n -r | head -n 5
-	
+
 	as = !git ls-files | xargs -n1 git blame --line-porcelain | sed -n 's/^author //p' | sort -f | uniq -ic | sort -nr
     or = [ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`
+    #gh = "!f() { cd \"$(git rev-parse --show-toplevel)\"; }; f"
 
 
 
