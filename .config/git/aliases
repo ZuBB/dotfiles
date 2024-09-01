@@ -51,6 +51,10 @@
 	bt = branch -r
 	bu = branch --unset-upstream
 	bv = branch -vv
+	ah = add .
+	# ABBR: [B]ranch [Z]ero
+	# DESC: add all stuff starting from current directory
+	bz = !git symbolic-ref refs/remotes/origin/HEAD --short | sed 's|.*/||'
 
 
 
@@ -130,6 +134,13 @@
 	#hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	#lol = log --graph --decorate --pretty=oneline --abbrev-commit
 	#lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+
+
+
+	# ============= [ MERGE] =============
+	# ABBR: [M]erge [M]ain
+	# DESC: an alias to merge mainline branch into current one
+	mm = !git merge $(git bz)
 
 
 
