@@ -65,6 +65,8 @@
 	# co = "!f() { git checkout $(git branch | grep $1); }; f"
 	co = checkout
 	cp = checkout -
+    # TODO
+	cy = checkout -b temp1
 
 
 
