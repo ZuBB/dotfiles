@@ -31,6 +31,8 @@
 
 
 	# ============= [ BRANCH____________________ ] =============
+    # ABBR: [B]branch [A]ll
+    # DESC: show all branches
 	ba = branch -a
 	# show amount of commits in branch
 	bc = "!f() { git rev-list --count HEAD ^${1-`git bp`}; }; f"
