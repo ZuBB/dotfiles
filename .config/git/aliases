@@ -25,6 +25,8 @@
 
 
 	# ============= [ BLAME_____________________ ] =============
+    # ABBR: [BL]ame
+    # DESC: a bit tuned version of git blame command
 	# http://goo.gl/4yyu5v
 	bl = blame HEAD
 
