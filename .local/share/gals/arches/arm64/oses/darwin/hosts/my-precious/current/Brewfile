@@ -43,6 +43,7 @@ brew "uptimed", restart_service: true
 brew "vcsh"
 brew "watch"
 brew "wget"
+brew "xdg-ninja"
 brew "abhimanyu003/sttr/sttr"
 brew "oven-sh/bun/bun"
 brew "version-fox/tap/vfox"
