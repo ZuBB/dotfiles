@@ -69,8 +69,7 @@
 	# co = "!f() { git checkout $(git branch | grep $1); }; f"
 	co = checkout
 	cp = checkout -
-    # TODO
-	ct = checkout -b temp1
+	ct = ! git checkout -b "tmp_branch$(expr $(git br -l 'tmp_branch*' | wc -l | tr -d \"[:blank:]\") + 1)"
 
 
 
