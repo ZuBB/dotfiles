@@ -70,7 +70,7 @@
 	co = checkout
 	cp = checkout -
     # TODO
-	cy = checkout -b temp1
+	ct = checkout -b temp1
 
 
 
@@ -92,9 +92,9 @@
 	ch = commit -m WIP
 	ci = commit
 	cm = commit --amend
+	cn = commit --amend --no-edit --date=now
 	cq = "!f() { git add ./$GIT_PREFIX/$1 && git commit --only ./$GIT_PREFIX/$1 -m \"WIP: $1\"; }; f"
 	cs = commit --all --amend -C HEAD
-	ct = commit --amend --no-edit --date=now
 	cu = commit --amend --no-edit --reset-author
 
 
