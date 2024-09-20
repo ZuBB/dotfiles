@@ -55,9 +55,8 @@
 	bt = branch -r
 	bu = branch --unset-upstream
 	bv = branch -vv
-	ah = add .
 	# ABBR: [B]ranch [Z]ero
-	# DESC: add all stuff starting from current directory
+	# DESC: ...
 	bz = !git symbolic-ref refs/remotes/origin/HEAD --short | sed 's|.*/||'
 
 
