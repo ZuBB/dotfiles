@@ -6,6 +6,7 @@
 [advice]
 	pushNonFastForward = false
 	skippedCherryPicks = false
+	refSyntax = false
 
 [apply]
 	whitespace = fix
