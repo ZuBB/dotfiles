@@ -6,7 +6,7 @@ if [ -n "$PASSED_BN" ]; then
     FINAL_BN="$PASSED_BN"
 else
     if ! command -v vipe 2>&1 >/dev/null; then
-        echo "'vipe' could not be found"
+        echo "'vipe' binary not found. Make sure 'moreutils' (https://joeyh.name/code/moreutils/) is installed"
         exit 1
     fi
 
