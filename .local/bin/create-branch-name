@@ -10,6 +10,7 @@ else
     SLASH_COUNT=$(echo "$ENTERED_BN" | tr -cd '\/' | wc -c | xargs)
 
     if [ "$SLASH_COUNT" == 0 ]; then
+        # yes, we need to do 2 sequential replacements
         SAFE_BN=$(echo "$ENTERED_BN" | sed -r 's/ /\//' | sed -r 's/ /\//')
     else
         SAFE_BN=$ENTERED_BN
