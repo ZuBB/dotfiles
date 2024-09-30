@@ -5,7 +5,11 @@ PASSED_BN=$1
 if [ -n "$PASSED_BN" ]; then
     FINAL_BN="$PASSED_BN"
 else
-    # TODO: check if `vipe is present`
+    if ! command -v vipe 2>&1 >/dev/null; then
+        echo "'vipe' could not be found"
+        exit 1
+    fi
+
     # TODO: pass username & commit type to vipe
     ENTERED_BN=$(vipe)
     SLASH_COUNT=$(echo "$ENTERED_BN" | tr -cd '\/' | wc -c | xargs)
