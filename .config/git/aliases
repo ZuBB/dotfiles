@@ -125,11 +125,14 @@
 
 
 	# ============= [ LOG_______________________ ] =============
-
+	# ABBR: [L]og [\d]
+	# DESC: show log of X most recent items excluding merge commits
+	l1 = log -n 1 --no-merges
+	l2 = log -n 2 --no-merges
+	l3 = log -n 3 --no-merges
 	# 'b' letter but 'log' command; shows log in current branch only
 	bo = "!f() { git log --no-merges ${1-`git bp`}..; }; f"
 
-	l1 = log -n 1
 	lf = "!f() { git l1 --decorate --stat; }; f"
 	lg = log -p
 	ln = log --name-only
