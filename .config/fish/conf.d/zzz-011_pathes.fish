@@ -7,7 +7,6 @@ function add_pathes_to_path
     # stuff brought by composer
     fish_add_path -aP ~/.composer/vendor/bin
 
-
     # ...
 end
 
