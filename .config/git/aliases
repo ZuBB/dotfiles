@@ -122,6 +122,7 @@
 	dq = "!f() { git da && p= || p=\"HEAD~${1-`git bc`}\" ; git diff --shortstat $p ; }; f"
 	ds = "!f() { git da && p= || p=\"HEAD~${1-`git bc`}\" ; git diff --stat --find-copies $p ; }; f"
 	dt = difftool
+	t1 = d1 --stat
 
 
 
