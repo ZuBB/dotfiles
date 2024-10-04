@@ -207,6 +207,13 @@
 
 
 
+	# ============= [ restore ] =============
+    # ABBR: [R]estore sta[G]ed
+    # DESC: drop file(s) from staging area
+	rg = restore --staged
+
+
+
 	# ============= [ STASH_____________________ ] =============
 	sh = stash
 	sl = stash list
