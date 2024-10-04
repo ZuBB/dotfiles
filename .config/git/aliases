@@ -207,7 +207,7 @@
 
 
 
-	# ============= [ restore ] =============
+	# ============= [ RESTORE ] =============
     # ABBR: [R]estore sta[G]ed
     # DESC: drop file(s) from staging area
 	rg = restore --staged
