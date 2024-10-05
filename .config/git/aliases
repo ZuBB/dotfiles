@@ -201,6 +201,9 @@
 
 
 	# ============= [ RESET_____________________ ] =============
+    # ABBR: [R]eset [1]
+    # DESC: drop 1st commit from current branch
+	r1 = reset --hard HEAD~1
 	rh = "!f() { git reset --hard HEAD~${1-1}; }; f"
 	rs = "!f() { git reset --soft HEAD~${1-1}; }; f"
 	rt = "!f() { test -z $1 && git reset HEAD || git reset HEAD $1; }; f"
