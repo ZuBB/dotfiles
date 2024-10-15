@@ -37,10 +37,12 @@ function process_git_branch () {
   git rebase -q `git config user.branch` $1
   git commit -q --amend --no-edit --date=now
 
-  if [ $? -ne 0 ]; then
-    git push -q --force > /dev/null
+  if [ -z "$PS1" ]; then
+      #echo "Running from cron"
+      git push -q --force > /dev/null
   else
-    git push -q --force
+      #echo "Running from terminal"
+      git push -q --force
   fi
 
   gh auth status > /dev/null 2>&1
