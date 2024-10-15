@@ -36,19 +36,27 @@ function process_git_branch () {
   git checkout -q $1
   git rebase -q `git config user.branch` $1
   git commit -q --amend --no-edit --date=now
-  git push -q --force
-  gh auth status
+
   if [ $? -ne 0 ]; then
-    to0=`gh auth login`
+    git push -q --force > /dev/null
+  else
+    git push -q --force
   fi
-  to1=`gh pr create --fill`
-  log "$to1"
-  to2=`gh pr merge --merge`
-  log "$to2"
+
+  gh auth status > /dev/null 2>&1
+
+  if [ $? -ne 0 ]; then
+    gh auth login > /dev/null
+  fi
+
+  gh pr create --fill > /dev/null 2>&1
+  gh pr merge --merge > /dev/null 2>&1
   git push origin -q --delete $1;
   git checkout -q `git config user.branch`
   git pull -q --ff-only --prune --no-verify
-  echo -e "\n'$1' has been successully landed!"
+  if [ -t 0 ] ; then
+      echo -e "\n'$1' has been successully landed!"
+  fi
 }
 
 log $1
