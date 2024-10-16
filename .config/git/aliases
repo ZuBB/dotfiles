@@ -12,15 +12,12 @@
     # ABBR: [AD]d
     # DESC: just an alias to `git add`
 	ad = add
-    # ABBR: [A]dd [F]orcibly
-    # DESC: `git add` with a `--force` option
+    # ABBR: [A]dd [F]orce
+    # DESC: just a `git add` command with a `--force` option
 	af = add --force
     # ABBR: [A]dd [P]atch
     # DESC: patch-based interactive version of 'git add'
-	ap = add -p
-    # ABBR: [A]dd [H]ere
-    # DESC: add all stuff starting from current directory
-	ah = add .
+	ap = add --patch
 
 
 
