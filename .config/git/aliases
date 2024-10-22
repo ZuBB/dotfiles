@@ -171,7 +171,6 @@
 	# ABBR: [P]us[H]
 	# DESC: an alias to push command, but without useless noise
 	ph = push --quiet
-	px = push --no-verify
 
 
 
