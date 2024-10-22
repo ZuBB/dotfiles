@@ -168,7 +168,9 @@
 	# TODO replace `origin` with dynamic param
 	pd = "!f() { git push origin --delete $1; }; f"
 	pf = push --force
-	ph = push
+	# ABBR: [P]us[H]
+	# DESC: an alias to push command, but without useless noise
+	ph = push --quiet
 	px = push --no-verify
 
 
