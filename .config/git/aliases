@@ -49,8 +49,12 @@
 		| grep -v "$(git rev-parse --abbrev-ref HEAD)" \
 		| head -n1 \
 		| sed "s/^.*\\\\[//";
+    # ABBR: [BR]anch
+    # DESC: just a shortcut to base command
 	br = branch
-	bt = branch -r
+    # ABBR: [B]ranch [R]emote
+    # DESC: just a shortcut to base command
+	bt = branch --remote
 	bu = branch --unset-upstream
 	bv = branch -vv
 	# ABBR: [B]ranch [Z]ero
