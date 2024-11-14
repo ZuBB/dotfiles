@@ -55,6 +55,8 @@
     # ABBR: [B]ranch [R]emote
     # DESC: just a shortcut to base command
 	bt = branch --remote
+    # ABBR: [B]ranch [u]nset
+    # DESC: unset upstream from current local branch
 	bu = branch --unset-upstream
 	bv = branch -vv
 	# ABBR: [B]ranch [Z]ero
