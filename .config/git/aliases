@@ -58,6 +58,8 @@
     # ABBR: [B]ranch [u]nset
     # DESC: unset upstream from current local branch
 	bu = branch --unset-upstream
+    # ABBR: [B]ranch [V]erbose
+    # DESC: show branch'es verbose status/info
 	bv = branch -vv
 	# ABBR: [B]ranch [Z]ero
 	# DESC: ...
