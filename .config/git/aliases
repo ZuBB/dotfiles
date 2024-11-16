@@ -29,7 +29,7 @@
 
 
 	# ============= [ BRANCH____________________ ] =============
-    # ABBR: [B]branch [A]ll
+    # ABBR: [B]ranch [A]ll
     # DESC: show all branches
 	ba = branch -a
 	# show amount of commits in branch
