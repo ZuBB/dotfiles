@@ -34,6 +34,8 @@
 	ba = branch -a
 	# show amount of commits in branch
 	bc = "!f() { git rev-list --count HEAD ^${1-`git bp`}; }; f"
+    # ABBR: [B]ranch [D]elete
+    # DESC: forcibly deletes branch by passed name
 	bd = branch -D
 	bm = "!f() { test -z $1 && git branch --move \"$(git bn | vipe)\" || \
         git branch --move \"$@\"; \
