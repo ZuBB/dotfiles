@@ -3,6 +3,8 @@
 # vim: set softtabstop=0 : ~
 # vim: set noexpandtab : ~
 
+# https://stackoverflow.com/questions/32186600#comment52260296_32186600
+
 [advice]
 	pushNonFastForward = false
 	skippedCherryPicks = false
