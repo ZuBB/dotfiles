@@ -9,37 +9,38 @@
 [alias]
 
 	# ============= [ ADD ] =============
-    # ABBR: [AD]d
-    # DESC: just an alias to `git add`
+	# ABBR: [AD]d
+	# DESC: just an alias to `git add`
 	ad = add
-    # ABBR: [A]dd [F]orce
-    # DESC: just a `git add` command with a `--force` option
+	# ABBR: [A]dd [F]orce
+	# DESC: just a `git add` command with a `--force` option
 	af = add --force
-    # ABBR: [A]dd [P]atch
-    # DESC: patch-based interactive version of 'git add'
+	# ABBR: [A]dd [P]atch
+	# DESC: patch-based interactive version of 'git add'
 	ap = add --patch
+	ddd
 
 
 
 	# ============= [ BLAME_____________________ ] =============
-    # ABBR: [BL]ame
-    # DESC: a bit tuned (http://goo.gl/4yyu5v) version of git blame command
+	# ABBR: [BL]ame
+	# DESC: a bit tuned (http://goo.gl/4yyu5v) version of git blame command
 	bl = blame HEAD
 
 
 
 	# ============= [ BRANCH____________________ ] =============
-    # ABBR: [B]ranch [A]ll
-    # DESC: show all branches
+	# ABBR: [B]ranch [A]ll
+	# DESC: show all branches
 	ba = branch -a
 	# show amount of commits in branch
 	bc = "!f() { git rev-list --count HEAD ^${1-`git bp`}; }; f"
-    # ABBR: [B]ranch [D]elete
-    # DESC: forcibly deletes branch by passed name
+	# ABBR: [B]ranch [D]elete
+	# DESC: forcibly deletes branch by passed name
 	bd = branch -D
 	bm = "!f() { test -z $1 && git branch --move \"$(git bn | vipe)\" || \
-        git branch --move \"$@\"; \
-        echo \"Branch has been renamed to '$(git bn)'\"; }; f"
+		git branch --move \"$@\"; \
+		echo \"Branch has been renamed to '$(git bn)'\"; }; f"
 	# show name of the active branch
 	bn = rev-parse --abbrev-ref HEAD
 	# get parent branch of the current branch (still not reliable)
@@ -51,17 +52,17 @@
 		| grep -v "$(git rev-parse --abbrev-ref HEAD)" \
 		| head -n1 \
 		| sed "s/^.*\\\\[//";
-    # ABBR: [BR]anch
-    # DESC: just a shortcut to base command
+	# ABBR: [BR]anch
+	# DESC: just a shortcut to base command
 	br = branch
-    # ABBR: [B]ranch [R]emote
-    # DESC: just a shortcut to base command
+	# ABBR: [B]ranch [R]emote
+	# DESC: just a shortcut to base command
 	bt = branch --remote
-    # ABBR: [B]ranch [u]nset
-    # DESC: unset upstream from current local branch
+	# ABBR: [B]ranch [u]nset
+	# DESC: unset upstream from current local branch
 	bu = branch --unset-upstream
-    # ABBR: [B]ranch [V]erbose
-    # DESC: show branch'es verbose status/info
+	# ABBR: [B]ranch [V]erbose
+	# DESC: show branch'es verbose status/info
 	bv = branch -vv
 	# ABBR: [B]ranch [Z]ero
 	# DESC: ...
@@ -72,7 +73,7 @@
 	# ============= [ CHECKOUT__________________ ] =============
 	cb = ! create-branch-name
 	cd = "!f() { git checkout `git config user.branch`; }; f"
-    # https://le0nidas.gr/2020/03/27/git-alias-with-parameters/
+	# https://le0nidas.gr/2020/03/27/git-alias-with-parameters/
 	# co = "!f() { git checkout $(git branch | grep $1); }; f"
 	co = checkout
 	# ABBR: [C]heckout p[R]evious
@@ -91,7 +92,7 @@
 
 	# ============= [ CLONE_____________________ ] =============
 	cl = clone
-    c1 = clone --depth=1
+	c1 = clone --depth=1
 
 
 
@@ -208,8 +209,8 @@
 
 
 	# ============= [ RESET_____________________ ] =============
-    # ABBR: [R]eset [1]
-    # DESC: drop 1st commit from current branch
+	# ABBR: [R]eset [1]
+	# DESC: drop 1st commit from current branch
 	r1 = reset --hard HEAD~1
 	rh = "!f() { git reset --hard HEAD~${1-1}; }; f"
 	rs = "!f() { git reset --soft HEAD~${1-1}; }; f"
@@ -218,8 +219,8 @@
 
 
 	# ============= [ RESTORE ] =============
-    # ABBR: [R]estore sta[G]ed
-    # DESC: drop file(s) from staging area
+	# ABBR: [R]estore sta[G]ed
+	# DESC: drop file(s) from staging area
 	rg = restore --staged
 
 
@@ -236,11 +237,11 @@
 
 	# ============= [ STATUS ] =============
 	sa = status --untracked-files=no
-    # ABBR: [S]tatus [C]onflict
-    # DESC: an alias to list files in 'confilicted' state
-    # https://stackoverflow.com/a/10874862/1344249
-    sc = diff --name-only --diff-filter=U
-    sg = status --ignored .
+	# ABBR: [S]tatus [C]onflict
+	# DESC: an alias to list files in 'confilicted' state
+	# https://stackoverflow.com/a/10874862/1344249
+	sc = diff --name-only --diff-filter=U
+	sg = status --ignored .
 	st = status --short --branch
 	su = ls-files --other | grep -v ./
 	sv = status
@@ -274,73 +275,73 @@
 	#freq = !history | grep git | cut -c 8- | sort | uniq -c | sort -n -r | head -n 5
 
 	as = !git ls-files | xargs -n1 git blame --line-porcelain | sed -n 's/^author //p' | sort -f | uniq -ic | sort -nr
-    or = [ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`
-    #gh = "!f() { cd \"$(git rev-parse --show-toplevel)\"; }; f"
+	or = [ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`
+	#gh = "!f() { cd \"$(git rev-parse --show-toplevel)\"; }; f"
 
 
 
-    # ============= [ COMMIT QUEUE ] =============
-    # ABBR: [Q]ueue [D]efine [D]ay
-    # DESC: Prints special token that makes queue system skip one day
-    qdd = "! git config user.queueSkipDay"
+	# ============= [ COMMIT QUEUE ] =============
+	# ABBR: [Q]ueue [D]efine [D]ay
+	# DESC: Prints special token that makes queue system skip one day
+	qdd = "! git config user.queueSkipDay"
 
-    # ABBR: [Q]ueue [D]efine [Y]ear
-    # DESC: Prints special token that makes queue system skip all further days
-    qdy = "! git config user.queueSkipForever"
+	# ABBR: [Q]ueue [D]efine [Y]ear
+	# DESC: Prints special token that makes queue system skip all further days
+	qdy = "! git config user.queueSkipForever"
 
-    # ABBR: [Q]ueue [A]ppend
-    # DESC: Appends passed string to the end of queue file
-    qa = "!f() { echo \"$1\" >> `git qf`; }; f"
+	# ABBR: [Q]ueue [A]ppend
+	# DESC: Appends passed string to the end of queue file
+	qa = "!f() { echo \"$1\" >> `git qf`; }; f"
 
-    # ABBR: [Q]ueue [C]urrent
-    # DESC: Appends currently active branch to the queue
-    qc = "!f() { git qa `git bn`; }; f"
+	# ABBR: [Q]ueue [C]urrent
+	# DESC: Appends currently active branch to the queue
+	qc = "!f() { git qa `git bn`; }; f"
 
-    # ABBR: [Q]ueue [D]ay
-    # DESC: Appends special token (that skips 1 day) to the queue
-    qd = "!f() { git qp `git qdd` ; }; f"
+	# ABBR: [Q]ueue [D]ay
+	# DESC: Appends special token (that skips 1 day) to the queue
+	qd = "!f() { git qp `git qdd` ; }; f"
 
-    # ABBR: [Q]ueue [E]dit
-    # DESC: Opens queue file in editor used by git commands
-    qe = "!f() { $(git var GIT_EDITOR) `git qf`; }; f"
+	# ABBR: [Q]ueue [E]dit
+	# DESC: Opens queue file in editor used by git commands
+	qe = "!f() { $(git var GIT_EDITOR) `git qf`; }; f"
 
-    # ABBR: [Q]ueue [F]ile
-    # DESC: Prints relative (to the repo root) path to queue file
-    qf = !FP="$(git rev-parse --git-dir)/automerge-queue" && test -e "$FP" || touch "$FP" && echo "$FP"
+	# ABBR: [Q]ueue [F]ile
+	# DESC: Prints relative (to the repo root) path to queue file
+	qf = !FP="$(git rev-parse --git-dir)/automerge-queue" && test -e "$FP" || touch "$FP" && echo "$FP"
 
-    # ABBR: [Q]ueue [L]ist
-    # DESC: Prints content of queue file
-    ql = "!f() { cat `git qf`; }; f"
+	# ABBR: [Q]ueue [L]ist
+	# DESC: Prints content of queue file
+	ql = "!f() { cat `git qf`; }; f"
 
-    # ABBR: [Q]ueue [P]repend
-    # DESC: Prepends passed string to the start of queue file
-    qp = "!f() { echo \"$1\n$(cat `git qf`)\" > `git qf` ; }; f"
+	# ABBR: [Q]ueue [P]repend
+	# DESC: Prepends passed string to the start of queue file
+	qp = "!f() { echo \"$1\n$(cat `git qf`)\" > `git qf` ; }; f"
 
-    # ABBR: [Q]ueue [N]ow
-    # DESC: Prepends current branch to the start of queue file
-    #       and immediately processes it
-    qn = "! git q0 && git qt"
+	# ABBR: [Q]ueue [N]ow
+	# DESC: Prepends current branch to the start of queue file
+	#	 	and immediately processes it
+	qn = "! git q0 && git qt"
 
-    # ABBR: [Q]ueue [R]egister
-    # DESC: Registers current repo as one that has Q file
-    qr = !RD=$(git rev-parse --show-toplevel) && \
-            mkdir -p $HOME/.local/share/git && \
-            touch $HOME/.local/share/git/queue-repos && \
-            echo $RD >> $HOME/.local/share/git/queue-repos
+	# ABBR: [Q]ueue [R]egister
+	# DESC: Registers current repo as one that has Q file
+	qr = !RD=$(git rev-parse --show-toplevel) && \
+		mkdir -p $HOME/.local/share/git && \
+		touch $HOME/.local/share/git/queue-repos && \
+		echo $RD >> $HOME/.local/share/git/queue-repos
 
-    # ABBR: [Q]ueue [T]op
-    # DESC: Processes first item from queue file
-    qt = "! land-branch ."
+	# ABBR: [Q]ueue [T]op
+	# DESC: Processes first item from queue file
+	qt = "! land-branch ."
 
-    # ABBR: [Q]ueue [Y]ear
-    # DESC: Appends special token that makes commit system skip any actions forever
-    qy = "!f() { git qp `git qdy` ; }; f"
+	# ABBR: [Q]ueue [Y]ear
+	# DESC: Appends special token that makes commit system skip any actions forever
+	qy = "!f() { git qp `git qdy` ; }; f"
 
-    # ABBR: [Q]ueue [0]
-    # DESC: Prepends current branch to the start of queue file
-    q0 = "!f() { git qp `git bn`; }; f"
+	# ABBR: [Q]ueue [0]
+	# DESC: Prepends current branch to the start of queue file
+	q0 = "!f() { git qp `git bn`; }; f"
 
-    # ABBR: [Q]ueue [1]
-    # DESC: Prints first item from queue file
-    q1 = "!f() { head -n 1 `git qf`; }; f"
+	# ABBR: [Q]ueue [1]
+	# DESC: Prints first item from queue file
+	q1 = "!f() { head -n 1 `git qf`; }; f"
 
