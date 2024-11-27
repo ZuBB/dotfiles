@@ -8,6 +8,7 @@ CotEditor.app
 Cursor.app
 Cyberduck.app
 DBngin.app
+Dash.app
 Docker.app
 EUSAManager.app
 FSNotes.app
@@ -23,7 +24,6 @@ Ice.app
 Itsycal.app
 Karabiner-Elements.app
 Karabiner-EventViewer.app
-Kegworks Winery.app
 Keynote.app
 LibreOffice.app
 LocalSend.app
@@ -40,7 +40,6 @@ OpenMTP.app
 Pages.app
 Pixea.app
 ResponsivelyApp.app
-Rocket.app
 Safari.app
 Shottr.app
 Slack.app
@@ -64,7 +63,7 @@ Visual Studio Code.app
 Vivaldi.app
 WebStorm.app
 Webex.app
-Whisky.app
+Windows App.app
 Xcode.app
 XnViewMP.app
 YouTube Music.app
