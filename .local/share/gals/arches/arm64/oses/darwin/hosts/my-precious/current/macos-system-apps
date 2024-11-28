@@ -4,9 +4,11 @@ ApolloOne.app
 AppCleaner.app
 Brave Browser.app
 Chromium.app
+Core Tunnel.app
 CotEditor.app
 Cursor.app
 Cyberduck.app
+DBeaver.app
 DBngin.app
 Dash.app
 Docker.app
@@ -33,6 +35,7 @@ Microsoft Edge.app
 Microsoft Excel.app
 Microsoft PowerPoint.app
 Microsoft Word.app
+MongoDB Compass.app
 NearDrop.app
 Numbers.app
 OpenInTerminal.app
