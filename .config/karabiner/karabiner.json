@@ -5,6 +5,28 @@
     },
     "profiles": [
         {
+            "complex_modifications": {
+                "rules": [
+                    {
+                        "description": "Command + Shift to control + spacebar",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "left_shift",
+                                    "modifiers": { "mandatory": ["left_command"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "spacebar",
+                                        "modifiers": ["left_control"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    }
+                ]
+            },
             "devices": [
                 {
                     "identifiers": {
