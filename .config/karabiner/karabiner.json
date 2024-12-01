@@ -9,6 +9,7 @@
                 "rules": [
                     {
                         "description": "Command + Shift to control + spacebar",
+                        "enabled": false,
                         "manipulators": [
                             {
                                 "from": {
