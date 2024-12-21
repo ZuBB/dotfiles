@@ -12,10 +12,10 @@ command -q pyenv && pyenv init - | source
 
 # Golang
 if command -q go
-    set -gx GOBIN=$HOME/.local/bin
-    set -gx GOPATH=$HOME/.local/share/go
-    set -gx GOCACHE=$HOME/.cache/go-build
-    set -gx GOMODCACHE=$HOME/.cache/go-mod
+    set -gx GOBIN $HOME/.local/bin
+    set -gx GOPATH $HOME/.local/share/go
+    set -gx GOCACHE $HOME/.cache/go-build
+    set -gx GOMODCACHE $HOME/.cache/go-mod
     set -gx GOROOT (go env GOROOT)
     set -gx PATH $GOBIN $PATH
 end
