@@ -11,8 +11,8 @@ function create_screens_dir
 
     if test "$os" = Darwin
         mkdir -p /tmp/screens
-#   else if test "$os" = Linux
-#       add_linux_brew_pathes_to_path
+    else if test "$os" = Linux
+        true
     else
         echo "OS $os is not supported"
     end
