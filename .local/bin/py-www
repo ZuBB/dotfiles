@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+command -v python3 > /dev/null;
+exit_status=$?
+if [ "$exit_status" -ne 0 ]; then
+  echo "\"python\" has not been found!"
+  exit 1
+fi
+
+PASSED_PATH=$1
+
+if [ -n "$PASSED_PATH" ]; then
+    if [[ "${PASSED_PATH:0:1}" == / || "${PASSED_PATH:0:2}" == ~[/a-z] ]]; then
+        WEB_ROOT="$PASSED_PATH"
+    else
+        WEB_ROOT="$(pwd)/$PASSED_PATH"
+    fi
+fi
+
+SERVER_PORT=${2:-8000}
+
+PYTHON_VERSION=$(python3 --version | awk '{print $2}' | head -c1)
+
+if [ "$PYTHON_VERSION" == "3" ]; then
+    # usage: server.py [-h] [--cgi] [--bind ADDRESS] [--directory DIRECTORY] [port]
+    python3 -m http.server --directory "$WEB_ROOT" "$SERVER_PORT"
+else
+    python -m SimpleHTTPServer "$SERVER_PORT"
+fi
