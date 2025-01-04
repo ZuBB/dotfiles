@@ -1,7 +1,7 @@
 # JavaScript
 
 # https://github.com/Schniz/fnm#fish-shell
-# command -q fnm && fnm env --use-on-cd | source
+command -q fnm && fnm env --use-on-cd | source
 
 
 # Python
