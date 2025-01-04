@@ -96,7 +96,7 @@
 	queueSkipForever = "__skip_always"
 
 [include]
-	path = .gituser
+	path = gituser
 	path = aliases
 	path = colors
 	path = maintenance
