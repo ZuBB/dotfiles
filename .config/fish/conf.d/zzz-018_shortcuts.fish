@@ -1,3 +1,3 @@
 # vim: set filetype=sh : ~
 
-bind alt-backspace backward-kill-word
+# bind alt-backspace backward-kill-word
