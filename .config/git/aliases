@@ -18,7 +18,6 @@
 	# ABBR: [A]dd [P]atch
 	# DESC: patch-based interactive version of 'git add'
 	ap = add --patch
-	ddd
 
 
 
