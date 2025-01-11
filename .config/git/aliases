@@ -70,6 +70,12 @@
 
 
 	# ============= [ CHECKOUT__________________ ] =============
+	# ABBR: [C]reate [B]ranch
+	# DESC: External script which helps create new branch.
+	# DESC: If name of the brach was passed as param - uses it,
+	# DESC:  otherwise opens an $EDITOR so you can type there
+	# DESC:  and then passes result to `git checkout -b` call
+	# NOTE: depends on `vipe` (moreutils package)
 	cb = ! create-branch-name
 	cd = "!f() { git checkout `git config user.branch`; }; f"
 	# https://le0nidas.gr/2020/03/27/git-alias-with-parameters/
