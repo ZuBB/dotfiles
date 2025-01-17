@@ -97,6 +97,8 @@
 
 	# ============= [ CLONE_____________________ ] =============
 	cl = clone
+	# ABBR: [C]lone [1]
+	# DESC: does a clone of the repo but on for top revision
 	c1 = clone --depth=1
 
 
