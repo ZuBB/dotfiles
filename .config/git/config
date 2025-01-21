@@ -46,6 +46,8 @@
 	mnemonicprefix = true
 	algorithm = patience
 	wsErrorHighlight = all
+	# does not show any source or destination prefix (`a/` / `b/` as default)
+	noprefix = true
 
 [difftool]
 	prompt = false
