@@ -104,6 +104,8 @@
 
 
 	# ============= [ COMMIT____________________ ] =============
+	# ABBR: [C]ommit [A]ll
+	# DESC: does a quick commit of all changes with a stub message
 	ca = commit --all --message WIP
 	ce = commit --allow-empty
 	cf = commit --all --amend -c HEAD
