@@ -32,7 +32,8 @@
 	# ABBR: [B]ranch [A]ll
 	# DESC: show all branches
 	ba = branch -a
-	# show amount of commits in branch
+	# ABBR: [B]ranch [C]ommits
+	# DESC: show amount of commits in the current branch compared to parent one
 	bc = "!f() { git rev-list --count HEAD ^${1-`git bp`}; }; f"
 	# ABBR: [B]ranch [D]elete
 	# DESC: forcibly deletes branch by passed name
