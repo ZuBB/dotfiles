@@ -46,7 +46,9 @@
 	# ABBR: [B]ranch [N]ame
 	# DESC: shows name of the active branch
 	bn = rev-parse --abbrev-ref HEAD
-	# get parent branch of the current branch (still not reliable)
+	# ABBR: [B]ranch [P]arent
+	# DESC: shows parent branch of the current branch
+	# NOTE: it is still not reliable
 	# http://stackoverflow.com/questions/3161204/
 	# https://gist.github.com/joechrysler/6073741
 	bp = ! git show-branch \
