@@ -58,10 +58,10 @@
 		| head -n1 \
 		| sed "s/^.*\\\\[//";
 	# ABBR: [BR]anch
-	# DESC: just a shortcut to base command
+	# DESC: just a shortcut to the base command
 	br = branch
-	# ABBR: [B]ranch [R]emote
-	# DESC: just a shortcut to base command
+	# ABBR: [B]ranch remo[T]e
+	# DESC: just a shortcut to the base command
 	bt = branch --remote
 	# ABBR: [B]ranch [U]nset
 	# DESC: unset upstream from current local branch
