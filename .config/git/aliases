@@ -119,6 +119,8 @@
 	ch = commit -m WIP
 	ci = commit
 	cm = commit --amend
+	# ABBR: [C]ommit [N]ow
+	# DESC: changes datetime of the commit to current time
 	cn = commit --amend --no-edit --date=now
 	cq = "!f() { git add ./$GIT_PREFIX/$1 && git commit --only ./$GIT_PREFIX/$1 -m \"WIP: $1\"; }; f"
 	cs = commit --all --amend -C HEAD
