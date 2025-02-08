@@ -118,6 +118,8 @@
 	cf = commit --all --amend -c HEAD
 	ch = commit -m WIP
 	ci = commit
+	# ABBR: [C]ommit a[M]end
+	# DESC: changes commit message of the changeset
 	cm = commit --amend
 	# ABBR: [C]ommit [N]ow
 	# DESC: changes datetime of the commit to current time
