@@ -117,6 +117,8 @@
 	ca = commit --all --message WIP
 	cf = commit --all --amend -c HEAD
 	ch = commit -m WIP
+	# ABBR: [C]omm[I]t
+	# DESC: just a shortcut to the base command
 	ci = commit
 	# ABBR: [C]ommit a[M]end
 	# DESC: changes commit message of the changeset
