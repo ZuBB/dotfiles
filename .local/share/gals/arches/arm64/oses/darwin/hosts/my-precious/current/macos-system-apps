@@ -3,7 +3,9 @@ AlDente.app
 ApolloOne.app
 AppCleaner.app
 Brave Browser.app
+ChatGPT.app
 Chromium.app
+CommandShift.app
 Core Tunnel.app
 CotEditor.app
 Cursor.app
@@ -18,6 +20,7 @@ Figma.app
 Firefox.app
 Flux.app
 GIMP.app
+Ghostty.app
 Gifox.app
 Google Chrome.app
 Grammarly Desktop.app
@@ -27,8 +30,10 @@ Itsycal.app
 Karabiner-Elements.app
 Karabiner-EventViewer.app
 Keynote.app
+Lapce.app
 LibreOffice.app
 LocalSend.app
+Logseq.app
 Maccy.app
 Marta.app
 Microsoft Edge.app
@@ -42,10 +47,10 @@ OpenInTerminal.app
 OpenMTP.app
 Pages.app
 Pixea.app
+Postman.app
 ResponsivelyApp.app
 Safari.app
 Shottr.app
-Slack.app
 TablePlus.app
 TeamViewer.app
 Telegram Desktop Unofficial.app
@@ -63,13 +68,13 @@ Viber.app
 VirtualBox.app
 Visual Studio Code.app
 Vivaldi.app
+Void.app
 WebStorm.app
-Webex.app
-Windows App.app
 Xcode.app
 XnViewMP.app
 YouTube Music.app
 Zed.app
+Zen Browser.app
 euscpnmh.app
 kitty.app
 zoom.us.app
