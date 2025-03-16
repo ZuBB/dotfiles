@@ -8,3 +8,6 @@ if test (string sub -s 1 -l 1 $fish_version) -ge 4
    bind alt-backspace backward-kill-word
 end
 
+#bind ctrl-c 'cancel-commandline; echo -n ""'
+#bind ctrl-c 'commandline -r "" && echo -n ""'
+
