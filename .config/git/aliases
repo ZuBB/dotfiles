@@ -121,8 +121,8 @@
 	# DESC: just a shortcut to the base command
 	ci = commit
 	# ABBR: [C]ommit a[M]end
-	# DESC: changes commit message of the changeset
-	cm = commit --amend
+	# DESC: changes commit's message and updates date
+	cm = commit --amend --date=now
 	# ABBR: [C]ommit [N]ow
 	# DESC: changes datetime of the commit to current time
 	cn = commit --amend --no-edit --date=now
