@@ -125,10 +125,10 @@
 	cm = commit --amend --date=now
 	# ABBR: [C]ommit [N]ow
 	# DESC: changes datetime of the commit to current time
-	cn = commit --amend --no-edit --date=now
+	cn = commit --amend --date=now --no-edit
 	cq = "!f() { git add ./$GIT_PREFIX/$1 && git commit --only ./$GIT_PREFIX/$1 -m \"WIP: $1\"; }; f"
-	cs = commit --all --amend -C HEAD
-	cu = commit --amend --no-edit --reset-author
+	cs = commit --amend --date=now --all -C HEAD
+	cu = commit --amend --date=now --no-edit --reset-author
 
 
 
