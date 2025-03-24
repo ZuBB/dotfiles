@@ -96,6 +96,8 @@
 	branch = "main"
 	queueSkipDay = "__skip_day"
 	queueSkipForever = "__skip_always"
+	name = Vasyl Zuziak
+	email = vasyl.zuziak@tietoevry.com
 
 [include]
 	path = gituser
