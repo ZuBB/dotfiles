@@ -1,29 +1,30 @@
-# vim: set filetype=gitconfig : ~
-# vim: set shiftwidth=4 : ~
-# vim: set softtabstop=0 : ~
-# vim: set noexpandtab : ~
+# vim: filetype=gitconfig :
+# vim: set shiftwidth=4 softtabstop=0 noexpandtab noexpandtab colorcolumn=80 :
 
 # for debug use next
 # cb = ! set -x && ...
 
 [alias]
 
-	# ============= [ ADD ] =============
+	# ------------------------------- [ ADD ] -------------------------------
 	# ABBR: [AD]d
 	# DESC: just an alias to `git add`
 	ad = add
+
 	# ABBR: [A]dd [F]orce
 	# DESC: just a `git add` command with a `--force` option
 	af = add --force
+
 	# ABBR: [A]dd [P]atch
 	# DESC: patch-based interactive version of 'git add'
 	ap = add --patch
 
 
 
-	# ============= [ BLAME_____________________ ] =============
+	# ------------------------------ [ BLAME ] ------------------------------
 	# ABBR: [BL]ame
-	# DESC: a bit tuned (http://goo.gl/4yyu5v) version of git blame command
+	# DESC: an alias for `git blame` command
+	# NOTE: Usage of `HEAD` had been suggested here http://goo.gl/4yyu5v
 	bl = blame HEAD
 
 
