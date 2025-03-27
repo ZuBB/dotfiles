@@ -1,5 +1,5 @@
 # vim: filetype=gitconfig :
-# vim: set shiftwidth=4 softtabstop=0 noexpandtab noexpandtab colorcolumn=80 :
+# vim: set shiftwidth=4 softtabstop=0 noexpandtab noexpandtab colorcolumn=78 :
 
 # for debug use next
 # cb = ! set -x && ...
