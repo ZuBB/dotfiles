@@ -294,11 +294,12 @@
 
 
 
-	# ------------------------------- [ MISC ] -------------------------------
+	# ------------------------------ [ MISC ] -------------------------------
 	# ABBR: [P]ull [R]equest
 	# DESC: an alias for 2 actions: push changes and create a PR based on them
 	# DEPS: depends on github's CLI (https://cli.github.com/)
-	pr = !git push --quiet && gh pr create --fill
+	pr1 = !git push --quiet && gh pr create --fill
+	pr0 = !EDITOR="nvim_refs" git-push-and-create-gh-pr
 
 	os = shortlog --summary --numbered
 	#ls = ls-files
