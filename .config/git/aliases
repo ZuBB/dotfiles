@@ -203,7 +203,7 @@
 
 	# ============= [ PUSH______________________ ] =============
 	# TODO replace `origin` with dynamic param
-	pd = "!f() { git push origin --delete $1; }; f"
+	pd = "!f() { git push origin --delete $1 && git bu; }; f"
 	pf = push --force
 	# ABBR: [P]us[H]
 	# DESC: an alias to push command, but without useless noise
