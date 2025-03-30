@@ -27,7 +27,6 @@ if [ ! -s "$PR_MESSAGE_FILE" ]; then
 fi
 
 # Step 8: Create the pull request using the modified message and title
-# PR_OUTPUT=$(gh pr create -t "$COMMIT_TITLE" --body-file "$PR_MESSAGE_FILE" --head "$(git rev-parse --abbrev-ref HEAD)" --base main --fill)
 PR_OUTPUT=$(gh pr create -t "$COMMIT_TITLE" --body-file "$PR_MESSAGE_FILE")
 
 # Extract the URL from the output
