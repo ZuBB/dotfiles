@@ -29,10 +29,11 @@
 
 
 
-	# ============= [ BRANCH____________________ ] =============
+	# ----------------------------- [ BRANCH ] ------------------------------
 	# ABBR: [B]ranch [A]ll
 	# DESC: show all branches
 	ba = branch -a
+
 	# ABBR: [B]ranch [C]ommits
 	# DESC: show amount of commits in the current branch compared to parent one
 	bc = "!f() { git rev-list --count HEAD ^${1-`git bp`}; }; f"
