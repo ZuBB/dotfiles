@@ -296,9 +296,15 @@
 
 	# ------------------------------ [ MISC ] -------------------------------
 	# ABBR: [P]ull [R]equest
-	# DESC: an alias for 2 actions: push changes and create a PR based on them
+	# DESC: an alias for 2 actions: `git push` and `gh pr create`
+	# NOTE: PR's body contains reference/link to issue in bug tracker.
+	# NOTE: For now we support only Jira.
+	# NOTE: This alias is not an independe one.
+	# NOTE: It supposed to be reused in final repo in the next form
+	# NOTE: 	pr = ! JIRA_HOST="my.jira.host git pr0"
+	# NOTE: For PR's body and title data from 1st commit is reused
 	# DEPS: depends on github's CLI (https://cli.github.com/)
-	pr1 = !git push --quiet && gh pr create --fill
+	# DEPS: depends on own script git-push-and-create-gh-pr
 	pr0 = ! git-push-and-create-gh-pr
 
 	os = shortlog --summary --numbered
