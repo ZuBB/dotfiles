@@ -35,7 +35,7 @@
 	ba = branch -a
 
 	# ABBR: [B]ranch [C]ommits
-	# DESC: show amount of commits in the current branch compared to parent one
+	# DESC: show the number of commits in the current branch vs. its parent
 	bc = "!f() { git rev-list --count HEAD ^${1-`git bp`}; }; f"
 	# ABBR: [B]ranch [D]elete
 	# DESC: forcibly deletes branch by passed name
@@ -46,7 +46,7 @@
 		git branch --move \"$@\"; \
 		echo \"Branch has been renamed to '$(git bn)'\"; }; f"
 	# ABBR: [B]ranch [N]ame
-	# DESC: shows name of the active branch
+	# DESC: show name of the currently active branch only
 	bn = rev-parse --abbrev-ref HEAD
 	# ABBR: [B]ranch [P]arent
 	# DESC: shows parent branch of the current branch
