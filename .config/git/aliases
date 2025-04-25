@@ -301,7 +301,14 @@
 	# NOTE: For now we support only Jira.
 	# NOTE: This alias is not an independe one.
 	# NOTE: It supposed to be reused in final repo in the next form
+	# NOTE:
+	# NOTE: file: $REPO_ROOT/.git/config
+	# NOTE: ```
+	# NOTE: ...
+	# NOTE: [alias]
 	# NOTE: 	pr = ! JIRA_HOST="my.jira.host git pr0"
+	# NOTE: ...
+	# NOTE:
 	# NOTE: For PR's body and title data from 1st commit is reused
 	# DEPS: depends on github's CLI (https://cli.github.com/)
 	# DEPS: depends on own script git-push-and-create-gh-pr
