@@ -1,6 +1,0 @@
-#! /bin/bash
-# alias: brew pk
-#:  * `pk` [args...]
-#:    `brew pk` is an alias for `brew deps*`
-brew deps --tree --installed $*
-

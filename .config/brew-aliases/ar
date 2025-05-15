@@ -1,6 +1,0 @@
-#! /bin/bash
-# alias: brew ar
-#:  * `ar` [args...]
-#:    `brew ar` is an alias for `brew autoremove`
-brew autoremove $*
-

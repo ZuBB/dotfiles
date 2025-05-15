@@ -1,6 +1,0 @@
-#! /bin/bash
-# alias: brew od
-#:  * `od` [args...]
-#:    `brew od` is an alias for `brew outdated`
-brew outdated $*
-

@@ -1,6 +1,0 @@
-#! /bin/bash
-# alias: brew ud
-#:  * `ud` [args...]
-#:    `brew ud` is an alias for `brew uses*`
-brew uses --recursive --installed $*
-
