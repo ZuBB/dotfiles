@@ -12,14 +12,19 @@ function fish_prompt -d "Write out the prompt"
 
     # Get the actual hostname
     set -l actual_hostname (prompt_hostname)
-
-    # Check if hostname should be overridden
     set -l display_hostname $actual_hostname
-    if test "$actual_hostname" = "MJLG2DL4HFL"
-        set display_hostname "phoenix"
+
+    # Load override logic if available
+    set -l override_file ~/.config/fish/functions/hostname_override.fish
+    if test -f $override_file
+        source $override_file
+        set -l maybe_override (hostname_override $actual_hostname)
+        if test -n "$maybe_override"
+            set display_hostname $maybe_override
+        end
     end
 
-    # Disable PWD shortening by default.
+    # Disable PWD shortening by default
     set -q fish_prompt_pwd_dir_length
     or set -lx fish_prompt_pwd_dir_length 0
 
