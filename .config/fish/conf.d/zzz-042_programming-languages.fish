@@ -29,3 +29,5 @@ command -q vfox && vfox activate fish | source
 # mise / vfox alternative
 # command -q mise && mise activate fish | source
 
+# temporary
+fish_add_path /opt/homebrew/opt/openjdk/bin
