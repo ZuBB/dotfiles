@@ -140,6 +140,7 @@
 	# ABBR: [C]onfig [M]ain [E]dit
 	# DESC: opens main git config in $EDITOR
 	cme = config --global -e
+
 	# ABBR: [C]onfig [A]lias [E]dit
 	# DESC: opens git's alias config in $EDITOR
 	cae = "!f() { $(git var GIT_EDITOR) ~/.config/git/aliases ; }; f"
