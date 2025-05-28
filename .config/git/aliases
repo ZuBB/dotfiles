@@ -137,11 +137,18 @@
 
 
 	# ============= [ CONFIG____________________ ] =============
-	ec = config --global -e
-	ae = "!f() { $(git var GIT_EDITOR) ~/.config/git/aliases ; }; f"
-	ag = "!f() { git config -l | grep alias | cut -c 7- | grep \"^$1=\" ; }; f"
-	al = !git config -l | grep alias | cut -c 7-
-
+	# ABBR: [C]onfig [M]ain [E]dit
+	# DESC: opens main git config in $EDITOR
+	cme = config --global -e
+	# ABBR: [C]onfig [A]lias [E]dit
+	# DESC: opens git's alias config in $EDITOR
+	cae = "!f() { $(git var GIT_EDITOR) ~/.config/git/aliases ; }; f"
+	# ABBR: [C]onfig [A]lias [G]rep
+	# DESC: performs search in registered aliases by given name
+	cag = "!f() { git config -l | grep alias | cut -c 7- | grep \"^$1=\" ; }; f"
+	# ABBR: [C]onfig [A]lias [L]ist
+	# DESC: lists all registered aliases
+	cal = !git config -l | grep alias | cut -c 7-
 
 
 
