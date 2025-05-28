@@ -325,6 +325,18 @@
 	# DEPS: depends on own script git-push-and-create-gh-pr
 	pr0 = ! git-push-and-create-gh-pr
 
+
+	# ABBR: [P]ull [R]equest
+	# DESC: an alias for 2 actions: `git push` and `gh pr create`
+	ems = "!git log \
+		--reverse \
+		--no-merges \
+		--author=\"$(git config user.name)\" \
+		--since=\"$(date +%Y-%m-01)\" \
+		--pretty=format:'%C(yellow)%h%Creset %C(cyan)%ad%Creset %s%Cgreen [%an]' --date=short"
+
+
+
 	os = shortlog --summary --numbered
 	#ls = ls-files
 
