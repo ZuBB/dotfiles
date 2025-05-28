@@ -144,6 +144,7 @@
 	# ABBR: [C]onfig [A]lias [E]dit
 	# DESC: opens git's alias config in $EDITOR
 	cae = "!f() { $(git var GIT_EDITOR) ~/.config/git/aliases ; }; f"
+
 	# ABBR: [C]onfig [A]lias [G]rep
 	# DESC: performs search in registered aliases by given name
 	cag = "!f() { git config -l | grep alias | cut -c 7- | grep \"^$1=\" ; }; f"
