@@ -180,8 +180,16 @@
 	l1 = log -n 1 --no-merges
 	l2 = log -n 2 --no-merges
 	l3 = log -n 3 --no-merges
+
 	# 'b' letter but 'log' command; shows log in current branch only
 	bo = "!f() { git log --no-merges ${1-`git bp`}..; }; f"
+
+	# ABBR: [L]og [M]e
+	# DESC: an alias for 2 actions: `git push` and `gh pr create`
+	lm = "!git log \
+		--no-merges \
+		--author=\"$(git config user.name)\" \
+		--pretty=format:'%C(yellow)%h%Creset %C(cyan)%ad%Creset %s%Cgreen [%an]' --date=short"
 
 	lf = "!f() { git l1 --decorate --stat; }; f"
 	lg = log -p
