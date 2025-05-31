@@ -185,7 +185,7 @@
 	bo = "!f() { git log --no-merges ${1-`git bp`}..; }; f"
 
 	# ABBR: [L]og [M]e
-	# DESC: an alias for 2 actions: `git push` and `gh pr create`
+	# DESC: prints commits of 'host' user only 
 	lm = "!git log \
 		--no-merges \
 		--author=\"$(git config user.name)\" \
