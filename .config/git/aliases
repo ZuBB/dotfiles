@@ -169,11 +169,6 @@
 
 
 
-	# ============= [ INIT______________________ ] =============
-	# it = "!f() { git init && git commit -m \"empty root\" --allow-empty; }; f"
-
-
-
 	# ============= [ LOG_______________________ ] =============
 	# ABBR: [L]og [\d]
 	# DESC: show log of X most recent items excluding merge commits
