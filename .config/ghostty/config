@@ -1541,7 +1541,7 @@ window-subtitle = false
 # non-terminal windows within Ghostty.
 # 
 # This is currently only supported on macOS and Linux.
-window-theme = auto
+window-theme = ghostty
 
 # The color space to use when interpreting terminal colors. "Terminal colors"
 # refers to colors specified in your configuration and colors produced by
