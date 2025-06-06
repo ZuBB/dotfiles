@@ -441,23 +441,23 @@ freetype-load-flags = hinting,force-autohint,monochrome,autohint
 # 
 #   - macOS: titlebar tabs style is not updated when switching themes.
 # 
-theme = "Builtin Dark"
+theme = "kitty"
 
 # Background color for the window.
 # Specified as either hex (`#RRGGBB` or `RRGGBB`) or a named X11 color.
-background = #282c34
+    #   background = #282c34
 
 # Foreground color for the window.
 # Specified as either hex (`#RRGGBB` or `RRGGBB`) or a named X11 color.
-foreground = #ffffff
+    #   foreground = #ffffff
 
 # The foreground and background color for selection. If this is not set, then
 # the selection color is just the inverted window background and foreground
 # (note: not to be confused with the cell bg/fg).
 # Specified as either hex (`#RRGGBB` or `RRGGBB`) or a named X11 color.
-selection-foreground = 
+    #   selection-foreground = 
 
-selection-background = 
+    #   selection-background = 
 # Swap the foreground and background colors of cells for selection. This
 # option overrides the `selection-foreground` and `selection-background`
 # options.
@@ -490,22 +490,22 @@ minimum-contrast = 1
 # 
 # For definitions on the color indices and what they canonically map to,
 # [see this cheat sheet](https://www.ditig.com/256-colors-cheat-sheet).
-palette = 0=#1d1f21
-palette = 1=#cc6666
-palette = 2=#b5bd68
-palette = 3=#f0c674
-palette = 4=#81a2be
-palette = 5=#b294bb
-palette = 6=#8abeb7
-palette = 7=#c5c8c6
-palette = 8=#666666
-palette = 9=#d54e53
-palette = 10=#b9ca4a
-palette = 11=#e7c547
-palette = 12=#7aa6da
-palette = 13=#c397d8
-palette = 14=#70c0b1
-palette = 15=#eaeaea
+    #   palette = 0=#1d1f21
+    #   palette = 1=#cc6666
+    #   palette = 2=#b5bd68
+    #   palette = 3=#f0c674
+    #   palette = 4=#81a2be
+    #   palette = 5=#b294bb
+    #   palette = 6=#8abeb7
+    #   palette = 7=#c5c8c6
+    #   palette = 8=#666666
+    #   palette = 9=#d54e53
+    #   palette = 10=#b9ca4a
+    #   palette = 11=#e7c547
+    #   palette = 12=#7aa6da
+    #   palette = 13=#c397d8
+    #   palette = 14=#70c0b1
+    #   palette = 15=#eaeaea
 palette = 16=#000000
 palette = 17=#00005f
 palette = 18=#000087
@@ -749,7 +749,7 @@ palette = 255=#eeeeee
 
 # The color of the cursor. If this is not set, a default will be chosen.
 # Specified as either hex (`#RRGGBB` or `RRGGBB`) or a named X11 color.
-cursor-color = 
+    #   cursor-color = 
 
 # Swap the foreground and background colors of the cell under the cursor. This
 # option overrides the `cursor-color` and `cursor-text` options.
@@ -1861,7 +1861,7 @@ confirm-close-surface = true
 # On Linux, if this is `true`, Ghostty can delay quitting fully until a
 # configurable amount of time has passed after the last window is closed.
 # See the documentation of `quit-after-last-window-closed-delay`.
-quit-after-last-window-closed = false
+quit-after-last-window-closed = true
 
 # Controls how long Ghostty will stay running after the last open surface has
 # been closed. This only has an effect if `quit-after-last-window-closed` is
