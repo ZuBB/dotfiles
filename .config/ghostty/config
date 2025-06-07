@@ -2017,8 +2017,7 @@ macos-secure-input-indication = true
 #     separate framework and cannot be customized without significant
 #     effort.
 # 
-#macos-icon = official
-macos-icon = xray
+#macos-icon = xray
 
 
 # The material to use for the frame of the macOS app icon.
