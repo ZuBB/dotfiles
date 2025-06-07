@@ -2018,7 +2018,7 @@ macos-secure-input-indication = true
 #     effort.
 # 
 #macos-icon = official
-macos-icon = glass
+macos-icon = holographic
 
 
 # The material to use for the frame of the macOS app icon.
