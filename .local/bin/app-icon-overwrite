@@ -19,8 +19,6 @@ cd "$ICON_SRC_DIR" || exit
 
 # Use find to avoid globs breaking on spaces
 find . -maxdepth 1 -name '*.icns' -print0 | while IFS= read -r -d '' file; do
-    echo "=========="
-    echo $file
     filename=$(basename "$file" .icns)
     APP_PATH="/Applications/$filename.app"
 
@@ -29,12 +27,9 @@ find . -maxdepth 1 -name '*.icns' -print0 | while IFS= read -r -d '' file; do
     fi
 
     APP_OWNER=$(stat -f "%Su" "$APP_PATH")
-    echo $APP_OWNER
-    echo $CURR_USER
 
     if [ "$APP_OWNER" != "$CURR_USER" ]; then
-        #continue
-        sudo fileicon set -q "$APP_PATH" "$file"
+        continue
     fi
 
     fileicon set -q "$APP_PATH" "$file"
