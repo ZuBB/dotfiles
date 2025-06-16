@@ -94,9 +94,9 @@
 # new windows, tabs, etc.
 
 font-family = "Menlo Regular"
-#font-family-bold = "Menlo-Bold"
-#font-family-italic = "Menlo Italic"
-#font-family-bold-italic = "Menlo Bold Italic"
+font-family-bold = "Menlo Bold"
+font-family-italic = "Menlo Italic"
+font-family-bold-italic = "Menlo Bold Italic"
   
 
 # The named font style to use for each of the requested terminal font styles.
