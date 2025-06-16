@@ -93,11 +93,10 @@
 # Changing this configuration at runtime will only affect new terminals, i.e.
 # new windows, tabs, etc.
 
-# https://github.com/ghostty-org/ghostty/blob/main/src/font/embedded.zig#L8-L9
 font-family = "Menlo Regular"
-font-family-bold = "Menlo-Bold"
-font-family-italic = "Menlo Italic"
-font-family-bold-italic = "Menlo Bold Italic"
+#font-family-bold = "Menlo-Bold"
+#font-family-italic = "Menlo Italic"
+#font-family-bold-italic = "Menlo Bold Italic"
   
 
 # The named font style to use for each of the requested terminal font styles.
