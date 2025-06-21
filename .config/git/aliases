@@ -41,6 +41,7 @@
 	# ABBR: [B]ranch [D]elete
 	# DESC: forcibly deletes branch by passed name
 	bd = branch -D
+
 	# ABBR: [B]ranch [M]ove
 	# DESC: renames current branch
 	# DESC:  * with provided name
