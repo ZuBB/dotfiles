@@ -49,8 +49,9 @@
 	bm = "!f() { test -z $1 && git branch --move \"$(git bn | vipe)\" || \
 		git branch --move \"$@\"; \
 		echo \"Branch has been renamed to '$(git bn)'\"; }; f"
+
 	# ABBR: [B]ranch [N]ame
-	# DESC: show name of the currently active branch only
+	# DESC: prints the name of the currently active branch
 	bn = rev-parse --abbrev-ref HEAD
 
 	# ABBR: [B]ranch [P]arent
