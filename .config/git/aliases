@@ -43,9 +43,7 @@
 	bd = branch -D
 
 	# ABBR: [B]ranch [M]ove
-	# DESC: renames current branch
-	# DESC:  * with provided name
-	# DESC:  * or brings $EDITOR for interactive rename
+	# DESC: renames current branch with provided name or asks via $EDITOR
 	bm = "!f() { test -z $1 && git branch --move \"$(git bn | vipe)\" || \
 		git branch --move \"$@\"; \
 		echo \"Branch has been renamed to '$(git bn)'\"; }; f"
