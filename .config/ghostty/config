@@ -3,10 +3,6 @@
 # Whether to automatically copy selected text to the clipboard
 copy-on-select = clipboard
 
-# This configuration lets you change the behavior so that option is treated
-# as alt
-macos-option-as-alt = true
-
 # Whether or not to quit after the last surface is closed.
 quit-after-last-window-closed = true
 
@@ -22,21 +18,16 @@ window-theme = ghostty
 # A theme to use
 theme = "kitty"
 
-# The font families to use
-font-family = "Menlo Regular"
-font-family-bold = "Menlo Bold"
-font-family-italic = "Menlo Italic"
-font-family-bold-italic = "Menlo Bold Italic"
-
-# Font size in points
-font-size = 20
-
 # The style of the cursor
 cursor-style = block
 
 # Sets the default blinking state of the cursor
 cursor-style-blink = false
  
+# The initial window size. This size is in terminal grid cells by default
 window-height = 25
 window-width = 80
+
+config-file = config.fonts
+config-file = ?config.macos
 
