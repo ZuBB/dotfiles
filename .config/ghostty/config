@@ -28,3 +28,6 @@ font-family-bold-italic = "Menlo Bold Italic"
 # Font size in points
 font-size = 20
 
+# The style of the cursor
+cursor-style = block
+
