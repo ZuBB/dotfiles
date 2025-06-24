@@ -1,1 +1,4 @@
 theme = "kitty"
+
+# The theme to use for the windows
+window-theme = ghostty
