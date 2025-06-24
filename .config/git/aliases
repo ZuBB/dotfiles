@@ -59,19 +59,22 @@
 	# ABBR: [BR]anch
 	# DESC: just a shortcut to the base command
 	br = branch
+
 	# ABBR: [B]ranch remo[T]e
-	# DESC: just a shortcut to the base command
+	# DESC: prints remote names of branches
 	bt = branch --remote
+
 	# ABBR: [B]ranch [U]nset
 	# DESC: unset upstream from current local branch
 	bu = branch --unset-upstream
+
 	# ABBR: [B]ranch [V]erbose
 	# DESC: show branch'es verbose status/info
 	bv = branch -vv
 
 
 
-	# ============= [ CHECKOUT__________________ ] =============
+	# ---------------------------- [ CHECKOUT ] -----------------------------
 	# ABBR: [C]reate [B]ranch
 	# DESC: External script which helps create new branch.
 	# DESC: If name of the brach was passed as param - uses it,
@@ -103,6 +106,7 @@
 	# ABBR: [CL]one
 	# DESC: just a shortcut to base command
 	cl = clone
+
 	# ABBR: [C]lone [1]
 	# DESC: does a clone of the repo but on for top revision
 	c1 = clone --depth=1
