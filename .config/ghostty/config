@@ -23,7 +23,7 @@ cursor-style = block
 
 # Sets the default blinking state of the cursor
 cursor-style-blink = false
- 
+
 # The initial window size. This size is in terminal grid cells by default
 window-height = 25
 window-width = 80
