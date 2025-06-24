@@ -1,13 +1,7 @@
 # vim: set filetype=conf : ~
 
-# A theme to use
-theme = "kitty"
-
-# The theme to use for the windows
-window-theme = ghostty
-
-# Whether to enable shell integration auto-injection or not
-shell-integration = fish
+# Whether to automatically copy selected text to the clipboard
+copy-on-select = clipboard
 
 # This configuration lets you change the behavior so that option is treated
 # as alt
@@ -16,8 +10,17 @@ macos-option-as-alt = true
 # Whether or not to quit after the last surface is closed.
 quit-after-last-window-closed = true
 
-# Whether to automatically copy selected text to the clipboard
-copy-on-select = clipboard
+# Whether to enable shell integration auto-injection or not
+shell-integration = fish
+
+# Shell integration features to enable
+shell-integration-features = no-cursor,no-sudo,title
+
+# The theme to use for the windows
+window-theme = ghostty
+
+# A theme to use
+theme = "kitty"
 
 # The font families to use
 font-family = "Menlo Regular"
