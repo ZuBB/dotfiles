@@ -31,3 +31,6 @@ font-size = 20
 # The style of the cursor
 cursor-style = block
 
+# Sets the default blinking state of the cursor
+cursor-style-blink = false
+ 
