@@ -82,6 +82,7 @@
 	# DESC:  and then passes result to `git checkout -b` call
 	# NOTE: depends on `vipe` (moreutils package)
 	cb = ! create-branch-name
+
 	# ABBR: [Change] [D]irectory (aka shell's command)
 	# DESC: a quick way to checkout to a home branch defined in config
 	cd = "!f() { git checkout `git config user.branch`; }; f"
