@@ -46,6 +46,7 @@
 	# ABBR: [B]ranch [M]ove
 	# DESC: renames current branch with provided name or asks via $EDITOR
 	# DEPS: depends on external app `vipe` from 'moreutils' package
+	# DEPS: depends on other alias `bn`
 	bm = "!f() { test -z $1 && git branch --move \"$(git bn | vipe)\" || \
 		git branch --move \"$@\"; \
 		echo \"Branch has been renamed to '$(git bn)'\"; }; f"
@@ -82,18 +83,29 @@
 	# DESC: If name of the brach was passed as param - uses it,
 	# DESC:  otherwise opens an $EDITOR so you can type there
 	# DESC:  and then passes result to `git checkout -b` call
-	# NOTE: depends on `vipe` (moreutils package)
+	# DEPS: depends on `create-branch-name` app (see ~/.local/bin)
+	# DEPS: depends on external app `vipe` from 'moreutils' package
 	cb = ! create-branch-name
 
-	# ABBR: [Change] [D]irectory (aka shell's command)
-	# DESC: a quick way to checkout to a home branch defined in config
+	# ABBR: [C]hange [D]irectory (aka shell's command)
+	# DESC: a quick way to checkout to a "home" branch defined in config
 	cd = "!f() { git checkout `git config user.branch`; }; f"
+
+	# ABBR: [C]heck[o]ut
+	# DESC: just a shortcut to the base command
+	co = checkout
+
+	# ABBR: [C]heck[o]ut
+	# DESC: a smart version of 'checkout' command
 	# https://le0nidas.gr/2020/03/27/git-alias-with-parameters/
 	# co = "!f() { git checkout $(git branch | grep $1); }; f"
-	co = checkout
+
 	# ABBR: [C]heckout p[R]evious
-	# DESC: a quick way to checkout a branch that was active before current one
+	# DESC: checkout a branch that was active before current one
 	cr = checkout -
+
+	# ABBR: [C]heckout [T]emporary
+	# DESC: checkout a branch with name "t${latest_temp_branch_index + 1}"
 	ct = ! git checkout -b "tmp_branch$(expr $(git br -l 'tmp_branch*' | wc -l | tr -d \"[:blank:]\") + 1)"
 
 

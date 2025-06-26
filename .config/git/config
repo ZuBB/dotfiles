@@ -90,16 +90,10 @@
 [rerere]
 	enabled = true
 
-[user]
-	# https://stackoverflow.com/questions/11364044
-	# name of the branch where major development happens
-	branch = "main"
-	queueSkipDay = "__skip_day"
-	queueSkipForever = "__skip_always"
-
 [include]
 	path = gituser
 	path = aliases
 	path = colors
 	path = maintenance
+	path = user-options
 
