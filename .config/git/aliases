@@ -324,6 +324,11 @@
 
 
 	# ------------------------------ [ MISC ] -------------------------------
+	# ABBR: (none)
+	# DESC: handy way to deal with multiple `git`/`gt` tokens in command
+	git = !git
+	gt = !git
+
 	# ABBR: [P]ull [R]equest
 	# DESC: an alias for 2 actions: `git push` and `gh pr create`
 	# NOTE: PR's body contains reference/link to issue in bug tracker.
