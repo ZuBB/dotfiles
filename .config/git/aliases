@@ -36,6 +36,7 @@
 
 	# ABBR: [B]ranch [C]ommits
 	# DESC: show the number of commits in the current branch vs. its parent
+	# DEPS: depends on other alias `bp`
 	bc = "!f() { git rev-list --count HEAD ^${1-`git bp`}; }; f"
 
 	# ABBR: [B]ranch [D]elete
@@ -44,6 +45,7 @@
 
 	# ABBR: [B]ranch [M]ove
 	# DESC: renames current branch with provided name or asks via $EDITOR
+	# DEPS: depends on external app `vipe` from 'moreutils' package
 	bm = "!f() { test -z $1 && git branch --move \"$(git bn | vipe)\" || \
 		git branch --move \"$@\"; \
 		echo \"Branch has been renamed to '$(git bn)'\"; }; f"
