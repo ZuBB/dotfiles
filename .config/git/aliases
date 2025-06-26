@@ -110,20 +110,20 @@
 
 
 
-	# ============= [ CHERRY-PICK_______________ ] =============
+	# --------------------------- [ CHERRY-PICK ] ---------------------------
 	# ABBR: [C]herry [P]ick
 	# DESC: just an alias to `cherry-pick`
 	cp = cherry-pick
 
 
 
-	# ============= [ CLONE_____________________ ] =============
+	# ------------------------------ [ CLONE ] ------------------------------
 	# ABBR: [CL]one
 	# DESC: just a shortcut to base command
 	cl = clone
 
 	# ABBR: [C]lone [1]
-	# DESC: does a clone of the repo but on for top revision
+	# DESC: clone of the repo but HEAD revision only
 	c1 = clone --depth=1
 
 
