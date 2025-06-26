@@ -154,6 +154,10 @@
 	# DESC: opens main git config in $EDITOR
 	cme = config --global -e
 
+	# ABBR: [C]onfig [A]lias [C]heck
+	# DESC: checks aliases for uniqness
+	cac = !git cal | cut -d= -f1 | sort | uniq -d
+
 	# ABBR: [C]onfig [A]lias [E]dit
 	# DESC: opens git's alias config in $EDITOR
 	cae = "!f() { $(git var GIT_EDITOR) ~/.config/git/aliases ; }; f"
@@ -245,7 +249,7 @@
 		&& git rebase $1 \
 		|| git rebase -i HEAD~$1; }; f"
 	rc = rebase --continue
-	rk = rebase --skip
+	ri = rebase --skip
 	rd = "!f() { git rebase `git config user.branch` ; }; f"
 
 
@@ -309,7 +313,6 @@
 	tl = git describe --tags --abbrev=0
 	td = "!f() { git tag -d $1; }; f"
 	tv = show-ref --tags --abbrev
-	tr = ls-remote --tags origin
 	tw = "!f() { git tag -d $1 && git push origin :refs/tags/$1; }; f"
 
 
