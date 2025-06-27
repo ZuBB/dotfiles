@@ -86,7 +86,6 @@
 
 [rebase]
 	autoStash = true
-	instructionFormat = %Creset%s
 
 [rerere]
 	enabled = true
