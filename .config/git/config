@@ -86,6 +86,7 @@
 
 [rebase]
 	autoStash = true
+	todoCommentStyle = inline
 
 [rerere]
 	enabled = true
