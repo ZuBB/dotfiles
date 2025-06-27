@@ -86,7 +86,7 @@
 
 [rebase]
 	autoStash = true
-	todoCommentStyle = inline
+	instructionFormat = %Creset%s
 
 [rerere]
 	enabled = true
