@@ -91,11 +91,11 @@
 	# DESC: a quick way to checkout to a "home" branch defined in config
 	cd = "!f() { git checkout `git config user.branch`; }; f"
 
-	# ABBR: [C]heck[o]ut
+	# ABBR: [C]heck[O]ut
 	# DESC: just a shortcut to the base command
 	co = checkout
 
-	# ABBR: [C]heck[o]ut
+	# ABBR: [C]heck[O]ut
 	# DESC: a smart version of 'checkout' command
 	# https://le0nidas.gr/2020/03/27/git-alias-with-parameters/
 	# co = "!f() { git checkout $(git branch | grep $1); }; f"
@@ -106,13 +106,14 @@
 
 	# ABBR: [C]heckout [T]emporary
 	# DESC: checkout a branch with name "t${latest_temp_branch_index + 1}"
-	ct = ! git checkout -b "tmp_branch$(expr $(git br -l 'tmp_branch*' | wc -l | tr -d \"[:blank:]\") + 1)"
+	ct = ! git checkout -b "tmp_branch$(expr $(git br -l 'tmp_branch*' | \
+		wc -l | tr -d \"[:blank:]\") + 1)"
 
 
 
 	# --------------------------- [ CHERRY-PICK ] ---------------------------
 	# ABBR: [C]herry [P]ick
-	# DESC: just an alias to `cherry-pick`
+	# DESC: just an alias to `cherry-pick` command
 	cp = cherry-pick
 
 
@@ -128,7 +129,7 @@
 
 
 
-	# ============= [ COMMIT____________________ ] =============
+	# ----------------------------- [ COMMIT ] ------------------------------
 	# ABBR: [C]ommit [A]ll
 	# DESC: does a quick commit of all changes with a stub message
 	ca = commit --all --message WIP
