@@ -131,19 +131,29 @@
 
 	# ----------------------------- [ COMMIT ] ------------------------------
 	# ABBR: [C]ommit [A]ll
-	# DESC: does a quick commit of all changes with a stub message
+	# DESC: commit of all changes with a stub message
 	ca = commit --all --message WIP
+
+	# ABBR: [C]ommit [.]
+	# DESC: ...
 	cf = commit --all --amend -c HEAD
+
+	# ABBR: [C]ommit stas[H]
+	# DESC: commit stashed changes with a stub message
 	ch = commit -m WIP
+
 	# ABBR: [C]omm[I]t
 	# DESC: just a shortcut to the base command
 	ci = commit
+
 	# ABBR: [C]ommit a[M]end
 	# DESC: changes commit's message and updates date
 	cm = commit --amend --date=now
+
 	# ABBR: [C]ommit [N]ow
 	# DESC: changes datetime of the commit to current time
 	cn = commit --amend --date=now --no-edit
+
 	cq = "!f() { git add ./$GIT_PREFIX/$1 && git commit --only ./$GIT_PREFIX/$1 -m \"WIP: $1\"; }; f"
 	cs = commit --amend --date=now --all -C HEAD
 	cu = commit --amend --date=now --no-edit --reset-author
