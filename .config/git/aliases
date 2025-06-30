@@ -85,7 +85,7 @@
 	# DESC:  and then passes result to `git checkout -b` call
 	# DEPS: depends on `create-branch-name` app (see ~/.local/bin)
 	# DEPS: depends on external app `vipe` from 'moreutils' package
-	cb = ! create-branch-name
+	cb = ! git-create-branch
 
 	# ABBR: [C]hange [D]irectory (aka shell's command)
 	# DESC: a quick way to checkout to a "home" branch defined in config

@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+EVENT_PWD=$1
+TARGET=$2
+
+# no target -- nothing to do
+if [ -z "$TARGET" ]; then
+    exit;
+fi
+
+# get status of 'verify'
+git rev-parse -q --verify "$TARGET" >/dev/null
+VERIFY_STATUS=$?
+
+if [ "$VERIFY_STATUS" -eq 0 ]; then
+    # trim name of remote (currently hardcoded to 'origin') from target
+    if [ "$TARGET" =~ ^origin\/.+ ]; then
+        TARGET="${TARGET#origin/}"
+    fi
+
+    # target is something of branch name/tag/commit hash
+    git checkout "$TARGET"
+    exit;
+fi
+
+# it may be a path within a repo
+if [ "$VERIFY_STATUS" -eq 1 ]; then
+    if [ -e "$EVENT_PWD/$TARGET" ]; then
+        git checkout "$TARGET"
+        exit;
+    fi
+
+    $REPO_ROOT=$(git rev-parse --show-toplevel $EVENT_PWD)
+    if [ -e "$REPO_ROOT/$TARGET" ]; then
+        git checkout "$TARGET"
+        exit;
+    fi
+fi
+
+BRANCHES=$(git branch --format="%(refname:short)")
+TARGET_BRANCH=$(echo "$BRANCHES" | fzf --filter="$TARGET" | head -n1)
+
+if [ -n "$TARGET_BRANCH" ]; then
+    git checkout -b "$TARGET"
+    exit;
+fi
+
+git checkout -b "$TARGET"
+
