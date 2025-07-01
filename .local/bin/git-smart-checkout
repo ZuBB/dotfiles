@@ -34,11 +34,12 @@ if [ "$VERIFY_STATUS" -eq 1 ]; then
         exit;
     fi
 
-    $REPO_ROOT=$(git rev-parse --show-toplevel $EVENT_PWD)
-    if [ -e "$REPO_ROOT/$TARGET" ]; then
-        git checkout "$TARGET"
-        exit;
-    fi
+    # TODO: this is buggy
+    #$REPO_ROOT=$(git rev-parse --show-toplevel $EVENT_PWD)
+    #if [ -e "$REPO_ROOT/$TARGET" ]; then
+    #    git checkout "$TARGET"
+    #    exit;
+    #fi
 fi
 
 BRANCHES=$(git branch --format="%(refname:short)")
