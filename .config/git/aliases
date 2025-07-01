@@ -93,7 +93,8 @@
 
 	# ABBR: [C]heck[O]ut
 	# DESC: just a shortcut to the base command
-	co = ! git-smart-checkout
+	# co = ! git-smart-checkout
+	co = checkout
 
 	# ABBR: [C]heck[O]ut
 	# DESC: a smart version of 'checkout' command
