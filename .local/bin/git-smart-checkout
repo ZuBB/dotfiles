@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-EVENT_PWD=$1
-TARGET=$2
+#EVENT_PWD=$1
+TARGET=$1
 
 # no target -- nothing to do
 if [ -z "$TARGET" ]; then
@@ -18,8 +18,8 @@ VERIFY_STATUS=$?
 
 if [ "$VERIFY_STATUS" -eq 0 ]; then
     # trim name of remote (currently hardcoded to 'origin') from target
-    if [ "$TARGET" =~ ^origin\/.+ ]; then
-        TARGET="${TARGET#origin/}"
+    if [[ "$TARGET" =~ ^remotes\/origin\/.+ ]]; then
+        TARGET="${TARGET#remotes/origin/}"
     fi
 
     # target is something of branch name/tag/commit hash
