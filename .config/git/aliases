@@ -143,8 +143,8 @@
 	ci = commit
 
 	# ABBR: [C]ommit a[M]end
-	# DESC: changes commit's message and updates date
-	cm = commit --amend --date=now
+	# DESC: change commit message of the HEAD commit
+	cm = commit --amend
 
 	# ABBR: [C]ommit [N]ow
 	# DESC: changes datetime of the commit to current time
