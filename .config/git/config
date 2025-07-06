@@ -90,6 +90,9 @@
 [rerere]
 	enabled = true
 
+[user]
+    name = "Vasyl Zuziak"
+
 [include]
 	path = gituser
 	path = aliases
