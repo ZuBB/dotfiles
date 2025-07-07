@@ -24,8 +24,8 @@
 	# ------------------------------ [ BLAME ] ------------------------------
 	# ABBR: [BL]ame
 	# DESC: an alias for `git blame` command
-	# NOTE: Usage of `HEAD` had been suggested here http://goo.gl/4yyu5v
-	bl = blame HEAD
+	# NOTE: Might be usable in a form of `blame HEAD` (http://goo.gl/4yyu5v)
+	bl = blame
 
 
 
