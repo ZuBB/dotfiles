@@ -68,7 +68,7 @@
 	bt = branch --remote
 
 	# ABBR: [B]ranch [U]nset
-	# DESC: unset upstream from current local branch
+	# DESC: unset upstream for current (local) branch
 	bu = branch --unset-upstream
 
 	# ABBR: [B]ranch [V]erbose
