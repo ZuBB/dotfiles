@@ -97,7 +97,7 @@
 	co = checkout
 
 	# ABBR: [C]heckout p[R]evious
-	# DESC: checkout a branch that was active before current one
+	# DESC: checkout a branch that was active before the current one
 	cr = checkout -
 
 	# ABBR: [C]heckout [T]emporary
