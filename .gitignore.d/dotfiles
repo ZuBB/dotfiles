@@ -1,4 +1,0 @@
-*
-# !/.gitignore.d
-# !/.gitignore.d/*
-!/.gitignore.d/dotfiles

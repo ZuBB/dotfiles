@@ -1,8 +1,0 @@
-# Function to return an override hostname if applicable
-function hostname_override
-    switch $argv[1]
-        # Add more cases as needed
-        # case MYHOSTNAME
-        #     echo myalias
-    end
-end

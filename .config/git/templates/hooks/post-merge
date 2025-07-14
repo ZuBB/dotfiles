@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-# https://coderwall.com/p/jp7d5q/create-a-global-git-commit-hook
-# https://digitaldrummerj.me/git-remove-local-merged-branches/
-
-MAIN_BRANCH=`git config user.branch`
-git branch --merged | grep -vE "^\*|\$MAIN_BRANCH$" | xargs -n 1 -r git branch -d
-
