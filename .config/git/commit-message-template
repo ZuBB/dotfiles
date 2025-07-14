@@ -1,0 +1,26 @@
+# ------------------------------------------------
+type: subject (what done) [scope (and where)]
+
+# ----------------------------------------------------------------------
+[body]
+
+[footer]
+
+# TYPE can be one of next: feat, fix, docs, style (formatting, missing
+# semicolons, etc), refactor, build (build system or external
+# dependencies), test (adding/refactoring tests), chore (updating grunt
+# tasks etc). Last 2 should not contain production code change.
+#
+# SCOPE should specify place of the commit change. Optional
+#
+# SUBJECT: mast say what you did in imperative tone without dot at the
+# end with max length of 50 chars. optionaly start with upper case.
+#
+# BODY should go into detail about changes made (72c limit). Optional
+#
+# FOOTER should contain BTS references and/or info on BREAKING CHANGE.
+# Also optional
+#
+# http://chris.beams.io/posts/git-commit/
+# https://github.com/sparkbox/standard/tree/master/style/git
+#

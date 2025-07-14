@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+OS_TYPE=$(uname -o 2>/dev/null | tr '[:upper:]' '[:lower:]')
+
+# Fallback in case `uname -o` doesn't exist on macOS
+if [ -z "$OS_TYPE" ]; then
+    OS_TYPE=$(uname | tr '[:upper:]' '[:lower:]')
+fi
+
+if [ "$OS_TYPE" != "darwin" ]; then
+    exit 0
+fi
+
+CURR_USER=$(whoami)
+
+ICON_SRC_DIR="$HOME/.local/share/custom-app-icons"
+
+cd "$ICON_SRC_DIR" || exit
+
+# Use find to avoid globs breaking on spaces
+find . -maxdepth 1 -name '*.icns' -print0 | while IFS= read -r -d '' file; do
+    filename=$(basename "$file" .icns)
+    APP_PATH="/Applications/$filename.app"
+
+    if [ ! -d "$APP_PATH" ]; then
+        continue
+    fi
+
+    APP_OWNER=$(stat -f "%Su" "$APP_PATH")
+
+    if [ "$APP_OWNER" != "$CURR_USER" ]; then
+        continue
+    fi
+
+    fileicon set -q "$APP_PATH" "$file"
+done
+

@@ -1,0 +1,450 @@
+# vim: filetype=gitconfig :
+# vim: set shiftwidth=4 softtabstop=0 noexpandtab colorcolumn=78 :
+
+# for debug use next
+# cb = ! set -x && ...
+
+[alias]
+
+	# ------------------------------- [ ADD ] -------------------------------
+	# ABBR: [AD]d
+	# DESC: just an alias to `git add`
+	ad = add
+
+	# ABBR: [A]dd [F]orce
+	# DESC: just a `git add` command with a `--force` option
+	af = add --force
+
+	# ABBR: [A]dd [P]atch
+	# DESC: patch-based interactive version of 'git add'
+	ap = add --patch
+
+
+
+	# ------------------------------ [ BLAME ] ------------------------------
+	# ABBR: [BL]ame
+	# DESC: an alias for `git blame` command
+	# NOTE: Usage of `HEAD` had been suggested here http://goo.gl/4yyu5v
+	bl = blame HEAD
+
+
+
+	# ----------------------------- [ BRANCH ] ------------------------------
+	# ABBR: [B]ranch [A]ll
+	# DESC: show all branches
+	ba = branch -a
+
+	# ABBR: [B]ranch [C]ommits
+	# DESC: show the number of commits in the current branch vs. its parent
+	# DEPS: depends on other alias `bp`
+	bc = "!f() { git rev-list --count HEAD ^${1-`git bp`}; }; f"
+
+	# ABBR: [B]ranch [D]elete
+	# DESC: forcibly deletes branch by passed name
+	bd = branch -D
+
+	# ABBR: [B]ranch [M]ove
+	# DESC: renames current branch with provided name or asks via $EDITOR
+	# DEPS: depends on external app `vipe` from 'moreutils' package
+	# DEPS: depends on other alias `bn`
+	bm = "!f() { test -z $1 && git branch --move \"$(git bn | vipe)\" || \
+		git branch --move \"$@\"; \
+		echo \"Branch has been renamed to '$(git bn)'\"; }; f"
+
+	# ABBR: [B]ranch [N]ame
+	# DESC: prints the name of the currently active branch
+	bn = rev-parse --abbrev-ref HEAD
+
+	# ABBR: [B]ranch [P]arent
+	# DESC: shows name of the parent branch for the current one
+	bp = !git symbolic-ref refs/remotes/origin/HEAD --short | sed 's|.*/||'
+
+	# ABBR: [BR]anch
+	# DESC: just a shortcut to the base command
+	br = branch
+
+	# ABBR: [B]ranch remo[T]e
+	# DESC: prints remote names of branches
+	bt = branch --remote
+
+	# ABBR: [B]ranch [U]nset
+	# DESC: unset upstream from current local branch
+	bu = branch --unset-upstream
+
+	# ABBR: [B]ranch [V]erbose
+	# DESC: show branch'es verbose status/info
+	bv = branch -vv
+
+
+
+	# ---------------------------- [ CHECKOUT ] -----------------------------
+	# ABBR: [C]reate [B]ranch
+	# DESC: External script which helps create new branch.
+	# DESC: If name of the brach was passed as param - uses it,
+	# DESC:  otherwise opens an $EDITOR so you can type there
+	# DESC:  and then passes result to `git checkout -b` call
+	# DEPS: depends on `create-branch-name` app (see ~/.local/bin)
+	# DEPS: depends on external app `vipe` from 'moreutils' package
+	cb = ! git-create-branch
+
+	# ABBR: [C]hange [D]irectory (aka shell's command)
+	# DESC: a quick way to checkout to "home" branch defined in config
+	cd = "!f() { git checkout `git config user.branch`; }; f"
+
+	# ABBR: [C]heck[O]ut
+	# DESC: just a shortcut to the base command
+	# co = ! git-smart-checkout
+	co = checkout
+
+	# ABBR: [C]heckout p[R]evious
+	# DESC: checkout a branch that was active before current one
+	cr = checkout -
+
+	# ABBR: [C]heckout [T]emporary
+	# DESC: checkout a branch with name "t${latest_temp_branch_index + 1}"
+	ct = ! git checkout -b "tmp_branch$(expr $(git br -l 'tmp_branch*' | \
+		wc -l | tr -d \"[:blank:]\") + 1)"
+
+
+
+	# --------------------------- [ CHERRY-PICK ] ---------------------------
+	# ABBR: [C]herry [P]ick
+	# DESC: just an alias to `cherry-pick` command
+	cp = cherry-pick
+
+
+
+	# ------------------------------ [ CLONE ] ------------------------------
+	# ABBR: [CL]one
+	# DESC: just a shortcut to base command
+	cl = clone
+
+	# ABBR: [C]lone [1]
+	# DESC: clone of the repo but HEAD revision only
+	c1 = clone --depth=1
+
+
+
+	# ----------------------------- [ COMMIT ] ------------------------------
+	# ABBR: [C]ommit [A]ll
+	# DESC: commit of all changes with a stub message
+	ca = commit --all --message WIP
+
+	# ABBR: [C]ommit [.]
+	# DESC: ...
+	cf = commit --all --amend -c HEAD
+
+	# ABBR: [C]ommit stas[H]
+	# DESC: commit stashed changes with a stub message
+	ch = commit -m WIP
+
+	# ABBR: [C]omm[I]t
+	# DESC: just a shortcut to the base command
+	ci = commit
+
+	# ABBR: [C]ommit a[M]end
+	# DESC: change commit message of the HEAD commit
+	cm = commit --amend
+
+	# ABBR: [C]ommit [N]ow
+	# DESC: changes datetime of the commit to current time
+	cn = commit --amend --date=now --no-edit
+
+	cq = "!f() { git add ./$GIT_PREFIX/$1 && git commit --only ./$GIT_PREFIX/$1 -m \"WIP: $1\"; }; f"
+	cs = commit --amend --date=now --all -C HEAD
+	cu = commit --amend --date=now --no-edit --reset-author
+
+
+
+	# ============= [ CONFIG____________________ ] =============
+	# ABBR: [C]onfig [M]ain [E]dit
+	# DESC: opens main git config in $EDITOR
+	cme = config --global -e
+
+	# ABBR: [C]onfig [A]lias [C]heck
+	# DESC: checks aliases for uniqness
+	cac = !git cal | cut -d= -f1 | sort | uniq -d
+
+	# ABBR: [C]onfig [A]lias [E]dit
+	# DESC: opens git's alias config in $EDITOR
+	cae = "!f() { $(git var GIT_EDITOR) ~/.config/git/aliases ; }; f"
+
+	# ABBR: [C]onfig [A]lias [G]rep
+	# DESC: performs search in registered aliases by given name
+	cag = "!f() { git config -l | grep alias | cut -c 7- | grep \"^$1=\" ; }; f"
+
+	# ABBR: [C]onfig [A]lias [L]ist
+	# DESC: lists all registered aliases
+	cal = !git config -l | grep alias | cut -c 7-
+
+
+
+	# ============= [ DIFF______________________ ] =============
+	# checks if there are any changes;
+	d1 = diff HEAD^
+	da = "!f() { test -n \"$(git ls-files -m)\"; }; f"
+	dc = diff --cached
+	di = diff
+	dn = "!f() { git da && p= || p=\"HEAD~${1-`git bc`}\" ; git diff --numstat $p ; }; f"
+	dq = "!f() { git da && p= || p=\"HEAD~${1-`git bc`}\" ; git diff --shortstat $p ; }; f"
+	ds = "!f() { git da && p= || p=\"HEAD~${1-`git bc`}\" ; git diff --stat --find-copies $p ; }; f"
+	dt = difftool
+	t1 = d1 --stat
+
+
+
+	# ============= [ LOG_______________________ ] =============
+	# ABBR: [L]og [\d]
+	# DESC: show log of X most recent items excluding merge commits
+	l1 = log -n 1 --no-merges
+	l2 = log -n 2 --no-merges
+	l3 = log -n 3 --no-merges
+
+	# 'b' letter but 'log' command; shows log in current branch only
+	bo = "!f() { git log --no-merges ${1-`git bp`}..; }; f"
+
+	# ABBR: [L]og [M]e
+	# DESC: prints commits of 'host' user only 
+	lm = "!git log \
+		--no-merges \
+		--author=\"$(git config user.name)\" \
+		--pretty=format:'%C(yellow)%h%Creset %C(cyan)%ad%Creset %s%Cgreen [%an]' --date=short"
+
+	lf = "!f() { git l1 --decorate --stat; }; f"
+	lg = log -p
+	ln = log --name-only
+	ls = log --pretty=format:"%C(yellow)%h\\ %Cgreen%ad%Cred%d\\ %Creset%s\\ %Cblue[%aN]" --decorate --date=short
+	lv = "!f() { git log --decorate --stat -${1}; }; f"
+	#hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	#lol = log --graph --decorate --pretty=oneline --abbrev-commit
+	#lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+
+
+
+	# ============= [ MERGE] =============
+	# ABBR: [M]erge [M]ain
+	# DESC: an alias to merge mainline branch into current one
+	mm = !git merge $(git bz)
+
+
+
+	# ============= [ MERGETOOL__________________] =============
+	mt = mergetool
+
+
+
+	# ============= [ PULL______________________ ] =============
+	pl = pull --ff-only
+
+
+
+	# ============= [ PUSH______________________ ] =============
+	# TODO replace `origin` with dynamic param
+	pd = "!f() { git push origin --delete $1 && git bu; }; f"
+	pf = push --force
+	# ABBR: [P]us[H]
+	# DESC: an alias to push command, but without useless noise
+	ph = push --quiet
+
+
+
+	# ============= [ REBASE____________________ ] =============
+	ra = rebase --abort
+	# if passed string is a number - do rebase by commits number
+	# TODO need to make sure passed number is not a commit hash
+	rb = "!f() { git rev-parse -q --verify $1 \
+		&& git rebase $1 \
+		|| git rebase -i HEAD~$1; }; f"
+	rc = rebase --continue
+	ri = rebase --skip
+	rd = "!f() { git rebase `git config user.branch` ; }; f"
+
+
+
+	# ============= [ REMOTE____________________ ] =============
+	# mp = remote prune origin
+
+
+
+	# ============= [ REMOVE ] =============
+	rk = rm --cached
+
+
+
+	# ============= [ RESET_____________________ ] =============
+	# ABBR: [R]eset [1]
+	# DESC: drop 1st commit from current branch
+	r1 = reset --hard HEAD~1
+	# ABBR: [R]eset [H]ard
+	# DESC: reset HEAD to X commits back (X = 1 in default case)
+	rh = "!f() { git reset --hard HEAD~${1-1}; }; f"
+	# ABBR: [R]eset [S]oft
+	# DESC: softly reset HEAD to X commits back (X = 1 in default case)
+	rs = "!f() { git reset --soft HEAD~${1-1}; }; f"
+	rt = "!f() { test -z $1 && git reset HEAD || git reset HEAD $1; }; f"
+
+
+
+	# ============= [ RESTORE ] =============
+	# ABBR: [R]estore sta[G]ed
+	# DESC: drop file(s) from staging area
+	rg = restore --staged
+
+
+
+	# ============= [ STASH_____________________ ] =============
+	sh = stash
+	sl = stash list
+	sp = stash pop
+	ss = stash show -p
+	si = stash -p
+	sd = "!f() { git stash drop stash@{$1}; }; f"
+
+
+
+	# ============= [ STATUS ] =============
+	sa = status --untracked-files=no
+	# ABBR: [S]tatus [C]onflict
+	# DESC: an alias to list files in 'confilicted' state
+	# https://stackoverflow.com/a/10874862/1344249
+	sc = diff --name-only --diff-filter=U
+	sg = status --ignored .
+	st = status --short --branch
+	su = ls-files --other | grep -v ./
+	sv = status
+
+
+
+	# ============= [ TAG_______________________ ] =============
+	tr = tag -l
+	tl = git describe --tags --abbrev=0
+	td = "!f() { git tag -d $1; }; f"
+	tv = show-ref --tags --abbrev
+	tw = "!f() { git tag -d $1 && git push origin :refs/tags/$1; }; f"
+
+
+
+	# ============= [ SUBMODULE_________________ ] =============
+	mu = submodule update --recursive
+	mi = submodule update --init --recursive
+
+
+
+	# ------------------------------ [ MISC ] -------------------------------
+	# ABBR: (none)
+	# DESC: handy way to deal with multiple `git`/`gt` tokens in command
+	git = !git
+	gt = !git
+
+	# ABBR: [P]ull [R]equest
+	# DESC: an alias for 2 actions: `git push` and `gh pr create`
+	# NOTE: PR's body contains reference/link to issue in bug tracker.
+	# NOTE: For now we support only Jira.
+	# NOTE: **This** alias is not supposed to be user directly.
+	# NOTE: It supposed to be (re)used in final repo in the next form
+	# NOTE:
+	# NOTE: file: $REPO_ROOT/.git/config
+	# NOTE: ```
+	# NOTE: ...
+	# NOTE: [alias]
+	# NOTE: 	pr = ! JIRA_HOST="my.jira.host" git pr0
+	# NOTE: ...
+	# NOTE: ```
+	# NOTE:
+	# NOTE: For PR's body and title data from 1st commit is reused
+	# DEPS: depends on github's CLI (https://cli.github.com/)
+	# DEPS: depends on own script git-push-and-create-gh-pr
+	pr0 = ! git-push-and-create-gh-pr
+
+
+	# ABBR: [P]ull [R]equest
+	# DESC: an alias for 2 actions: `git push` and `gh pr create`
+	ems = "!git log \
+		--reverse \
+		--no-merges \
+		--author=\"$(git config user.name)\" \
+		--since=\"$(date +%Y-%m-01)\" \
+		--pretty=format:'%C(yellow)%h%Creset %C(cyan)%ad%Creset %s%Cgreen [%an]' --date=short"
+
+
+
+	os = shortlog --summary --numbered
+	#ls = ls-files
+
+	# git grep through all history
+	gr = "!f() { git rev-list --all | xargs git grep -F \"$1\"; }; f"
+
+	fup = log --since '1 day ago' --oneline "--author=$(git config --get user.email)"
+	#freq = !history | grep git | cut -c 8- | sort | uniq -c | sort -n -r | head -n 5
+
+	as = !git ls-files | xargs -n1 git blame --line-porcelain | sed -n 's/^author //p' | sort -f | uniq -ic | sort -nr
+	or = [ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`
+	#gh = "!f() { cd \"$(git rev-parse --show-toplevel)\"; }; f"
+
+
+
+	# ============= [ COMMIT QUEUE ] =============
+	# ABBR: [Q]ueue [D]efine [D]ay
+	# DESC: Prints special token that makes queue system skip one day
+	qdd = "! git config user.queueSkipDay"
+
+	# ABBR: [Q]ueue [D]efine [Y]ear
+	# DESC: Prints special token that makes queue system skip all further days
+	qdy = "! git config user.queueSkipForever"
+
+	# ABBR: [Q]ueue [A]ppend
+	# DESC: Appends passed string to the end of queue file
+	qa = "!f() { echo \"$1\" >> `git qf`; }; f"
+
+	# ABBR: [Q]ueue [C]urrent
+	# DESC: Appends currently active branch to the queue
+	qc = "!f() { git qa `git bn`; }; f"
+
+	# ABBR: [Q]ueue [D]ay
+	# DESC: Appends special token (that skips 1 day) to the queue
+	qd = "!f() { git qp `git qdd` ; }; f"
+
+	# ABBR: [Q]ueue [E]dit
+	# DESC: Opens queue file in editor used by git commands
+	qe = "!f() { $(git var GIT_EDITOR) `git qf`; }; f"
+
+	# ABBR: [Q]ueue [F]ile
+	# DESC: Prints relative (to the repo root) path to queue file
+	qf = !FP="$(git rev-parse --git-dir)/automerge-queue" && test -e "$FP" || touch "$FP" && echo "$FP"
+
+	# ABBR: [Q]ueue [L]ist
+	# DESC: Prints content of queue file
+	ql = "!f() { cat `git qf`; }; f"
+
+	# ABBR: [Q]ueue [P]repend
+	# DESC: Prepends passed string to the start of queue file
+	qp = "!f() { echo \"$1\n$(cat `git qf`)\" > `git qf` ; }; f"
+
+	# ABBR: [Q]ueue [N]ow
+	# DESC: Prepends current branch to the start of queue file
+	#	 	and immediately processes it
+	qn = "! git q0 && git qt"
+
+	# ABBR: [Q]ueue [R]egister
+	# DESC: Registers current repo as one that has Q file
+	qr = !RD=$(git rev-parse --show-toplevel) && \
+		mkdir -p $HOME/.local/share/git && \
+		touch $HOME/.local/share/git/queue-repos && \
+		echo $RD >> $HOME/.local/share/git/queue-repos
+
+	# ABBR: [Q]ueue [T]op
+	# DESC: Processes first item from queue file
+	qt = "! land-branch ."
+
+	# ABBR: [Q]ueue [Y]ear
+	# DESC: Appends special token that makes commit system skip any actions forever
+	qy = "!f() { git qp `git qdy` ; }; f"
+
+	# ABBR: [Q]ueue [0]
+	# DESC: Prepends current branch to the start of queue file
+	q0 = "!f() { git qp `git bn`; }; f"
+
+	# ABBR: [Q]ueue [1]
+	# DESC: Prints first item from queue file
+	q1 = "!f() { head -n 1 `git qf`; }; f"
+

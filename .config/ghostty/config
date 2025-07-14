@@ -1,0 +1,33 @@
+# vim: set filetype=conf : ~
+
+# Whether to automatically copy selected text to the clipboard
+copy-on-select = clipboard
+
+# Whether or not to quit after the last surface is closed.
+quit-after-last-window-closed = true
+
+# Whether to enable shell integration auto-injection or not
+shell-integration = fish
+
+# Shell integration features to enable
+shell-integration-features = no-cursor,no-sudo,title
+
+# The theme to use for the windows
+window-theme = ghostty
+
+# A theme to use
+theme = "kitty"
+
+# The style of the cursor
+cursor-style = block
+
+# Sets the default blinking state of the cursor
+cursor-style-blink = false
+
+# The initial window size. This size is in terminal grid cells by default
+window-height = 25
+window-width = 80
+
+config-file = config.fonts
+config-file = ?config.macos
+

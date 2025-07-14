@@ -1,0 +1,7 @@
+# vim: set filetype=gitconfig : ~
+# vim: set shiftwidth=4 : ~
+# vim: set softtabstop=0 : ~
+# vim: set noexpandtab : ~
+
+[maintenance]
+	# repo = /Users/vv/work/career-partner/source-code

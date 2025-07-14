@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+# Step 1: Push the changes quietly
+git push --quiet > /dev/null 2>&1
+
+# Step 2: Get the latest commit title and body
+COMMIT_TITLE=$(git log -1 --pretty=%s)
+COMMIT_BODY=$(git log -1 --pretty=%b)
+
+# Step 3: Create a temporary file for the PR body
+PR_MESSAGE_FILE="$(mktemp)"
+
+# Step 4: Write the commit body to the temporary file
+echo "$COMMIT_BODY" > "$PR_MESSAGE_FILE"
+
+# Step 5: Retrieve the hostname from the environment variable
+HOSTNAME="${JIRA_HOST:-fallback.jira.net}"  # Default to a specific hostname if not set
+
+# Step 6: Perform the replacement using sed
+sed -i '' -E "s/(references )([A-Z0-9]+-[0-9]+)/\1[\2](https:\/\/$HOSTNAME\/browse\/\2)/g" "$PR_MESSAGE_FILE"
+
+# Step 7: Check if the temporary file has content
+if [ ! -s "$PR_MESSAGE_FILE" ]; then
+    echo "Error: The PR body file is empty after writing. Please check the write operation."
+    cat "$PR_MESSAGE_FILE"  # Print the content for debugging
+    exit 1
+fi
+
+# Step 8: Create the pull request using the modified message and title
+PR_OUTPUT=$(gh pr create -t "$COMMIT_TITLE" --body-file "$PR_MESSAGE_FILE")
+
+# Extract the URL from the output
+PR_URL=$(echo "$PR_OUTPUT" | grep -o 'https://[^ ]*')
+
+# Step 9: Open the URL in the default web browser
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    # macOS
+    open "$PR_URL"
+elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    # Linux
+    xdg-open "$PR_URL"
+else
+    echo "Unsupported OS. Please open the URL manually"
+fi
+
+# Step 10: Clean up
+rm -f "$PR_MESSAGE_FILE"
+
+sleep 1s && echo -e "The following PR was created:\n$PR_URL\n"
+
