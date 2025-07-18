@@ -29,8 +29,9 @@ window-height = 25
 window-width = 80
 
 # The size of the scrollback buffer in bytes. default is 10M, we have 50M
-scrollback-limit=52428800
+scrollback-limit = 52428800
 
+# -----------------------------------------------------------------------
 # includes
 config-file = config.fonts
 config-file = ?config.macos
