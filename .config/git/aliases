@@ -101,7 +101,7 @@
 	cr = checkout -
 
 	# ABBR: [C]heckout [T]emporary
-	# DESC: checkout a branch with name "t${latest_temp_branch_index + 1}"
+	# DESC: checkout a branch with a name "t${latest_temp_branch_index + 1}"
 	ct = ! git checkout -b "tmp_branch$(expr $(git br -l 'tmp_branch*' | \
 		wc -l | tr -d \"[:blank:]\") + 1)"
 
