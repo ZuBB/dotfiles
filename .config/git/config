@@ -21,7 +21,7 @@
 	verbose = true
 
 [core]
-	editor = vim
+	editor = nvim
 
 	# http://stackoverflow.com/a/11262153 https://goo.gl/bKr4Yr
 	excludesfile = ~/.config/git/global-ignore
@@ -40,7 +40,7 @@
 	precomposeunicode = false
 
 [diff]
-	tool = vimdiff
+	tool = nvim -d
 	renameLimit = 0
 	renames = copies
 	mnemonicprefix = true
