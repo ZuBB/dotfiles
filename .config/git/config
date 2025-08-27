@@ -40,7 +40,7 @@
 	precomposeunicode = false
 
 [diff]
-	tool = nvim -d
+	tool = nvimdiff
 	renameLimit = 0
 	renames = copies
 	mnemonicprefix = true
@@ -52,7 +52,7 @@
 [difftool]
 	prompt = false
 
-[difftool "vimdiff"]
+[difftool "nvimdiff"]
 	cmd = nvim -f -d -c 'wincmd l' -c 'cd "$GIT_PREFIX"' "$LOCAL" "$REMOTE"
 
 [fetch]
@@ -70,7 +70,7 @@
 	conflictstyle = merge
 	renameLimit = 0
 	stat = true
-	tool = vimdiff
+	tool = nvimdiff
 
 [mergetool]
 	prompt = false
