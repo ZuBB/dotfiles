@@ -151,8 +151,8 @@
 	cn = commit --amend --date=now --no-edit
 
 	cq = "!f() { git add ./$GIT_PREFIX/$1 && git commit --only ./$GIT_PREFIX/$1 -m \"WIP: $1\"; }; f"
-	cs = commit --amend --date=now --all -C HEAD
-	cu = commit --amend --date=now --no-edit --reset-author
+	cs = commit --amend --all -C HEAD
+	cu = commit --amend --no-edit --reset-author
 
 
 
