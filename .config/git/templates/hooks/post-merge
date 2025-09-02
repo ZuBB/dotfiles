@@ -1,8 +1,29 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 # https://coderwall.com/p/jp7d5q/create-a-global-git-commit-hook
 # https://digitaldrummerj.me/git-remove-local-merged-branches/
 
-MAIN_BRANCH=`git config user.branch`
-git branch --merged | grep -vE "^\*|\$MAIN_BRANCH$" | xargs -n 1 -r git branch -d
+BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
+MAIN_BRANCH=$(git config hooks.mainBranch || true)
+
+# Quit if main branch not set
+if [[ -z "$MAIN_BRANCH" ]]; then
+    exit 0
+fi
+
+# Do nothing if we’re on master/main explicitly
+if [[ "$BRANCH_NAME" == "master" ]] || [[ "$BRANCH_NAME" == "main" ]]; then
+    exit 0
+fi
+
+# Do nothing if we’re not on MAIN_BRANCH
+if [[ "$BRANCH_NAME" != "$MAIN_BRANCH" ]]; then
+    exit 0
+fi
+
+# Delete merged branches except current and MAIN_BRANCH
+git branch --merged | \
+    grep -vE "^\*|(master|main|${MAIN_BRANCH})$" | \
+    xargs -n 1 -r git branch -d
 
