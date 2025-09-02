@@ -9,6 +9,7 @@
 	pushNonFastForward = false
 	skippedCherryPicks = false
 	refSyntax = false
+	ignoredHook = false
 
 [apply]
 	whitespace = fix
