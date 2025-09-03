@@ -5,25 +5,29 @@ set -euo pipefail
 # https://digitaldrummerj.me/git-remove-local-merged-branches/
 
 BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
-MAIN_BRANCH=$(git config hooks.mainBranch || true)
+MAIN_BRANCH=$(git config user.branch || true)
 
-# Quit if main branch not set
-if [[ -z "$MAIN_BRANCH" ]]; then
-    exit 0
+# Build regex of allowed branches (exact match)
+if [[ -n "$MAIN_BRANCH" ]]; then
+  ALLOWED_REGEX="^(master|main|${MAIN_BRANCH})$"
+else
+  ALLOWED_REGEX="^(master|main)$"
 fi
 
-# Do nothing if we’re on master/main explicitly
-if [[ "$BRANCH_NAME" == "master" ]] || [[ "$BRANCH_NAME" == "main" ]]; then
-    exit 0
+# Only continue if current branch matches exactly
+if [[ ! "$BRANCH_NAME" =~ $ALLOWED_REGEX ]]; then
+  exit 0
 fi
 
-# Do nothing if we’re not on MAIN_BRANCH
-if [[ "$BRANCH_NAME" != "$MAIN_BRANCH" ]]; then
-    exit 0
+# Build exclusion regex (never delete master, main, or MAIN_BRANCH)
+EXCLUDE_PATTERN="^\*|(master|main"
+if [[ -n "$MAIN_BRANCH" ]]; then
+  EXCLUDE_PATTERN+="|${MAIN_BRANCH}"
 fi
+EXCLUDE_PATTERN+=")$"
 
-# Delete merged branches except current and MAIN_BRANCH
+# Delete merged branches except exclusions
 git branch --merged | \
-    grep -vE "^\*|(master|main|${MAIN_BRANCH})$" | \
+    grep -vE "$EXCLUDE_PATTERN" | \
     xargs -n 1 -r git branch -d
 
