@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# Copy last commit hash to clipboard on commit
+# WARN: pbcopy is a macos CLI app..
+git log -1 --format=format:%h | pbcopy
+
