@@ -88,7 +88,7 @@
 	cb = ! git-create-branch
 
 	# ABBR: [C]hange [D]irectory (aka shell's command)
-	# DESC: a quick way to checkout to "home" branch defined in config
+	# DESC: a quick way to checkout "home" branch defined in config
 	cd = "!f() { git checkout `git config user.branch`; }; f"
 
 	# ABBR: [C]heck[O]ut
