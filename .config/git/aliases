@@ -79,7 +79,7 @@
 
 	# ---------------------------- [ CHECKOUT ] -----------------------------
 	# ABBR: [C]reate [B]ranch
-	# DESC: External script which helps create new branch.
+	# DESC: External script which helps to create a new branch.
 	# DESC: If name of the brach was passed as param - uses it,
 	# DESC:  otherwise opens an $EDITOR so you can type there
 	# DESC:  and then passes result to `git checkout -b` call
