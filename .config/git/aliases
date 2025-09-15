@@ -44,7 +44,9 @@
 	bd = branch -D
 
 	# ABBR: [B]ranch [M]ove
-	# DESC: renames current branch with provided name or asks via $EDITOR
+	# DESC: renames current branch with name that can be
+	# DESC:   * value initially entered by user
+	# DESC:   * asked via $EDITOR in runtime as a fallback
 	# DEPS: depends on external app `vipe` from 'moreutils' package
 	# DEPS: depends on other alias `bn`
 	bm = "!f() { test -z $1 && git branch --move \"$(git bn | vipe)\" || \
