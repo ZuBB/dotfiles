@@ -31,6 +31,9 @@ window-width = 80
 # The size of the scrollback buffer in bytes. default is 10M, we have 50M
 scrollback-limit = 52428800
 
+# Control the auto-update functionality of Ghostty (macOS currently)
+auto-update = off
+
 # -----------------------------------------------------------------------
 # includes
 config-file = config.fonts
