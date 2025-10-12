@@ -6,6 +6,10 @@ font-family-bold = "Menlo Bold"
 font-family-italic = "Menlo Italic"
 font-family-bold-italic = "Menlo Bold Italic"
 
+# The font features to us
+# https://github.com/ghostty-org/ghostty/discussions/9164
+font-feature = -calt
+
 # Font size in points
 font-size = 20
 
