@@ -137,7 +137,7 @@
 	cf = commit --all --amend -c HEAD
 
 	# ABBR: [C]ommit stas[H]
-	# DESC: commit stashed changes with a stub message
+	# DESC: commit staged changes with a stub message
 	ch = commit -m WIP
 
 	# ABBR: [C]omm[I]t
