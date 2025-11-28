@@ -181,6 +181,26 @@
 	# DESC: lists all registered aliases
 	cal = !git config -l | grep alias | cut -c 7-
 
+	cai = "!f() {\
+  	  pattern=\"$1\";\
+	  \
+  	  file=\"$(git config --global --show-origin --list \
+    	| awk '{print $1}' \
+    	| sed 's/^file://')\";\
+      \
+  	  main=\"$(printf '%s\n' \"$file\" \
+    	| sort \
+    	| uniq -c \
+    	| sort -nr \
+    	| head -n1 \
+    	| awk '{print $2}')\";\
+      \
+  	  aliases=\"$(printf '%s\n' \"$main\" \
+    	| sed 's:[^/]*$:aliases:')\";\
+      \
+  	  grep -m 1 -B 2 \"$pattern = \" \"$aliases\";\
+	}; f"
+
 
 
 	# ============= [ DIFF______________________ ] =============
@@ -384,6 +404,8 @@
 	as = !git ls-files | xargs -n1 git blame --line-porcelain | sed -n 's/^author //p' | sort -f | uniq -ic | sort -nr
 	or = [ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`
 	#gh = "!f() { cd \"$(git rev-parse --show-toplevel)\"; }; f"
+
+
 
 
 
