@@ -93,7 +93,6 @@
 
 [user]
     name = "Vasyl Zuziak"
-	email = vasyl.zuziak@tietoevry.com
 
 [include]
 	path = gituser
