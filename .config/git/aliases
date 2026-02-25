@@ -329,13 +329,15 @@
 	# ============= [ STATUS ] =============
 	sa = status --untracked-files=no
 	# ABBR: [S]tatus [C]onflict
-	# DESC: an alias to list files in 'confilicted' state
+	# DESC: an alias to tell if there are files in confilicted state
 	# https://stackoverflow.com/a/10874862/1344249
-	sc = diff --name-only --diff-filter=U
+	sc = "!git diff --name-only --diff-filter=U | grep -q ."
 	sg = status --ignored .
-	st = status --short --branch
+	# ABBR: [S][T]atus
+	# DESC: shows short status if no conflicts detected,
+	# DEPS: otherwise a default ouptup of status
+	st = "!git sc && git status || git status --short --branch"
 	su = ls-files --other | grep -v ./
-	sv = status
 
 
 
