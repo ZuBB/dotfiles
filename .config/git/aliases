@@ -360,8 +360,18 @@
 	# ------------------------------ [ MISC ] -------------------------------
 	# ABBR: (none)
 	# DESC: handy way to deal with multiple `git`/`gt` tokens in command
-	git = !git
-	gt = !git
+	git = !git-c
+	gt = !git-c
+
+
+
+	# ABBR: [DRY]
+	# DESC: Only display the command for the given alias, do not run it
+	# NOTE: All credits go to @nmarghetti
+	# NOTE: https://gist.github.com/nmarghetti/1ce01f705a8baa71b733ec6ff090d686
+	dry = ! GIT_CMD_DRY=1 git
+
+
 
 	# ABBR: [P]ull [R]equest
 	# DESC: an alias for 2 actions: `git push` and `gh pr create`
