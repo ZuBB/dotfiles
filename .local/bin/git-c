@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -eu
+
+# Jump back to the directory where the user invoked git (relative to repo root)
+cd -- "${GIT_PREFIX:-.}" 2>/dev/null || true
+
+# Run the rest as a git command
+exec git "$@"

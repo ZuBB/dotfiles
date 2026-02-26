@@ -335,8 +335,9 @@
 	sg = status --ignored .
 	# ABBR: [S][T]atus
 	# DESC: shows short status if no conflicts detected,
-	# DEPS: otherwise a default ouptup of status
-	st = "!git sc && git status || git status --short --branch"
+	# DESC: shows short status if no conflicts detected,
+	# DEPS: depends on external script `git-c`
+	st = "!git sc && git-c status || git-c status --short --branch"
 	su = ls-files --other | grep -v ./
 
 
