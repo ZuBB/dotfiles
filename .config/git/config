@@ -24,7 +24,8 @@
 [core]
 	editor = nvim
 
-	# http://stackoverflow.com/a/11262153 https://goo.gl/bKr4Yr
+	# http://stackoverflow.com/a/11262153
+	# use `$GIT_DIR/info/exclude` file to ignore per project stuff silently
 	excludesfile = ~/.config/git/global-ignore
 
 	# http://goo.gl/Vug01E
