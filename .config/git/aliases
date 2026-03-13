@@ -236,7 +236,13 @@
 
 	lf = "!f() { git l1 --decorate --stat; }; f"
 	lg = log -p
-	ln = log --name-only
+
+
+
+	# ABBR: [L]og [M]e
+	# DESC: prints log of n commits
+	ln = "!f() { git ls -n ${1}; }; f"
+
 	ls = log --pretty=format:"%C(yellow)%h\\ %Cgreen%ad%Cred%d\\ %Creset%s\\ %Cblue[%aN]" --decorate --date=short
 	lv = "!f() { git log --decorate --stat -${1}; }; f"
 	#hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
