@@ -7,9 +7,9 @@ auto-update = off
 # as alt
 macos-option-as-alt = true
 
-# The absolute path to the custom icon file (PNG, JPEG, ICNS)
-macos-custom-icon = ~/.local/share/custom-app-icons/Ghostty.icns
-
 # Customize the macOS app icon.
 macos-icon = custom
+
+# The absolute path to the custom icon file (PNG, JPEG, ICNS)
+# macos-custom-icon = ~/.local/share/custom-app-icons/Ghostty.icns
 
