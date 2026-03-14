@@ -1,52 +1,14 @@
-function add_macos_brew_pathes_to_path
-    # nothing fancy. just output of official command `brew shellenv`
-    set --global --export HOMEBREW_PREFIX "/opt/homebrew";
-    set --global --export HOMEBREW_CELLAR "/opt/homebrew/Cellar";
-    set --global --export HOMEBREW_REPOSITORY "/opt/homebrew";
-
-    fish_add_path --global --move --path "/opt/homebrew/bin" "/opt/homebrew/sbin";
-
-    ! set -q MANPATH; and set MANPATH ''; set -gx MANPATH "/opt/homebrew/share/man" $MANPATH;
-    ! set -q INFOPATH; and set INFOPATH ''; set -gx INFOPATH "/opt/homebrew/share/info" $INFOPATH;
-end
-
-function add_linux_brew_pathes_to_path
-    # nothing fancy. just output of official command `brew shellenv`
-    set -gx HOMEBREW_PREFIX "/home/linuxbrew/.linuxbrew";
-    set -gx HOMEBREW_CELLAR "/home/linuxbrew/.linuxbrew/Cellar";
-    set -gx HOMEBREW_REPOSITORY "/home/linuxbrew/.linuxbrew/Homebrew";
-    fish_add_path -gP "/home/linuxbrew/.linuxbrew/bin" "/home/linuxbrew/.linuxbrew/sbin";
-    ! set -q MANPATH; and set MANPATH ''; set -gx MANPATH "/home/linuxbrew/.linuxbrew/share/man" $MANPATH;
-    ! set -q INFOPATH; and set INFOPATH ''; set -gx INFOPATH "/home/linuxbrew/.linuxbrew/share/info" $INFOPATH;
-end
-
-set --local THIS_FILE_DIR (dirname (status --current-filename))
-
-function add_brew_pathes_to_path
-    set -l os (uname)
-    if test "$os" = Darwin
-        add_macos_brew_pathes_to_path
-    else if test "$os" = Linux
-        add_linux_brew_pathes_to_path
-    else
-        echo "OS $os is not supported"
-    end
-end
-
-function add_brew_pathes_to_path2
+if status is-login
+    # darwin, linux, etc
     set -l os (uname | tr '[:upper:]' '[:lower:]')
-    echo "$THIS_FILE_DIR"
-    echo "$THIS_FILE_DIR/zzz-010_brew_$os"
 
+    # '.' is a workaround. see `~/.config/fish/conf.d/config.fish`
     if test -f "./zzz-010_brew_$os"
+        # this file should contain output of `brew shellenv`
         source "./zzz-010_brew_$os"
     else
         echo "No config for $os is found"
     end
-end
-
-if status is-login
-    add_brew_pathes_to_path2
 end
 
 # https://github.com/Homebrew/brew/issues/1327
