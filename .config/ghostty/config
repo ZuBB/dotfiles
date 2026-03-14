@@ -37,5 +37,5 @@ auto-update = off
 # -----------------------------------------------------------------------
 # includes
 config-file = config.fonts
-config-file = ?config.macos
+config-file = config.macos
 
