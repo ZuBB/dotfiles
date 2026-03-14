@@ -2,11 +2,12 @@ if status is-login
     # darwin, linux, etc
     set -l os (uname | tr '[:upper:]' '[:lower:]')
     set -l filename "zzz-010_brew.fish-$os"
+    set -l dir (status dirname)
 
     # '.' is a workaround. see `~/.config/fish/conf.d/config.fish`
-    if test -f "./$filename"
+    if test -f "$dir/$filename"
         # this file should contain output of `brew shellenv`
-        source "./$filename"
+        source "$dir/$filename"
     else
         echo "No config for $os is found"
     end
