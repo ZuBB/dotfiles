@@ -20,6 +20,8 @@ function add_linux_brew_pathes_to_path
     ! set -q INFOPATH; and set INFOPATH ''; set -gx INFOPATH "/home/linuxbrew/.linuxbrew/share/info" $INFOPATH;
 end
 
+set --local THIS_FILE_DIR (dirname (status --current-filename))
+
 function add_brew_pathes_to_path
     set -l os (uname)
     if test "$os" = Darwin
@@ -31,8 +33,20 @@ function add_brew_pathes_to_path
     end
 end
 
+function add_brew_pathes_to_path2
+    set -l os (uname | tr '[:upper:]' '[:lower:]')
+    echo "$THIS_FILE_DIR"
+    echo "$THIS_FILE_DIR/zzz-010_brew_$os"
+
+    if test -f "./zzz-010_brew_$os"
+        source "./zzz-010_brew_$os"
+    else
+        echo "No config for $os is found"
+    end
+end
+
 if status is-login
-    add_brew_pathes_to_path
+    add_brew_pathes_to_path2
 end
 
 # https://github.com/Homebrew/brew/issues/1327
