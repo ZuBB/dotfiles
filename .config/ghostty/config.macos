@@ -1,8 +1,8 @@
 # vim: set filetype=conf : ~
 
-# Control the auto-update functionality of Ghostty
-auto-update = check
- 
+# Control the auto-update functionality of Ghostty (macOS currently)
+auto-update = off
+
 # This configuration lets you change the behavior so that option is treated
 # as alt
 macos-option-as-alt = true
