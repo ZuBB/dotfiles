@@ -1,4 +1,5 @@
-# vim: set filetype=sh : ~
+# vim: set filetype=fish : ~
+
 # https://matrix.to/#/!YLTeaulxSDauOOxBoR:matrix.org/$1sc5KBTXkQoMgF4naB5BGeUVwtyaAu431jE5NPQmsIg?via=matrix.org&via=gitter.im&via=zwanenburg.info
 
 function detach_logout_tasks

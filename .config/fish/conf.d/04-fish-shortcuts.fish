@@ -1,4 +1,4 @@
-# vim: set filetype=sh : ~
+# vim: set filetype=fish : ~
 
 # https://github.com/fish-shell/fish-shell/issues/10926
 # https://github.com/fish-shell/fish-shell/discussions/11018

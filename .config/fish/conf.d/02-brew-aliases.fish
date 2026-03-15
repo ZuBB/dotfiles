@@ -1,4 +1,4 @@
-# vim: set filetype=sh : ~
+# vim: set filetype=fish : ~
 
 if not status is-interactive; or not status is-login
     return

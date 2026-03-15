@@ -1,3 +1,5 @@
+# vim: set filetype=fish : ~
+
 if status is-login
     # darwin, linux, etc
     set -l os (uname | tr '[:upper:]' '[:lower:]')

@@ -1,4 +1,4 @@
-# vim: set filetype=sh : ~
+# vim: set filetype=fish : ~
 
 # block cursor
 set fish_cursor_default block
