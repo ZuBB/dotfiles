@@ -23,3 +23,7 @@ set -gx HOMEBREW_NO_ANALYTICS 1
 # https://computingforgeeks.com/prevent-homebrew-auto-update-on-macos/
 set -gx HOMEBREW_NO_AUTO_UPDATE 1
 
+brew alias i='install'
+brew alias pdep='deps --tree --installed $1'
+brew alias rdep='uses --recursive --installed $1'
+
