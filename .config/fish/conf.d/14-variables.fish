@@ -5,3 +5,7 @@
 set -gx EDITOR vim
 command -q nvim && set -gx EDITOR nvim
 
+# Define $PAGER global and exported,
+# so this is like ``export PAGER=less``
+set -gx PAGER less
+
