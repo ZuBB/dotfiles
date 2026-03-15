@@ -239,8 +239,9 @@
 
 
 
-	# ABBR: [L]og [M]e
+	# ABBR: [L]og [N]
 	# DESC: prints log of n commits
+	# DEPS: depends on other alias `ls`
 	ln = "!f() { git ls -n ${1}; }; f"
 
 	ls = log --pretty=format:"%C(yellow)%h\\ %Cgreen%ad%Cred%d\\ %Creset%s\\ %Cblue[%aN]" --decorate --date=short
