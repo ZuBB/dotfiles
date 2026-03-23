@@ -156,6 +156,9 @@
 	# DESC: changes datetime of the commit to current time
 	cq = "!f() { git-c add $1 && git-c commit --only $1 -m \"WIP: $1\"; }; f"
 	cs = commit --amend --all -C HEAD
+
+	# ABBR: [C]ommit a[U]thor
+	# DESC: reset author to current user in HEAD commit
 	cu = commit --amend --no-edit --reset-author
 
 
