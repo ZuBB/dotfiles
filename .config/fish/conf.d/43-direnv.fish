@@ -1,1 +1,1 @@
-direnv hook fish | source
+command -q direnv && direnv hook fish | source
