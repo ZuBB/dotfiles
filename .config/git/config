@@ -94,4 +94,5 @@
 	path = colors
 	path = maintenance
 	path = user-options
+	path = lfs
 
