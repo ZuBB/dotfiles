@@ -87,6 +87,7 @@
 
 [user]
     name = "Vasyl Zuziak"
+	email = vasyl.zuziak@tieto.com
 
 [include]
 	path = gituser
@@ -95,3 +96,8 @@
 	path = maintenance
 	path = user-options
 
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
