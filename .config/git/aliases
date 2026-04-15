@@ -212,7 +212,7 @@
 	da = "!f() { test -n \"$(git ls-files -m)\"; }; f"
 	dc = diff --cached
 	di = diff
-	dn = "!f() { git da && p= || p=\"HEAD~${1-`git bc`}\" ; git diff --numstat $p ; }; f"
+	#dn = "!f() { git da && p= || p=\"HEAD~${1-`git bc`}\" ; git diff --numstat $p ; }; f"
 	dq = "!f() { git da && p= || p=\"HEAD~${1-`git bc`}\" ; git diff --shortstat $p ; }; f"
 	ds = "!f() { git da && p= || p=\"HEAD~${1-`git bc`}\" ; git diff --stat --find-copies $p ; }; f"
 	dt = difftool
