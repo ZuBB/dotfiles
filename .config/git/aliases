@@ -211,7 +211,10 @@
 	d1 = diff HEAD^
 	da = "!f() { test -n \"$(git ls-files -m)\"; }; f"
 	dc = diff --cached
-	di = diff
+
+	di = !git-c diff
+	#di = "!f() { git-c diff -- \"$@\"; }; f"
+
 	#dn = "!f() { git da && p= || p=\"HEAD~${1-`git bc`}\" ; git diff --numstat $p ; }; f"
 	dq = "!f() { git da && p= || p=\"HEAD~${1-`git bc`}\" ; git diff --shortstat $p ; }; f"
 	ds = "!f() { git da && p= || p=\"HEAD~${1-`git bc`}\" ; git diff --stat --find-copies $p ; }; f"
