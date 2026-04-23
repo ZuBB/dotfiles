@@ -149,12 +149,15 @@
 	cm = commit --amend
 
 	# ABBR: [C]ommit [N]ow
-	# DESC: changes datetime of the commit to current time
+	# DESC: change datetime of the commit to current time
 	cn = commit --amend --date=now --no-edit
 
 	# ABBR: [C]ommit [Q]uick
-	# DESC: changes datetime of the commit to current time
+	# DESC: make a quick commit of the file passed as param
 	cq = "!f() { git-c add $1 && git-c commit --only $1 -m \"WIP: $1\"; }; f"
+
+	# ABBR: [C]ommit [S]quash
+	# DESC: squash unstaged changes to the HEAD commit
 	cs = commit --amend --all -C HEAD
 
 	# ABBR: [C]ommit a[U]thor
@@ -211,10 +214,7 @@
 	d1 = diff HEAD^
 	da = "!f() { test -n \"$(git ls-files -m)\"; }; f"
 	dc = diff --cached
-
-	di = !git-c diff
-	#di = "!f() { git-c diff -- \"$@\"; }; f"
-
+	di = diff
 	#dn = "!f() { git da && p= || p=\"HEAD~${1-`git bc`}\" ; git diff --numstat $p ; }; f"
 	dq = "!f() { git da && p= || p=\"HEAD~${1-`git bc`}\" ; git diff --shortstat $p ; }; f"
 	ds = "!f() { git da && p= || p=\"HEAD~${1-`git bc`}\" ; git diff --stat --find-copies $p ; }; f"
