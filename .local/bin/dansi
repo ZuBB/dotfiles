@@ -1,0 +1,45 @@
+#!/bin/sh
+
+set -eu
+
+if [ "$#" -ne 1 ]; then
+  printf 'Usage: %s <log-file>\n' "${0##*/}" >&2
+  exit 1
+fi
+
+input=$1
+
+if [ ! -f "$input" ]; then
+  printf 'Error: file not found: %s\n' "$input" >&2
+  exit 1
+fi
+
+case $input in
+  *.*)
+    output=${input%.*}.clean.${input##*.}
+    ;;
+  *)
+    output=${input}.clean
+    ;;
+esac
+
+awk '
+BEGIN {
+  esc = sprintf("%c", 27)
+}
+{
+  line = $0
+
+  gsub(esc "\\[[0-?]*[ -/]*[@-~]", "", line)
+
+  gsub(esc "\\][^\a]*\a", "", line)
+
+  gsub(esc "\\][^\033]*(\\" esc "\\\\)", "", line)
+
+  gsub(esc "[@-_]", "", line)
+
+  print line
+}
+' "$input" > "$output"
+
+printf 'Created: %s\n' "$output"
