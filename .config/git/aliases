@@ -12,7 +12,7 @@
 	ad = add
 
 	# ABBR: [A]dd [F]orce
-	# DESC: just a `git add` command with a `--force` option
+	# DESC: a `git add` command with a `--force` option
 	af = add --force
 
 	# ABBR: [A]dd [P]atch
@@ -70,7 +70,7 @@
 	bt = branch --remote
 
 	# ABBR: [B]ranch [U]nset
-	# DESC: unset upstream for current (local) branch
+	# DESC: unset upstream for the current branch
 	bu = branch --unset-upstream
 
 	# ABBR: [B]ranch [V]erbose
@@ -134,7 +134,7 @@
 
 	# ABBR: [C]ommit [.]
 	# DESC: ...
-	cf = commit --all --amend -c HEAD
+	# cf = commit --all --amend -c HEAD
 
 	# ABBR: [C]ommit stas[H]
 	# DESC: commit staged changes with a stub message
@@ -161,7 +161,7 @@
 	cs = commit --amend --all -C HEAD
 
 	# ABBR: [C]ommit a[U]thor
-	# DESC: reset author to current user in HEAD commit
+	# DESC: reset author to current user for HEAD commit
 	cu = commit --amend --no-edit --reset-author
 
 
@@ -187,6 +187,8 @@
 	# DESC: lists all registered aliases
 	cal = !git config -l | grep alias | cut -c 7-
 
+	# wtf is this??!
+	# print a description for the alias?
 	cai = "!f() {\
   	  pattern=\"$1\";\
 	  \
