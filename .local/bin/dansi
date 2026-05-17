@@ -42,4 +42,6 @@ BEGIN {
 }
 ' "$input" > "$output"
 
+echo $output | pbcopy
+
 printf 'Created: %s\n' "$output"
