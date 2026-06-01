@@ -2,46 +2,51 @@
 
 set -eu
 
-if [ "$#" -ne 1 ]; then
-  printf 'Usage: %s <log-file>\n' "${0##*/}" >&2
+if [ "$#" -lt 1 ]; then
+  printf 'Usage: %s <log-file|glob>\n' "${0##*/}" >&2
   exit 1
 fi
 
-input=$1
+copy_output_name=1
 
-if [ ! -f "$input" ]; then
-  printf 'Error: file not found: %s\n' "$input" >&2
-  exit 1
+if [ "$#" -gt 1 ]; then
+  copy_output_name=0
 fi
 
-case $input in
-  *.*)
-    output=${input%.*}.clean.${input##*.}
-    ;;
-  *)
-    output=${input}.clean
-    ;;
-esac
+for input in "$@"; do
+  if [ ! -f "$input" ]; then
+    printf 'Error: file not found: %s\n' "$input" >&2
+    exit 1
+  fi
 
-awk '
-BEGIN {
-  esc = sprintf("%c", 27)
-}
-{
-  line = $0
+  case $input in
+    *.*)
+      output=${input%.*}.clean.${input##*.}
+      ;;
+    *)
+      output=${input}.clean
+      ;;
+  esac
 
-  gsub(esc "\\[[0-?]*[ -/]*[@-~]", "", line)
+  awk '
+  BEGIN {
+    esc = sprintf("%c", 27)
+  }
+  {
+    line = $0
 
-  gsub(esc "\\][^\a]*\a", "", line)
+    gsub(esc "\\[[0-?]*[ -/]*[@-~]", "", line)
+    gsub(esc "\\][^\a]*\a", "", line)
+    gsub(esc "\\][^\033]*(\\" esc "\\\\)", "", line)
+    gsub(esc "[@-_]", "", line)
 
-  gsub(esc "\\][^\033]*(\\" esc "\\\\)", "", line)
+    print line
+  }
+  ' "$input" > "$output"
 
-  gsub(esc "[@-_]", "", line)
+  printf 'Created: %s\n' "$output"
+done
 
-  print line
-}
-' "$input" > "$output"
-
-echo $output | pbcopy
-
-printf 'Created: %s\n' "$output"
+if [ "$copy_output_name" -eq 1 ]; then
+  printf '%s' "$output" | pbcopy
+fi
