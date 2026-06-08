@@ -85,6 +85,9 @@
 [rerere]
 	enabled = true
 
+[status]
+	compareBranches = 
+
 [user]
     name = "Vasyl Zuziak"
 
