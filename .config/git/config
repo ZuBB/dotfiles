@@ -86,7 +86,7 @@
 	enabled = true
 
 [status]
-	compareBranches = 
+	compareBranches =
 
 [user]
     name = "Vasyl Zuziak"
