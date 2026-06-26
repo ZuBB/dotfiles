@@ -121,6 +121,10 @@
 	# DESC: just a shortcut to base command
 	cl = clone
 
+	# ABBR: [C]lone [0]
+	# DESC: clone of the repo with 'bare' option
+	c0 = clone --bare
+
 	# ABBR: [C]lone [1]
 	# DESC: clone of the repo but HEAD revision only
 	c1 = clone --depth=1
@@ -369,6 +373,13 @@
 	# ============= [ SUBMODULE_________________ ] =============
 	mu = submodule update --recursive
 	mi = submodule update --init --recursive
+
+
+
+	# ---------------------------- [ WORKTREE ] -----------------------------
+	# ABBR: [W]orktree [A]dd
+	# DESC: ...
+	wa = "!f() { git worktree add -b \"$1\" \"../$1\"; }; f"
 
 
 
