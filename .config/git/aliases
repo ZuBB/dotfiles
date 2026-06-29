@@ -379,7 +379,6 @@
 	# ---------------------------- [ WORKTREE ] -----------------------------
 	# ABBR: [W]orktree [A]dd
 	# DESC: ...
-	# wa = "!f() { git worktree add -b \"$1\" \"../$1\"; }; f"
 	wa = "!f() { \
         if git show-ref --verify --quiet refs/heads/$1; then \
             git worktree add ../$1 $1; \
