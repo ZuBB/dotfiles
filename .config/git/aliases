@@ -377,15 +377,23 @@
 
 
 	# ---------------------------- [ WORKTREE ] -----------------------------
-	# ABBR: [W]orktree [A]dd
-	# DESC: ...
-	wa = "!f() { \
-        if git show-ref --verify --quiet refs/heads/$1; then \
-            git worktree add ../$1 $1; \
-        else \
-            git worktree add -b $1 ../$1; \
-        fi; \
-    }; f"
+	# ABBR: [W]orktree [B]ranch
+	# DESC: add new working tree
+	# DESC: naming idea is the same as for `cb` alias 
+	# DEPS: depends on wt tool (https://worktrunk.dev/)
+	wb = "!f() { wt switch --create \"$1\"; }; f"
+
+	# ABBR: [W]orktree check[O]ut
+	# DESC: 'cd' to specified (optionally non existant) worktree
+	# DESC: naming idea is the same as for `c0` alias 
+	# DEPS: depends on wt tool (https://worktrunk.dev/)
+	wo = "!f() { wt switch \"$1\"; }; f"
+
+	# ABBR: [W]orktree [D]elete
+	# DESC: remove worktree
+	# DESC: naming idea is the same as for `bd` alias 
+	# DEPS: depends on wt tool (https://worktrunk.dev/)
+	wd = "!f() { wt remove \"$1\"; }; f"
 
 
 
