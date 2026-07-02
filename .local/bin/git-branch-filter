@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+ignore_file="$(git rev-parse --git-path info/ignored-branches 2>/dev/null)"
+
+branch_is_ignored() {
+  branch="$1"
+
+  [ -f "$ignore_file" ] || return 1
+
+  while IFS= read -r pattern; do
+    case "$pattern" in
+      ''|\#*) continue ;;
+    esac
+
+    case "$branch" in
+      $pattern) return 0 ;;
+    esac
+  done < "$ignore_file"
+
+  return 1
+}
+
+git branch "$@" --format='%(HEAD)|%(worktreepath)|%(refname:short)' |
+  while IFS='|' read -r head worktree_path branch; do
+    branch_is_ignored "$branch" && continue
+
+    if [ "$head" = '*' ]; then
+      marker='*'
+    elif [ -n "$worktree_path" ]; then
+      marker='+'
+    else
+      marker=' '
+    fi
+
+    printf '%s %s\n' "$marker" "$branch"
+  done
