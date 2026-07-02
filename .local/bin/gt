@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+cmd="$1"
+
+case "$cmd" in
+  wb)
+    shift
+    exec git-wt switch --create "$@"
+    ;;
+
+  wo)
+    shift
+    exec git-wt switch "$@"
+    ;;
+
+  wd)
+    shift
+    exec git-wt remove "$@"
+    ;;
+
+  wl)
+    shift
+    exec git-wt list "$@"
+    ;;
+
+  w*)
+    echo "Unknown gt worktree alias: $cmd" >&2
+    exit 1
+    ;;
+
+  *)
+    exec git "$@"
+    ;;
+
+esac
