@@ -381,19 +381,19 @@
 	# DESC: add new working tree
 	# DESC: naming idea is the same as for `cb` alias 
 	# DEPS: depends on wt tool (https://worktrunk.dev/)
-	wb = "!f() { wt switch --create \"$1\"; }; f"
+	#wb = "!f() { wt switch --create \"$1\"; }; f"
 
 	# ABBR: [W]orktree check[O]ut
 	# DESC: 'cd' to specified (optionally non existant) worktree
 	# DESC: naming idea is the same as for `c0` alias 
 	# DEPS: depends on wt tool (https://worktrunk.dev/)
-	wo = "!f() { wt switch \"$1\"; }; f"
+	#wo = "!f() { wt switch \"$1\"; }; f"
 
 	# ABBR: [W]orktree [D]elete
 	# DESC: remove worktree
 	# DESC: naming idea is the same as for `bd` alias 
 	# DEPS: depends on wt tool (https://worktrunk.dev/)
-	wd = "!f() { wt remove \"$1\"; }; f"
+	#wd = "!f() { wt remove \"$1\"; }; f"
 
 
 
