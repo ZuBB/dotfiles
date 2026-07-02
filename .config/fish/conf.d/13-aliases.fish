@@ -15,6 +15,6 @@ alias lsc='ls -1 | wc -l'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-alias gt='git'
-alias tg='git'
+#alias gt='git'
+#alias tg='git'
 
