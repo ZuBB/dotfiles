@@ -98,4 +98,5 @@
 	path = maintenance
 	path = user-options
 	path = lfs
+	path = inheritance
 
