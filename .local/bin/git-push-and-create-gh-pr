@@ -1,50 +1,52 @@
 #!/usr/bin/env bash
 
-# Step 1: Push the changes quietly
-git push --quiet > /dev/null 2>&1
+set -euo pipefail
 
-# Step 2: Get the latest commit title and body
-COMMIT_TITLE=$(git log -1 --pretty=%s)
-COMMIT_BODY=$(git log -1 --pretty=%b)
+CURRENT_BRANCH="$(git branch --show-current)"
+COMMIT_TITLE="$(git log -1 --pretty=%s)"
+COMMIT_BODY="$(git log -1 --pretty=%b)"
 
-# Step 3: Create a temporary file for the PR body
+git push --quiet --set-upstream origin "$CURRENT_BRANCH"
+
 PR_MESSAGE_FILE="$(mktemp)"
+trap 'rm -f "$PR_MESSAGE_FILE"' EXIT
 
-# Step 4: Write the commit body to the temporary file
-echo "$COMMIT_BODY" > "$PR_MESSAGE_FILE"
+PR_BODY_ARGS=(--body '')
 
-# Step 5: Retrieve the hostname from the environment variable
-HOSTNAME="${JIRA_HOST:-fallback.jira.net}"  # Default to a specific hostname if not set
+if [ -n "$COMMIT_BODY" ]; then
+  printf '%s\n' "$COMMIT_BODY" > "$PR_MESSAGE_FILE"
 
-# Step 6: Perform the replacement using sed
-sed -i '' -E "s/(references )([A-Z0-9]+-[0-9]+)/\1[\2](https:\/\/$HOSTNAME\/browse\/\2)/g" "$PR_MESSAGE_FILE"
+  JIRA_HOST="${JIRA_HOST:-fallback.jira.net}"
+  ISSUE_PATTERN='[A-Z][A-Z0-9]+-[0-9]+'
 
-# Step 7: Check if the temporary file has content
-if [ ! -s "$PR_MESSAGE_FILE" ]; then
-    echo "Error: The PR body file is empty after writing. Please check the write operation."
-    cat "$PR_MESSAGE_FILE"  # Print the content for debugging
-    exit 1
+  if grep -Eq "$ISSUE_PATTERN" "$PR_MESSAGE_FILE"; then
+    sed -i '' -E "s#(references )($ISSUE_PATTERN)#\1[\2](https://$JIRA_HOST/browse/\2)#g" "$PR_MESSAGE_FILE"
+  fi
+
+  PR_BODY_ARGS=(--body-file "$PR_MESSAGE_FILE")
 fi
 
-# Step 8: Create the pull request using the modified message and title
-PR_OUTPUT=$(gh pr create -t "$COMMIT_TITLE" --body-file "$PR_MESSAGE_FILE")
+PR_OUTPUT="$(
+  gh pr create \
+    --head "$CURRENT_BRANCH" \
+    -t "$COMMIT_TITLE" \
+    "${PR_BODY_ARGS[@]}"
+)"
 
-# Extract the URL from the output
-PR_URL=$(echo "$PR_OUTPUT" | grep -o 'https://[^ ]*')
+PR_URL="$(printf '%s\n' "$PR_OUTPUT" | grep -o 'https://[^ ]*' | head -n 1)"
 
-# Step 9: Open the URL in the default web browser
+if [ -z "$PR_URL" ]; then
+  echo "Error: PR was not created or PR URL was not found."
+  echo "$PR_OUTPUT"
+  exit 1
+fi
+
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    # macOS
-    open "$PR_URL"
+  open "$PR_URL"
 elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    # Linux
-    xdg-open "$PR_URL"
+  xdg-open "$PR_URL"
 else
-    echo "Unsupported OS. Please open the URL manually"
+  echo "Unsupported OS. Please open the URL manually:"
 fi
 
-# Step 10: Clean up
-rm -f "$PR_MESSAGE_FILE"
-
-sleep 1s && echo -e "The following PR was created:\n$PR_URL\n"
-
+echo -e "The following PR was created:\n$PR_URL\n"
