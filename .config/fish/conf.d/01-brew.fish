@@ -25,3 +25,5 @@ set -gx HOMEBREW_NO_ANALYTICS 1
 # https://computingforgeeks.com/prevent-homebrew-auto-update-on-macos/
 set -gx HOMEBREW_NO_AUTO_UPDATE 1
 
+# ...
+set HOMEBREW_NO_ENV_HINTS 1
