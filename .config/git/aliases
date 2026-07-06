@@ -121,10 +121,6 @@
 
 
 	# ------------------------------ [ CLONE ] ------------------------------
-	# ABBR: [CL]one
-	# DESC: just a shortcut to base command
-	cl = clone
-
 	# ABBR: [C]lone [0]
 	# DESC: clone of the repo with 'bare' option
 	c0 = clone --bare
@@ -132,6 +128,20 @@
 	# ABBR: [C]lone [1]
 	# DESC: clone of the repo but HEAD revision only
 	c1 = clone --depth=1
+
+	# ABBR: [CL]one
+	# DESC: just a shortcut to base command
+	cl = clone
+
+	# ABBR: [C]lone [0]
+	# DESC: bare clone of the repo with extra goodies
+	# DESC:   for worktree-based development
+	cx = "!f() {\
+	  git clone --bare \"$1\" .bare.git \
+	  printf 'gitdir: ./.bare.git\n' > .git \
+	  git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*' \
+	  git fetch origin \
+	}; f"
 
 
 
