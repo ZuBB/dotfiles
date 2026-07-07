@@ -32,7 +32,6 @@
 	# ----------------------------- [ BRANCH ] ------------------------------
 	# ABBR: [B]ranch [A]ll
 	# DESC: show all branches
-	#ba = !git-branch-filter -a
 	ba = branch -a
 
 	# ABBR: [B]ranch [C]ommits
@@ -43,10 +42,6 @@
 	# ABBR: [B]ranch [D]elete
 	# DESC: forcibly deletes branch by passed name
 	bd = branch -D
-
-	# ABBR: [B]ranch un[F]iltered
-	# DESC: forcibly deletes branch by passed name
-	bf = branch -a
 
 	# ABBR: [B]ranch [M]ove
 	# DESC: renames current branch with name that can be
@@ -68,12 +63,10 @@
 
 	# ABBR: [BR]anch
 	# DESC: just a shortcut to the base command
-	#br = !git-branch-filter
 	br = branch
 
 	# ABBR: [B]ranch remo[T]e
 	# DESC: prints remote names of branches
-	#bt = !git-branch-filter --remote
 	bt = branch --remote
 
 	# ABBR: [B]ranch [U]nset
@@ -82,7 +75,6 @@
 
 	# ABBR: [B]ranch [V]erbose
 	# DESC: show branch'es verbose status/info
-	#bv = !git-branch-filter --vv
 	bv = ranch --vv
 
 
