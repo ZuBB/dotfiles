@@ -1,5 +1,7 @@
 # vim: set filetype=fish : ~
 
+# vim: set filetype=fish : ~
+
 function gt
     if test (count $argv) -gt 0
         switch $argv[1]
@@ -25,5 +27,9 @@ function gt
         end
     end
 
-    command git $argv
+    if test -e ./dev/.git; and test -d ./worktrees
+        command git -C ./dev $argv
+    else
+        command git $argv
+    end
 end
