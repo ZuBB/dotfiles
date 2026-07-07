@@ -32,7 +32,8 @@
 	# ----------------------------- [ BRANCH ] ------------------------------
 	# ABBR: [B]ranch [A]ll
 	# DESC: show all branches
-	ba = !git-branch-filter -a
+	#ba = !git-branch-filter -a
+	ba = branch -a
 
 	# ABBR: [B]ranch [C]ommits
 	# DESC: show the number of commits in the current branch vs. its parent
@@ -67,11 +68,13 @@
 
 	# ABBR: [BR]anch
 	# DESC: just a shortcut to the base command
-	br = !git-branch-filter
+	#br = !git-branch-filter
+	br = branch
 
 	# ABBR: [B]ranch remo[T]e
 	# DESC: prints remote names of branches
-	bt = !git-branch-filter --remote
+	#bt = !git-branch-filter --remote
+	bt = branch --remote
 
 	# ABBR: [B]ranch [U]nset
 	# DESC: unset upstream for the current branch
@@ -79,7 +82,8 @@
 
 	# ABBR: [B]ranch [V]erbose
 	# DESC: show branch'es verbose status/info
-	bv = !git-branch-filter --vv
+	#bv = !git-branch-filter --vv
+	bv = ranch --vv
 
 
 
