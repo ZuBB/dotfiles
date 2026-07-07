@@ -369,7 +369,12 @@
 	# ABBR: [S][T]atus
 	# DESC: shows short status if no conflicts detected,
 	# DESC: shows short status if no conflicts detected,
-	st = "!git sc && git status || git status --short --branch"
+	# st = "!git sc && git status || git status --short --branch"
+	st = "!if git sc; then \
+        git status; \
+      else \
+        git status --short --branch; \
+      fi"
 	su = ls-files --other | grep -v ./
 
 
