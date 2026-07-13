@@ -2,7 +2,7 @@
 
 # vim: set filetype=fish : ~
 
-function gt
+function gt0
     if test (count $argv) -gt 0
         switch $argv[1]
             case wb
