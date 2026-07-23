@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+usage() {
+  echo "Usage: mwa . | dev | worktrees/<path>" >&2
+  exit 2
+}
+
+if [[ $# -ne 1 ]]; then
+  usage
+fi
+
+requested_path="$1"
+current_dir="$(pwd -P)"
+
+if [[ "$requested_path" == "." ]]; then
+  worktree_name="$(basename "$current_dir")"
+  worktrees_dir="$(dirname "$current_dir")"
+  repo_dir="$(dirname "$worktrees_dir")"
+
+  if [[ "$(basename "$worktrees_dir")" != "worktrees" ]]; then
+    echo "mwa: '.' must be run from <repo>/worktrees/<worktree-name>" >&2
+    exit 1
+  fi
+
+  target="worktrees/$worktree_name"
+else
+  repo_dir="$current_dir"
+
+  if [[ ! -d "$repo_dir/dev" || ! -d "$repo_dir/worktrees" ]]; then
+    echo "mwa: run this command from a project root containing dev/ and worktrees/" >&2
+    exit 1
+  fi
+
+  if [[ "$requested_path" == "dev" ]]; then
+    target="dev"
+  elif [[ "$requested_path" == worktrees/* ]]; then
+    target="$requested_path"
+
+    target_dir="$(cd "$repo_dir/$target" 2>/dev/null && pwd -P)" || {
+      echo "mwa: directory does not exist: $target" >&2
+      exit 1
+    }
+    worktrees_real="$(cd "$repo_dir/worktrees" && pwd -P)"
+
+    case "$target_dir/" in
+      "$worktrees_real"/*) ;;
+      *)
+        echo "mwa: path must resolve inside worktrees/: $target" >&2
+        exit 1
+        ;;
+    esac
+  else
+    echo "mwa: path must be 'dev' or start with 'worktrees/'" >&2
+    exit 1
+  fi
+fi
+
+if [[ -e "$repo_dir/active" && ! -L "$repo_dir/active" ]]; then
+  echo "mwa: refusing to replace non-symlink: $repo_dir/active" >&2
+  exit 1
+fi
+
+(
+  cd "$repo_dir"
+  ln -nsf "$target" active
+)
+
+echo "✓ active -> $target"
