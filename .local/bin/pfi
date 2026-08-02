@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+# Transparent fileicon wrapper. After a successful `set` or `rm`, touch an
+# application-bundle target so macOS notices the custom-icon metadata change.
+
+operands=()
+options_done=0
+
+if ! command -v fileicon >/dev/null 2>&1; then
+  echo 'pfi: fileicon not found in PATH' >&2
+  exit 127
+fi
+
+for arg in "$@"; do
+  if (( options_done )); then
+    operands+=("$arg")
+  elif [[ $arg == -- ]]; then
+    options_done=1
+  elif [[ $arg == -* ]]; then
+    :
+  else
+    operands+=("$arg")
+  fi
+done
+
+fileicon "$@"
+status=$?
+(( status == 0 )) || exit "$status"
+
+command_name=$(printf '%s' "${operands[0]}" | tr '[:upper:]' '[:lower:]')
+[[ $command_name == remove ]] && command_name=rm
+
+if [[ ($command_name == set || $command_name == rm) && -n ${operands[1]+x} ]]; then
+  target=${operands[1]%/}
+  if [[ -d $target && $target == *.app ]]; then
+    touch "${operands[1]}"
+  fi
+fi
