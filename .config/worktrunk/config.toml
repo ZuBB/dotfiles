@@ -92,14 +92,18 @@ worktree-path = "{{ repo_path }}/../worktrees/{{ branch | sanitize }}"
 #
 # Persistent flag values for `wt list`. Override on command line as needed.
 #
-# [list]
+[list]
 # summary = false    # Enable LLM branch summaries (requires [commit.generation])
 #
 # full = false       # Show CI status and LLM summaries (--full)
 # branches = false   # Include branches without worktrees (--branches)
 # remotes = false    # Include remote-only branches (--remotes)
 #
-# columns = ["branch", "status", "ci", "path"]   # Columns to show, in order — built-ins or custom headers (omit for the default set)
+columns = ["branch", "QS", "path"]   # Fast view using cached quick status
+
+[list.custom-columns.QS]
+template = "{{ vars.quickstatus | default('') }}"
+width = 3
 #
 # task-timeout-ms = 0   # Kill individual git commands after N ms; 0 disables
 # timeout-ms = 0        # Wall-clock budget for the entire collect phase; 0 disables
@@ -366,3 +370,5 @@ worktree-path = "{{ repo_path }}/../worktrees/{{ branch | sanitize }}"
 #
 # See `wt hook` (https://worktrunk.dev/hook/) for hook types, execution order, template variables, and examples. User hooks apply to all projects; project hooks (https://worktrunk.dev/config/#project-configuration) apply only to that repository.
 
+[aliases]
+fast-list = "/bin/bash /Users/vasyl/.config/worktrunk/quick-list.sh"
