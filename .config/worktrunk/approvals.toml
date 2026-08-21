@@ -1,0 +1,117 @@
+[projects."git.evry.cloud/CognitiveComputing/eqhub"]
+approved-commands = [
+    """
+mkdir -p _back _etc/cert/acl
+cp -a {{ primary_worktree_path }}/_etc/cert/acl/private.pem _etc/cert/acl/
+cp -a {{ primary_worktree_path }}/_back/config _back/
+cp -a {{ primary_worktree_path }}/_back/dist _back/
+""",
+    """
+pnpm --dir _back install --loglevel error
+""",
+    """
+cp -a {{ primary_worktree_path }}/_front/.angular _front/
+cp -a {{ primary_worktree_path }}/_front/.webpack-cache _front/
+cp -a {{ primary_worktree_path }}/_front/dist _front/
+""",
+    """
+pnpm --dir _front install --loglevel error
+""",
+    """
+mkdir -p _back _etc/cert/acl
+cp -a {{ primary_worktree_path }}/_etc/cert/acl/private.pem _etc/cert/acl/
+cp -a {{ primary_worktree_path }}/_back/config _back/
+cp -a {{ primary_worktree_path }}/_back/dist _back/
+pnpm --dir _back install --loglevel error
+""",
+    """
+cp -a {{ primary_worktree_path }}/_front/.angular _front/
+cp -a {{ primary_worktree_path }}/_front/.webpack-cache _front/
+cp -a {{ primary_worktree_path }}/_front/dist _front/
+pnpm --dir _front install --loglevel error
+""",
+    """
+cp -a {{ primary_worktree_path }}/_back/swagger*json _back/
+cp -ar {{ primary_worktree_path }}/_front/src/app/api _front/src/app
+cd {{ primary_worktree_path }}/_back; npm run swagger && cd ../_front && npm run swagger:file && cd -
+""",
+    """
+cp -a {{ primary_worktree_path }}/_back/swagger*json _back/
+cp -a {{ primary_worktree_path }}/_front/src/app/api _front/src/app
+cd {{ primary_worktree_path }}/_back; npm run swagger:refresh > /dev/null
+""",
+    """
+cp -a {{ primary_worktree_path }}/_back/swagger*json _back/
+cp -a {{ primary_worktree_path }}/_front/src/app/api _front/src/app
+cd _back; npm run swagger:refresh > /dev/null
+""",
+    """
+cp -a cp /Users/vasyl/work/own/esbuild/esbuild _front/node_modules/@esbuild/darwin-arm64/bin/esbuild
+""",
+    """
+cp /Users/vasyl/work/own/esbuild/esbuild _front/node_modules/@esbuild/darwin-arm64/bin/esbuild
+""",
+    """
+mkdir -p _back _etc/cert/acl
+cp -a {{ primary_worktree_path }}/_etc/cert/acl/private.pem _etc/cert/acl/
+cp -a {{ primary_worktree_path }}/_back/config _back/
+cp -a {{ primary_worktree_path }}/_back/dist _back/
+pnpm --dir _back install --loglevel error
+cp -a {{ primary_worktree_path }}/_front/.angular _front/
+cp -a {{ primary_worktree_path }}/_front/.webpack-cache _front/
+cp -a {{ primary_worktree_path }}/_front/dist _front/
+pnpm --dir _front install --loglevel error
+cp -a {{ primary_worktree_path }}/_back/swagger*json _back/
+cp -a {{ primary_worktree_path }}/_front/src/app/api _front/src/app
+cd _back; npm run swagger:refresh > /dev/null
+cp /Users/vasyl/work/own/esbuild/esbuild _front/node_modules/@esbuild/darwin-arm64/bin/esbuild
+""",
+    """
+mkdir -p _back _etc/cert/acl
+cp -a {{ primary_worktree_path }}/_etc/cert/acl/private.pem _etc/cert/acl/
+cp -a {{ primary_worktree_path }}/_back/config _back/
+cp -a {{ primary_worktree_path }}/_back/dist _back/
+pnpm --dir _back install --loglevel error
+cp -a {{ primary_worktree_path }}/_front/.angular _front/
+cp -a {{ primary_worktree_path }}/_front/.webpack-cache _front/
+cp -a {{ primary_worktree_path }}/_front/dist _front/
+pnpm --dir _front install --loglevel error
+cp -a {{ primary_worktree_path }}/_back/swagger*json _back/
+cp -a {{ primary_worktree_path }}/_front/src/app/api _front/src/app
+cd _back; npm run swagger:refresh > /dev/null
+cp /Users/vasyl/work/own/esbuild/esbuild _front/node_modules/@esbuild/darwin-arm64/bin/
+""",
+    """
+cp -a {{ primary_worktree_path }}/_back/swagger*json _back/
+cp -ar {{ primary_worktree_path }}/_front/src/app/api _front/src/app
+ln -sf {{ primary_worktree_path }}/agents.local.md agents.local.md
+ln -sf {{ primary_worktree_path }}/_etc/cert/acl/private.pem _etc/cert/acl/private.pem
+ln -sf {{ primary_worktree_path }}/_back/config _back/config
+ln -sf {{ primary_worktree_path }}/_back/dist _back/dist
+ln -sf {{ primary_worktree_path }}/_front/.angular _front/.angular
+ln -sf {{ primary_worktree_path }}/_front/.webpack-cache _front/.webpack-cache
+ln -sf {{ primary_worktree_path }}/_front/dist _front/dist
+""",
+    """
+cp -a {{ primary_worktree_path }}/_back/swagger*json _back/
+cp -a {{ primary_worktree_path }}/_back/config/ _back/config/
+cp -a {{ primary_worktree_path }}/_front/src/app/api _front/src/app
+ln -sf {{ primary_worktree_path }}/agents.local.md agents.local.md
+ln -sf {{ primary_worktree_path }}/_etc/cert/acl/private.pem _etc/cert/acl/private.pem
+ln -sf {{ primary_worktree_path }}/_back/dist _back/dist
+ln -sf {{ primary_worktree_path }}/_front/.angular _front/.angular
+ln -sf {{ primary_worktree_path }}/_front/.webpack-cache _front/.webpack-cache
+ln -sf {{ primary_worktree_path }}/_front/dist _front/dist
+""",
+    """
+cp -a {{ primary_worktree_path }}/_back/swagger*json _back/
+cp -a {{ primary_worktree_path }}/_back/config/ _back/config/
+cp -a {{ primary_worktree_path }}/_back/dist _back/
+cp -a {{ primary_worktree_path }}/_front/dist _front/
+cp -a {{ primary_worktree_path }}/_front/src/app/api _front/src/app
+ln -sf {{ primary_worktree_path }}/agents.local.md agents.local.md
+ln -sf {{ primary_worktree_path }}/_etc/cert/acl/private.pem _etc/cert/acl/private.pem
+ln -sf {{ primary_worktree_path }}/_front/.angular _front/.angular
+ln -sf {{ primary_worktree_path }}/_front/.webpack-cache _front/.webpack-cache
+""",
+]
