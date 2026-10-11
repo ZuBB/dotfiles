@@ -27,3 +27,6 @@ set -gx HOMEBREW_NO_AUTO_UPDATE 1
 
 # ...
 set HOMEBREW_NO_ENV_HINTS 1
+
+# https://docs.brew.sh/FAQ#how-does-brew-upgrade-handle-apps-that-update-themselves
+set -gx HOMEBREW_NO_UPGRADE_AUTO_UPDATES_CASKS 1
