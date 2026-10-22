@@ -17,7 +17,7 @@ end
 
 # https://github.com/Homebrew/brew/issues/12892
 # Do not show hints about hints
-set HOMEBREW_NO_ENV_HINTS 1
+set -gx HOMEBREW_NO_ENV_HINTS 1
 
 # https://github.com/Homebrew/brew/issues/1327
 set -gx HOMEBREW_NO_GITHUB_API 1
@@ -33,5 +33,5 @@ set -gx HOMEBREW_NO_AUTO_UPDATE 1
 set -gx HOMEBREW_NO_UPGRADE_AUTO_UPDATES_CASKS 1
 
 # https://github.com/Homebrew/brew/issues/22597
-set HOMEBREW_NO_ASK 1
+set -gx HOMEBREW_NO_ASK 1
 
