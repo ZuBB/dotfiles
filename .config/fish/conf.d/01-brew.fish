@@ -15,6 +15,10 @@ if status is-login
     end
 end
 
+# https://github.com/Homebrew/brew/issues/12892
+# Do not show hints about hints
+set HOMEBREW_NO_ENV_HINTS 1
+
 # https://github.com/Homebrew/brew/issues/1327
 set -gx HOMEBREW_NO_GITHUB_API 1
 
@@ -25,8 +29,9 @@ set -gx HOMEBREW_NO_ANALYTICS 1
 # https://computingforgeeks.com/prevent-homebrew-auto-update-on-macos/
 set -gx HOMEBREW_NO_AUTO_UPDATE 1
 
-# ...
-set HOMEBREW_NO_ENV_HINTS 1
-
 # https://docs.brew.sh/FAQ#how-does-brew-upgrade-handle-apps-that-update-themselves
 set -gx HOMEBREW_NO_UPGRADE_AUTO_UPDATES_CASKS 1
+
+# https://github.com/Homebrew/brew/issues/22597
+set HOMEBREW_NO_ASK 1
+
