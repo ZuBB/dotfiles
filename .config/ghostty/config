@@ -28,8 +28,8 @@ cursor-style-blink = false
 window-height = 25
 window-width = 80
 
-# The size of the scrollback buffer in bytes. default is 10M, we have 50M
-scrollback-limit = 52428800
+# The size of the scrollback buffer in bytes
+scrollback-limit-bytes = 52428800
 
 # -----------------------------------------------------------------------
 # includes
