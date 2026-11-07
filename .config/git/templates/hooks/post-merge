@@ -26,8 +26,10 @@ if [[ -n "$MAIN_BRANCH" ]]; then
 fi
 EXCLUDE_PATTERN+=")$"
 
-# Delete merged branches except exclusions
-git branch --merged | \
+# Delete merged branches except exclusions. Branches checked out in a worktree
+# can't be deleted, so they print as empty lines and are skipped.
+git branch --format='%(if)%(worktreepath)%(then)%(else)%(refname:short)%(end)' --merged | \
+    grep -v '^$' | \
     grep -vE "$EXCLUDE_PATTERN" | \
-    xargs -n 1 -r git branch -d
+    xargs -n 1 -r git branch -d || true
 
